@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ui.tone.no_apologies",
+    "scope": ["interface", "tone", "error"],
+    "component": "any",
+    "severity": "warning",
+    "lintable": true,
+    "rule": "В обычной UI-ошибке лучше убрать извинение и сразу дать состояние или действие.",
+    "bad_patterns": ["извините", "простите", "к сожалению", "ой"],
+    "good_examples": ["Не загрузилось. Попробуйте снова"],
+    "exceptions": [],
+    "notes": ""
+  },
+  {
+    "id": "ui.tone.no_hype",
+    "scope": ["interface", "tone"],
+    "component": "any",
+    "severity": "suggestion",
+    "lintable": true,
+    "rule": "В транзакционном UI избегайте хайпа, шуток и эмоциональных вставок.",
+    "bad_patterns": ["ура", "супер", "отлично", "поздравляем"],
+    "good_examples": ["Готово", "Заявка отправлена"],
+    "exceptions": [],
+    "notes": ""
+  },
+  {
+    "id": "ui.button.no_i_want",
+    "scope": ["interface", "button"],
+    "component": "button",
+    "severity": "warning",
+    "lintable": true,
+    "rule": "Кнопка обычно должна быть прямым действием пользователя.",
+    "bad_patterns": ["хочу "],
+    "good_examples": ["Удалить", "Открыть", "Подключить"],
+    "exceptions": [],
+    "notes": ""
+  },
+  {
+    "id": "ui.form.no_enter_write_start_typing",
+    "scope": ["interface", "form"],
+    "component": "label_or_placeholder",
+    "severity": "warning",
+    "lintable": true,
+    "rule": "Лейбл или плейсхолдер обычно называет данные, а не действие ввода.",
+    "bad_patterns": ["введите", "напишите", "начните писать"],
+    "good_examples": ["Номер телефона", "Комментарий", "Поиск"],
+    "exceptions": [],
+    "notes": ""
+  },
+  {
+    "id": "ui.link.meaningful_text",
+    "scope": ["interface", "link"],
+    "component": "link",
+    "severity": "warning",
+    "lintable": true,
+    "rule": "Ссылка должна называть место назначения или действие.",
+    "bad_patterns": ["здесь", "тут", "по ссылке", "подробнее здесь"],
+    "good_examples": ["Подробнее о тарифе", "Открыть условия"],
+    "exceptions": [],
+    "notes": ""
+  },
+  {
+    "id": "ui.typography.percent_no_space",
+    "scope": ["interface", "typography"],
+    "component": "any",
+    "severity": "warning",
+    "lintable": true,
+    "rule": "Процент пишется без пробела.",
+    "bad_patterns": ["\\d+\\s+%"],
+    "good_examples": ["50%"],
+    "exceptions": [],
+    "notes": ""
+  }
+]
