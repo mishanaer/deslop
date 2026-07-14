@@ -47,7 +47,7 @@ For review tasks, keep findings specific and grouped:
 ## Критичные проблемы
 - ...
 
-## UXW-замечания
+## Замечания sasha
 - ...
 
 ## Типографика
@@ -94,7 +94,7 @@ python3 sasha/scripts/extract_ui_strings.py src/locales/ru.json --format json
 python3 sasha/scripts/extract_ui_strings.py src --include '*.tsx' --format md
 ```
 
-`scripts/ui_text_lint.py` reports heuristic UXW warnings. Treat results as review prompts, not automatic truth.
+`scripts/ui_text_lint.py` reports heuristic sasha warnings. Treat results as review prompts, not automatic truth.
 
 ```bash
 python3 sasha/scripts/ui_text_lint.py src/locales/ru.json
