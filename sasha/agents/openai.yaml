@@ -1,0 +1,4 @@
+interface:
+  display_name: "sasha"
+  short_description: "Russian UI microcopy writing and review"
+  default_prompt: "Use $sasha to review Russian interface microcopy for clarity, tone, component fit, and safe i18n edits."

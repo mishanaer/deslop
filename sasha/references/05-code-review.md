@@ -33,13 +33,13 @@
 Если файлов много, сначала извлеки строки:
 
 ```bash
-python3 uxw/scripts/extract_ui_strings.py src --format md
+python3 sasha/scripts/extract_ui_strings.py src --format md
 ```
 
 Запусти линтер для эвристик:
 
 ```bash
-python3 uxw/scripts/ui_text_lint.py src/locales/ru.json
+python3 sasha/scripts/ui_text_lint.py src/locales/ru.json
 ```
 
 Считай предупреждения линтера подсказками для ревью, а не автоматической истиной.

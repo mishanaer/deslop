@@ -1,9 +1,9 @@
 ---
-name: uxw
-description: UX writing for Russian interface microcopy. Use to draft, rewrite, review, lint, or localize Russian UI strings in product interfaces: i18n locale files such as ru.json/ru.yml, React/Vue/mobile/frontend strings, headings, buttons, links, alerts, errors, labels, placeholders, tooltips, hints, legal copy inside UI, empty states, loading states, code entry screens, dates, currencies, numbers, and short interface typography. Do not use as a generic Russian proofreader or for marketing, articles, PR, social media, API docs, brand strategy, or English-only UX writing.
+name: sasha
+description: "UX writing for Russian interface microcopy. Use to draft, rewrite, review, lint, or localize Russian UI strings in product interfaces: i18n locale files such as ru.json/ru.yml, React/Vue/mobile/frontend strings, headings, buttons, links, alerts, errors, labels, placeholders, tooltips, hints, legal copy inside UI, empty states, loading states, code entry screens, dates, currencies, numbers, and short interface typography. Do not use as a generic Russian proofreader or for marketing, articles, PR, social media, API docs, brand strategy, or English-only UX writing."
 ---
 
-# UXW
+# sasha
 
 ## Scope
 
@@ -90,13 +90,13 @@ Then state the recommended option and the reason in one or two sentences.
 `scripts/extract_ui_strings.py` extracts likely Russian UI strings from `.json`, `.yml`, `.yaml`, `.ts`, `.tsx`, `.js`, `.jsx`, and `.vue`.
 
 ```bash
-python3 uxw/scripts/extract_ui_strings.py src/locales/ru.json --format json
-python3 uxw/scripts/extract_ui_strings.py src --include '*.tsx' --format md
+python3 sasha/scripts/extract_ui_strings.py src/locales/ru.json --format json
+python3 sasha/scripts/extract_ui_strings.py src --include '*.tsx' --format md
 ```
 
 `scripts/ui_text_lint.py` reports heuristic UXW warnings. Treat results as review prompts, not automatic truth.
 
 ```bash
-python3 uxw/scripts/ui_text_lint.py src/locales/ru.json
-python3 uxw/scripts/ui_text_lint.py src --format json --component button
+python3 sasha/scripts/ui_text_lint.py src/locales/ru.json
+python3 sasha/scripts/ui_text_lint.py src --format json --component button
 ```
