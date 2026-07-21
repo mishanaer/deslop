@@ -1,6 +1,10 @@
 # deslop
 
-В репозитории лежат скилл [sasha](./sasha/SKILL.md) и общие инструкции для агентов [AGENTS.md](./AGENTS.md).
+В репозитории лежат скилл [sasha](./sasha/SKILL.md), общие [Primitives](./primitives/README.md) и инструкции для агентов [AGENTS.md](./AGENTS.md).
+
+## Primitives
+
+[Primitives](./primitives/README.md) — единый набор токенов, шрифтов и иконок для продуктов. Готовые компоненты находятся в `@deslop/web-ui`. Переносимый скилл для агентов находится в [skills/deslop-design-system](./skills/deslop-design-system/SKILL.md).
 
 ## sasha
 

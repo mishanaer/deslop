@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deslop design system"
+  short_description: "Применять общие UI-токены и компоненты"
+  default_prompt: "Используй $deslop-design-system, чтобы собрать этот интерфейс на общих компонентах и токенах Deslop."

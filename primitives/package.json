@@ -1,0 +1,38 @@
+{
+  "name": "@deslop/primitives",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "tokens:generate": "node ./scripts/generate-layout-tokens.mjs",
+    "tokens:check": "node ./scripts/generate-layout-tokens.mjs --check",
+    "colors:check": "node ./scripts/check-color-tokens.mjs",
+    "typography:check": "node ./scripts/check-typography-tokens.mjs",
+    "icons:check": "node ./scripts/check-icons.mjs",
+    "check": "node ./scripts/generate-layout-tokens.mjs --check && node ./scripts/check-color-tokens.mjs && node ./scripts/check-typography-tokens.mjs && node ./scripts/check-icons.mjs"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./colors": "./colors.js",
+    "./colors.css": "./colors.css",
+    "./icons": "./icons.js",
+    "./icons-react": "./icons-react.js",
+    "./icons/*": "./icons/*",
+    "./layout": "./layout.js",
+    "./layout.css": "./layout.css",
+    "./layout.json": "./layout.json",
+    "./tokens": "./tokens.js",
+    "./typography.css": "./typography.css"
+  },
+  "files": [
+    "*.css",
+    "*.js",
+    "*.json",
+    "*.md",
+    "fonts",
+    "icons"
+  ]
+}
