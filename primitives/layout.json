@@ -1,0 +1,67 @@
+{
+  "spacing": {
+    "2": "2px",
+    "4": "4px",
+    "6": "6px",
+    "8": "8px",
+    "10": "10px",
+    "12": "12px",
+    "14": "14px",
+    "16": "16px",
+    "20": "20px",
+    "24": "24px"
+  },
+  "radius": {
+    "4": "4px",
+    "6": "6px",
+    "8": "8px",
+    "10": "10px",
+    "12": "12px",
+    "16": "16px",
+    "18": "18px",
+    "20": "20px",
+    "26": "26px",
+    "34": "34px",
+    "full": "9999px"
+  },
+  "semanticSpacing": {
+    "content-inset": "{spacing.16}",
+    "section-gap": "{spacing.24}",
+    "control-gap": "{spacing.8}",
+    "compact-gap": "{spacing.4}"
+  },
+  "componentSpacing": {
+    "cell-body-block-end": "9px",
+    "dropdown-item-block": "11px",
+    "markdown-list-inset": "22px",
+    "snackbar-block": "9px",
+    "start-view-inline": "32px",
+    "start-view-block": "44px",
+    "tab-glass-inset": "3px",
+    "tab-glass-block": "7px"
+  },
+  "componentRadius": {
+    "badge": "{radius.6}",
+    "badge-footnote": "{radius.4}",
+    "badge-circled-footnote": "11px",
+    "badge-circled-text": "13px",
+    "button-regular": "25px",
+    "button-multiline": "{radius.16}",
+    "dropdown-menu": "36px",
+    "header-action": "22px",
+    "markdown-inline-code": "5px",
+    "modal": "{radius.34}",
+    "section": "{radius.26}",
+    "segmented-circled": "{radius.18}",
+    "segmented-circled-indicator": "{radius.16}",
+    "snackbar": "{radius.26}",
+    "story-badge": "11px",
+    "tab": "{radius.16}",
+    "tab-compact": "14px",
+    "tab-glass": "{radius.18}",
+    "tab-bar": "{radius.full}",
+    "text-field": "{radius.12}",
+    "tooltip-surface": "{radius.12}",
+    "tooltip-badge": "5px"
+  }
+}

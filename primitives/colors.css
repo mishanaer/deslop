@@ -1,0 +1,190 @@
+/* stylelint-disable color-hex-length */
+
+:root {
+  --ui-static-white: #ffffff;
+  --ui-static-black: #000000;
+  --ui-background-secondary: var(--ui-background);
+  --ui-action-primary-background: var(--ui-accent-green);
+  --ui-action-primary-foreground: #111111;
+  --ui-story-background: #2b3544;
+  --ui-story-muted: #5d80af;
+  --ui-story-subtle: #616c8d;
+  --ui-story-badge: #a7baf2;
+  --ui-heatmap-gain-1: #67ba84;
+  --ui-heatmap-gain-2: #459757;
+  --ui-heatmap-gain-3: #2d6824;
+  --ui-heatmap-loss-1: #e78383;
+  --ui-heatmap-loss-2: #df4841;
+  --ui-heatmap-loss-3: #911c12;
+  --ui-avatar-red-top: #ff885e;
+  --ui-avatar-red-bottom: #ff516a;
+  --ui-avatar-red-gradient: linear-gradient(180deg, #ff885e 0%, #ff516a 100%);
+  --ui-avatar-orange-top: #ffcd6a;
+  --ui-avatar-orange-bottom: #ffa85c;
+  --ui-avatar-orange-gradient: linear-gradient(
+    180deg,
+    #ffcd6a 0%,
+    #ffa85c 100%
+  );
+  --ui-avatar-purple-top: #82b1ff;
+  --ui-avatar-purple-bottom: #665fff;
+  --ui-avatar-purple-gradient: linear-gradient(
+    180deg,
+    #82b1ff 0%,
+    #665fff 100%
+  );
+  --ui-avatar-green-top: #a0de7e;
+  --ui-avatar-green-bottom: #54cb68;
+  --ui-avatar-green-gradient: linear-gradient(180deg, #a0de7e 0%, #54cb68 100%);
+  --ui-avatar-cyan-top: #53edd6;
+  --ui-avatar-cyan-bottom: #28c9b7;
+  --ui-avatar-cyan-gradient: linear-gradient(180deg, #53edd6 0%, #28c9b7 100%);
+  --ui-avatar-blue-top: #72d5fd;
+  --ui-avatar-blue-bottom: #2a9ef1;
+  --ui-avatar-blue-gradient: linear-gradient(180deg, #72d5fd 0%, #2a9ef1 100%);
+  --ui-avatar-pink-top: #e0a2f3;
+  --ui-avatar-pink-bottom: #d669ed;
+  --ui-avatar-pink-gradient: linear-gradient(180deg, #e0a2f3 0%, #d669ed 100%);
+}
+
+:root,
+:where([data-color-scheme="light"]) {
+  --ui-accent-red: #ff383c;
+  --ui-accent-orange: #ff8d28;
+  --ui-accent-yellow: #ffcc00;
+  --ui-accent-green: #34c759;
+  --ui-accent-mint: #00c8b3;
+  --ui-accent-teal: #00c3d0;
+  --ui-accent-cyan: #00c0e8;
+  --ui-accent-blue: #0088ff;
+  --ui-accent-indigo: #6155f5;
+  --ui-accent-purple: #cb30e0;
+  --ui-accent-pink: #ff2d55;
+  --ui-accent-brown: #ac7f5e;
+  --ui-elevation-primary: #111111;
+  --ui-elevation-90: #111111e6;
+  --ui-elevation-80: #111111cc;
+  --ui-elevation-70: #111111b3;
+  --ui-elevation-60: #11111199;
+  --ui-elevation-50: #11111180;
+  --ui-elevation-40: #11111166;
+  --ui-elevation-30: #1111114d;
+  --ui-elevation-20: #11111133;
+  --ui-elevation-10: #1111111a;
+  --ui-elevation-5: #1111110d;
+  --ui-background: #efeff4;
+  --ui-surface: #ffffff;
+  --ui-surface-bottom-bar: #f2f2f2;
+  --ui-text-primary: var(--ui-elevation-primary);
+  --ui-text-secondary: #8e8e93;
+  --ui-text-section: #6d6d72;
+  --ui-separator: #c8c7cc;
+  --ui-separator-translucent: rgb(60 60 67 / 0.36);
+  --ui-fill-tertiary: rgb(116 116 128 / 0.12);
+  --ui-fill-quaternary: rgb(116 116 128 / 0.08);
+  --ui-control-active: #ffffff;
+  --ui-control-disabled: #e9e8e8;
+  --ui-text-disabled: #bababa;
+  --ui-material-layer-1: rgb(255 255 255 / 0.25);
+  --ui-material-layer-2: rgb(255 255 255 / 0.6);
+  --ui-glass-tint: transparent;
+  --ui-toast-background: rgb(45 45 45 / 0.8);
+  --ui-toast-text: #ffffff;
+  --ui-toast-link: #5ac8fa;
+  --ui-press-highlight: rgb(60 60 67 / 0.16);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-scheme="light"]) {
+    --ui-accent-red: #ff4245;
+    --ui-accent-orange: #ff9230;
+    --ui-accent-yellow: #ffd600;
+    --ui-accent-green: #30d158;
+    --ui-accent-mint: #00dac3;
+    --ui-accent-teal: #00d2e0;
+    --ui-accent-cyan: #3cd3fe;
+    --ui-accent-blue: #0091ff;
+    --ui-accent-indigo: #6d7cff;
+    --ui-accent-purple: #db34f2;
+    --ui-accent-pink: #ff375f;
+    --ui-accent-brown: #b78a66;
+    --ui-elevation-primary: #ffffff;
+    --ui-elevation-90: #ffffffe6;
+    --ui-elevation-80: #ffffffcc;
+    --ui-elevation-70: #ffffffb3;
+    --ui-elevation-60: #ffffff99;
+    --ui-elevation-50: #ffffff80;
+    --ui-elevation-40: #ffffff66;
+    --ui-elevation-30: #ffffff4d;
+    --ui-elevation-20: #ffffff33;
+    --ui-elevation-10: #ffffff1a;
+    --ui-elevation-5: #ffffff0d;
+    --ui-background: #111111;
+    --ui-surface: #2c2c2e;
+    --ui-surface-bottom-bar: #1d1d1d;
+    --ui-text-primary: var(--ui-elevation-primary);
+    --ui-text-secondary: #98989e;
+    --ui-text-section: #8d8e93;
+    --ui-separator: #545458;
+    --ui-separator-translucent: rgb(84 84 88 / 0.65);
+    --ui-fill-tertiary: rgb(120 120 128 / 0.24);
+    --ui-fill-quaternary: rgb(120 120 128 / 0.18);
+    --ui-control-active: #636366;
+    --ui-control-disabled: #3c3c3e;
+    --ui-text-disabled: #606060;
+    --ui-material-layer-1: rgb(0 0 0 / 0.41);
+    --ui-material-layer-2: transparent;
+    --ui-glass-tint: rgb(255 255 255 / 0.05);
+    --ui-toast-background: rgb(45 45 45 / 0.8);
+    --ui-toast-text: #ffffff;
+    --ui-toast-link: #5ac8fa;
+    --ui-press-highlight: rgb(235 235 245 / 0.16);
+  }
+}
+
+:root[data-color-scheme="dark"],
+:where([data-color-scheme="dark"]) {
+  --ui-accent-red: #ff4245;
+  --ui-accent-orange: #ff9230;
+  --ui-accent-yellow: #ffd600;
+  --ui-accent-green: #30d158;
+  --ui-accent-mint: #00dac3;
+  --ui-accent-teal: #00d2e0;
+  --ui-accent-cyan: #3cd3fe;
+  --ui-accent-blue: #0091ff;
+  --ui-accent-indigo: #6d7cff;
+  --ui-accent-purple: #db34f2;
+  --ui-accent-pink: #ff375f;
+  --ui-accent-brown: #b78a66;
+  --ui-elevation-primary: #ffffff;
+  --ui-elevation-90: #ffffffe6;
+  --ui-elevation-80: #ffffffcc;
+  --ui-elevation-70: #ffffffb3;
+  --ui-elevation-60: #ffffff99;
+  --ui-elevation-50: #ffffff80;
+  --ui-elevation-40: #ffffff66;
+  --ui-elevation-30: #ffffff4d;
+  --ui-elevation-20: #ffffff33;
+  --ui-elevation-10: #ffffff1a;
+  --ui-elevation-5: #ffffff0d;
+  --ui-background: #111111;
+  --ui-surface: #2c2c2e;
+  --ui-surface-bottom-bar: #1d1d1d;
+  --ui-text-primary: var(--ui-elevation-primary);
+  --ui-text-secondary: #98989e;
+  --ui-text-section: #8d8e93;
+  --ui-separator: #545458;
+  --ui-separator-translucent: rgb(84 84 88 / 0.65);
+  --ui-fill-tertiary: rgb(120 120 128 / 0.24);
+  --ui-fill-quaternary: rgb(120 120 128 / 0.18);
+  --ui-control-active: #636366;
+  --ui-control-disabled: #3c3c3e;
+  --ui-text-disabled: #606060;
+  --ui-material-layer-1: rgb(0 0 0 / 0.41);
+  --ui-material-layer-2: transparent;
+  --ui-glass-tint: rgb(255 255 255 / 0.05);
+  --ui-toast-background: rgb(45 45 45 / 0.8);
+  --ui-toast-text: #ffffff;
+  --ui-toast-link: #5ac8fa;
+  --ui-press-highlight: rgb(235 235 245 / 0.16);
+}
