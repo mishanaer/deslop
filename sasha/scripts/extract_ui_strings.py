@@ -180,6 +180,9 @@ def main() -> int:
     parser.add_argument("--format", choices=("text", "json", "md"), default="text")
     args = parser.parse_args()
 
+    if args.include and re.search(r'[;&|`<>${}\\!]', args.include):
+        parser.error("--include contains unsafe characters")
+
     items: List[Dict[str, Any]] = []
     for file_path in iter_files(args.paths, args.include):
         items.extend(extract_file(file_path))
