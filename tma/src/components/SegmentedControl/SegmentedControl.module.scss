@@ -1,0 +1,41 @@
+.root {
+    position: relative;
+    width: 100%;
+    display: flex;
+    background-color: var(--ui-fill-tertiary);
+    border-radius: var(--ui-component-segmented-circled-radius);
+    padding: var(--ui-space-2);
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+    gap: var(--ui-space-4);
+
+    .segment {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--ui-text-primary);
+        padding: var(--ui-space-6) 0;
+        z-index: 1;
+        text-align: center;
+        transition: color 0.2s ease;
+
+        &.active {
+            color: var(--ui-text-primary);
+            transition: color 0.2s ease;
+        }
+    }
+
+    .activeIndicator {
+        position: absolute;
+        left: 0;
+        height: calc(100% - var(--ui-space-4));
+        background-color: var(--ui-control-active);
+        border-radius: var(--ui-component-segmented-circled-indicator-radius);
+        transition: transform 0.2s ease;
+        z-index: 0;
+        border: 0;
+        box-shadow: none;
+        will-change: transform;
+    }
+}

@@ -1,0 +1,15 @@
+.outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.inner {
+    transform-origin: center;
+    will-change: transform;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}

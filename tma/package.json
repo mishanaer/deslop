@@ -1,0 +1,106 @@
+{
+    "name": "@deslop/tma",
+    "version": "0.1.0",
+    "description": "Reusable web component library powered by Deslop Primitives, with optional Telegram Web App integration.",
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js"
+        },
+        "./styles.css": "./dist/styles.css"
+    },
+    "sideEffects": [
+        "**/*.css",
+        "**/*.scss"
+    ],
+    "packageManager": "yarn@4.5.3",
+    "resolutions": {
+        "baseline-browser-mapping": "^2.10.43"
+    },
+    "homepage": ".",
+    "dependencies": {
+        "@lisse/core": "0.5.2",
+        "@lisse/react": "^0.5.2",
+        "@tanstack/react-virtual": "^3.14.6",
+        "calligraph": "^1.4.1",
+        "colorthief": "^3.4.0",
+        "markdown-to-jsx": "9",
+        "motion": "^12.42.2",
+        "wouter": "^3.10.0"
+    },
+    "peerDependencies": {
+        "react": ">=18.2.0",
+        "react-dom": ">=18.2.0"
+    },
+    "scripts": {
+        "dev": "vite",
+        "start": "vite",
+        "build": "yarn build:storybook && yarn build:lib",
+        "build:storybook": "vite build",
+        "build:lib": "vite build --config vite.lib.config.js",
+        "preview": "vite preview",
+        "deploy": "./deploy.sh",
+        "lint": "yarn lint:js && yarn lint:scss",
+        "lint:js": "eslint '{src,storybook}/**/*.{js,jsx,ts,tsx}'",
+        "lint:scss": "stylelint '{src,storybook}/**/*.scss'",
+        "format": "prettier --write '{src,storybook}/**/*.{js,jsx,ts,tsx,json,scss}' --cache",
+        "format:check": "prettier --check '{src,storybook}/**/*.{js,jsx,ts,tsx,json,scss}' --cache",
+        "screenshot:story": "node scripts/screenshot-story.js",
+        "story-server": "node scripts/story-server.js"
+    },
+    "browserslist": {
+        "production": [
+            "last 2 chrome versions",
+            "last 2 safari versions",
+            "last 2 firefox versions",
+            "last 2 edge versions",
+            "last 2 samsung versions",
+            "last 2 ios_saf versions",
+            "last 2 and_chr versions",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.29.7",
+        "@babel/preset-react": "^7.29.7",
+        "@deslop/primitives": "link:../primitives",
+        "@eslint/js": "^10.0.1",
+        "@relative-ci/agent": "^4.3.1",
+        "@resvg/resvg-js": "^2.6.2",
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react": "5",
+        "babel-plugin-react-compiler": "^1.0.0",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+        "baseline-browser-mapping": "^2.10.43",
+        "eslint": "^9",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^7.1.1",
+        "globals": "^17.7.0",
+        "prettier": "^3.9.5",
+        "prop-types": "^15.8.1",
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7",
+        "rollup-plugin-webpack-stats": "^3.1.3",
+        "sass": "^1.101.0",
+        "satori": "^0.28.0",
+        "stylelint": "^17.14.0",
+        "stylelint-config-standard-scss": "^17.0.0",
+        "typescript": "^6.0.3",
+        "vite": "7",
+        "vite-plugin-checker": "^0.14.4",
+        "vite-plugin-svgr": "^5.0.0"
+    }
+}

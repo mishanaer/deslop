@@ -1,0 +1,88 @@
+@import "@deslop/primitives/colors.css";
+@import "@deslop/primitives/layout.css";
+@import "@deslop/primitives/typography.css";
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+svg[viewBox="0 0 24 24"] {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+:root {
+    --side-padding: var(--ui-layout-content-inset);
+    --tg-theme-bg-color: var(--ui-background);
+    --tg-theme-text-color: var(--ui-text-primary);
+    --tg-theme-secondary-bg-color: var(--ui-background-secondary);
+    --tg-theme-button-color: var(--ui-accent-blue);
+    --tg-theme-button-text-color: var(--ui-surface);
+    --tg-theme-subtitle-text-color: var(--ui-text-secondary);
+    --tg-theme-destructive-text-color: var(--ui-accent-red);
+    --tg-theme-section-bg-color: var(--ui-surface);
+    --tg-theme-accent-text-color: var(--ui-accent-blue);
+    --tg-theme-section-header-text-color: var(--ui-text-section);
+    --tg-theme-section-separator-color: var(--ui-separator);
+    --tg-theme-bottom-bar-bg-color: var(--ui-surface-bottom-bar);
+    --tg-theme-hint-color: var(--ui-text-secondary);
+    --secondary-button-color: color-mix(
+        in srgb,
+        var(--ui-accent-blue) 10%,
+        transparent
+    );
+    --text-confirm-color: var(--ui-accent-green);
+    --tertiary-fill-background: var(--ui-fill-tertiary);
+    --quaternary-fill-background: var(--ui-fill-quaternary);
+    --separator-non-opaque: var(--ui-separator-translucent);
+    --segmented_control_active_background: var(--ui-control-active);
+    --button-disabled-color: var(--ui-control-disabled);
+    --text-disabled-color: var(--ui-text-disabled);
+    --border-color: var(--ui-elevation-30);
+    --background-material-regular-color-1: var(--ui-material-layer-1);
+    --background-material-regular-color-2: var(--ui-material-layer-2);
+    --background-material-regular-blend-mode-1: normal;
+    --background-material-regular-blend-mode-2: normal;
+    --glass-tint-background: var(--ui-glass-tint);
+    --toast-background: var(--ui-toast-background);
+    --toast-text: var(--ui-toast-text);
+    --toast-link: var(--ui-toast-link);
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding-top: calc(
+        env(safe-area-inset-top) + var(--tg-content-safe-area-inset-top, 0px)
+    );
+    padding-right: env(safe-area-inset-right);
+    padding-left: env(safe-area-inset-left);
+    color: var(--ui-text-primary);
+    background: var(--ui-background);
+    font-family: var(--ui-font-interface);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 200ms ease;
+}
+
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

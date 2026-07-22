@@ -1,0 +1,5 @@
+// Matches the padding the showcase wraps each Train in; the SectionList
+// container has no horizontal inset of its own.
+.row {
+    padding: 12px var(--side-padding);
+}

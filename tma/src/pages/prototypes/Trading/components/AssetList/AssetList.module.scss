@@ -1,0 +1,37 @@
+// The sizer holds the full list height; only the on-screen slice mounts,
+// each row translated to its slot.
+.sizer {
+    position: relative;
+    align-self: stretch;
+}
+
+.row {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+// Delta color rides the wrapper because Text inherits the current color.
+.delta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+
+    &.up {
+        color: var(--text-confirm-color);
+    }
+
+    &.down {
+        color: var(--tg-theme-destructive-text-color);
+    }
+
+    // Yield to the skeleton's transparent-text redaction. Must be color,
+    // not opacity: ancestor opacity doesn't dim Calligraph in WebKit.
+    :global([data-skeleton]) & {
+        &.up,
+        &.down {
+            color: transparent;
+        }
+    }
+}

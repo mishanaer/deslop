@@ -1,0 +1,46 @@
+.container {
+    display: block;
+    height: calc(-49.5px - env(safe-area-inset-bottom) + 100vh);
+    overflow-x: hidden;
+
+    .view {
+        overflow-y: scroll;
+        height: 100%;
+
+        :global(body.apple) & {
+            padding-bottom: 80px;
+        }
+
+        :global(body.material) & {
+            padding-bottom: 88px;
+        }
+    }
+
+    :global(body.apple) &,
+    :global(body.material) & {
+        height: 100vh;
+    }
+}
+
+.navigationWrapper {
+    position: relative;
+    z-index: 200;
+}
+
+.tabBarWrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.viewBody {
+    position: relative;
+    min-height: 100%;
+}
+
+.tabBarHit {
+    pointer-events: auto;
+}

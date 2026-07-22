@@ -1,0 +1,6 @@
+// Padded container matching the showcase's Preview block. The stacked Text
+// bars carry their own line-height, so consecutive lines read as generated
+// paragraph text.
+.preview {
+    padding: 16px var(--side-padding);
+}

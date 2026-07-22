@@ -1,0 +1,45 @@
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.spinner {
+    transform-origin: center;
+    animation: rotate 1.4s linear infinite;
+    width: 24px;
+    height: 24px;
+
+    :global(body.apple) & {
+        animation-timing-function: steps(8);
+
+        path {
+            fill: var(--tg-theme-subtitle-text-color);
+        }
+    }
+
+    :global(body.material) & {
+        color: var(--tg-theme-accent-text-color);
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .spinner {
+        animation: rotate 10s linear infinite;
+
+        :global(body.apple) & {
+            animation-timing-function: steps(8);
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

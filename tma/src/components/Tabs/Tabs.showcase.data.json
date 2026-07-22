@@ -1,0 +1,162 @@
+{
+    "trading": {
+        "tabs": ["Top Gainers", "Top Losers", "Volume", "Market Cap"],
+        "data": [
+            [
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "$5.42", "primary": "+12.4%", "secondary": "24h" },
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "$0.0089", "primary": "+8.2%", "secondary": "24h" },
+                { "ticker": "MAJOR", "name": "Major", "subtitle": "$0.41", "primary": "+5.9%", "secondary": "24h" },
+                { "ticker": "X", "name": "X Empire", "subtitle": "$0.0021", "primary": "+4.7%", "secondary": "24h" },
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "$71,204", "primary": "+3.1%", "secondary": "24h" }
+            ],
+            [
+                { "ticker": "HMSTR", "name": "Hamster Kombat", "subtitle": "$0.0031", "primary": "−7.1%", "secondary": "24h" },
+                { "ticker": "CATI", "name": "Catizen", "subtitle": "$0.22", "primary": "−4.8%", "secondary": "24h" },
+                { "ticker": "USDT", "name": "Tether", "subtitle": "$0.999", "primary": "−0.1%", "secondary": "24h" },
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "$69,002", "primary": "−1.2%", "secondary": "24h" },
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "$5.20", "primary": "−2.4%", "secondary": "24h" }
+            ],
+            [
+                { "ticker": "USDT", "name": "Tether", "subtitle": "Stablecoin", "primary": "$1.2B", "secondary": "Volume" },
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "Store of value", "primary": "$812M", "secondary": "Volume" },
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "Layer 1", "primary": "$214M", "secondary": "Volume" },
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "Tap-to-earn", "primary": "$94M", "secondary": "Volume" },
+                { "ticker": "HMSTR", "name": "Hamster Kombat", "subtitle": "Tap-to-earn", "primary": "$61M", "secondary": "Volume" }
+            ],
+            [
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "21M supply", "primary": "$1.41T", "secondary": "Market cap" },
+                { "ticker": "USDT", "name": "Tether", "subtitle": "Stablecoin", "primary": "$119B", "secondary": "Market cap" },
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "Layer 1", "primary": "$13.2B", "secondary": "Market cap" },
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "Tap-to-earn", "primary": "$890M", "secondary": "Market cap" },
+                { "ticker": "MAJOR", "name": "Major", "subtitle": "Tap-to-earn", "primary": "$410M", "secondary": "Market cap" }
+            ]
+        ]
+    },
+    "category": {
+        "tabs": ["All", "DeFi", "Gaming", "Memes", "NFTs", "AI", "L2", "Stablecoins"],
+        "data": [
+            [
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "Layer 1", "primary": "$5.42", "secondary": "+3.1%" },
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "Store of value", "primary": "$71,204", "secondary": "+1.8%" },
+                { "ticker": "USDT", "name": "Tether", "subtitle": "Stablecoin", "primary": "$1.00", "secondary": "+0.0%" },
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "Tap-to-earn", "primary": "$0.0089", "secondary": "+4.2%" }
+            ],
+            [
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "DeFi hub", "primary": "$5.42", "secondary": "+3.1%" },
+                { "ticker": "USDT", "name": "Tether", "subtitle": "Liquidity", "primary": "$1.00", "secondary": "+0.0%" }
+            ],
+            [
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "Clicker", "primary": "$0.0089", "secondary": "+4.2%" },
+                { "ticker": "HMSTR", "name": "Hamster Kombat", "subtitle": "Clicker", "primary": "$0.0031", "secondary": "−7.1%" },
+                { "ticker": "X", "name": "X Empire", "subtitle": "Clicker", "primary": "$0.0021", "secondary": "+4.7%" },
+                { "ticker": "CATI", "name": "Catizen", "subtitle": "Tamagotchi", "primary": "$0.22", "secondary": "−4.8%" },
+                { "ticker": "MAJOR", "name": "Major", "subtitle": "Clicker", "primary": "$0.41", "secondary": "+5.9%" }
+            ],
+            [
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "Meme", "primary": "$0.0089", "secondary": "+4.2%" },
+                { "ticker": "HMSTR", "name": "Hamster Kombat", "subtitle": "Meme", "primary": "$0.0031", "secondary": "−7.1%" },
+                { "ticker": "CATI", "name": "Catizen", "subtitle": "Meme", "primary": "$0.22", "secondary": "−4.8%" }
+            ],
+            [
+                { "ticker": "TON", "name": "TON NFT", "subtitle": "Collection", "primary": "42 TON", "secondary": "Floor" },
+                { "ticker": "NOT", "name": "Notcoin Vouchers", "subtitle": "Collection", "primary": "18 TON", "secondary": "Floor" },
+                { "ticker": "MAJOR", "name": "Major Hats", "subtitle": "Collection", "primary": "9 TON", "secondary": "Floor" }
+            ],
+            [
+                { "ticker": "TON", "name": "AI Agents on TON", "subtitle": "Ecosystem", "primary": "$5.42", "secondary": "+3.1%" },
+                { "ticker": "BTC", "name": "Compute BTC", "subtitle": "Project", "primary": "$71,204", "secondary": "+1.8%" }
+            ],
+            [
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "Layer 1", "primary": "$5.42", "secondary": "+3.1%" },
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "Layer 2 gaming", "primary": "$0.0089", "secondary": "+4.2%" }
+            ],
+            [
+                { "ticker": "USDT", "name": "Tether", "subtitle": "USD peg", "primary": "$1.00", "secondary": "+0.0%" }
+            ]
+        ]
+    },
+    "range": {
+        "tabs": ["Day", "Week", "Month", "Year", "All"],
+        "data": [
+            [
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "Open $5.26", "primary": "$5.42", "secondary": "+3.0%" },
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "Open $69,800", "primary": "$71,204", "secondary": "+2.0%" },
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "Open $0.0085", "primary": "$0.0089", "secondary": "+4.7%" }
+            ],
+            [
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "7d open $4.90", "primary": "$5.42", "secondary": "+10.6%" },
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "7d open $68,100", "primary": "$71,204", "secondary": "+4.6%" },
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "7d open $0.0091", "primary": "$0.0089", "secondary": "−2.2%" },
+                { "ticker": "USDT", "name": "Tether", "subtitle": "7d open $1.00", "primary": "$1.00", "secondary": "0.0%" }
+            ],
+            [
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "30d open $4.60", "primary": "$5.42", "secondary": "+17.8%" },
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "30d open $63,500", "primary": "$71,204", "secondary": "+12.1%" },
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "30d open $0.0076", "primary": "$0.0089", "secondary": "+17.1%" }
+            ],
+            [
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "1y open $2.05", "primary": "$5.42", "secondary": "+164%" },
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "1y open $42,100", "primary": "$71,204", "secondary": "+69%" },
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "Launched", "primary": "$0.0089", "secondary": "Since May" }
+            ],
+            [
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "ATH $73,750", "primary": "$71,204", "secondary": "−3.5% from ATH" },
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "ATH $8.24", "primary": "$5.42", "secondary": "−34% from ATH" },
+                { "ticker": "USDT", "name": "Tether", "subtitle": "Since 2014", "primary": "$1.00", "secondary": "Pegged" }
+            ]
+        ]
+    },
+    "glass": {
+        "tabs": ["Transactions", "Gifts", "Usernames", "Numbers", "Media"],
+        "data": [
+            [
+                { "ticker": "TON", "name": "Sent Toncoin", "subtitle": "Today, 14:20", "primary": "−10 TON", "secondary": "To @alice" },
+                { "ticker": "USDT", "name": "Received Tether", "subtitle": "Yesterday, 09:12", "primary": "+50 USDT", "secondary": "From @bob" },
+                { "ticker": "NOT", "name": "Swap", "subtitle": "Mar 21, 11:05", "primary": "+120k NOT", "secondary": "From 2 TON" }
+            ],
+            [
+                { "ticker": "NOT", "name": "Vintage Cigar", "subtitle": "Gift", "primary": "25 TON", "secondary": "Floor" },
+                { "ticker": "MAJOR", "name": "Plush Pepe", "subtitle": "Gift", "primary": "480 TON", "secondary": "Floor" },
+                { "ticker": "TON", "name": "Santa Hat", "subtitle": "Gift", "primary": "12 TON", "secondary": "Floor" },
+                { "ticker": "CATI", "name": "Jester Hat", "subtitle": "Gift", "primary": "8 TON", "secondary": "Floor" }
+            ],
+            [
+                { "ticker": "TON", "name": "@alice", "subtitle": "Primary", "primary": "Owned", "secondary": "Forever" },
+                { "ticker": "USDT", "name": "@wallet_pro", "subtitle": "Secondary", "primary": "Transferable", "secondary": "Public" }
+            ],
+            [
+                { "ticker": "TON", "name": "+888 0055 1234", "subtitle": "Anonymous number", "primary": "Active", "secondary": "Since Dec" },
+                { "ticker": "USDT", "name": "+888 0077 4321", "subtitle": "Anonymous number", "primary": "Active", "secondary": "Since Jan" }
+            ],
+            [
+                { "ticker": "CATI", "name": "wallpaper.png", "subtitle": "Uploaded Today", "primary": "2.1 MB", "secondary": "Image" },
+                { "ticker": "NOT", "name": "promo.mp4", "subtitle": "Uploaded Mar 20", "primary": "14.8 MB", "secondary": "Video" },
+                { "ticker": "HMSTR", "name": "receipt.pdf", "subtitle": "Uploaded Mar 19", "primary": "312 KB", "secondary": "Document" },
+                { "ticker": "MAJOR", "name": "voice.ogg", "subtitle": "Uploaded Mar 18", "primary": "48 KB", "secondary": "Audio" }
+            ]
+        ]
+    },
+    "overview": {
+        "tabs": ["Overview", "Activity", "Settings"],
+        "data": [
+            [
+                { "ticker": "TON", "name": "Toncoin", "subtitle": "120.00 TON", "primary": "$650.40", "secondary": "+3.1%" },
+                { "ticker": "USDT", "name": "Tether", "subtitle": "250.00 USDT", "primary": "$250.00", "secondary": "+0.0%" },
+                { "ticker": "NOT", "name": "Notcoin", "subtitle": "1.2M NOT", "primary": "$10,680", "secondary": "+4.2%" },
+                { "ticker": "BTC", "name": "Bitcoin", "subtitle": "0.0145 BTC", "primary": "$1,032.46", "secondary": "+1.8%" }
+            ],
+            [
+                { "ticker": "TON", "name": "Sent Toncoin", "subtitle": "Today, 14:20", "primary": "−10 TON", "secondary": "To @alice" },
+                { "ticker": "USDT", "name": "Received Tether", "subtitle": "Yesterday, 09:12", "primary": "+50 USDT", "secondary": "From @bob" },
+                { "ticker": "NOT", "name": "Swap", "subtitle": "Mar 21, 11:05", "primary": "+120k NOT", "secondary": "From 2 TON" },
+                { "ticker": "BTC", "name": "Sent Bitcoin", "subtitle": "Mar 19, 18:42", "primary": "−0.001 BTC", "secondary": "To @carol" },
+                { "ticker": "MAJOR", "name": "Received Major", "subtitle": "Mar 17, 10:30", "primary": "+500 MAJOR", "secondary": "Airdrop" }
+            ],
+            [
+                { "ticker": "TON", "name": "Primary asset", "subtitle": "Shown first in wallet", "primary": "TON", "secondary": "Change…" },
+                { "ticker": "USDT", "name": "Default currency", "subtitle": "Used for prices", "primary": "USD", "secondary": "Change…" },
+                { "ticker": "BTC", "name": "Backup phrase", "subtitle": "Last verified 14 days ago", "primary": "Verify", "secondary": "Required" }
+            ]
+        ]
+    }
+}

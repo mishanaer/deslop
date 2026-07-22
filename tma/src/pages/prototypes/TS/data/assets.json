@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Toncoin",
+        "price": "$7.70",
+        "value": "$0.00",
+        "ticker": "TON"
+    },
+    {
+        "name": "USD Tether",
+        "price": "$1.00",
+        "value": "$0.00",
+        "ticker": "USDT"
+    }
+]

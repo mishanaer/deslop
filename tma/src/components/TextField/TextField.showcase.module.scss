@@ -1,0 +1,55 @@
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    pointer-events: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: var(--tg-viewport-stable-height, 100vh);
+    overflow: hidden;
+    position: relative;
+    contain: layout style paint;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    z-index: 1;
+}
+
+.input {
+    position: absolute;
+    width: calc(100% - 144px);
+    bottom: 21px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(0);
+    border-radius: 36px;
+
+    // Deliberate width transition: a clip-path on this wrapper forms a
+    // backdrop root that blanks GlassContainer's backdrop-filter, and a
+    // clipped GlassBorder loses its side arcs. Keep this box the real
+    // pill geometry so every glass layer stays correct in both states.
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    contain: layout style paint;
+    backface-visibility: hidden;
+
+    &:focus-within {
+        width: calc(100% - 42px);
+    }
+
+    & input {
+        border-radius: 36px;
+        background: rgb(from var(--tg-theme-section-bg-color) r g b / 70%);
+
+        &::placeholder {
+            color: var(--tg-theme-subtitle-text-color);
+            opacity: 0.8;
+        }
+    }
+}

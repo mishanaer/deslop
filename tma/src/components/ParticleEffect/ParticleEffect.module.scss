@@ -1,0 +1,36 @@
+.root {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.content {
+    display: inline-flex;
+    align-items: baseline;
+    transition: filter 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+// Hide via `filter: opacity()` rather than plain `opacity`: a filter flattens
+// the subtree into one buffer before applying, so GPU-composited children (e.g.
+// framer-motion digits in Calligraph) are actually dimmed. A plain ancestor
+// opacity transition leaves their separate layers lit in WebKit.
+.root.hidden .content {
+    filter: opacity(0);
+}
+
+// The canvas extends beyond the content box on every side (sized in JS by the
+// engine), giving particles room to billow. It overflows the wrapper and paints
+// over neighbouring elements by design.
+.canvas {
+    position: absolute;
+    pointer-events: none;
+}
+
+// WebGL2 unavailable: blur the value instead of clouding it, and drop the canvas.
+.root.fallback .canvas {
+    display: none;
+}
+
+.root.fallback.hidden .content {
+    filter: blur(7px);
+}

@@ -1,0 +1,66 @@
+# .github/workflows/relative-ci.yml
+name: Build & RelativeCI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - run: corepack enable
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      - name: Install dependencies (Hardened Mode)
+        run: yarn install --immutable
+        env:
+          YARN_ENABLE_HARDENED_MODE: '1'
+
+      - name: Lint JS + SCSS
+        run: yarn lint
+
+      # Non-blocking: the repo is not fully Prettier-clean yet, so this
+      # surfaces formatting drift without failing CI on pre-existing files.
+      - name: Check formatting
+        run: yarn format:check
+        continue-on-error: true
+
+  build:
+    runs-on: ubuntu-latest
+    env:
+      RELATIVE_CI_KEY: ${{ secrets.RELATIVE_CI_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - run: corepack enable
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      - name: Install dependencies (Hardened Mode)
+        run: yarn install --immutable
+        env:
+          YARN_ENABLE_HARDENED_MODE: '1'
+
+      - name: Check for duplicate dependencies
+        run: yarn dedupe --check
+
+      - name: Build production bundle
+        run: yarn build
+
+      # RelativeCI needs a repo secret GitHub does not expose to Dependabot /
+      # fork PRs. Skip (don't fail) when the key is absent; still runs on
+      # push to main and on internal branch PRs.
+      - name: Send bundle stats to RelativeCI
+        if: ${{ env.RELATIVE_CI_KEY != '' }}
+        run: npx @relative-ci/agent
