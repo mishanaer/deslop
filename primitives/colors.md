@@ -15,8 +15,8 @@ accent-colors:
     dark: "#FFD600"
 
   green:
-    light: "#34C759"
-    dark: "#30D158"
+    light: "#46DC66"
+    dark: "#46DC66"
 
   mint:
     light: "#00C8B3"

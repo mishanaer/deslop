@@ -16,7 +16,7 @@ export const accentColors = [
   { name: "Red", light: "#FF383C", dark: "#FF4245" },
   { name: "Orange", light: "#FF8D28", dark: "#FF9230" },
   { name: "Yellow", light: "#FFCC00", dark: "#FFD600" },
-  { name: "Green", light: "#34C759", dark: "#30D158" },
+  { name: "Green", light: "#46DC66", dark: "#46DC66" },
   { name: "Mint", light: "#00C8B3", dark: "#00DAC3" },
   { name: "Teal", light: "#00C3D0", dark: "#00D2E0" },
   { name: "Cyan", light: "#00C0E8", dark: "#3CD3FE" },
