@@ -14,8 +14,8 @@
 
 ## TMA
 
-[TMA](./tma/README.md) — библиотека готовых React-компонентов для веба с
-поддержкой Telegram Mini Apps.
+[TMA](./tma/README.md) — библиотека готовых React-компонентов для Telegram Mini
+Apps.
 
 ## sasha
 
