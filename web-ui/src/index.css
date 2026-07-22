@@ -1,0 +1,186 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@deslop/primitives/colors.css";
+@import "@deslop/primitives/layout.css";
+@import "@deslop/primitives/typography.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --spacing: var(--ui-space-4);
+
+  --font-sans: var(--ui-font-interface);
+  --font-mono: var(--ui-font-mono);
+  --font-weight-medium: 600;
+  --font-weight-semibold: 600;
+
+  --text-xs: var(--ui-caption-font-size);
+  --text-xs--line-height: var(--ui-caption-line-height);
+  --text-sm: var(--ui-subtitle-font-size);
+  --text-sm--line-height: var(--ui-subtitle-line-height);
+  --text-base: var(--ui-body-font-size);
+  --text-base--line-height: var(--ui-body-line-height);
+  --text-lg: var(--ui-title-20-font-size);
+  --text-lg--line-height: var(--ui-title-20-line-height);
+  --text-xl: var(--ui-title-20-font-size);
+  --text-xl--line-height: var(--ui-title-20-line-height);
+  --text-2xl: var(--ui-title-24-font-size);
+  --text-2xl--line-height: var(--ui-title-24-line-height);
+  --text-3xl: var(--ui-title-32-font-size);
+  --text-3xl--line-height: var(--ui-title-32-line-height);
+  --text-4xl: var(--ui-title-40-font-size);
+  --text-4xl--line-height: var(--ui-title-40-line-height);
+  --text-5xl: var(--ui-title-52-font-size);
+  --text-5xl--line-height: var(--ui-title-52-line-height);
+  --text-6xl: var(--ui-title-67-font-size);
+  --text-6xl--line-height: var(--ui-title-67-line-height);
+
+  --radius-xs: var(--ui-radius-4);
+  --radius-sm: var(--ui-radius-6);
+  --radius-md: var(--ui-radius-8);
+  --radius-lg: var(--ui-radius-10);
+  --radius-xl: var(--ui-radius-12);
+  --radius-2xl: var(--ui-radius-16);
+  --radius-3xl: var(--ui-radius-20);
+
+  --color-background: var(--page-background);
+  --color-page: var(--web-background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--action-primary);
+  --color-primary-foreground: var(--action-primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--action-accent);
+  --color-accent-foreground: var(--action-accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+}
+
+:root,
+:where([data-color-scheme="light"]) {
+  --web-background: var(--background);
+  --web-foreground: var(--primary);
+  --web-subtle-fill: var(--elevation-5);
+  --web-input: var(--elevation-10);
+  --web-muted-foreground: var(--elevation-60);
+  --web-action-primary: var(--accent-green);
+  --web-action-primary-foreground: var(--primary);
+  --web-action-destructive: var(--accent-red);
+  --web-action-destructive-foreground: var(--background);
+  --chart-1: var(--accent-orange);
+  --chart-2: var(--accent-teal);
+  --chart-3: var(--accent-blue);
+  --chart-4: var(--accent-yellow);
+  --chart-5: var(--accent-brown);
+}
+
+:root[data-color-scheme="dark"],
+:where([data-color-scheme="dark"]) {
+  --web-background: var(--background);
+  --web-foreground: var(--primary);
+  --web-subtle-fill: var(--elevation-10);
+  --web-input: var(--elevation-20);
+  --web-muted-foreground: var(--elevation-60);
+  --web-action-primary: var(--accent-green);
+  --web-action-primary-foreground: var(--background);
+  --web-action-destructive: var(--accent-red);
+  --web-action-destructive-foreground: var(--primary);
+  --chart-1: var(--accent-indigo);
+  --chart-2: var(--accent-green);
+  --chart-3: var(--accent-yellow);
+  --chart-4: var(--accent-purple);
+  --chart-5: var(--accent-red);
+}
+
+:root {
+  --radius: var(--ui-radius-10);
+  --page-background: var(--web-background);
+  --foreground: var(--web-foreground);
+  --card: var(--elevation);
+  --card-foreground: var(--web-foreground);
+  --popover: var(--elevation);
+  --popover-foreground: var(--web-foreground);
+  --action-primary: var(--web-action-primary);
+  --action-primary-foreground: var(--web-action-primary-foreground);
+  --secondary: var(--web-subtle-fill);
+  --secondary-foreground: var(--web-foreground);
+  --muted: var(--web-subtle-fill);
+  --muted-foreground: var(--web-muted-foreground);
+  --action-accent: var(--web-subtle-fill);
+  --action-accent-foreground: var(--web-foreground);
+  --destructive: var(--web-action-destructive);
+  --destructive-foreground: var(--web-action-destructive-foreground);
+  --border: var(--elevation-10);
+  --input: var(--web-input);
+  --ring: var(--elevation-40);
+  --sidebar: var(--elevation);
+  --sidebar-foreground: var(--web-foreground);
+  --sidebar-primary: var(--web-action-primary);
+  --sidebar-primary-foreground: var(--web-action-primary-foreground);
+  --sidebar-accent: var(--web-subtle-fill);
+  --sidebar-accent-foreground: var(--web-foreground);
+  --sidebar-border: var(--elevation-10);
+  --sidebar-ring: var(--elevation-40);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+  }
+
+  .ui-icon {
+    display: block;
+    color: currentcolor;
+  }
+
+  .dark *,
+  .dark *::before,
+  .dark *::after {
+    --tw-shadow: 0 0 #0000 !important;
+    --tw-inset-shadow: 0 0 #0000 !important;
+
+    box-shadow: var(--tw-inset-ring-shadow, 0 0 #0000),
+      var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000) !important;
+    text-shadow: none !important;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}

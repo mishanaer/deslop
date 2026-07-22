@@ -1,5 +1,6 @@
 .themeSwatch,
-.gradientSwatch {
+.gradientSwatch,
+.solidSwatch {
   width: 40px;
   height: 40px;
   overflow: hidden;
@@ -22,4 +23,8 @@
 
 .gradientSwatch {
   background: linear-gradient(180deg, var(--gradient-top) 0%, var(--gradient-bottom) 100%);
+}
+
+.solidSwatch {
+  background: var(--swatch-value);
 }

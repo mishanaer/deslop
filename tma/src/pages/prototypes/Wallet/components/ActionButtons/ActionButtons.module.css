@@ -14,7 +14,7 @@
 
 :global(body.material) .buttons {
   background-color: var(--tg-theme-section-bg-color);
-  box-shadow: 0 0.33px 1px 0 color-mix(in srgb, var(--ui-static-black) 6%, transparent);
+  box-shadow: 0 0.33px 1px 0 var(--elevation-5);
   padding: 0 8px 8px;
 }
 

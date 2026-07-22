@@ -19,6 +19,16 @@ for (const file of iconFiles) {
   if (!/<svg\b[^>]*\bwidth="24"[^>]*\bheight="24"[^>]*\bviewBox="0 0 24 24"/.test(svg)) {
     errors.push(`${file} must be a 24 × 24 SVG with viewBox "0 0 24 24"`);
   }
+
+  for (const [, attribute, value] of svg.matchAll(
+    /\b(fill|stroke)="([^"]+)"/g
+  )) {
+    if (!["none", "currentColor", "var(--background)"].includes(value)) {
+      errors.push(
+        `${file} uses ${attribute}="${value}"; icons may only use currentColor or var(--background)`
+      );
+    }
+  }
 }
 
 if (errors.length) {

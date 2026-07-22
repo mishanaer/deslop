@@ -9,7 +9,7 @@ import ParticleEffect from "."
 
 import { generateRandomBalance } from "../../utils/number"
 import { BackButton } from "../../lib/twa"
-import { getUiColor } from "@deslop/primitives/colors"
+import { getTmaColor } from "../../theme/colors"
 
 function Demo({ color, children }) {
     const [hidden, setHidden] = useState(true)
@@ -84,13 +84,13 @@ const ParticleEffectShowcase = () => (
                 <SectionList.Item header="On a dark surface (white particles)">
                     <div
                         style={{
-                            background: "var(--ui-background-secondary)",
+                            background: "var(--tma-background-secondary)",
                             padding: "24px",
                             borderRadius: "16px",
-                            color: "var(--ui-static-white)",
+                            color: "var(--tma-static-white)",
                         }}
                     >
-                        <Demo color={getUiColor("static-white")}>
+                        <Demo color={getTmaColor("static-white")}>
                             <Text variant="title1" weight="bold">
                                 7 412 TON
                             </Text>

@@ -12,7 +12,7 @@ import * as styles from "./Onboarding.module.css"
 // redacted circle. Title/subtitle redact via StartView; the bottom buttons
 // redact to gray pills.
 const OnboardingSkeleton = () => (
-    <Page headerColor="131314">
+    <Page headerColorToken="--tma-story-background">
         <Skeleton active>
             <div className={styles.root}>
                 <div className={styles.cover} />

@@ -15,28 +15,28 @@
 }
 
 .button.filled {
-  background-color: var(--ui-action-primary-background);
-  color: var(--ui-action-primary-foreground);
+  background-color: var(--tma-action-primary-background);
+  color: var(--tma-action-primary-foreground);
 }
 
 .button.tinted {
   background-color: var(--secondary-button-color);
-  color: var(--ui-text-primary);
+  color: var(--tma-text-primary);
 }
 
 .button.plain {
   background-color: var(--tg-theme-section-bg-color);
-  color: var(--ui-text-primary);
+  color: var(--tma-text-primary);
 }
 
 .button.gray {
   background-color: var(--tertiary-fill-background);
-  color: var(--ui-text-primary);
+  color: var(--tma-text-primary);
 }
 
 .button.disabled {
   background-color: var(--button-disabled-color);
-  color: var(--ui-text-disabled);
+  color: var(--tma-text-disabled);
 }
 
 .button.skeleton {

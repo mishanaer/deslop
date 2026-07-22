@@ -14,40 +14,37 @@ svg[viewBox="0 0 24 24"] {
 
 :root {
     --side-padding: var(--ui-layout-content-inset);
-    --tg-theme-bg-color: var(--ui-background);
-    --tg-theme-text-color: var(--ui-text-primary);
-    --tg-theme-secondary-bg-color: var(--ui-background-secondary);
-    --tg-theme-button-color: var(--ui-accent-blue);
-    --tg-theme-button-text-color: var(--ui-surface);
-    --tg-theme-subtitle-text-color: var(--ui-text-secondary);
-    --tg-theme-destructive-text-color: var(--ui-accent-red);
-    --tg-theme-section-bg-color: var(--ui-surface);
-    --tg-theme-accent-text-color: var(--ui-accent-blue);
-    --tg-theme-section-header-text-color: var(--ui-text-section);
-    --tg-theme-section-separator-color: var(--ui-separator);
-    --tg-theme-bottom-bar-bg-color: var(--ui-surface-bottom-bar);
-    --tg-theme-hint-color: var(--ui-text-secondary);
-    --secondary-button-color: color-mix(
-        in srgb,
-        var(--ui-accent-blue) 10%,
-        transparent
-    );
-    --text-confirm-color: var(--ui-accent-green);
-    --tertiary-fill-background: var(--ui-fill-tertiary);
-    --quaternary-fill-background: var(--ui-fill-quaternary);
-    --separator-non-opaque: var(--ui-separator-translucent);
-    --segmented_control_active_background: var(--ui-control-active);
-    --button-disabled-color: var(--ui-control-disabled);
-    --text-disabled-color: var(--ui-text-disabled);
-    --border-color: var(--ui-elevation-30);
-    --background-material-regular-color-1: var(--ui-material-layer-1);
-    --background-material-regular-color-2: var(--ui-material-layer-2);
+    --tg-theme-bg-color: var(--tma-background);
+    --tg-theme-text-color: var(--tma-text-primary);
+    --tg-theme-secondary-bg-color: var(--tma-background-secondary);
+    --tg-theme-button-color: var(--accent-blue);
+    --tg-theme-button-text-color: var(--tma-background);
+    --tg-theme-subtitle-text-color: var(--tma-text-secondary);
+    --tg-theme-destructive-text-color: var(--accent-red);
+    --tg-theme-section-bg-color: var(--tma-elevation);
+    --tg-theme-accent-text-color: var(--accent-blue);
+    --tg-theme-link-color: var(--accent-blue);
+    --tg-theme-section-header-text-color: var(--tma-text-section);
+    --tg-theme-section-separator-color: var(--tma-separator);
+    --tg-theme-bottom-bar-bg-color: var(--tma-elevation);
+    --tg-theme-hint-color: var(--tma-text-secondary);
+    --secondary-button-color: var(--tma-fill-tertiary);
+    --text-confirm-color: var(--accent-green);
+    --tertiary-fill-background: var(--tma-fill-tertiary);
+    --quaternary-fill-background: var(--tma-fill-quaternary);
+    --separator-non-opaque: var(--tma-separator-translucent);
+    --segmented_control_active_background: var(--tma-control-active);
+    --button-disabled-color: var(--tma-control-disabled);
+    --text-disabled-color: var(--tma-text-disabled);
+    --border-color: var(--elevation-30);
+    --background-material-regular-color-1: var(--tma-material-layer-1);
+    --background-material-regular-color-2: var(--tma-material-layer-2);
     --background-material-regular-blend-mode-1: normal;
     --background-material-regular-blend-mode-2: normal;
-    --glass-tint-background: var(--ui-glass-tint);
-    --toast-background: var(--ui-toast-background);
-    --toast-text: var(--ui-toast-text);
-    --toast-link: var(--ui-toast-link);
+    --glass-tint-background: var(--tma-glass-tint);
+    --toast-background: var(--tma-toast-background);
+    --toast-text: var(--tma-toast-text);
+    --toast-link: var(--tma-toast-link);
 }
 
 html,
@@ -62,11 +59,30 @@ body {
     );
     padding-right: env(safe-area-inset-right);
     padding-left: env(safe-area-inset-left);
-    color: var(--ui-text-primary);
-    background: var(--ui-background);
+    color: var(--tma-text-primary);
+    background: var(--tma-background);
     font-family: var(--ui-font-interface);
     -webkit-font-smoothing: antialiased;
     transition: background-color 200ms ease;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-color-scheme="light"]) *,
+    :root:not([data-color-scheme="light"]) *::before,
+    :root:not([data-color-scheme="light"]) *::after {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+}
+
+:where([data-color-scheme="dark"]) *,
+:where([data-color-scheme="dark"]) *::before,
+:where([data-color-scheme="dark"]) *::after,
+:root[data-color-scheme="dark"] *,
+:root[data-color-scheme="dark"] *::before,
+:root[data-color-scheme="dark"] *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
 }
 
 body::-webkit-scrollbar,

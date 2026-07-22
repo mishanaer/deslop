@@ -1,8 +1,8 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="24_icon-fill/payments">
-<rect id="Rectangle 456746793" x="2.5" y="4.5" width="19" height="15" rx="4" fill="#3D3C3A"/>
-<path id="Vector 118" d="M17.246 12.6577L14.7105 15.1933C14.0805 15.8232 13.0034 15.3771 13.0034 14.4862L13.0034 9.41511C13.0034 8.5242 14.0805 8.07804 14.7105 8.708L17.246 11.2435C17.6365 11.6341 17.6365 12.2672 17.246 12.6577Z" fill="#F5F5F5"/>
-<path id="Vector 234255897" d="M14 12H8" stroke="#F5F5F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect id="Rectangle 456746793" x="2.5" y="4.5" width="19" height="15" rx="4" fill="currentColor"/>
+<path id="Vector 118" d="M17.246 12.6577L14.7105 15.1933C14.0805 15.8232 13.0034 15.3771 13.0034 14.4862L13.0034 9.41511C13.0034 8.5242 14.0805 8.07804 14.7105 8.708L17.246 11.2435C17.6365 11.6341 17.6365 12.2672 17.246 12.6577Z" fill="var(--background)"/>
+<path id="Vector 234255897" d="M14 12H8" stroke="var(--background)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 
 </svg>

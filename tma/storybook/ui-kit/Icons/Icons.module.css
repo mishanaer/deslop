@@ -3,36 +3,14 @@
   width: 40px;
   height: 40px;
   place-items: center;
-  border: 0.5px solid var(--ui-separator);
+  border: 0.5px solid var(--tma-separator);
   border-radius: 12px;
-  background-color: var(--ui-background-secondary);
+  background-color: var(--tma-background-secondary);
 }
 
 .icon {
   display: block;
   width: 24px;
   height: 24px;
-  color: var(--ui-text-primary);
-}
-
-.icon [fill="#3D3C3A" i] {
-  fill: currentcolor;
-}
-
-.icon [stroke="#3D3C3A" i] {
-  stroke: currentcolor;
-}
-
-.icon [fill="white" i],
-.icon [fill="#fff" i],
-.icon [fill="#ffffff" i],
-.icon [fill="#F5F5F5" i] {
-  fill: var(--ui-background-secondary);
-}
-
-.icon [stroke="white" i],
-.icon [stroke="#fff" i],
-.icon [stroke="#ffffff" i],
-.icon [stroke="#F5F5F5" i] {
-  stroke: var(--ui-background-secondary);
+  color: var(--tma-text-primary);
 }

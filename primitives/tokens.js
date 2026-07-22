@@ -27,6 +27,10 @@ export const accentColors = [
   { name: "Brown", light: "#AC7F5E", dark: "#B78A66" },
 ];
 
+export const baseColors = [
+  { name: "Background", light: "#F5F5F5", dark: "#111111" },
+];
+
 export const avatarGradients = [
   { name: "Red", top: "#FF885E", bottom: "#FF516A" },
   { name: "Orange", top: "#FFCD6A", bottom: "#FFA85C" },
@@ -38,6 +42,7 @@ export const avatarGradients = [
 ];
 
 export const elevationColors = [
+  { name: "Elevation", light: "#FFFFFF", dark: "#FFFFFF0D" },
   { name: "Primary", light: "#111111", dark: "#FFFFFF" },
   { name: "Elevation 90", light: "#111111E6", dark: "#FFFFFFE6" },
   { name: "Elevation 80", light: "#111111CC", dark: "#FFFFFFCC" },
@@ -49,21 +54,6 @@ export const elevationColors = [
   { name: "Elevation 20", light: "#11111133", dark: "#FFFFFF33" },
   { name: "Elevation 10", light: "#1111111A", dark: "#FFFFFF1A" },
   { name: "Elevation 5", light: "#1111110D", dark: "#FFFFFF0D" },
-];
-
-export const semanticColors = [
-  { name: "Action Primary Background", light: "#34C759", dark: "#30D158" },
-  { name: "Action Primary Foreground", light: "#111111", dark: "#111111" },
-  { name: "Background", light: "#EFEFF4", dark: "#111111" },
-  { name: "Surface", light: "#FFFFFF", dark: "#2C2C2E" },
-  { name: "Bottom Bar", light: "#F2F2F2", dark: "#1D1D1D" },
-  { name: "Text Primary", light: "#111111", dark: "#FFFFFF" },
-  { name: "Text Secondary", light: "#8E8E93", dark: "#98989E" },
-  { name: "Section Text", light: "#6D6D72", dark: "#8D8E93" },
-  { name: "Separator", light: "#C8C7CC", dark: "#545458" },
-  { name: "Control Active", light: "#FFFFFF", dark: "#636366" },
-  { name: "Control Disabled", light: "#E9E8E8", dark: "#3C3C3E" },
-  { name: "Text Disabled", light: "#BABABA", dark: "#606060" },
 ];
 
 export const typographyStyles = [

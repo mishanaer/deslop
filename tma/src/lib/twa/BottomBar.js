@@ -1,14 +1,13 @@
 import { useEffect } from "react"
 import PropTypes from "prop-types"
 import WebApp from "./webApp"
-
-const defaultColor = WebApp.themeParams.bottom_bar_bg_color
+import { getTmaColor } from "../../theme/colors"
 
 const BottomBar = ({ color }) => {
     useEffect(() => {
         WebApp.setBottomBarColor(color)
         return () => {
-            WebApp.setBottomBarColor(defaultColor)
+            WebApp.setBottomBarColor(getTmaColor("elevation"))
         }
     }, [color])
 

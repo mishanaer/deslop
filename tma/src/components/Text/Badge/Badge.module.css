@@ -22,7 +22,7 @@
 }
 
 .badge.tinted {
-  background-color: rgb(from var(--badge-background) r g b/10%);
+  background-color: var(--tma-fill-tertiary);
   color: var(--badge-text-color, var(--tg-theme-accent-text-color));
 }
 

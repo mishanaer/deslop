@@ -41,7 +41,7 @@
 
 .input input {
   border-radius: 36px;
-  background: rgb(from var(--tg-theme-section-bg-color) r g b/70%);
+  background: var(--tma-elevation);
 }
 
 .input input::placeholder {

@@ -13,7 +13,7 @@
 .rect {
   position: relative;
   height: 75vh;
-  border: 1px dashed var(--ui-elevation-40);
+  border: 1px dashed var(--elevation-40);
   border-radius: 16px;
   background-color: var(--tg-theme-bg-color);
 }
@@ -28,5 +28,5 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: var(--ui-elevation-60);
+  background-color: var(--elevation-60);
 }

@@ -3,7 +3,7 @@ import { useState } from "react"
 import { RegularButton } from "../../../components/Button"
 
 import WebApp, { BackButton } from "../../../lib/twa"
-import { getUiColor } from "@deslop/primitives/colors"
+import { getTmaColor } from "../../../theme/colors"
 
 import * as styles from "./ColorChanging.module.css"
 
@@ -13,8 +13,8 @@ function ColorChanging() {
     const switchColors = () => {
         if (WebApp.initData) {
             if (isSecondaryColor) {
-                WebApp.setHeaderColor(getUiColor("story-background"))
-                WebApp.setBackgroundColor(getUiColor("story-background"))
+                WebApp.setHeaderColor(getTmaColor("story-background"))
+                WebApp.setBackgroundColor(getTmaColor("story-background"))
             } else {
                 WebApp.setHeaderColor("secondary_bg_color")
                 WebApp.setBackgroundColor("secondary_bg_color")
@@ -23,7 +23,7 @@ function ColorChanging() {
             WebApp.HapticFeedback.impactOccurred("light")
         } else {
             if (isSecondaryColor) {
-                document.body.style.backgroundColor = getUiColor(
+                document.body.style.backgroundColor = getTmaColor(
                     "story-background"
                 )
             } else {

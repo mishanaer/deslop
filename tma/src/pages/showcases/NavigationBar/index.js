@@ -5,7 +5,7 @@ import SectionList from "../../../components/SectionList"
 import Cell from "../../../components/Cells"
 
 import WebApp, { BackButton } from "../../../lib/twa"
-import { getUiColor } from "@deslop/primitives/colors"
+import { getTmaColor } from "../../../theme/colors"
 
 const NavigationBar = () => {
     const [isFullscreen, setIsFullscreen] = useState(false)
@@ -13,9 +13,7 @@ const NavigationBar = () => {
     const [isSettingsButtonAvailable, setSettingsButtonAvailable] =
         useState(false)
     const [headerColor, setHeaderColor] = useState(() => {
-        const color =
-            WebApp.themeParams.secondary_bg_color ||
-            getUiColor("background-secondary")
+        const color = getTmaColor("background-secondary")
         return color.toUpperCase()
     })
     const colorInputRef = useRef(null)

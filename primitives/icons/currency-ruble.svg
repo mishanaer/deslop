@@ -1,8 +1,8 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="ruble 3">
-<path id="Vector_2" d="M5.5 17.123H14" stroke="#3D3C3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_3" d="M5.5 13.0938H14" stroke="#3D3C3A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_4" d="M9 19.6416V4.0293H13.5C15.9853 4.0293 18 6.05862 18 8.56191C18 11.0652 15.9853 13.0945 13.5 13.0945H9" stroke="#3D3C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M5.5 17.123H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M5.5 13.0938H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M9 19.6416V4.0293H13.5C15.9853 4.0293 18 6.05862 18 8.56191C18 11.0652 15.9853 13.0945 13.5 13.0945H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 
 </svg>

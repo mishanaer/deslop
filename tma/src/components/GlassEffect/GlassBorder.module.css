@@ -7,12 +7,12 @@
   mix-blend-mode: overlay;
   z-index: 2;
   pointer-events: none;
-  mask: linear-gradient(var(--ui-static-black) 0, var(--ui-static-black) 0) content-box, linear-gradient(var(--ui-static-black) 0, var(--ui-static-black) 0);
+  mask: linear-gradient(var(--tma-static-black) 0, var(--tma-static-black) 0) content-box, linear-gradient(var(--tma-static-black) 0, var(--tma-static-black) 0);
   mask-composite: exclude;
-  background: linear-gradient(8deg, transparent 0%, color-mix(in srgb, var(--ui-static-white) 90%, transparent) 35%, color-mix(in srgb, var(--ui-static-white) 90%, transparent) 65%, transparent 100%);
+  background: linear-gradient(8deg, transparent 0%, var(--elevation-90) 35%, var(--elevation-90) 65%, transparent 100%);
 }
 
 .glassBorder.muted {
   mix-blend-mode: normal;
-  background: linear-gradient(8deg, transparent 0%, color-mix(in srgb, var(--ui-static-white) 32%, transparent) 35%, color-mix(in srgb, var(--ui-static-white) 32%, transparent) 65%, transparent 100%);
+  background: linear-gradient(8deg, transparent 0%, var(--elevation-20) 35%, var(--elevation-20) 65%, transparent 100%);
 }

@@ -13,6 +13,8 @@
 }
 
 .root {
+  --tma-press-highlight: var(--elevation-5);
+
   display: flex;
   flex-direction: row;
   color: var(--tg-theme-text-color);
@@ -26,7 +28,7 @@
 }
 
 .root:focus-visible {
-  background-color: var(--ui-press-highlight);
+  background-color: var(--tma-press-highlight);
 }
 
 .root .start {
@@ -51,7 +53,7 @@
 
 .root .start .icon svg,
 .root .start .icon path {
-  fill: var(--ui-static-white);
+  fill: var(--tma-static-white);
 }
 
 .root .body {
@@ -95,7 +97,7 @@
 }
 
 :global(body.apple) .root .start .icon {
-  background: linear-gradient(156.88deg, var(--ui-accent-cyan) 14.96%, var(--ui-accent-blue) 85.04%);
+  background: linear-gradient(156.88deg, var(--accent-cyan) 14.96%, var(--accent-blue) 85.04%);
 }
 
 :global(body.apple) .root .start .icon,

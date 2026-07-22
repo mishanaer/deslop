@@ -17,7 +17,7 @@
   scroll-padding-inline: var(--tabs-side-padding);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  mask-image: linear-gradient(to right, transparent 0, var(--ui-static-black) var(--tabs-side-padding), var(--ui-static-black) calc(100% - var(--tabs-side-padding)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, var(--tma-static-black) var(--tabs-side-padding), var(--tma-static-black) calc(100% - var(--tabs-side-padding)), transparent 100%);
 }
 
 .list.scrollable::-webkit-scrollbar {
@@ -110,7 +110,7 @@
 .indicator {
   position: absolute;
   inset: 0;
-  background-color: rgb(from var(--tg-theme-accent-text-color) r g b/10%);
+  background-color: var(--tma-fill-tertiary);
   border-radius: inherit;
   z-index: 0;
   pointer-events: none;

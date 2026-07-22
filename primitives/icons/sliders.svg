@@ -1,9 +1,9 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="24_icon-fill/sliders">
-<line id="Line 1" x1="4" y1="7.5" x2="20" y2="7.5" stroke="#3D3C3A" stroke-width="2" stroke-linecap="round"/>
-<line id="Line 2" x1="1" y1="-1" x2="17" y2="-1" transform="matrix(-1 0 0 1 21 17.5)" stroke="#3D3C3A" stroke-width="2" stroke-linecap="round"/>
-<rect id="Rectangle 456746773" x="10" y="5" width="8" height="5" rx="2.5" fill="#3D3C3A"/>
-<rect id="Rectangle 456746774" width="8" height="5" rx="2.5" transform="matrix(-1 0 0 1 14 14)" fill="#3D3C3A"/>
+<line id="Line 1" x1="4" y1="7.5" x2="20" y2="7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+<line id="Line 2" x1="1" y1="-1" x2="17" y2="-1" transform="matrix(-1 0 0 1 21 17.5)" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+<rect id="Rectangle 456746773" x="10" y="5" width="8" height="5" rx="2.5" fill="currentColor"/>
+<rect id="Rectangle 456746774" width="8" height="5" rx="2.5" transform="matrix(-1 0 0 1 14 14)" fill="currentColor"/>
 </g>
 
 </svg>

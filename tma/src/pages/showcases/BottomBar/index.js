@@ -5,24 +5,14 @@ import SectionList from "../../../components/SectionList"
 import Cell from "../../../components/Cells"
 
 import WebApp, { BackButton } from "../../../lib/twa"
-import { semanticColors } from "@deslop/primitives/tokens"
+import { getTmaColor } from "../../../theme/colors"
 
 import Picker from "../../../components/Picker"
 import Collapsible from "../../../components/Collapsible"
-import { useColorScheme } from "../../../hooks/useColorScheme"
-
-const actionBackground = semanticColors.find(
-    ({ name }) => name === "Action Primary Background"
-)
-const actionForeground = semanticColors.find(
-    ({ name }) => name === "Action Primary Foreground"
-)
-
-const getDefaultColor = (telegramColor, uiToken, colorScheme) =>
-    (telegramColor || uiToken[colorScheme]).toUpperCase()
+const getDefaultColor = (telegramColor, token) =>
+    (telegramColor || getTmaColor(token)).toUpperCase()
 
 const BottomBar = () => {
-    const colorScheme = useColorScheme()
     const [label, setLabel] = useState("")
     const [labelSecondary, setLabelSecondary] = useState("")
 
@@ -84,18 +74,10 @@ const BottomBar = () => {
     const [textColorOverride, setTextColor] = useState(null)
     const buttonBgColor =
         buttonBgColorOverride ??
-        getDefaultColor(
-            WebApp.themeParams.button_color,
-            actionBackground,
-            colorScheme
-        )
+        getDefaultColor(null, "action-primary-background")
     const textColor =
         textColorOverride ??
-        getDefaultColor(
-            WebApp.themeParams.button_text_color,
-            actionForeground,
-            colorScheme
-        )
+        getDefaultColor(null, "action-primary-foreground")
 
     const handleColorClick = () => {
         colorInputRef.current.click()

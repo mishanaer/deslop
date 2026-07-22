@@ -50,6 +50,11 @@ accent-colors:
     light: "#AC7F5E"
     dark: "#B78A66"
 
+base-colors:
+  background:
+    light: "#F5F5F5"
+    dark: "#111111"
+
 avatar-gradients:
   red:
     top: "#FF885E"
@@ -80,6 +85,10 @@ avatar-gradients:
     bottom: "#D669ED"
 
 elevation-colors:
+  elevation:
+    light: "#FFFFFF"
+    dark: "#FFFFFF0D"
+
   primary:
     light: "#111111"
     dark: "#FFFFFF"
@@ -123,53 +132,4 @@ elevation-colors:
   elevation-5:
     light: "#1111110D"
     dark: "#FFFFFF0D"
-
-semantic-colors:
-  action-primary-background:
-    light: "#34C759"
-    dark: "#30D158"
-
-  action-primary-foreground:
-    light: "#111111"
-    dark: "#111111"
-
-  background:
-    light: "#EFEFF4"
-    dark: "#111111"
-
-  surface:
-    light: "#FFFFFF"
-    dark: "#2C2C2E"
-
-  surface-bottom-bar:
-    light: "#F2F2F2"
-    dark: "#1D1D1D"
-
-  text-primary:
-    light: "#111111"
-    dark: "#FFFFFF"
-
-  text-secondary:
-    light: "#8E8E93"
-    dark: "#98989E"
-
-  text-section:
-    light: "#6D6D72"
-    dark: "#8D8E93"
-
-  separator:
-    light: "#C8C7CC"
-    dark: "#545458"
-
-  control-active:
-    light: "#FFFFFF"
-    dark: "#636366"
-
-  control-disabled:
-    light: "#E9E8E8"
-    dark: "#3C3C3E"
-
-  text-disabled:
-    light: "#BABABA"
-    dark: "#606060"
 ```

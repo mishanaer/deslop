@@ -89,7 +89,7 @@ export default function BalanceCard({
                     hidden={hidden}
                     color={
                         variant === "overlay"
-                            ? "var(--ui-static-white)"
+                            ? "var(--tma-static-white)"
                             : undefined
                     }
                     onClick={() => setHidden((s) => !s)}

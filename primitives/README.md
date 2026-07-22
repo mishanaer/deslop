@@ -1,21 +1,23 @@
 # Deslop Primitives
 
-Единый источник цветов, типографики, отступов, радиусов, шрифтов и иконок для веб-продуктов Deslop.
+Единый источник цветов, типографики, отступов, радиусов, шрифтов и иконок для продуктов Deslop.
 
-Primitives хранят базовые правила. Готовые React-компоненты находятся отдельно в `@deslop/tma`.
+Primitives хранят базовые правила. Готовые React-компоненты находятся отдельно
+в `@deslop/web-ui` и `@deslop/tma`.
 
 ## Состав
 
 | Что | Где | Как использовать |
 | --- | --- | --- |
-| Цвета | `colors.css`, `colors.md`, `tokens.js` | CSS-переменные `--ui-*` и JS-массивы токенов |
+| Цвета | `colors.css`, `colors.md`, `tokens.js` | CSS-переменные `--background`, `--elevation`, `--primary`, `--elevation-*`, `--accent-*` и JS-массивы токенов |
 | Типографика и шрифты | `typography.css`, `TYPOGRAPHY.md` | CSS-переменные и локальные шрифты SB Sans |
 | Отступы и радиусы | `layout.json`, `layout.css`, `layout.js` | CSS-переменные и JS-токены |
-| Иконки | `icons/` | SVG размером 24 × 24 с понятными именами |
+| Иконки | `icons/` | SVG размером 24 × 24 с понятными именами. Адаптированы из Иконостаса Ильи Пехтерева |
 
-## Подключение в веб-проекте
+## Подключение напрямую
 
-В проекте, где пакет уже доступен как `@deslop/primitives`, подключите слои один раз в корневом стиле или entry-файле:
+Если проект не использует библиотеку компонентов Deslop, подключите слои
+Primitives один раз в корневом стиле или entry-файле:
 
 ```js
 import "@deslop/primitives/colors.css";
@@ -25,32 +27,35 @@ import "@deslop/primitives/typography.css";
 
 `colors.css` выбирает тему ОС автоматически. Для явного переключения задайте `data-color-scheme="light"` или `data-color-scheme="dark"` на `html` либо на корневом контейнере.
 
-Пакет пока приватный: текущий TMA подключает его локально через `link:../primitives`. Перед установкой в независимый проект нужно выбрать способ распространения — приватный registry, Git-зависимость или монорепозиторий — и отдельно подтвердить право на распространение файлов из `fonts/`.
+Пакет пока приватный: Web UI и TMA подключают его локально через
+`link:../primitives`. Перед установкой в независимый проект нужно выбрать способ
+распространения — приватный registry, Git-зависимость или монорепозиторий — и
+отдельно подтвердить право на распространение файлов из `fonts/`.
+
+## Внутри TMA
+
+TMA уже подключает Primitives через `src/styles/tailwind.css`. В компонентах
+используйте семантические Tailwind-классы, а не прямые импорты и не новые CSS
+Modules:
+
+```jsx
+<section className="rounded-section bg-background p-content text-foreground">
+  <button className="rounded-button bg-action-primary px-20 py-12 text-on-action">
+    Продолжить
+  </button>
+</section>
+```
+
+Полный порядок работы описан в [TMA README](../tma/README.md#стили).
 
 ## Правила применения
 
-- Используйте семантические цвета для интерфейса: `--ui-background`, `--ui-surface`, `--ui-text-primary`, `--ui-text-secondary`, `--ui-separator`.
-- Для основной кнопки используйте `--ui-action-primary-background` и `--ui-action-primary-foreground`. Этот токен уже связан с акцентным зелёным цветом в обеих темах.
+- В Primitives лежат `--background`, `--elevation`, `--primary`, палитры `--accent-*` и `--elevation-*`. Семантические роли задаёт библиотека компонентов конкретного продукта.
+- В TMA используйте роли из `tma/src/styles/theme.css`, в Web UI — shadcn-роли из `web-ui/src/index.css`. Не используйте базовый цвет напрямую внутри компонента, если для него уже есть роль продукта.
 - Используйте `--ui-font-interface` для интерфейсного текста и `--ui-font-interface-caps` только для стиля Caption.
 - Берите отступы из `--ui-space-*` и `--ui-layout-*`, радиусы — из `--ui-radius-*` и `--ui-component-*-radius`.
 - Не добавляйте в компоненты произвольные HEX-цвета, размеры, `border-radius` или другие значения, если для них уже есть токен.
 - Используйте иконки из `icons/`; все исходные SVG имеют размер 24 × 24. Не рисуйте системные шевроны символами или CSS-линиями.
-
-Минимальный пример:
-
-```css
-.primaryButton {
-  padding: var(--ui-space-12) var(--ui-space-16);
-  border: 0;
-  border-radius: var(--ui-component-button-regular-radius);
-  background: var(--ui-action-primary-background);
-  color: var(--ui-action-primary-foreground);
-  font-family: var(--ui-font-interface);
-  font-size: var(--ui-body-font-size);
-  font-weight: 600;
-  line-height: var(--ui-body-line-height);
-}
-```
 
 ## Иконки
 
@@ -77,19 +82,18 @@ npm run check
 
 Проверка подтверждает синхронность layout-, color- и typography-токенов и размер SVG-иконок. После этого запустите lint и build самого продукта-потребителя.
 
-## Для агентов
-
-В репозитории есть переносимый скилл [deslop-design-system](../skills/deslop-design-system/SKILL.md). Он задаёт рабочий порядок: сначала найти Primitives и подключённые стили, затем использовать токены и проверить обе темы.
+## Для других продуктов
 
 Чтобы правило работало в новом продукте, добавьте в его корневой `AGENTS.md` этот блок. Он дополняет другие правила проекта, а не заменяет их:
 
 ```md
 ## Deslop design system
 
-Если пользователь явно не попросил иначе, используй только готовые компоненты
-из `@deslop/tma` и токены, шрифты и иконки из `@deslop/primitives`.
+Если пользователь явно не попросил иначе, используй готовые компоненты из
+`@deslop/web-ui` для веба или `@deslop/tma` для Telegram Mini Apps. Токены,
+шрифты и иконки бери из `@deslop/primitives`.
 
-Перед созданием компонента проверь `@deslop/tma`. Не создавай в продукте
+Перед созданием компонента проверь выбранную библиотеку. Не создавай в продукте
 локальный дубликат существующего компонента. Если нужного компонента нет,
-добавь его сначала в `@deslop/tma` на основе Primitives.
+добавь его сначала в библиотеку на основе Primitives.
 ```

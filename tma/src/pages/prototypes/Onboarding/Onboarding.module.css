@@ -8,13 +8,13 @@
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  background: var(--ui-story-background);
+  background: var(--tma-story-background);
 }
 
 .root .cover {
   flex: 0 0 auto;
   height: min(37vh, 269px);
-  background-color: var(--ui-story-background);
+  background-color: var(--tma-story-background);
   overflow: visible;
   display: flex;
   justify-content: center;

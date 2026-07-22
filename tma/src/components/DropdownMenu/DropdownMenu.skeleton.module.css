@@ -6,7 +6,7 @@
 .rect {
   position: relative;
   height: 85vh;
-  border: 1px dashed var(--ui-elevation-40);
+  border: 1px dashed var(--elevation-40);
   border-radius: 16px;
   background-color: var(--tg-theme-bg-color);
 }

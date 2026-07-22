@@ -2,6 +2,8 @@ import { useEffect } from "react"
 import PropTypes from "prop-types"
 import WebApp from "../../lib/twa"
 import { useSplitViewContext } from "../SplitView/context"
+import { useColorScheme } from "../../hooks/useColorScheme"
+import { getResolvedColorToken } from "../../theme/colors"
 
 const { setHeaderColor, setBackgroundColor } = WebApp
 
@@ -9,8 +11,8 @@ const { setHeaderColor, setBackgroundColor } = WebApp
  * Screen wrapper that syncs the TWA header/background colors and the
  * --page-background var (drives AppBar/TabBar fades). Renders children as-is.
  * @param {"primary"|"secondary"} [props.mode] Which --tg-theme bg to use.
- * @param {string} [props.headerColor]     Hex without '#', overrides mode.
- * @param {string} [props.backgroundColor] Hex without '#', overrides mode.
+ * @param {string} [props.headerColorToken] Primitive or TMA color token.
+ * @param {string} [props.backgroundColorToken] Primitive or TMA color token.
  * @param {boolean} [props.expandOnMount]  Call WebApp.expand() on mount.
  * @example
  * <Page mode="primary" expandOnMount>{content}</Page>
@@ -18,29 +20,24 @@ const { setHeaderColor, setBackgroundColor } = WebApp
 const Page = ({
     children,
     mode = "secondary",
-    headerColor,
-    backgroundColor,
+    headerColorToken,
+    backgroundColorToken,
     expandOnMount,
 }) => {
     const { inDetailPane, setPaneBackground } = useSplitViewContext()
+    useColorScheme()
 
-    const tgColorMapping = {
-        primary: "bg_color",
-        secondary: "secondary_bg_color",
+    const colorTokenMapping = {
+        primary: "--tma-background",
+        secondary: "--tma-background-secondary",
     }
 
-    const CSSColorMapping = {
-        primary: "--tg-theme-bg-color",
-        secondary: "--tg-theme-secondary-bg-color",
-    }
-
-    const tgHeaderColor = headerColor ? `#${headerColor}` : tgColorMapping[mode]
-    const tgBackgroundColor = backgroundColor
-        ? `#${backgroundColor}`
-        : tgColorMapping[mode]
-    const CSSBackgroundColor = backgroundColor
-        ? `#${backgroundColor}`
-        : `var(${CSSColorMapping[mode]})`
+    const resolvedHeaderToken = headerColorToken ?? colorTokenMapping[mode]
+    const resolvedBackgroundToken =
+        backgroundColorToken ?? colorTokenMapping[mode]
+    const tgHeaderColor = getResolvedColorToken(resolvedHeaderToken)
+    const tgBackgroundColor = getResolvedColorToken(resolvedBackgroundToken)
+    const CSSBackgroundColor = `var(${resolvedBackgroundToken})`
 
     useEffect(() => {
         if (expandOnMount) {
@@ -76,8 +73,8 @@ const Page = ({
 Page.propTypes = {
     children: PropTypes.node,
     mode: PropTypes.oneOf(["primary", "secondary"]),
-    headerColor: PropTypes.string,
-    backgroundColor: PropTypes.string,
+    headerColorToken: PropTypes.string,
+    backgroundColorToken: PropTypes.string,
     expandOnMount: PropTypes.bool,
 }
 export default Page

@@ -10,7 +10,10 @@ import FAQ from "./components/FAQ"
 
 function TONWallet() {
     return (
-        <Page headerColor="131314" backgroundColor="131314">
+        <Page
+            headerColorToken="--tma-story-background"
+            backgroundColorToken="--tma-story-background"
+        >
             <div className="ton-space">
                 <Profile />
                 <SectionList>

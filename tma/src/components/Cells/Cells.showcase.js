@@ -9,7 +9,7 @@ import DropdownMenu from "../DropdownMenu"
 
 import { getAssetIcon } from "../../utils/AssetsMap"
 import { BackButton } from "../../lib/twa"
-import { getUiColor } from "@deslop/primitives/colors"
+import { getColorToken } from "@deslop/primitives/colors"
 
 const CellsShowcase = () => {
     const [switchValue, setSwitchValue] = useState(true)
@@ -17,7 +17,7 @@ const CellsShowcase = () => {
     const [editableValue, setEditableValue] = useState("")
     const [pickerIndex] = useState(0)
     const [headerColor, setHeaderColor] = useState(() =>
-        getUiColor("accent-blue")
+        getColorToken("accent-blue")
     )
     const colorInputRef = useRef(null)
 

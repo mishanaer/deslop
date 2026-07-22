@@ -12,7 +12,7 @@
 
 :global(body.material) .sectionContainer {
   border-radius: 16px;
-  box-shadow: 0 0.33px 1px 0 color-mix(in srgb, var(--ui-static-black) 6%, transparent);
+  box-shadow: 0 0.33px 1px 0 var(--elevation-5);
 }
 
 .glassHeader {

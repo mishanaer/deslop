@@ -4,9 +4,9 @@
   display: flex;
   padding: 4px;
   border-radius: 100px;
-  background: rgb(from var(--tg-theme-section-bg-color) r g b/70%);
+  background: var(--tma-elevation);
   backdrop-filter: saturate(300%) blur(8px);
-  box-shadow: 0 0 10px 0 color-mix(in srgb, var(--ui-static-black) 10%, transparent);
+  box-shadow: 0 0 10px 0 var(--elevation-10);
 }
 
 :global(body.apple) .bar {

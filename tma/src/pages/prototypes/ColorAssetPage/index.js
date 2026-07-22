@@ -9,8 +9,6 @@ import Skeleton from "../../../components/Skeleton"
 import { RegularButton, MultilineButton } from "../../../components/Button"
 
 import useAssets from "../../../hooks/useAssets"
-import { useAccentColorLazy } from "../../../hooks/useAccentColor"
-
 import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"
 import ArrowDownIcon from "@deslop/primitives/icons/arrow-down.svg?react"
 import PlusIcon from "@deslop/primitives/icons/plus.svg?react"
@@ -24,6 +22,13 @@ const SKELETON_COUNT = 3
 
 // Mock values give the skeleton bars realistic, varied widths while loading.
 const PLACEHOLDER = { name: "Ethereum", current_price: "3,180", symbol: "eth" }
+
+const ASSET_BACKGROUNDS = [
+    "var(--accent-indigo)",
+    "var(--accent-purple)",
+    "var(--accent-blue)",
+    "var(--accent-teal)",
+]
 
 function Banner({ name }) {
     const BannerText = `Currently, ${name} can only be purchased, held and sold within Crypto Wallet. It is not possible to transfer, receive or withdraw ${name} externally.`
@@ -82,9 +87,8 @@ function ActionButtons({ mode }) {
                         isFill={true}
                         key={index}
                         style={{
-                            color: "var(--ui-static-white)",
-                            backgroundColor:
-                                "color-mix(in srgb, var(--ui-static-white) 16%, transparent)",
+                            color: "var(--tma-static-white)",
+                            backgroundColor: "var(--tma-fill-tertiary)",
                         }}
                     />
                 ))}
@@ -102,9 +106,8 @@ function ActionButtons({ mode }) {
                         label={button.name}
                         key={index}
                         style={{
-                            color: "var(--ui-static-white)",
-                            backgroundColor:
-                                "color-mix(in srgb, var(--ui-static-white) 16%, transparent)",
+                            color: "var(--tma-static-white)",
+                            backgroundColor: "var(--tma-fill-tertiary)",
                         }}
                     />
                 ))}
@@ -117,26 +120,14 @@ ActionButtons.propTypes = {
     mode: PropTypes.string,
 }
 
-function AssetSection({ mode, asset }) {
-    const { hex: accentColor, ref } = useAccentColorLazy(asset?.image, 10, {
-        rootMargin: "100px",
-    })
-
-    // Reveal only once the data AND its accent color are both ready: the card
-    // waves as a neutral skeleton, then pops into color with its content, so
-    // the text never flashes over a colorless background.
-    const revealed = Boolean(asset) && Boolean(accentColor)
+function AssetSection({ mode, asset, backgroundColor }) {
+    const revealed = Boolean(asset)
     const data = asset ?? PLACEHOLDER
 
     return (
         <section
-            ref={ref}
             className={styles.root}
-            style={{
-                backgroundColor: accentColor
-                    ? `oklch(from ${accentColor} calc(l * .9) c h)`
-                    : undefined,
-            }}
+            style={{ backgroundColor }}
         >
             {revealed && mode === "trade" ? <Banner name={data.name} /> : null}
             <Skeleton active={!revealed}>
@@ -162,6 +153,7 @@ function AssetSection({ mode, asset }) {
 
 AssetSection.propTypes = {
     mode: PropTypes.string,
+    backgroundColor: PropTypes.string,
     asset: PropTypes.shape({
         image: PropTypes.string,
         name: PropTypes.string,
@@ -186,7 +178,16 @@ function ColorAssetPage() {
             <Page>
                 <div className={styles.list}>
                     {rows.map((asset, index) => (
-                        <AssetSection mode="trade" asset={asset} key={index} />
+                        <AssetSection
+                            mode="trade"
+                            asset={asset}
+                            backgroundColor={
+                                ASSET_BACKGROUNDS[
+                                    index % ASSET_BACKGROUNDS.length
+                                ]
+                            }
+                            key={index}
+                        />
                     ))}
                 </div>
             </Page>

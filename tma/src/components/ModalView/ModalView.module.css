@@ -3,7 +3,8 @@
   inset: 0;
   display: flex;
   justify-content: center;
-  background: color-mix(in srgb, var(--ui-static-black) 50%, transparent);
+  background: transparent;
+  backdrop-filter: brightness(50%);
   z-index: 1000;
   will-change: opacity;
 }
