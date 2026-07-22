@@ -13,7 +13,6 @@ import { useViewportHeight } from "./useViewportHeight"
 import { usePreventScroll } from "./usePreventScroll"
 import * as styles from "./TextField.showcase.module.css"
 import { accentColors, avatarGradients } from "@deslop/primitives/tokens"
-import { getUiColor } from "@deslop/primitives/colors"
 
 function InputPage() {
     const viewportHeight = useViewportHeight()
@@ -45,13 +44,13 @@ function InputPage() {
     ]
 
     // Цвет header в зависимости от темы
-    const headerColor =
+    const headerColorToken =
         colorScheme === "dark"
-            ? getUiColor("static-black").replace("#", "")
-            : greenGradient.bottom.replace("#", "")
+            ? "--tma-static-black"
+            : "--avatar-green-bottom"
 
     return (
-        <Page headerColor={headerColor}>
+        <Page headerColorToken={headerColorToken}>
             <GradientBackground
                 colors={gradientColors}
                 colorsDark={gradientColorsDark}

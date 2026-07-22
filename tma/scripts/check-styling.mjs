@@ -54,6 +54,38 @@ if (migratedModules.length > 0) {
     )
 }
 
+const legacySharedSemanticToken =
+    /--ui-(?:action|background|control|fill|glass|heatmap|material|overlay|press|separator|story|surface|text|toast)[a-z0-9-]*/
+for (const path of files.filter((path) =>
+    [".css", ".js", ".jsx", ".ts", ".tsx"].includes(extname(path))
+)) {
+    const source = await readFile(path, "utf8")
+    const token = source.match(legacySharedSemanticToken)?.[0]
+    if (token) {
+        failures.push(
+            `${normalize(path)} uses ${token}; TMA semantic colors must use the --tma-* namespace`
+        )
+    }
+
+    if (/color-mix\(|(?:rgb|oklch)\(from\s/i.test(source)) {
+        failures.push(
+            `${normalize(path)} derives a local color; use a color token from @deslop/primitives`
+        )
+    }
+}
+
+for (const path of files.filter((path) => extname(path) === ".css")) {
+    const source = await readFile(path, "utf8")
+    const literal = source.match(
+        /(?:^|[;{])\s*(?:--[a-z0-9-]+|color|background(?:-color)?|border(?:-[a-z]+)?-color|outline(?:-color)?|fill|stroke|box-shadow|text-shadow)\s*:\s*(#[0-9a-f]{3,8}|rgba?\(|hsla?\(|oklch\()/im
+    )?.[1]
+    if (literal) {
+        failures.push(
+            `${normalize(path)} applies ${literal}; use a color token from @deslop/primitives`
+        )
+    }
+}
+
 const packageJson = JSON.parse(
     await readFile(resolve(root, "package.json"), "utf8")
 )
@@ -95,16 +127,39 @@ for (const [name, config] of [
 }
 
 const theme = await readFile(resolve(root, "src/styles/tailwind.css"), "utf8")
+const semanticTheme = await readFile(
+    resolve(root, "src/styles/theme.css"),
+    "utf8"
+)
+if (/(?:#[0-9a-f]{3,8}|rgb\(|hsl\(|oklch\(|color-mix\()/i.test(semanticTheme)) {
+    failures.push(
+        "src/styles/theme.css must point directly to @deslop/primitives color tokens"
+    )
+}
 for (const required of [
     '@import "tailwindcss/theme.css"',
     '@import "tailwindcss/utilities.css"',
     '@import "@deslop/primitives/colors.css"',
     '@import "@deslop/primitives/layout.css"',
     '@import "@deslop/primitives/typography.css"',
+    '@import "./theme.css"',
     "@theme inline",
 ]) {
     if (!theme.includes(required)) {
         failures.push(`src/styles/tailwind.css is missing: ${required}`)
+    }
+}
+
+for (const token of [
+    "--tma-background",
+    "--tma-elevation",
+    "--tma-text-primary",
+    "--tma-text-secondary",
+    "--tma-separator",
+    "--tma-action-primary-background",
+]) {
+    if (!semanticTheme.includes(token) || !theme.includes(token)) {
+        failures.push(`TMA semantic color is not connected to Tailwind: ${token}`)
     }
 }
 
@@ -116,11 +171,29 @@ const primitiveSources = await Promise.all(
 const ignoredPrimitiveTokens = new Set(["--ui-caption-text-transform"])
 const primitiveTokens = new Set(
     primitiveSources
-        .flatMap((source) => source.match(/--ui-[a-z0-9-]+(?=\s*:)/g) ?? [])
+        .flatMap(
+            (source) =>
+                source.match(
+                    /--(?:ui-[a-z0-9-]+|primary|background|elevation(?:-[a-z0-9-]+)?|(?:accent|avatar)-[a-z0-9-]+)(?=\s*:)/g
+                ) ?? []
+        )
         .filter((token) => !ignoredPrimitiveTokens.has(token))
 )
+const primitiveColorTokens = new Set(
+    primitiveSources[0].match(/--[a-z0-9-]+(?=\s*:)/g) ?? []
+)
+for (const [, role, value] of semanticTheme.matchAll(
+    /^\s*(--tma-[a-z0-9-]+):\s*([^;]+);$/gm
+)) {
+    const reference = value.trim().match(/^var\((--[a-z0-9-]+)\)$/)?.[1]
+    if (!reference || !primitiveColorTokens.has(reference)) {
+        failures.push(
+            `${role} must point directly to a color from @deslop/primitives`
+        )
+    }
+}
 const unmappedTokens = [...primitiveTokens].filter(
-    (token) => !theme.includes(token)
+    (token) => !theme.includes(token) && !semanticTheme.includes(token)
 )
 if (unmappedTokens.length > 0) {
     failures.push(

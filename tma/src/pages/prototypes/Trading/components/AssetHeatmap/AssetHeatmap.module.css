@@ -29,7 +29,7 @@
   border: 1.5px solid transparent;
   border-radius: 8px;
   background-clip: padding-box;
-  color: var(--ui-static-white);
+  color: var(--tma-static-white);
   text-align: center;
   letter-spacing: -0.02em;
   font-size: 14px;
@@ -65,31 +65,25 @@
 }
 
 .gain1 {
-  background-color: var(--ui-heatmap-gain-1);
-  background-color: oklch(from var(--text-confirm-color) 72% 0.115 h);
+  background-color: var(--tma-heatmap-gain-1);
 }
 
 .gain2 {
-  background-color: var(--ui-heatmap-gain-2);
-  background-color: oklch(from var(--text-confirm-color) 61% 0.125 h);
+  background-color: var(--tma-heatmap-gain-2);
 }
 
 .gain3 {
-  background-color: var(--ui-heatmap-gain-3);
-  background-color: oklch(from var(--text-confirm-color) 46% 0.12 h);
+  background-color: var(--tma-heatmap-gain-3);
 }
 
 .loss1 {
-  background-color: var(--ui-heatmap-loss-1);
-  background-color: oklch(from var(--tg-theme-destructive-text-color) 72% 0.125 h);
+  background-color: var(--tma-heatmap-loss-1);
 }
 
 .loss2 {
-  background-color: var(--ui-heatmap-loss-2);
-  background-color: oklch(from var(--tg-theme-destructive-text-color) 61% 0.19 h);
+  background-color: var(--tma-heatmap-loss-2);
 }
 
 .loss3 {
-  background-color: var(--ui-heatmap-loss-3);
-  background-color: oklch(from var(--tg-theme-destructive-text-color) 43% 0.155 h);
+  background-color: var(--tma-heatmap-loss-3);
 }

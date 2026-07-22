@@ -39,14 +39,14 @@
 .root::before {
   top: 0;
   background-color: var(--tg-theme-section-bg-color);
-  mask-image: linear-gradient(to bottom, color-mix(in srgb, var(--ui-static-black) 90%, transparent), color-mix(in srgb, var(--ui-static-black) 50%, transparent));
+  mask-image: linear-gradient(to bottom, var(--elevation-90), var(--elevation-50));
 }
 
 .root::after {
   bottom: 0;
-  background: var(--ui-static-white);
+  background: var(--tma-static-white);
   background-color: var(--tg-theme-section-bg-color);
-  mask-image: linear-gradient(to bottom, color-mix(in srgb, var(--ui-static-black) 50%, transparent), color-mix(in srgb, var(--ui-static-black) 90%, transparent));
+  mask-image: linear-gradient(to bottom, var(--elevation-50), var(--elevation-90));
 }
 
 .root ul {

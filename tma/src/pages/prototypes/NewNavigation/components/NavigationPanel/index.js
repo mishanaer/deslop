@@ -4,11 +4,10 @@ import * as m from "motion/react-m"
 import WebApp from "../../../../../lib/twa"
 
 import { useColorScheme } from "../../../../../hooks/useColorScheme"
-import { blendColors } from "../../../../../utils/common"
 import * as styles from "./NavigationPanel.module.css"
 import QRCodeIcon from "@deslop/primitives/icons/qr.svg?react"
 import DropdownControl from "./DropdownControl"
-import { getUiColor } from "@deslop/primitives/colors"
+import { getTmaColor } from "../../../../../theme/colors"
 
 export default function NavigationPanel({
     avatarUrl,
@@ -24,19 +23,13 @@ export default function NavigationPanel({
     }
 
     useEffect(() => {
-        const cw_color =
-            WebApp.themeParams.section_bg_color || getUiColor("surface")
-        const tw_color = getUiColor("story-background")
+        const cw_color = getTmaColor("surface")
+        const tw_color = getTmaColor("story-background")
 
         const headerColor = activeSegment === 1 ? tw_color : cw_color
-        const headerColorWithOverlay = `#${blendColors(
-            headerColor,
-            getUiColor("static-black"),
-            0.12
-        )}`
 
         if (view === "expanded") {
-            WebApp.setHeaderColor(headerColorWithOverlay)
+            WebApp.setHeaderColor(getTmaColor("background"))
         } else {
             WebApp.setHeaderColor(headerColor)
         }
@@ -49,7 +42,7 @@ export default function NavigationPanel({
             style={{
                 backgroundColor:
                     activeSegment === 1
-                        ? "var(--ui-story-background)"
+                        ? "var(--tma-story-background)"
                         : "var(--tg-theme-section-bg-color)",
             }}
         >

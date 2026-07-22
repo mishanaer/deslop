@@ -28,13 +28,13 @@
 }
 
 .root .item:hover {
-  background-color: var(--ui-fill-tertiary);
+  background-color: var(--tma-fill-tertiary);
   border-radius: var(--ui-radius-full);
 }
 
 :global(body.material) .root {
   background-color: var(--tg-theme-section-bg-color);
-  box-shadow: 0 0.33px 1px 0.5px color-mix(in srgb, var(--ui-static-black) 12%, transparent);
+  box-shadow: 0 0.33px 1px 0.5px var(--elevation-10);
   border-radius: var(--ui-radius-8);
 }
 
@@ -48,7 +48,7 @@
   padding: var(--ui-layout-content-inset);
   background: var(--glass-tint-background);
   backdrop-filter: blur(8px);
-  box-shadow: 0 0 10px 0 color-mix(in srgb, var(--ui-static-black) 10%, transparent);
+  box-shadow: 0 0 10px 0 var(--elevation-10);
 }
 
 @supports (-apple-visual-effect: -apple-system-glass-material) {

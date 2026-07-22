@@ -19,9 +19,9 @@
 
 .shell {
   display: inline-block;
-  background-color: color-mix(in srgb, var(--ui-static-black) 80%, transparent);
+  background-color: var(--tma-toast-background);
   backdrop-filter: blur(25px);
-  color: var(--ui-static-white);
+  color: var(--tma-static-white);
   will-change: transform, opacity, clip-path;
 }
 
@@ -47,7 +47,7 @@
   justify-content: center;
   flex-shrink: 0;
   padding: 3px var(--ui-space-4);
-  background-color: var(--ui-static-white);
-  color: var(--ui-static-black);
+  background-color: var(--tma-static-white);
+  color: var(--tma-static-black);
   border-radius: var(--ui-component-tooltip-badge-radius);
 }

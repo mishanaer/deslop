@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   display: flex;
-  background-color: var(--ui-fill-tertiary);
+  background-color: var(--elevation-5);
   border-radius: var(--ui-component-segmented-circled-radius);
   padding: var(--ui-space-2);
   overflow: hidden;
@@ -15,7 +15,7 @@
   background: transparent;
   border: none;
   outline: none;
-  color: var(--ui-text-primary);
+  color: var(--tma-text-primary);
   padding: var(--ui-space-6) 0;
   z-index: 1;
   text-align: center;
@@ -23,7 +23,7 @@
 }
 
 .root .segment.active {
-  color: var(--ui-text-primary);
+  color: var(--tma-text-primary);
   transition: color 0.2s ease;
 }
 
@@ -31,7 +31,7 @@
   position: absolute;
   left: 0;
   height: calc(100% - var(--ui-space-4));
-  background-color: var(--ui-control-active);
+  background-color: var(--tma-control-active);
   border-radius: var(--ui-component-segmented-circled-indicator-radius);
   transition: transform 0.2s ease;
   z-index: 0;

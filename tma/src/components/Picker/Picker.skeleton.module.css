@@ -30,5 +30,5 @@
   justify-content: center;
   gap: 12px;
   height: 100%;
-  mask-image: linear-gradient(to bottom, transparent, var(--ui-static-black) 28%, var(--ui-static-black) 72%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, var(--tma-static-black) 28%, var(--tma-static-black) 72%, transparent);
 }

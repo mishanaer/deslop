@@ -13,15 +13,13 @@ import TrayPages from "./TrayPages"
 import ModalPanel from "./ModalPanel"
 import { ModalChromeContext } from "../PanelHeader/context"
 import { useDismissDrag } from "./useDismissDrag"
-import { blendColors } from "../../utils/common"
 import { useFocusTrap } from "../../hooks/useFocusTrap"
 import { useSplitView } from "../../hooks/useSplitView"
 import { useSkin } from "../../hooks/DeviceProvider"
 import { SPRING } from "../../utils/animations"
-import { getUiColor } from "@deslop/primitives/colors"
+import { getTmaColor } from "../../theme/colors"
 
-const getHeaderColor = () =>
-    WebApp.themeParams.secondary_bg_color || getUiColor("background-secondary")
+const getHeaderColor = () => getTmaColor("background-secondary")
 
 // Squircle the panel corners (34px Apple, 16px Material). The sheet rounds its
 // top edge only; the centred dialog rounds all four. CSS border-radius is the
@@ -107,13 +105,11 @@ const ModalView = ({
         const headerColor = getHeaderColor()
         document.body.style.overflow = "hidden"
         WebApp.disableVerticalSwipes?.()
-        WebApp.setHeaderColor(
-            `#${blendColors(headerColor, getUiColor("static-black"), 0.5)}`
-        )
+        WebApp.setHeaderColor(getTmaColor("background"))
         return () => {
             document.body.style.overflow = "auto"
             WebApp.enableVerticalSwipes?.()
-            WebApp.setHeaderColor(getHeaderColor())
+            WebApp.setHeaderColor(headerColor)
         }
     }, [isOpen])
 

@@ -15,9 +15,9 @@
   border-radius: var(--ui-component-tab-bar-radius);
   padding: var(--ui-space-4);
   margin: 0;
-  background: rgb(from var(--tg-theme-section-bg-color) r g b/70%);
+  background: var(--tma-elevation);
   backdrop-filter: saturate(300%) blur(8px);
-  box-shadow: 0 0 10px 0 color-mix(in srgb, var(--ui-static-black) 10%, transparent);
+  box-shadow: 0 0 10px 0 var(--elevation-10);
 }
 
 @supports (-apple-visual-effect: -apple-system-glass-material) {
@@ -35,9 +35,9 @@
   border-radius: var(--ui-component-tab-bar-radius);
   padding: var(--ui-space-4);
   width: calc(100% - 32px);
-  background: rgb(from var(--tg-theme-section-bg-color) r g b/84%);
+  background: var(--tma-elevation);
   backdrop-filter: blur(30px) saturate(10);
-  box-shadow: 0 1px 2px 0 color-mix(in srgb, var(--ui-static-black) 8%, transparent), 0 2px 16px 1px color-mix(in srgb, var(--ui-static-black) 10%, transparent);
+  box-shadow: 0 1px 2px 0 var(--elevation-10), 0 2px 16px 1px var(--elevation-10);
 }
 
 .root::before {
@@ -46,7 +46,7 @@
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: rgb(from var(--quaternary-fill-background) r g b/4%);
+  background: var(--tma-fill-quaternary);
   z-index: 0;
 }
 
@@ -56,7 +56,7 @@
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  box-shadow: inset 0 1px 0 0 var(--ui-static-white), inset 0 -0.5px 0 0 var(--ui-static-white);
+  box-shadow: inset 0 1px 0 0 var(--tma-static-white), inset 0 -0.5px 0 0 var(--tma-static-white);
   mix-blend-mode: soft-light;
   z-index: 2;
 }
@@ -111,7 +111,7 @@
 }
 
 .root .clipPathContainer {
-  --active-color: var(--ui-action-primary-background);
+  --active-color: var(--tma-action-primary-background);
 
   position: absolute;
   display: flex;

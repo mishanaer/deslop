@@ -1,0 +1,101 @@
+/* TMA semantic roles. Every value points directly to Deslop Primitives. */
+
+:root {
+    --tma-background-secondary: var(--background);
+    --tma-elevation: var(--elevation);
+    --tma-action-primary-background: var(--accent-green);
+    --tma-action-destructive-background: var(--accent-red);
+    --tma-story-badge: var(--accent-indigo);
+    --tma-heatmap-gain-1: var(--accent-mint);
+    --tma-heatmap-gain-2: var(--accent-green);
+    --tma-heatmap-gain-3: var(--accent-teal);
+    --tma-heatmap-loss-1: var(--accent-orange);
+    --tma-heatmap-loss-2: var(--accent-red);
+    --tma-heatmap-loss-3: var(--accent-brown);
+    --tma-toast-link: var(--accent-cyan);
+}
+
+:root,
+:where([data-color-scheme="light"]) {
+    --tma-static-white: var(--background);
+    --tma-static-black: var(--primary);
+    --tma-background: var(--background);
+    --tma-text-primary: var(--primary);
+    --tma-text-secondary: var(--elevation-50);
+    --tma-text-section: var(--elevation-60);
+    --tma-separator: var(--elevation-20);
+    --tma-separator-translucent: var(--elevation-20);
+    --tma-fill-tertiary: var(--elevation-10);
+    --tma-fill-quaternary: var(--elevation-5);
+    --tma-control-active: var(--elevation);
+    --tma-control-disabled: var(--elevation-10);
+    --tma-text-disabled: var(--elevation-30);
+    --tma-action-primary-foreground: var(--primary);
+    --tma-action-destructive-foreground: var(--background);
+    --tma-story-background: var(--primary);
+    --tma-story-muted: var(--background);
+    --tma-story-subtle: var(--background);
+    --tma-material-layer-1: var(--elevation-5);
+    --tma-material-layer-2: var(--elevation-10);
+    --tma-glass-tint: var(--elevation-5);
+    --tma-toast-background: var(--primary);
+    --tma-toast-text: var(--background);
+    --tma-press-highlight: var(--elevation-20);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-color-scheme="light"]) {
+        --tma-static-white: var(--primary);
+        --tma-static-black: var(--background);
+        --tma-background: var(--background);
+        --tma-text-primary: var(--primary);
+        --tma-text-secondary: var(--elevation-60);
+        --tma-text-section: var(--elevation-50);
+        --tma-separator: var(--elevation-20);
+        --tma-separator-translucent: var(--elevation-20);
+        --tma-fill-tertiary: var(--elevation-20);
+        --tma-fill-quaternary: var(--elevation-10);
+        --tma-control-active: var(--elevation);
+        --tma-control-disabled: var(--elevation-20);
+        --tma-text-disabled: var(--elevation-30);
+        --tma-action-primary-foreground: var(--background);
+        --tma-action-destructive-foreground: var(--primary);
+        --tma-story-background: var(--background);
+        --tma-story-muted: var(--primary);
+        --tma-story-subtle: var(--elevation-50);
+        --tma-material-layer-1: var(--elevation-5);
+        --tma-material-layer-2: var(--elevation-10);
+        --tma-glass-tint: var(--elevation-5);
+        --tma-toast-background: var(--elevation-5);
+        --tma-toast-text: var(--primary);
+        --tma-press-highlight: var(--elevation-20);
+    }
+}
+
+:root[data-color-scheme="dark"],
+:where([data-color-scheme="dark"]) {
+    --tma-static-white: var(--primary);
+    --tma-static-black: var(--background);
+    --tma-background: var(--background);
+    --tma-text-primary: var(--primary);
+    --tma-text-secondary: var(--elevation-60);
+    --tma-text-section: var(--elevation-50);
+    --tma-separator: var(--elevation-20);
+    --tma-separator-translucent: var(--elevation-20);
+    --tma-fill-tertiary: var(--elevation-20);
+    --tma-fill-quaternary: var(--elevation-10);
+    --tma-control-active: var(--elevation);
+    --tma-control-disabled: var(--elevation-20);
+    --tma-text-disabled: var(--elevation-30);
+    --tma-action-primary-foreground: var(--background);
+    --tma-action-destructive-foreground: var(--primary);
+    --tma-story-background: var(--background);
+    --tma-story-muted: var(--primary);
+    --tma-story-subtle: var(--elevation-50);
+    --tma-material-layer-1: var(--elevation-5);
+    --tma-material-layer-2: var(--elevation-10);
+    --tma-glass-tint: var(--elevation-5);
+    --tma-toast-background: var(--elevation-5);
+    --tma-toast-text: var(--primary);
+    --tma-press-highlight: var(--elevation-20);
+}

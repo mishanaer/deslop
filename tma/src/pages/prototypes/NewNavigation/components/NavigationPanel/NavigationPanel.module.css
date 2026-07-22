@@ -16,7 +16,8 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: color-mix(in srgb, var(--ui-static-black) 12%, transparent);
+  background-color: transparent;
+  backdrop-filter: brightness(50%);
   z-index: 199;
   will-change: opacity;
 }
@@ -68,7 +69,7 @@
   border-radius: 26px;
   color: var(--tg-theme-text-color);
   text-align: center;
-  background-color: rgb(from var(--tg-theme-section-bg-color) r g b/70%);
+  background-color: var(--tma-elevation);
   overflow: hidden;
   will-change: transform;
   z-index: 202;

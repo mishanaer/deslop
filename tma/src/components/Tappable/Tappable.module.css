@@ -2,21 +2,21 @@
   position: relative;
   cursor: pointer;
 
-  --highlight-default: var(--ui-press-highlight);
+  --highlight-default: var(--tma-press-highlight);
 }
 
 @media (prefers-color-scheme: dark) {
   .root {
-    --highlight-default: var(--ui-press-highlight);
+    --highlight-default: var(--tma-press-highlight);
   }
 }
 
 :global([data-color-scheme="light"]) .root {
-  --highlight-default: var(--ui-press-highlight);
+  --highlight-default: var(--tma-press-highlight);
 }
 
 :global([data-color-scheme="dark"]) .root {
-  --highlight-default: var(--ui-press-highlight);
+  --highlight-default: var(--tma-press-highlight);
 }
 
 .fade {

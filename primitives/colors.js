@@ -1,6 +1,6 @@
-export const getUiColor = (token) => {
+export const getColorToken = (token) => {
   if (typeof document === "undefined") return "";
   return getComputedStyle(document.documentElement)
-    .getPropertyValue(`--ui-${token}`)
+    .getPropertyValue(`--${token}`)
     .trim();
 };

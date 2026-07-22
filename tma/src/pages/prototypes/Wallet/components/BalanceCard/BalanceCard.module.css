@@ -30,7 +30,7 @@
 }
 
 .cardOverlay .amount span {
-  color: var(--ui-static-white);
+  color: var(--tma-static-white);
 }
 
 .cardDefault .amount span {
@@ -49,17 +49,13 @@
 }
 
 .cardOverlay {
-  --tg-theme-text-color: var(--ui-static-white);
-  --tg-theme-subtitle-text-color: color-mix(
-      in srgb,
-      var(--ui-static-white) 55%,
-      transparent
-  );
-  --tg-theme-accent-text-color: var(--ui-static-white);
+  --tg-theme-text-color: var(--tma-static-white);
+  --tg-theme-subtitle-text-color: var(--tma-story-subtle);
+  --tg-theme-accent-text-color: var(--tma-static-white);
   --tg-theme-section-bg-color: transparent;
-  --text-confirm-color: var(--ui-accent-green);
+  --text-confirm-color: var(--accent-green);
 
-  color: var(--ui-static-white);
+  color: var(--tma-static-white);
 }
 
 .cardOverlay .label {
@@ -101,12 +97,12 @@
 }
 
 .overlayButton {
-  background: color-mix(in srgb, var(--ui-static-white) 10%, transparent) !important;
+  background: var(--tma-glass-tint) !important;
   background-blend-mode: plus-lighter, normal;
-  color: var(--ui-static-white) !important;
+  color: var(--tma-static-white) !important;
 }
 
 .overlayButton svg,
 .overlayButton path {
-  fill: var(--ui-static-white) !important;
+  fill: var(--tma-static-white) !important;
 }

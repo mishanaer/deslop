@@ -1,5 +1,5 @@
 .redaction {
-  --skeleton-bg: rgb(from var(--tg-theme-text-color) r g b / 14%);
+  --skeleton-bg: var(--tma-fill-tertiary);
 
   position: relative;
   transition: color 0.45s cubic-bezier(0.23, 1, 0.32, 1);

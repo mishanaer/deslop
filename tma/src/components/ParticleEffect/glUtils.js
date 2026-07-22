@@ -1,6 +1,6 @@
 import VERTEX_SHADER from "./vertex.glsl?raw"
 import FRAGMENT_SHADER from "./fragment.glsl?raw"
-import { getUiColor } from "@deslop/primitives/colors"
+import { getTmaColor } from "../../theme/colors"
 
 const FEEDBACK_VARYINGS = [
     "outPosition",
@@ -60,7 +60,7 @@ export function resolveColor(input, fallbackEl) {
         input ||
         (fallbackEl
             ? getComputedStyle(fallbackEl).color
-            : getUiColor("static-white"))
+            : getTmaColor("static-white"))
     const c = document.createElement("canvas")
     c.width = c.height = 1
     const ctx = c.getContext("2d")

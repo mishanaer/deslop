@@ -1,13 +1,17 @@
 import { useEffect } from "react"
 import WebApp from "./webApp"
+import { getTmaColor } from "../../theme/colors"
 
-const { button_color, button_text_color, bottom_bar_bg_color } =
-    WebApp.themeParams
-
-const defaultColors = {
-    main: { color: button_color, text_color: button_text_color },
-    secondary: { color: bottom_bar_bg_color, text_color: button_color },
-}
+const getDefaultColors = () => ({
+    main: {
+        color: getTmaColor("action-primary-background"),
+        text_color: getTmaColor("action-primary-foreground"),
+    },
+    secondary: {
+        color: getTmaColor("elevation"),
+        text_color: getTmaColor("action-primary-background"),
+    },
+})
 
 const isButtonShown = { main: false, secondary: false }
 
@@ -59,6 +63,7 @@ const useBottomButton = ({
     }, [disabled, progress, button])
 
     useEffect(() => {
+        const defaultColors = getDefaultColors()
         const params = {
             color: color ?? defaultColors[type].color,
             text_color: textColor ?? defaultColors[type].text_color,

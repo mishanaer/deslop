@@ -33,7 +33,7 @@
   padding: var(--ui-space-8) var(--ui-space-14);
   margin-bottom: var(--ui-space-8);
   border-radius: var(--ui-radius-6);
-  background: rgb(from var(--tg-theme-accent-text-color) r g b/10%);
+  background: var(--tma-fill-tertiary);
   color: var(--tg-theme-text-color);
 }
 

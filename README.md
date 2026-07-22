@@ -12,6 +12,11 @@
 [primitives](./primitives/README.md) — набор базовых элементов: цветов,
 шрифтов, отступов, скруглений и иконок.
 
+## Web UI
+
+[Web UI](./web-ui/README.md) — библиотека React-компонентов для веб-продуктов.
+Основана на shadcn/ui и использует Deslop Primitives.
+
 ## TMA
 
 [TMA](./tma/README.md) — библиотека готовых React-компонентов для Telegram Mini

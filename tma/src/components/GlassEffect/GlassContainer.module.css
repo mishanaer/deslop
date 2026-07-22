@@ -28,7 +28,7 @@
   border-radius: inherit;
   pointer-events: none;
   z-index: 1;
-  box-shadow: 0 0 10px 0 color-mix(in srgb, var(--ui-static-black) 10%, transparent);
+  box-shadow: 0 0 10px 0 var(--elevation-10);
   will-change: transform;
   transform: translateZ(0);
 }

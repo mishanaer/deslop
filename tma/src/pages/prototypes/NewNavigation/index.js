@@ -92,7 +92,7 @@ function NewNavigation() {
     )
 
     return (
-        <Page headerColor={WebApp.themeParams.section_bg_color?.slice(1)}>
+        <Page headerColorToken="--tma-elevation">
             <BackButton />
 
             <div className={styles.container}>

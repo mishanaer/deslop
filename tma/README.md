@@ -13,6 +13,14 @@ yarn install --immutable
 yarn dev
 ```
 
+## Стили
+
+Базовые палитры берутся из Primitives. Семантические роли TMA определены в
+`src/styles/theme.css` и подключены к Tailwind в `src/styles/tailwind.css`.
+
+`Background` используется для фона страницы, `Elevation` — для карточек и
+подложек, `Primary` — для основного текста. В тёмной теме тени отключены.
+
 ## Проверка
 
 Запустите из корня репозитория:

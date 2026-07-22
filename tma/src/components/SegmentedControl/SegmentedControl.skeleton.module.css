@@ -9,7 +9,7 @@
   gap: var(--ui-space-4);
   padding: var(--ui-space-2);
   border-radius: var(--ui-component-segmented-circled-radius);
-  background-color: var(--ui-fill-tertiary);
+  background-color: var(--elevation-5);
 }
 
 .segment {
@@ -22,7 +22,7 @@
 }
 
 .active {
-  background-color: var(--ui-control-active);
+  background-color: var(--tma-control-active);
   border: 0;
   box-shadow: none;
 }

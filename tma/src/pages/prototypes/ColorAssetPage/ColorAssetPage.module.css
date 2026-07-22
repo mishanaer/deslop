@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  color: var(--ui-static-white);
+  color: var(--tma-static-white);
 }
 
 .root .body .data {
@@ -36,7 +36,7 @@
 }
 
 :global(body.material) .root .buttons {
-  box-shadow: 0 0.33px 1px 0 color-mix(in srgb, var(--ui-static-black) 6%, transparent);
+  box-shadow: 0 0.33px 1px 0 var(--elevation-5);
   padding: 0 8px 8px;
 }
 
@@ -53,8 +53,8 @@
 .bannerContainer .banner {
   padding: 8px 14px;
   border-radius: 10px;
-  background: color-mix(in srgb, var(--ui-static-white) 16%, transparent);
-  color: var(--ui-static-white);
+  background: var(--tma-fill-tertiary);
+  color: var(--tma-static-white);
 }
 
 .list {

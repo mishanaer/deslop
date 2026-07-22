@@ -1,10 +1,10 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="24_icon-fill/counter-check" clip-path="url(#clip0_0_1)">
-<circle id="Ellipse 253565" cx="10" cy="10" r="9.5" fill="#3D3C3A"/>
-<path id="Vector" d="M19 13.2002C22.2033 13.2002 24.7998 15.7967 24.7998 19C24.7998 22.2033 22.2033 24.7998 19 24.7998C15.7967 24.7998 13.2002 22.2033 13.2002 19C13.2002 15.7967 15.7967 13.2002 19 13.2002Z" fill="#3D3C3A" stroke="white" stroke-width="1.6"/>
-<path id="Vector 234256064" d="M17.25 19L18.75 20.5L20.75 17.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-<rect id="Rectangle 2085653833" x="4.5" y="5.5" width="11" height="5" rx="1.5" fill="white"/>
-<circle id="Ellipse 203196392" cx="10" cy="14.5" r="1.5" fill="white"/>
+<circle id="Ellipse 253565" cx="10" cy="10" r="9.5" fill="currentColor"/>
+<path id="Vector" d="M19 13.2002C22.2033 13.2002 24.7998 15.7967 24.7998 19C24.7998 22.2033 22.2033 24.7998 19 24.7998C15.7967 24.7998 13.2002 22.2033 13.2002 19C13.2002 15.7967 15.7967 13.2002 19 13.2002Z" fill="currentColor" stroke="var(--background)" stroke-width="1.6"/>
+<path id="Vector 234256064" d="M17.25 19L18.75 20.5L20.75 17.5" stroke="var(--background)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect id="Rectangle 2085653833" x="4.5" y="5.5" width="11" height="5" rx="1.5" fill="var(--background)"/>
+<circle id="Ellipse 203196392" cx="10" cy="14.5" r="1.5" fill="var(--background)"/>
 </g>
 
 </svg>

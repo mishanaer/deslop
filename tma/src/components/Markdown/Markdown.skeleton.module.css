@@ -43,7 +43,7 @@
   gap: 8px;
   padding: 10px 14px;
   border-radius: 6px;
-  background: rgb(from var(--tg-theme-accent-text-color) r g b/10%);
+  background: var(--tma-fill-tertiary);
 }
 
 .quote::before {

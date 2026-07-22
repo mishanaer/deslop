@@ -4,8 +4,8 @@ import { fileURLToPath } from "node:url";
 import {
   accentColors,
   avatarGradients,
+  baseColors,
   elevationColors,
-  semanticColors,
 } from "../tokens.js";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -72,7 +72,7 @@ const parseDeclarations = (block, label) => {
   }
 
   return new Map(
-    [...block.matchAll(/^\s*(--ui-[a-z0-9-]+):\s*([^;]+);$/gm)].map(
+    [...block.matchAll(/^\s*(--[a-z0-9-]+):\s*([^;]+);$/gm)].map(
       ([, name, value]) => [name, value.trim()],
     ),
   );
@@ -107,7 +107,7 @@ const resolveColor = (token, themeDeclarations, seen = new Set()) => {
     return "";
   }
 
-  const reference = value.match(/^var\((--ui-[a-z0-9-]+)\)$/);
+  const reference = value.match(/^var\((--[a-z0-9-]+)\)$/);
   if (reference) {
     return resolveColor(reference[1], themeDeclarations, new Set([...seen, token]));
   }
@@ -155,7 +155,16 @@ const checkPair = ({ section, cssToken, documentationName, source, properties })
 for (const color of accentColors) {
   checkPair({
     section: "accent-colors",
-    cssToken: `--ui-accent-${tokenKey(color.name)}`,
+    cssToken: `--accent-${tokenKey(color.name)}`,
+    source: color,
+    properties: ["light", "dark"],
+  });
+}
+
+for (const color of baseColors) {
+  checkPair({
+    section: "base-colors",
+    cssToken: `--${tokenKey(color.name)}`,
     source: color,
     properties: ["light", "dark"],
   });
@@ -164,37 +173,8 @@ for (const color of accentColors) {
 for (const color of elevationColors) {
   checkPair({
     section: "elevation-colors",
-    cssToken: `--ui-elevation-${tokenKey(color.name).replace(/^elevation-/, "")}`,
-    source: color,
-    properties: ["light", "dark"],
-  });
-}
-
-const semanticCssTokens = {
-  "Action Primary Background": "--ui-action-primary-background",
-  "Action Primary Foreground": "--ui-action-primary-foreground",
-  Background: "--ui-background",
-  Surface: "--ui-surface",
-  "Bottom Bar": "--ui-surface-bottom-bar",
-  "Text Primary": "--ui-text-primary",
-  "Text Secondary": "--ui-text-secondary",
-  "Section Text": "--ui-text-section",
-  Separator: "--ui-separator",
-  "Control Active": "--ui-control-active",
-  "Control Disabled": "--ui-control-disabled",
-  "Text Disabled": "--ui-text-disabled",
-};
-
-const semanticDocumentationNames = {
-  "Bottom Bar": "surface-bottom-bar",
-  "Section Text": "text-section",
-};
-
-for (const color of semanticColors) {
-  checkPair({
-    section: "semantic-colors",
-    cssToken: semanticCssTokens[color.name],
-    documentationName: semanticDocumentationNames[color.name],
+    cssToken:
+      color.name === "Primary" ? "--primary" : `--${tokenKey(color.name)}`,
     source: color,
     properties: ["light", "dark"],
   });
@@ -207,7 +187,7 @@ for (const gradient of avatarGradients) {
   for (const edge of ["top", "bottom"]) {
     const expected = normalizeColor(gradient[edge]);
     const fromMarkdown = normalizeColor(documented[edge] ?? "");
-    const fromCss = resolveColor(`--ui-avatar-${name}-${edge}`, lightDeclarations);
+    const fromCss = resolveColor(`--avatar-${name}-${edge}`, lightDeclarations);
 
     if (fromMarkdown !== expected) {
       report(
@@ -217,10 +197,19 @@ for (const gradient of avatarGradients) {
 
     if (fromCss !== expected) {
       report(
-        `colors.css --ui-avatar-${name}-${edge} is ${fromCss || "missing"}; expected ${expected}`,
+        `colors.css --avatar-${name}-${edge} is ${fromCss || "missing"}; expected ${expected}`,
       );
     }
   }
+}
+
+const productSemanticDeclaration =
+  /--(?:action|control|fill|glass|heatmap|material|press|separator|story|text|toast)[a-z0-9-]*\s*:/;
+
+if (productSemanticDeclaration.test(css)) {
+  report(
+    "colors.css contains a product semantic token; keep product roles in TMA or Web UI",
+  );
 }
 
 if (errors.length) {

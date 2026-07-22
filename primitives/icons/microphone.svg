@@ -1,8 +1,8 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="24_icon-fill/microphone">
-<rect id="Rectangle 456746776" x="8" y="2" width="8" height="13" rx="4" fill="#3D3C3A"/>
-<path id="Ellipse 253642" d="M18.7055 13C18.3763 14.1041 17.7765 15.1203 16.947 15.9497C15.6343 17.2625 13.8538 18 11.9973 18C10.1408 18 8.36029 17.2625 7.04753 15.9497C6.21808 15.1203 5.61828 14.1041 5.28906 13" stroke="#3D3C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector 234255900" d="M12 18V21" stroke="#3D3C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect id="Rectangle 456746776" x="8" y="2" width="8" height="13" rx="4" fill="currentColor"/>
+<path id="Ellipse 253642" d="M18.7055 13C18.3763 14.1041 17.7765 15.1203 16.947 15.9497C15.6343 17.2625 13.8538 18 11.9973 18C10.1408 18 8.36029 17.2625 7.04753 15.9497C6.21808 15.1203 5.61828 14.1041 5.28906 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector 234255900" d="M12 18V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 
 </svg>

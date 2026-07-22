@@ -31,7 +31,7 @@
   border: 0;
   border-radius: var(--ui-radius-full);
   background: transparent;
-  box-shadow: inset 0 0 0 0.5px var(--ui-elevation-20);
+  box-shadow: inset 0 0 0 0.5px var(--elevation-20);
   cursor: pointer;
 }
 

@@ -12,7 +12,7 @@
 
   --fade-color: var(--page-background, var(--tg-theme-secondary-bg-color));
 
-  background: linear-gradient(to bottom, var(--fade-color), rgb(from var(--fade-color) r g b/0%));
+  background: linear-gradient(to bottom, var(--fade-color), transparent);
   opacity: 0;
   transition: opacity 0.2s ease;
   pointer-events: none;

@@ -7,10 +7,11 @@ import { BackButton } from "../../../src/lib/twa"
 import {
     accentColors,
     avatarGradients,
+    baseColors,
     elevationColors,
-    semanticColors,
 } from "@deslop/primitives/tokens"
 import "@deslop/primitives/colors.css"
+import { tmaSemanticColors } from "../../../src/theme/colors"
 
 import * as styles from "./Colors.module.css"
 
@@ -33,6 +34,14 @@ const GradientSwatch = ({ top, bottom }) => (
     />
 )
 
+const SolidSwatch = ({ value }) => (
+    <div
+        className={styles.solidSwatch}
+        style={{ "--swatch-value": value }}
+        aria-hidden="true"
+    />
+)
+
 ThemeSwatch.propTypes = {
     light: PropTypes.string.isRequired,
     dark: PropTypes.string.isRequired,
@@ -43,6 +52,10 @@ GradientSwatch.propTypes = {
     bottom: PropTypes.string.isRequired,
 }
 
+SolidSwatch.propTypes = {
+    value: PropTypes.string.isRequired,
+}
+
 const ColorsShowcase = () => (
     <>
         <BackButton />
@@ -50,6 +63,20 @@ const ColorsShowcase = () => (
             <SectionList>
                 <SectionList.Item header="Accent Colors">
                     {accentColors.map(({ name, light, dark }) => (
+                        <Cell
+                            key={name}
+                            start={<ThemeSwatch light={light} dark={dark} />}
+                        >
+                            <Cell.Text
+                                title={name}
+                                description={`${light} · ${dark}`}
+                            />
+                        </Cell>
+                    ))}
+                </SectionList.Item>
+
+                <SectionList.Item header="Base Colors">
+                    {baseColors.map(({ name, light, dark }) => (
                         <Cell
                             key={name}
                             start={<ThemeSwatch light={light} dark={dark} />}
@@ -90,16 +117,13 @@ const ColorsShowcase = () => (
                     ))}
                 </SectionList.Item>
 
-                <SectionList.Item header="Semantic Colors">
-                    {semanticColors.map(({ name, light, dark }) => (
+                <SectionList.Item header="TMA Semantic Colors">
+                    {tmaSemanticColors.map(({ name, token }) => (
                         <Cell
                             key={name}
-                            start={<ThemeSwatch light={light} dark={dark} />}
+                            start={<SolidSwatch value={`var(${token})`} />}
                         >
-                            <Cell.Text
-                                title={name}
-                                description={`${light} · ${dark}`}
-                            />
+                            <Cell.Text title={name} description={token} />
                         </Cell>
                     ))}
                 </SectionList.Item>

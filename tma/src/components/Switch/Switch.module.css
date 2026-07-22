@@ -9,7 +9,7 @@
 .root::after {
   transition: transform 250ms ease, border-color 250ms ease, opacity 250ms ease;
   content: "";
-  background-color: var(--ui-static-white);
+  background-color: var(--tma-static-white);
   border-radius: var(--ui-radius-full);
   transform: translateX(0%);
 }

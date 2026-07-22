@@ -1,9 +1,9 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="24_icon-fill/bell-off" clip-path="url(#clip0_0_1)">
-<rect id="Rectangle 456746120" x="1" y="5" width="15" height="14" rx="4" fill="#3D3C3A"/>
-<path id="Rectangle 456746121" d="M17.2031 10.0207C17.2031 9.69434 17.3623 9.38855 17.6297 9.20142L20.6297 7.10142C21.2924 6.63748 22.2031 7.11163 22.2031 7.92066V16.0793C22.2031 16.8884 21.2924 17.3625 20.6297 16.8986L17.6297 14.7986C17.3623 14.6114 17.2031 14.3057 17.2031 13.9793V10.0207Z" fill="#3D3C3A"/>
-<path id="Vector 234255879" d="M3 21.0762L21 3.07617" stroke="#3D3C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector 234255880" d="M3 23.75L23 3.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect id="Rectangle 456746120" x="1" y="5" width="15" height="14" rx="4" fill="currentColor"/>
+<path id="Rectangle 456746121" d="M17.2031 10.0207C17.2031 9.69434 17.3623 9.38855 17.6297 9.20142L20.6297 7.10142C21.2924 6.63748 22.2031 7.11163 22.2031 7.92066V16.0793C22.2031 16.8884 21.2924 17.3625 20.6297 16.8986L17.6297 14.7986C17.3623 14.6114 17.2031 14.3057 17.2031 13.9793V10.0207Z" fill="currentColor"/>
+<path id="Vector 234255879" d="M3 21.0762L21 3.07617" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector 234255880" d="M3 23.75L23 3.75" stroke="var(--background)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 
 </svg>
