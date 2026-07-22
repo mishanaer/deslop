@@ -1,0 +1,62 @@
+name: Dependabot auto-merge
+
+on: pull_request
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Dependabot metadata
+        id: meta
+        uses: dependabot/fetch-metadata@v2
+
+      # Dependabot never dedupes the lockfile, which trips the blocking
+      # `yarn dedupe --check` in Build & RelativeCI. Self-heal the branch so the
+      # check passes and the merged result stays clean. main has no branch
+      # protection, so pushing with GITHUB_TOKEN is enough (no PAT needed); it
+      # also won't re-trigger this workflow, so there is no dedupe loop.
+      # Check out the immutable head SHA (not head.ref) to avoid ref injection;
+      # the branch name is only used, env-quoted, in the push refspec.
+      - name: Checkout PR branch
+        if: steps.meta.outputs.package-ecosystem == 'npm'
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - if: steps.meta.outputs.package-ecosystem == 'npm'
+        run: corepack enable
+
+      - name: Setup Node
+        if: steps.meta.outputs.package-ecosystem == 'npm'
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      - name: Dedupe lockfile and push if changed
+        if: steps.meta.outputs.package-ecosystem == 'npm'
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          yarn install --immutable
+          yarn dedupe
+          if ! git diff --quiet -- yarn.lock; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'chore(deps): yarn dedupe' -- yarn.lock
+            git push origin "HEAD:$HEAD_REF"
+          fi
+
+      - name: Enable auto-merge for minor and patch updates
+        if: >-
+          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
+          steps.meta.outputs.update-type == 'version-update:semver-minor'
+        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

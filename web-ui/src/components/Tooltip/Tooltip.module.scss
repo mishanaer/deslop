@@ -1,0 +1,57 @@
+.container {
+    position: relative;
+    display: inline-flex;
+}
+
+.trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+
+    &:focus-visible {
+        outline: 2px solid var(--tg-theme-link-color);
+        outline-offset: 2px;
+        border-radius: var(--ui-radius-4);
+    }
+}
+
+.shell {
+    display: inline-block;
+    background-color: color-mix(
+        in srgb,
+        var(--ui-static-black) 80%,
+        transparent
+    );
+    backdrop-filter: blur(25px);
+    color: var(--ui-static-white);
+    will-change: transform, opacity, clip-path;
+}
+
+.body {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ui-layout-control-gap);
+    padding: var(--ui-space-10) var(--ui-space-14);
+    white-space: nowrap;
+
+    &.compact {
+        padding: var(--ui-space-6) var(--ui-space-8);
+    }
+
+    &.withBadge {
+        padding-left: var(--ui-space-12);
+    }
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 3px var(--ui-space-4);
+    background-color: var(--ui-static-white);
+    color: var(--ui-static-black);
+    border-radius: var(--ui-component-tooltip-badge-radius);
+}

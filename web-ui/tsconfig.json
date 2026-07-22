@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "types": ["vite/client", "vite-plugin-svgr/client"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@router/*": ["./storybook/router/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@icons/*": ["./src/icons/*"],
+      "@images/*": ["./src/images/*"],
+      "@deslop/primitives": ["../primitives/index.js"],
+      "@deslop/primitives/*": ["../primitives/*"]
+    }
+  },
+  "include": ["src/**/*", "storybook/**/*"],
+  "exclude": ["node_modules", "build"]
+}

@@ -1,0 +1,129 @@
+.list {
+    --tabs-side-padding: var(--ui-layout-content-inset);
+
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    min-width: 0;
+    padding: var(--ui-space-16) var(--tabs-side-padding) var(--ui-space-8);
+    margin: 0;
+    list-style: none;
+    touch-action: pan-x;
+
+    &.scrollable {
+        overflow: auto hidden;
+        scroll-padding-inline: var(--tabs-side-padding);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        mask-image: linear-gradient(
+            to right,
+            transparent 0,
+            var(--ui-static-black) var(--tabs-side-padding),
+            var(--ui-static-black) calc(100% - var(--tabs-side-padding)),
+            transparent 100%
+        );
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &:not(.scrollable) {
+        overflow: hidden;
+    }
+
+    &.compact {
+        padding: var(--ui-space-12) var(--tabs-side-padding) var(--ui-space-6);
+    }
+
+    &.glassList {
+        --tabs-side-padding: var(--ui-space-12);
+
+        align-items: center;
+        padding: 0;
+        border-radius: inherit;
+
+        &.scrollable {
+            mask-image: none;
+        }
+
+        &:not(.scrollable) {
+            overflow: hidden;
+        }
+    }
+}
+
+.glassRoot {
+    position: relative;
+    isolation: isolate;
+    margin-bottom: var(--ui-space-16);
+    padding: var(--ui-component-tab-glass-inset-spacing);
+    border-radius: var(--ui-radius-full);
+}
+
+.tab {
+    position: relative;
+    flex: 1 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--ui-space-6) var(--ui-space-12);
+    background: transparent;
+    border: 0;
+    border-radius: var(--ui-component-tab-radius);
+    cursor: pointer;
+    color: var(--tg-theme-subtitle-text-color);
+    transition: color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--tg-theme-accent-text-color);
+        outline-offset: 2px;
+    }
+
+    &.active {
+        color: var(--tg-theme-accent-text-color);
+    }
+}
+
+.compact .tab {
+    padding: var(--ui-space-4) var(--ui-space-10);
+    border-radius: var(--ui-component-tab-compact-radius);
+}
+
+.glassList .tab {
+    padding: var(--ui-component-tab-glass-block-spacing) var(--ui-space-14);
+    border-radius: var(--ui-component-tab-glass-radius);
+    z-index: 3;
+    color: var(--tg-theme-text-color);
+
+    &.active {
+        color: var(--tg-theme-text-color);
+    }
+}
+
+.glassList .indicator {
+    background-color: var(--tertiary-fill-background);
+    border-radius: inherit;
+}
+
+.indicator {
+    position: absolute;
+    inset: 0;
+    background-color: rgb(from var(--tg-theme-accent-text-color) r g b / 10%);
+    border-radius: inherit;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.label {
+    position: relative;
+    z-index: 1;
+    white-space: nowrap;
+}

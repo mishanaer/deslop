@@ -1,0 +1,35 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    # Majors are bumped manually (they often need code changes or are
+    # peer-blocked), so Dependabot only proposes minor + patch. This also
+    # keeps stale major PRs from filling open-pull-requests-limit.
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-major
+    groups:
+      # Minor + patch bundled into two PRs per week (dev vs prod).
+      dev-deps:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+      prod-deps:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns:
+          - "*"

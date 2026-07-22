@@ -1,0 +1,29 @@
+.themeSwatch,
+.gradientSwatch {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border: 0.5px solid var(--tg-theme-section-separator-color);
+    border-radius: 50%;
+}
+
+.themeSwatch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.light {
+    background: var(--swatch-light);
+}
+
+.dark {
+    background: var(--swatch-dark);
+}
+
+.gradientSwatch {
+    background: linear-gradient(
+        180deg,
+        var(--gradient-top) 0%,
+        var(--gradient-bottom) 100%
+    );
+}

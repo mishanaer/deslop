@@ -1,0 +1,91 @@
+.root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--ui-layout-control-gap);
+
+    .side {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .trailing {
+        justify-content: flex-end;
+    }
+
+    // Absolute-centred; pointer-events pass through to the drag handle.
+    .middle {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+    }
+
+    // Over-content state: the title inherits white, matching overlay buttons.
+    .middleOverlay {
+        color: var(--tg-theme-button-text-color);
+    }
+
+    .titlePill {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        padding: 0 var(--ui-space-12);
+        border-radius: var(--ui-component-header-action-radius);
+    }
+
+    .titleContent {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    // Content is pinned 10px above the bottom, so the taller in-modal bar lands
+    // its extra height as a larger top inset (10px standalone, 16px in a modal).
+    :global(body.apple) & {
+        height: 64px;
+        padding: 0 var(--ui-layout-content-inset) var(--ui-space-10);
+        align-items: flex-end;
+
+        &.inModal {
+            height: 70px;
+        }
+
+        .middle {
+            top: auto;
+            bottom: var(--ui-space-10);
+            height: 44px;
+        }
+    }
+
+    // Material: flat left-aligned app bar, no side actions.
+    :global(body.material) & {
+        height: 56px;
+        padding: 0 var(--side-padding);
+
+        &.inModal {
+            height: 60px;
+            padding-top: 6px;
+        }
+
+        .side {
+            display: none;
+        }
+
+        .middle {
+            justify-content: flex-start;
+            padding: 0 var(--side-padding);
+        }
+    }
+}

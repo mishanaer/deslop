@@ -1,0 +1,26 @@
+.root {
+    display: flex;
+    gap: var(--ui-layout-compact-gap);
+    justify-content: space-between;
+    padding: 5px var(--ui-layout-content-inset);
+    color: var(--tg-theme-section-header-text-color);
+
+    &.Headline {
+        padding: var(--ui-space-24) var(--ui-layout-content-inset)
+            var(--ui-space-4);
+        color: var(--tg-theme-text-color);
+    }
+
+    :global(body.apple) & {
+        padding: var(--ui-space-10) var(--ui-layout-content-inset);
+    }
+
+    :global(body.material) & {
+        padding: 15px 20px 7px;
+
+        &.Footer {
+            padding: 12px 20px;
+            color: var(--tg-theme-subtitle-text-color);
+        }
+    }
+}

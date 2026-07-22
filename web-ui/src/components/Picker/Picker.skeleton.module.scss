@@ -1,0 +1,44 @@
+// Mirrors the Picker control: a 200px scroll region (--picker-height) with a
+// centered selection highlight (--item-height) and horizontal 16px inset.
+.wheel {
+    position: relative;
+    height: 200px;
+    padding: 0 16px;
+    overflow: hidden;
+}
+
+.selected {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    height: 34px;
+    transform: translateY(-50%);
+    border-radius: 8px;
+    background-color: var(--quaternary-fill-background);
+    pointer-events: none;
+
+    :global(body.apple) & {
+        border-radius: 20px;
+    }
+}
+
+.rows {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 100%;
+
+    // Fade the edge rows like the real picker's top/bottom vignette.
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        var(--ui-static-black) 28%,
+        var(--ui-static-black) 72%,
+        transparent
+    );
+}

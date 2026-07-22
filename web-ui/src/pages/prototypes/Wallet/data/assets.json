@@ -1,0 +1,66 @@
+[
+    {
+        "id": 0,
+        "name": "Dollars",
+        "ticker": "USDT",
+        "value": "25",
+        "rate": "1.00",
+        "delta": "+0%"
+    },
+    {
+        "id": 1,
+        "name": "Toncoin",
+        "ticker": "TON",
+        "value": "5.061",
+        "rate": "5.26",
+        "delta": "-3.61%"
+    },
+    {
+        "id": 2,
+        "name": "Bitcoin",
+        "ticker": "BTC",
+        "value": "0",
+        "rate": "97614.03",
+        "delta": "-3.53%"
+    },
+    {
+        "id": 3,
+        "name": "Notcoin",
+        "ticker": "NOT",
+        "value": "0.00633",
+        "rate": "0.000523",
+        "delta": "-10.66%"
+    },
+    {
+        "id": 4,
+        "name": "Major",
+        "ticker": "MAJOR",
+        "value": "5",
+        "rate": "0.582",
+        "delta": "-7.56%"
+    },
+    {
+        "id": 5,
+        "name": "Hamster Kombar",
+        "ticker": "HMSTR",
+        "value": "52.182",
+        "rate": "0.00255",
+        "delta": "-9.95%"
+    },
+    {
+        "id": 6,
+        "name": "X Empire",
+        "ticker": "X",
+        "value": "0",
+        "rate": "0.0001573",
+        "delta": "-11.5%"
+    },
+    {
+        "id": 7,
+        "name": "Catizen",
+        "ticker": "CATI",
+        "value": "0",
+        "rate": "0.374",
+        "delta": "-7.15%"
+    }
+]

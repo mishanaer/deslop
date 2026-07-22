@@ -1,0 +1,61 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    padding-bottom: calc(
+        var(--ui-layout-content-inset) + env(safe-area-inset-bottom)
+    );
+    background-color: var(--tg-theme-secondary-bg-color);
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+        }
+
+        // The section's closing cell hides its own separator (Cell.module.scss
+        // keys off :last-child); wrappers on the last-child chain pass that
+        // down by inheritance. Anything off the chain sits mid-list (e.g. the
+        // Wallet small-assets group with a button after it), so its own last
+        // cell re-arms the separator. A trailing aria-hidden sibling (a closed
+        // Collapsible) renders nothing, so it does not count as content after.
+        .container :not(:last-child, :has(+ [aria-hidden="true"]:last-child)) {
+            --last-cell-separator-height: var(--cell-separator-height);
+        }
+    }
+
+    :global(body.apple) & {
+        padding: var(--ui-layout-content-inset);
+        gap: var(--ui-layout-section-gap);
+
+        section .container {
+            background-color: var(--tg-theme-section-bg-color);
+            border-radius: var(--ui-component-section-radius);
+            overflow: hidden;
+        }
+    }
+
+    :global(body.material) & {
+        padding: var(--ui-space-12);
+        padding-bottom: calc(var(--ui-space-12) + env(safe-area-inset-bottom));
+        gap: var(--ui-space-12);
+
+        section .card {
+            background-color: var(--tg-theme-section-bg-color);
+            border-radius: var(--ui-radius-16);
+            overflow: hidden;
+        }
+    }
+}

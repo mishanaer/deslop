@@ -1,0 +1,29 @@
+.bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    // Page-bg -> transparent fade (TabBar-style), 16px past the bar, fading in
+    // on scroll instead of a hard material edge.
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 -16px;
+        z-index: -1;
+
+        --fade-color: var(--page-background, var(--tg-theme-secondary-bg-color));
+
+        background: linear-gradient(
+            to bottom,
+            var(--fade-color),
+            rgb(from var(--fade-color) r g b / 0%)
+        );
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        pointer-events: none;
+    }
+}
+
+.scrolled::before {
+    opacity: 1;
+}

@@ -1,0 +1,9 @@
+.root {
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.loaded {
+    opacity: 1;
+}

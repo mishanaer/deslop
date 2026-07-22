@@ -1,0 +1,27 @@
+.page {
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.rect {
+    position: relative;
+    height: 85vh;
+    border: 1px dashed var(--ui-elevation-40);
+    border-radius: 16px;
+    background-color: var(--tg-theme-bg-color);
+}
+
+.anchor {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.dot {
+    --skeleton-radius: 50%;
+    --skeleton-inset-bottom: 0px;
+
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}

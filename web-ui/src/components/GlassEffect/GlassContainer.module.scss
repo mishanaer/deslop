@@ -1,0 +1,33 @@
+.root {
+    position: relative;
+}
+
+.glassBackground {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: var(--glass-tint-background);
+    backdrop-filter: blur(8px);
+    z-index: 0;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+
+    @supports (-apple-visual-effect: -apple-system-glass-material) {
+        -apple-visual-effect: -apple-system-glass-material;
+        backdrop-filter: none;
+    }
+}
+
+.glassShadow {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+    box-shadow: 0 0 10px 0
+        color-mix(in srgb, var(--ui-static-black) 10%, transparent);
+    will-change: transform;
+    transform: translateZ(0);
+}

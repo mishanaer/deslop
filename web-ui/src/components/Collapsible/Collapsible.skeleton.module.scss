@@ -1,0 +1,12 @@
+// Pill-shaped stand-in for a Switch track. Sizing plus the shared redaction
+// CSS vars turn the Skeleton bar (::after) into a full-height rounded pill
+// instead of a text-hugging line.
+.switchTrack {
+    display: inline-block;
+    inline-size: 51px;
+    block-size: 31px;
+    vertical-align: middle;
+
+    --skeleton-radius: 100px;
+    --skeleton-inset-bottom: 0;
+}

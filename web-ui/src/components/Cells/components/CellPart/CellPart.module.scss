@@ -1,0 +1,76 @@
+.chevron {
+    width: 7px;
+    height: 12px;
+    background-color: var(--border-color);
+    mask: url("@deslop/primitives/icons/chevron-right.svg") no-repeat center;
+}
+
+.dropdown {
+    color: var(--tg-theme-accent-text-color);
+}
+
+.colorpicker {
+    display: flex;
+    align-items: center;
+    gap: var(--ui-space-6);
+
+    label {
+        margin-top: 1px;
+        font-variant-numeric: lining-nums tabular-nums;
+        color: var(--tg-theme-accent-text-color);
+    }
+
+    input[type="color"] {
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        border-radius: var(--ui-radius-full);
+        background: transparent;
+        box-shadow: inset 0 0 0 0.5px var(--ui-elevation-20);
+        cursor: pointer;
+    }
+
+    input[type="color"]::-webkit-color-swatch {
+        border: 0;
+        border-radius: var(--ui-radius-full);
+    }
+
+    input[type="color"]::-webkit-color-swatch-wrapper {
+        padding: 0;
+        border-radius: var(--ui-radius-full);
+    }
+
+    input[type="color"]::-moz-color-swatch {
+        border: 0;
+        border-radius: var(--ui-radius-full);
+    }
+}
+
+:global(body.apple) {
+    .dropdown::after {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-color: var(--tg-theme-accent-text-color);
+        mask: url("@deslop/primitives/icons/chevron-down.svg") no-repeat center;
+        margin-left: 5px;
+    }
+
+    .picker {
+        background-color: var(--tertiary-fill-background);
+        color: var(--tg-theme-text-color);
+        padding: 7px var(--ui-space-10);
+        border-radius: var(--ui-radius-18);
+    }
+}
+
+:global(body.material) {
+    .picker {
+        color: var(--tg-theme-accent-text-color);
+    }
+}

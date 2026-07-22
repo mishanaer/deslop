@@ -1,0 +1,75 @@
+// The whole stack toggles on click; it drops into a list like a section.
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ui-space-6);
+    align-self: stretch;
+    cursor: pointer;
+
+    // Collapsed: every card shares one grid cell, so they overlap exactly
+    // whatever their height; the peek/scale/fade of the cards behind is pure
+    // transforms in JS, and the switch between the two layouts is animated by
+    // motion's layout prop.
+    &[data-expanded="false"] {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+
+        > .card {
+            grid-area: 1 / 1;
+        }
+    }
+}
+
+// Each card carries section chrome: section radii as the fallback for the
+// squircle clip applied from JS (useSmoothCorners). Overflow keeps the fill
+// clipped while collapsed.
+.card {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--tg-theme-section-bg-color);
+
+    :global(body.apple) & {
+        border-radius: var(--ui-component-section-radius);
+    }
+
+    :global(body.material) & {
+        border-radius: var(--ui-radius-16);
+    }
+}
+
+// Solid backing that fades in over a stacked card so it reads as a blank,
+// slightly darker sheet while collapsed.
+.fill {
+    position: absolute;
+    inset: 0;
+    background-color: var(--tg-theme-secondary-bg-color);
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+}
+
+// --- Morph card -------------------------------------------------------------
+
+// Animated lines inside the morph cell; spans need a box to transform.
+.morphLine {
+    display: block;
+}
+
+// Overlapping avatars in the start slot. The container takes the front
+// avatar's footprint, so platform sizing comes from the avatars themselves.
+.logoStack {
+    position: relative;
+}
+
+.logoFront {
+    position: relative;
+    z-index: 2;
+}
+
+.logoBehind {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
