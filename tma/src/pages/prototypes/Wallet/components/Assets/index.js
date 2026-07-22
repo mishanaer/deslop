@@ -3,7 +3,7 @@ import * as m from "motion/react-m"
 import { AnimatePresence } from "motion/react"
 import WebApp from "../../../../../lib/twa"
 
-import * as styles from "./Assets.module.scss"
+import * as styles from "./Assets.module.css"
 import SectionList from "../../../../../components/SectionList"
 import Cell from "../../../../../components/Cells"
 import ImageAvatar from "../../../../../components/ImageAvatar"

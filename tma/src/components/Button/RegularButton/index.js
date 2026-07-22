@@ -8,7 +8,7 @@ import Skeleton, {
     useRedactionClassName,
     waveRef,
 } from "../../Skeleton"
-import * as styles from "./RegularButton.module.scss"
+import * as styles from "./RegularButton.module.css"
 import { useSkin } from "../../../hooks/DeviceProvider"
 
 /**

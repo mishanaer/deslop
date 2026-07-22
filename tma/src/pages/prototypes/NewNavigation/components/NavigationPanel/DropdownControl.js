@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { GlassContainer } from "../../../../../components/GlassEffect"
-import * as styles from "./NavigationPanel.module.scss"
+import * as styles from "./NavigationPanel.module.css"
 import CollapsedView from "./CollapsedView"
 import ExpandedView from "./ExpandedView"
 

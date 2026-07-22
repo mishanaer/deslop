@@ -3,7 +3,7 @@ import SectionList from "../SectionList"
 import Text from "../Text"
 import Skeleton from "../Skeleton"
 
-import * as styles from "./ParticleEffect.skeleton.module.scss"
+import * as styles from "./ParticleEffect.skeleton.module.css"
 
 // Restrained stand-in for the particle reveal effect: centered title bars
 // sitting in the same region as the animated numbers. It does not fake the

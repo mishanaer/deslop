@@ -3,7 +3,7 @@ import SectionList from "../SectionList"
 import Text from "../Text"
 import Skeleton from "../Skeleton"
 
-import * as styles from "./Calligraph.skeleton.module.scss"
+import * as styles from "./Calligraph.skeleton.module.css"
 
 // Restrained stand-in for the Calligraph text/number morph: centered bars in
 // the same stage region as the live glyphs. It does not animate the roll or

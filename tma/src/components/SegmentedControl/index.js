@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { useColorScheme } from "../../hooks/useColorScheme"
 import Text from "../Text"
 
-import * as styles from "./SegmentedControl.module.scss"
+import * as styles from "./SegmentedControl.module.css"
 
 /**
  * Segmented picker with an animated active indicator. Uncontrolled — tracks

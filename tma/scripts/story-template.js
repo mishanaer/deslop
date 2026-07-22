@@ -1,7 +1,7 @@
 /**
  * Satori virtual-DOM template for the story card.
  * Mirrors the layout in src/components/StoryCard exactly,
- * using inline styles instead of SCSS modules.
+ * using inline styles because Satori does not process Tailwind classes.
  */
 
 function h(type, props, ...children) {

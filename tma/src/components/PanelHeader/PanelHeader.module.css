@@ -1,0 +1,86 @@
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ui-layout-control-gap);
+}
+
+.root .side {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.root .trailing {
+  justify-content: flex-end;
+}
+
+.root .middle {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.root .middleOverlay {
+  color: var(--tg-theme-button-text-color);
+}
+
+.root .titlePill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 var(--ui-space-12);
+  border-radius: var(--ui-component-header-action-radius);
+}
+
+.root .titleContent {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+:global(body.apple) .root {
+  height: 64px;
+  padding: 0 var(--ui-layout-content-inset) var(--ui-space-10);
+  align-items: flex-end;
+}
+
+:global(body.apple) .root.inModal {
+  height: 70px;
+}
+
+:global(body.apple) .root .middle {
+  top: auto;
+  bottom: var(--ui-space-10);
+  height: 44px;
+}
+
+:global(body.material) .root {
+  height: 56px;
+  padding: 0 var(--side-padding);
+}
+
+:global(body.material) .root.inModal {
+  height: 60px;
+  padding-top: 6px;
+}
+
+:global(body.material) .root .side {
+  display: none;
+}
+
+:global(body.material) .root .middle {
+  justify-content: flex-start;
+  padding: 0 var(--side-padding);
+}

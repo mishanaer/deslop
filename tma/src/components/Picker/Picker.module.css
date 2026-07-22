@@ -1,0 +1,86 @@
+:root {
+  --picker-height: 200px;
+  --item-height: 34px;
+  --selected-translate-y: -17px; /* item height / 2 * (-1) */
+}
+
+.root {
+  display: inline-grid;
+  position: relative;
+  padding: 0 var(--ui-layout-content-inset);
+  font-size: var(--ui-title-24-font-size);
+  line-height: var(--ui-title-24-line-height);
+  font-weight: var(--ui-title-24-font-weight);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.root .selected {
+  position: absolute;
+  width: calc(100% - 32px);
+  height: var(--item-height);
+  border-radius: var(--ui-radius-8);
+  background-color: var(--quaternary-fill-background);
+  top: 50%;
+  left: 0;
+  transform: translateY(var(--selected-translate-y));
+  margin: 0 var(--ui-layout-content-inset);
+  pointer-events: none;
+}
+
+.root::before, .root::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: calc((var(--picker-height) - var(--item-height)) / 2);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.root::before {
+  top: 0;
+  background-color: var(--tg-theme-section-bg-color);
+  mask-image: linear-gradient(to bottom, color-mix(in srgb, var(--ui-static-black) 90%, transparent), color-mix(in srgb, var(--ui-static-black) 50%, transparent));
+}
+
+.root::after {
+  bottom: 0;
+  background: var(--ui-static-white);
+  background-color: var(--tg-theme-section-bg-color);
+  mask-image: linear-gradient(to bottom, color-mix(in srgb, var(--ui-static-black) 50%, transparent), color-mix(in srgb, var(--ui-static-black) 90%, transparent));
+}
+
+.root ul {
+  max-height: var(--picker-height);
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y mandatory;
+  padding: 100px 0;
+  margin: 0;
+  cursor: grab;
+}
+
+.root ul[data-pointer-dragging] {
+  scroll-snap-type: none;
+  cursor: grabbing;
+}
+
+.root ul::-webkit-scrollbar {
+  display: none;
+}
+
+.root li {
+  display: flex;
+  list-style: none;
+  scroll-snap-align: center;
+  height: var(--item-height);
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--tg-theme-text-color);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+:global(body.apple) .root .selected {
+  border-radius: var(--ui-radius-20);
+}

@@ -5,7 +5,7 @@ import { useReducedMotion } from "motion/react"
 import WebApp from "../../lib/twa"
 import { SPRING } from "../../utils/animations"
 import Snackbar, { triggerShape } from "./Snackbar"
-import * as styles from "./Snackbar.module.scss"
+import * as styles from "./Snackbar.module.css"
 
 const DEFAULT_DURATION = 4000
 const SWIPE_OFFSET_THRESHOLD = 100

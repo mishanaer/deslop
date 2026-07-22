@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { AnimatePresence, animate, useMotionValue } from "motion/react"
-import * as styles from "./ModalView.module.scss"
+import * as styles from "./ModalView.module.css"
 
 import { ModalNavContext } from "./context"
 import { useResizeObserver } from "../../hooks/useResizeObserver"

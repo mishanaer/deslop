@@ -1,0 +1,32 @@
+.page {
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.rect {
+  position: relative;
+  height: 75vh;
+  border: 1px dashed var(--ui-elevation-40);
+  border-radius: 16px;
+  background-color: var(--tg-theme-bg-color);
+}
+
+.anchor {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.dot {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--ui-elevation-60);
+}

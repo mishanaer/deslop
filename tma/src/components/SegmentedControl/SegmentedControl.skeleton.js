@@ -5,7 +5,7 @@ import SectionList from "../SectionList"
 import Text from "../Text"
 import Skeleton from "../Skeleton"
 
-import * as styles from "./SegmentedControl.skeleton.module.scss"
+import * as styles from "./SegmentedControl.skeleton.module.css"
 
 // A single static segmented bar. Not the real SegmentedControl (that carries
 // click handlers + selection state); this is an inert look-alike whose labels

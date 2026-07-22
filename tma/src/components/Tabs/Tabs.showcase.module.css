@@ -1,0 +1,20 @@
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  overflow: hidden;
+  background-color: var(--tg-theme-section-bg-color);
+}
+
+:global(body.apple) .sectionContainer {
+  border-radius: 26px;
+}
+
+:global(body.material) .sectionContainer {
+  border-radius: 16px;
+  box-shadow: 0 0.33px 1px 0 color-mix(in srgb, var(--ui-static-black) 6%, transparent);
+}
+
+.glassHeader {
+  padding: 6px 0 0;
+}

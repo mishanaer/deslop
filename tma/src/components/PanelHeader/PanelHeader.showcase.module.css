@@ -1,0 +1,13 @@
+.section {
+  margin-bottom: 24px;
+}
+
+.canvas {
+  margin: 0 var(--side-padding);
+  border-radius: 20px;
+  background: var(--tg-theme-section-bg-color);
+}
+
+.over {
+  background: linear-gradient(120deg, var(--ui-accent-purple) 0%, var(--ui-accent-blue) 100%);
+}

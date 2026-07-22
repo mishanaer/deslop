@@ -4,7 +4,7 @@ import * as m from "motion/react-m"
 import { GlassBorder } from "../GlassEffect"
 import Text from "../Text"
 
-import * as styles from "./HeaderButton.module.scss"
+import * as styles from "./HeaderButton.module.css"
 
 export const HEADER_BUTTON_VARIANTS = [
     "regular",

@@ -7,7 +7,7 @@ import useScrollRestoration from "../../hooks/useScrollRestoration"
 import { EASING } from "../../utils/animations"
 import { FrozenLocationContext } from "./context"
 
-import * as styles from "./PageTransition.module.scss"
+import * as styles from "./PageTransition.module.css"
 
 const variants = {
     initial: { opacity: 0, scale: 1.006 },

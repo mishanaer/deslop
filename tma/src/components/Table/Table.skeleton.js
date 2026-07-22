@@ -2,7 +2,7 @@ import Page from "../Page"
 import Table from "."
 import Skeleton from "../Skeleton"
 
-import * as styles from "./Table.skeleton.module.scss"
+import * as styles from "./Table.skeleton.module.css"
 
 // Reuses the real Table primitive with mock data. Wrapping in Skeleton redacts
 // every header and cell <Text> into shimmer bars while the table borders and

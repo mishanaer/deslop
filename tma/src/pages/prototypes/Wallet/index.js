@@ -1,4 +1,4 @@
-import * as styles from "./Wallet.module.scss"
+import * as styles from "./Wallet.module.css"
 import Page from "../../../components/Page"
 import SectionList from "../../../components/SectionList"
 

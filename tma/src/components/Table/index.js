@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 
 import Text from "../Text"
-import * as styles from "./Table.module.scss"
+import * as styles from "./Table.module.css"
 
 const Table = ({ head = null, rows, align = [], className }) => {
     const cellStyle = (i) => (align[i] ? { textAlign: align[i] } : undefined)

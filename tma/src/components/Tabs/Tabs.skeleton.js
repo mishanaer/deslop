@@ -7,7 +7,7 @@ import ImageAvatar from "../ImageAvatar"
 import Skeleton from "../Skeleton"
 import Text from "../Text"
 
-import * as styles from "./Tabs.skeleton.module.scss"
+import * as styles from "./Tabs.skeleton.module.css"
 
 // Mock labels of varied length so the redacted tab strip reads as real
 // segments rather than a run of equal bars.

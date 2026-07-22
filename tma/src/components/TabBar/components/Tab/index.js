@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 
-import * as styles from "./Tab.module.scss"
+import * as styles from "./Tab.module.css"
 
 const Tab = ({ isActive, onClick, label, icon, className = "", ...rest }) => (
     <m.div

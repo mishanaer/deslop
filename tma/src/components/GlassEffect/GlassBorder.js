@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import * as styles from "./GlassBorder.module.scss"
+import * as styles from "./GlassBorder.module.css"
 
 /**
  * The single hairline rim a glass surface carries. Default is a bright

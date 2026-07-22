@@ -1,15 +1,16 @@
 # TMA
 
-A Telegram Mini Apps component library with a Vite Storybook for components,
-animations and full prototype flows. The optional integration layer keeps the
-components safe to render in a normal browser too.
+A reusable React component library with a Vite Storybook for components,
+animations and full prototype flows. Telegram Mini Apps support is optional;
+the same components are safe to render in a regular browser.
 
 ## Stack
 
 - **Vite 7** SPA, **React 19** with the **React Compiler** (auto-memoization)
 - **wouter** routing in hash mode (`useHashLocation`) for the standalone
   Storybook
-- **SCSS Modules** (`<Name>.module.scss`)
+- **Tailwind CSS 4** with the first-party Vite plugin
+- Semantic Tailwind utilities generated directly from `@deslop/primitives`
 - **motion v12** (framer-motion-compatible), **calligraph** and
   **markdown-to-jsx**
 - Optional Telegram Web App integration via the internal `@lib/twa` wrapper
@@ -46,16 +47,18 @@ configure the base path through `vite.config.js` instead.
 | `yarn build:storybook`  | Build only the component showcase into `build/`               |
 | `yarn build:lib`        | Build only the reusable `@deslop/tma` package into `dist/`    |
 | `yarn preview`          | Preview the production build locally                          |
-| `yarn lint`             | Lint JS + SCSS — run before declaring a task done             |
+| `yarn lint`             | Check styling architecture and lint JS + CSS                  |
+| `yarn check:styles`     | Prevent Sass and new CSS Modules; validate Tailwind setup     |
 | `yarn lint:js`          | ESLint only                                                   |
-| `yarn lint:scss`        | Stylelint only                                                |
+| `yarn lint:css`         | Stylelint only                                                |
 | `yarn format`           | Prettier write over `src/`                                    |
 | `yarn screenshot:story` | Render story screenshots (`scripts/screenshot-story.js`)      |
 
 ## Project layout
 
-- `src/components/<Name>/` — `index.js` (default export) +
-  `<Name>.module.scss` + optional `*.showcase.js`
+- `src/components/<Name>/` — `index.js` (default export) + optional
+  `*.showcase.js`. Old components can still contain a compatibility
+  `<Name>.module.css`, but new CSS Modules are rejected by verification.
 - `storybook/config.js` — single config that drives both routing and the
   catalog; adding a page = a component plus one entry here
 - `src/pages/prototypes/` — full app prototypes (Wallet, Onboarding,
@@ -76,6 +79,33 @@ Colors, typography, fonts and icons come from the single canonical package at
 that package directly, so local Primitives changes are reflected without copying
 files.
 
+## Styling
+
+`src/styles/tailwind.css` is the only Tailwind theme entry point. It maps the
+Primitives tokens to semantic utilities, so light and dark themes switch through
+the same class names:
+
+```jsx
+<section className="rounded-section bg-surface p-content text-foreground">
+    <button className="rounded-button bg-action-primary px-20 py-12 text-on-action">
+        Continue
+    </button>
+</section>
+```
+
+Use `cn` from `@utils/cn` for conditional class names. Prefer semantic classes
+such as `bg-background`, `bg-surface`, `text-foreground`, `text-muted`,
+`bg-action-primary`, spacing classes like `gap-12`, and component radii like
+`rounded-button`. Avatar gradients are available as `bg-avatar-red`,
+`bg-avatar-orange`, and the other named variants. Do not use Tailwind's generic
+color palette or hard-code a token value in a component.
+
+The migration keeps a fixed list of legacy `*.module.css` files only to preserve
+the current component visuals. Do not create new modules; when touching a legacy
+component, move the affected styles into Tailwind utilities and delete the module
+once it is empty. The allowlist lives in `scripts/legacy-css-modules.txt`, and
+`yarn check:styles` enforces this boundary.
+
 ## Library usage
 
 ```jsx
@@ -92,9 +122,15 @@ export function App() {
 }
 ```
 
-The visual system is unified and Apple-based. `Text` accepts direct
-`variant`, `weight`, `caps`, `chevron` and `arrow` props; the old
-`apple`/`material` API is not supported.
+Consumers do not need to install or configure Tailwind. The published
+`@deslop/tma/styles.css` already contains the generated utilities and Primitives
+styles required by the components.
+
+`Text` accepts direct `variant`, `weight`, `caps`, `chevron` and `arrow` props;
+the old `apple`/`material` Text API is not supported. Some legacy components
+still contain internal Apple/Material branches behind `DeviceProvider`. They are
+compatibility code rather than a public styling choice and should disappear as
+those components move to Tailwind.
 
 ## Telegram integration
 
@@ -116,9 +152,19 @@ Storybook do not load the Telegram SDK.
 
 ## Conventions
 
-See `AGENTS.md` for the full contributor rules — file size limits, animation
-performance tiers, the SCSS-Modules-only policy, and project primitives to
-reuse (`Button`, `Text`, `GlassContainer`, `Page`, `PageTransition`).
+See `AGENTS.md` for the small set of rules that complements the repository-wide
+agent instructions.
+
+## Verification
+
+Run the complete repository check from the repository root:
+
+```bash
+npm run verify
+```
+
+It validates Primitives tokens and icons, the Tailwind architecture, JavaScript
+and CSS, then builds both the Storybook and the reusable library.
 
 ## License
 

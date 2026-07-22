@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import styles from "./StoryCard.module.scss"
+import styles from "./StoryCard.module.css"
 
 export default function StoryCardBadge({ children }) {
     return <span className={styles.badge}>{children}</span>

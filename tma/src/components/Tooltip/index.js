@@ -16,7 +16,7 @@ import {
     buildClipPath,
 } from "./tooltipPath"
 
-import * as styles from "./Tooltip.module.scss"
+import * as styles from "./Tooltip.module.css"
 
 /**
  * Hover/tap tooltip rendered in a portal with edge-aware placement and a

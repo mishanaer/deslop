@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import { useParticles } from "./useParticles"
 
-import * as styles from "./ParticleEffect.module.scss"
+import * as styles from "./ParticleEffect.module.css"
 
 /**
  * ParticleEffect - covers its children with an animated particle cloud, ported

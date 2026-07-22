@@ -2,11 +2,11 @@ import { useRef } from "react"
 import PropTypes from "prop-types"
 import { useSmoothCorners } from "@lisse/react"
 import { componentRadiusPixels, radiusPixels } from "@deslop/primitives/layout"
-import * as styles from "./SectionList.module.scss"
+import * as styles from "./SectionList.module.css"
 import SectionHeader from "../../components/SectionHeader"
 import { useSkin } from "../../hooks/DeviceProvider"
 
-// Radii mirror SectionList.module.scss: Apple rounds the inner .container
+// Radii mirror SectionList.module.css: Apple rounds the inner .container
 // (26px, header sits above it); Material rounds the whole .card (16px).
 const APPLE_RADIUS = componentRadiusPixels.section
 const MATERIAL_RADIUS = radiusPixels["16"]

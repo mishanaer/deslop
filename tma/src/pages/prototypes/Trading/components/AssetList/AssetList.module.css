@@ -1,0 +1,29 @@
+.sizer {
+  position: relative;
+  align-self: stretch;
+}
+
+.row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.delta {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.delta.up {
+  color: var(--text-confirm-color);
+}
+
+.delta.down {
+  color: var(--tg-theme-destructive-text-color);
+}
+
+:global([data-skeleton]) .delta.up, :global([data-skeleton]) .delta.down {
+  color: transparent;
+}

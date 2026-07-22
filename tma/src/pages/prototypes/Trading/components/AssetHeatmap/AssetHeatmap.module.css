@@ -1,0 +1,95 @@
+.map {
+  container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1074/743;
+}
+
+:global(body.material) .map {
+  margin: 4px 12px 12px;
+  border-radius: 12px;
+}
+
+:global(body.apple) section.transparentSection div:has(> .map) {
+  background-color: transparent;
+}
+
+.tiles {
+  position: absolute;
+  inset: -1.5px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 4px;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
+  color: var(--ui-static-white);
+  text-align: center;
+  letter-spacing: -0.02em;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  transition: background-color 0.45s ease;
+}
+
+@supports (font-size: 1cqw) {
+  .tile {
+    font-size: clamp(5px, var(--fit), 14px);
+  }
+}
+
+.tile [data-variant] {
+  font-size: inherit !important;
+  line-height: 1.1 !important;
+}
+
+.skeletonTile {
+  --skeleton-radius: 8px;
+  --skeleton-inset-bottom: 0;
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.change {
+  font-size: 0.85em;
+}
+
+.gain1 {
+  background-color: var(--ui-heatmap-gain-1);
+  background-color: oklch(from var(--text-confirm-color) 72% 0.115 h);
+}
+
+.gain2 {
+  background-color: var(--ui-heatmap-gain-2);
+  background-color: oklch(from var(--text-confirm-color) 61% 0.125 h);
+}
+
+.gain3 {
+  background-color: var(--ui-heatmap-gain-3);
+  background-color: oklch(from var(--text-confirm-color) 46% 0.12 h);
+}
+
+.loss1 {
+  background-color: var(--ui-heatmap-loss-1);
+  background-color: oklch(from var(--tg-theme-destructive-text-color) 72% 0.125 h);
+}
+
+.loss2 {
+  background-color: var(--ui-heatmap-loss-2);
+  background-color: oklch(from var(--tg-theme-destructive-text-color) 61% 0.19 h);
+}
+
+.loss3 {
+  background-color: var(--ui-heatmap-loss-3);
+  background-color: oklch(from var(--tg-theme-destructive-text-color) 43% 0.155 h);
+}

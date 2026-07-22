@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import Text from "../../../Text"
-import * as styles from "./CellText.module.scss"
+import * as styles from "./CellText.module.css"
 
 const CellText = ({ type, title, description, caption, bold }) => {
     const weight = bold ? "medium" : "regular"

@@ -5,7 +5,7 @@ import { RegularButton } from "../../../components/Button"
 import WebApp, { BackButton } from "../../../lib/twa"
 import { getUiColor } from "@deslop/primitives/colors"
 
-import * as styles from "./ColorChanging.module.scss"
+import * as styles from "./ColorChanging.module.css"
 
 function ColorChanging() {
     const [isSecondaryColor, setIsSecondaryColor] = useState(true)

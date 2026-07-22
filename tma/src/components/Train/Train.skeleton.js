@@ -4,7 +4,7 @@ import Text from "../Text"
 import Train from "../Train"
 import Skeleton from "../Skeleton"
 
-import * as styles from "./Train.skeleton.module.scss"
+import * as styles from "./Train.skeleton.module.css"
 
 // Reuses the real Train so the row layout and dividers (space / dot) match the
 // loaded state; the Skeleton provider redacts each Text item into a bar sized

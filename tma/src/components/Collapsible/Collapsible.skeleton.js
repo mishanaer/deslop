@@ -3,7 +3,7 @@ import SectionList from "../SectionList"
 import Cell from "../Cells"
 import Skeleton, { SkeletonBlock } from "../Skeleton"
 
-import * as styles from "./Collapsible.skeleton.module.scss"
+import * as styles from "./Collapsible.skeleton.module.css"
 
 // Both collapsibles start closed, so the loaded screen's initial shape is just
 // the two toggle rows: a labelled row with a pill-shaped switch placeholder per

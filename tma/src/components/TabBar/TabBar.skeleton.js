@@ -5,7 +5,7 @@ import ImageAvatar from "../ImageAvatar"
 import Text from "../Text"
 import Skeleton from "../Skeleton"
 
-import * as styles from "./TabBar.skeleton.module.scss"
+import * as styles from "./TabBar.skeleton.module.css"
 
 // Mirrors the settings rows above the bar; varied trailing values keep the
 // placeholder from reading as identical stripes.

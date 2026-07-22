@@ -8,7 +8,7 @@ import { RegularButton } from "../../../components/Button"
 
 import WebApp, { BackButton } from "../../../lib/twa"
 
-import * as styles from "./HapticFeedback.module.scss"
+import * as styles from "./HapticFeedback.module.css"
 
 const haptics = [
     {

@@ -2,7 +2,7 @@ import Page from "../Page"
 import SectionList from "../SectionList"
 import Text from "../Text"
 
-import * as styles from "./StreamingText.skeleton.module.scss"
+import * as styles from "./StreamingText.skeleton.module.css"
 
 // Widths (in ch) approximate a paragraph mid-generation: mostly full lines
 // with a short final line signalling the stream tail. Bars cap at 100% of

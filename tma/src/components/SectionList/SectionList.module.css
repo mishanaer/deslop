@@ -1,0 +1,53 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  padding-bottom: calc(var(--ui-layout-content-inset) + env(safe-area-inset-bottom));
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.root section {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.root section .card {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.root section .container {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.root section .container :not(:last-child, :has(+ [aria-hidden="true"]:last-child)) {
+  --last-cell-separator-height: var(--cell-separator-height);
+}
+
+:global(body.apple) .root {
+  padding: var(--ui-layout-content-inset);
+  gap: var(--ui-layout-section-gap);
+}
+
+:global(body.apple) .root section .container {
+  background-color: var(--tg-theme-section-bg-color);
+  border-radius: var(--ui-component-section-radius);
+  overflow: hidden;
+}
+
+:global(body.material) .root {
+  padding: var(--ui-space-12);
+  padding-bottom: calc(var(--ui-space-12) + env(safe-area-inset-bottom));
+  gap: var(--ui-space-12);
+}
+
+:global(body.material) .root section .card {
+  background-color: var(--tg-theme-section-bg-color);
+  border-radius: var(--ui-radius-16);
+  overflow: hidden;
+}

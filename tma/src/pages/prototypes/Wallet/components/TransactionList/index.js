@@ -1,4 +1,4 @@
-import * as styles from "./TransactionList.module.scss"
+import * as styles from "./TransactionList.module.css"
 import SectionList from "../../../../../components/SectionList"
 import Cell from "../../../../../components/Cells"
 import txHistory from "../../data/transactions.json"

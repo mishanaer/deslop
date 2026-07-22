@@ -12,7 +12,7 @@ import { getAssetIcon } from "../../utils/AssetsMap"
 import { BackButton } from "../../lib/twa"
 
 import data from "./Tabs.showcase.data.json"
-import * as styles from "./Tabs.showcase.module.scss"
+import * as styles from "./Tabs.showcase.module.css"
 
 const TokenList = ({ rows }) => (
     <>

@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from "react"
 import PropTypes from "prop-types"
 
-import * as styles from "./FitText.module.scss"
+import * as styles from "./FitText.module.css"
 
 export default function FitText({
     children,

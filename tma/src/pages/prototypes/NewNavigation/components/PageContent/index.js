@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { AnimatePresence } from "motion/react"
-import * as styles from "./PageContent.module.scss"
+import * as styles from "./PageContent.module.css"
 import Wallet from "../../../Wallet"
 import TONWallet from "../../../TS"
 

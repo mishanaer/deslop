@@ -1,0 +1,6 @@
+.strip {
+  display: flex;
+  gap: 20px;
+  padding: 12px var(--side-padding);
+  overflow: hidden;
+}

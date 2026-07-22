@@ -1,9 +1,16 @@
 import PropTypes from "prop-types"
-import * as styles from "./Card.module.scss"
 
-function Card({ children, ...props }) {
+import { cn } from "@utils/cn"
+
+function Card({ children, className, ...props }) {
     return (
-        <div className={styles.root} {...props}>
+        <div
+            className={cn(
+                "[&:last-child]:[--cell-separator-height:0px]",
+                className
+            )}
+            {...props}
+        >
             {children}
         </div>
     )
@@ -11,5 +18,6 @@ function Card({ children, ...props }) {
 
 Card.propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
 }
 export default Card

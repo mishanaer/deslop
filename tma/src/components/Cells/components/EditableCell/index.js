@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import Text from "../../../Text"
 import ClearIcon from "@deslop/primitives/icons/circle-close.svg?react"
-import * as styles from "./EditableCell.module.scss"
+import * as styles from "./EditableCell.module.css"
 
 const EditableCell = forwardRef(
     ({ label, value, onChange, onClear, ...rest }, ref) => {

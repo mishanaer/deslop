@@ -6,7 +6,7 @@ import Text from "../Text"
 import { GlassContainer } from "../GlassEffect"
 
 import { SPRING } from "../../utils/animations"
-import * as styles from "./Tabs.module.scss"
+import * as styles from "./Tabs.module.css"
 
 const Tabs = ({
     tabs,

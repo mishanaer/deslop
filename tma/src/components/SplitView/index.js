@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { useResizeObserver } from "../../hooks/useResizeObserver"
 import SplitViewContext from "./context"
 
-import * as styles from "./SplitView.module.scss"
+import * as styles from "./SplitView.module.css"
 
 // Generic, presentational two-pane layout (iPad-style master/detail).
 // Purely structural: pass any nodes as Sidebar / Detail so prototypes can

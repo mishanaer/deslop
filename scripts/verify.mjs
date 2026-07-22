@@ -1,70 +1,82 @@
-import { existsSync } from 'node:fs';
-import { spawn } from 'node:child_process';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { existsSync } from "node:fs";
+import { spawn } from "node:child_process";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const primitives = resolve(root, 'primitives');
-const tma = resolve(root, 'tma');
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const primitives = resolve(root, "primitives");
+const tma = resolve(root, "tma");
 
 const commands = [
   {
-    label: 'Primitives: tokens',
+    label: "Primitives: tokens",
     cwd: primitives,
-    args: ['./scripts/generate-layout-tokens.mjs', '--check'],
+    args: ["./scripts/generate-layout-tokens.mjs", "--check"],
   },
   {
-    label: 'Primitives: colors',
+    label: "Primitives: colors",
     cwd: primitives,
-    args: ['./scripts/check-color-tokens.mjs'],
+    args: ["./scripts/check-color-tokens.mjs"],
   },
   {
-    label: 'Primitives: typography',
+    label: "Primitives: typography",
     cwd: primitives,
-    args: ['./scripts/check-typography-tokens.mjs'],
+    args: ["./scripts/check-typography-tokens.mjs"],
   },
   {
-    label: 'Primitives: icons',
+    label: "Primitives: icons",
     cwd: primitives,
-    args: ['./scripts/check-icons.mjs'],
+    args: ["./scripts/check-icons.mjs"],
   },
   {
-    label: 'TMA: JavaScript lint',
+    label: "TMA: styling architecture",
+    cwd: tma,
+    args: ["./scripts/check-styling.mjs"],
+  },
+  {
+    label: "TMA: JavaScript lint",
     cwd: tma,
     args: [
-      './node_modules/eslint/bin/eslint.js',
-      '{src,storybook}/**/*.{js,jsx,ts,tsx}',
+      "./node_modules/eslint/bin/eslint.js",
+      "{src,storybook}/**/*.{js,jsx,ts,tsx}",
     ],
   },
   {
-    label: 'TMA: SCSS lint',
+    label: "TMA: CSS lint",
     cwd: tma,
     args: [
-      './node_modules/stylelint/bin/stylelint.mjs',
-      '{src,storybook}/**/*.scss',
+      "./node_modules/stylelint/bin/stylelint.mjs",
+      "{src,storybook}/**/*.css",
     ],
   },
   {
-    label: 'TMA: Storybook build',
+    label: "TMA: Storybook build",
     cwd: tma,
-    args: ['./node_modules/vite/bin/vite.js', 'build'],
+    args: ["./node_modules/vite/bin/vite.js", "build"],
   },
   {
-    label: 'TMA: library build',
+    label: "TMA: library build",
     cwd: tma,
-    args: ['./node_modules/vite/bin/vite.js', 'build', '--config', 'vite.lib.config.js'],
+    args: [
+      "./node_modules/vite/bin/vite.js",
+      "build",
+      "--config",
+      "vite.lib.config.js",
+    ],
   },
 ];
 
-const requiredTmaFiles = commands
-  .slice(4)
-  .map(({ args }) => resolve(tma, args[0]));
+const requiredTmaFiles = commands.flatMap(({ cwd, args }) =>
+  cwd === tma && args[0].startsWith("./node_modules/")
+    ? [resolve(tma, args[0])]
+    : [],
+);
 
 const missingDependency = requiredTmaFiles.find((file) => !existsSync(file));
 
 if (missingDependency) {
-  console.error('TMA dependencies are not installed. Run:');
-  console.error('  corepack yarn --cwd tma install --immutable');
+  console.error("TMA dependencies are not installed. Run:");
+  console.error("  corepack yarn --cwd tma install --immutable");
   process.exit(1);
 }
 
@@ -74,11 +86,11 @@ function run({ label, cwd, args }) {
 
     const child = spawn(process.execPath, args, {
       cwd,
-      stdio: 'inherit',
+      stdio: "inherit",
     });
 
-    child.on('error', reject);
-    child.on('exit', (code, signal) => {
+    child.on("error", reject);
+    child.on("exit", (code, signal) => {
       if (code === 0) {
         resolvePromise();
         return;
@@ -98,7 +110,7 @@ try {
     await run(command);
   }
 
-  console.log('\n✓ Verification passed');
+  console.log("\n✓ Verification passed");
 } catch (error) {
   console.error(`\n✗ ${error.message}`);
   process.exit(1);

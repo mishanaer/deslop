@@ -7,7 +7,7 @@ import { useSplitViewContext } from "../SplitView/context"
 import { isTelegram } from "../../lib/twa"
 import ChevronLeftIcon from "@deslop/primitives/icons/chevron-left.svg?react"
 
-import * as styles from "./AppBar.module.scss"
+import * as styles from "./AppBar.module.css"
 
 const findScroller = (node) => {
     let el = node?.parentElement

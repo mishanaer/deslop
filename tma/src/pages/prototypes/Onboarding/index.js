@@ -9,7 +9,7 @@ import { RegularButton } from "../../../components/Button"
 
 import WebApp, { BackButton } from "../../../lib/twa"
 
-import * as styles from "./Onboarding.module.scss"
+import * as styles from "./Onboarding.module.css"
 
 const GalleryPages = [
     {

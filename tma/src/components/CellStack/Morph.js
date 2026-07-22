@@ -7,7 +7,7 @@ import Cell from "../Cells"
 import { TRANSITIONS } from "../../utils/animations"
 
 import { useCellStack } from "./context"
-import * as styles from "./CellStack.module.scss"
+import * as styles from "./CellStack.module.css"
 
 const TRANSITION = TRANSITIONS.MATERIAL_STANDARD
 

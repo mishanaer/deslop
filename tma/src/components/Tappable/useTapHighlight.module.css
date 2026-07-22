@@ -1,0 +1,40 @@
+.overlay,
+.opacity {
+  user-select: none;
+}
+
+.overlay.fadeIn {
+  background: var(--highlight-default);
+}
+
+.overlay.fadeOut {
+  animation: overlay-out 250ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.opacity.fadeIn {
+  opacity: 0.6;
+}
+
+.opacity.fadeOut {
+  animation: opacity-out 250ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes overlay-out {
+  from {
+    background: var(--highlight-default);
+  }
+
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes opacity-out {
+  from {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

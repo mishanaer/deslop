@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useRef } from "react"
 import PropTypes from "prop-types"
 
-import * as styles from "./TextArea.module.scss"
+import * as styles from "./TextArea.module.css"
 
 export const TextArea = forwardRef((props, ref) => {
     const { value, className, ...rest } = props || {}

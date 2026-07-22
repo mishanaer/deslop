@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import StoryCardBadge from "./StoryCardBadge"
 import { formatPrice } from "./formatPrice"
-import styles from "./StoryCard.module.scss"
+import styles from "./StoryCard.module.css"
 import storyBg from "./story-bg.jpg"
 
 function formatTimestamp(isoString) {

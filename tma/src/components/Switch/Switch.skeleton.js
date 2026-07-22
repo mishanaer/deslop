@@ -3,7 +3,7 @@ import SectionList from "../SectionList"
 import Cell from "../Cells"
 import Skeleton, { SkeletonBlock } from "../Skeleton"
 
-import * as styles from "./Switch.skeleton.module.scss"
+import * as styles from "./Switch.skeleton.module.css"
 
 // A switch has no text to redact, so it is drawn as a pill-shaped shimmer via
 // the shared SkeletonBlock (non-interactive by design).

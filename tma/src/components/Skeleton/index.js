@@ -1,9 +1,9 @@
 import { createContext, useContext } from "react"
 import PropTypes from "prop-types"
 
-import * as styles from "./Skeleton.module.scss"
+import * as styles from "./Skeleton.module.css"
 
-// must match the wave animation duration in Skeleton.module.scss
+// must match the wave animation duration in Skeleton.module.css
 const WAVE_PERIOD_MS = 1800
 // how long the crest takes to travel one pixel down the page
 const WAVE_MS_PER_PX = 1.3

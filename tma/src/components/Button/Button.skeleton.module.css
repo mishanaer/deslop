@@ -1,0 +1,12 @@
+.regularGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px var(--side-padding);
+}
+
+.multilineGroup {
+  display: flex;
+  gap: 12px;
+  padding: 12px var(--side-padding);
+}

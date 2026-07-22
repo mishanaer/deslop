@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import PropTypes from "prop-types"
-import * as styles from "./Picker.module.scss"
+import * as styles from "./Picker.module.css"
 
 import WebApp from "../../lib/twa"
 import { drumTransform } from "../../utils/drum"

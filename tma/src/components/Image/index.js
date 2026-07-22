@@ -1,7 +1,7 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
 
-import * as styles from "./Image.module.scss"
+import { cn } from "@utils/cn"
 
 const isInCache = ({ src, srcSet }) => {
     if (!src && !srcSet) return false
@@ -28,7 +28,11 @@ export const Image = ({ className, onLoad, ...restProps }) => {
                 setIsLoaded(true)
                 onLoad?.(event)
             }}
-            className={`${styles.root} ${isLoaded ? styles.loaded : ""} ${className || ""}`}
+            className={cn(
+                "rounded-[inherit] opacity-0 transition-opacity duration-250 ease-[cubic-bezier(0.23,1,0.32,1)]",
+                isLoaded && "opacity-100",
+                className
+            )}
             {...restProps}
         />
     )

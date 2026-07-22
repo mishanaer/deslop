@@ -1,0 +1,4 @@
+.transactions :global(.Cell:last-child .body),
+.transactions :global(.Cell:last-child .right) {
+  border-bottom: 0;
+}

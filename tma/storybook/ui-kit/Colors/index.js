@@ -12,7 +12,7 @@ import {
 } from "@deslop/primitives/tokens"
 import "@deslop/primitives/colors.css"
 
-import * as styles from "./Colors.module.scss"
+import * as styles from "./Colors.module.css"
 
 const ThemeSwatch = ({ light, dark }) => (
     <div

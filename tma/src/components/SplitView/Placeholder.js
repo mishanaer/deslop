@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import Text from "../Text"
 import { useSplitViewContext } from "./context"
 
-import * as styles from "./SplitView.module.scss"
+import * as styles from "./SplitView.module.css"
 
 // Empty-state shown in the detail pane when no item is selected (route "/").
 // Reports the secondary background so the pane resets after a page with a

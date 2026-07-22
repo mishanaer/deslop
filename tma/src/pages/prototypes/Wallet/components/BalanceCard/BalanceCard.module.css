@@ -1,0 +1,112 @@
+.card {
+  z-index: 1;
+}
+
+.data {
+  position: relative;
+  display: flex;
+  padding: 28px 0 44px;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  align-self: stretch;
+  text-align: center;
+  z-index: 1;
+}
+
+.amount span {
+  font-size: var(--ui-title-52-font-size);
+  line-height: var(--ui-title-52-line-height);
+  font-weight: var(--ui-title-52-font-weight);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.amount span {
+  font-family: var(--ui-font-interface);
+}
+
+.prefix {
+  color: var(--tg-theme-subtitle-text-color);
+}
+
+.cardOverlay .amount span {
+  color: var(--ui-static-white);
+}
+
+.cardDefault .amount span {
+  color: var(--tg-theme-text-color);
+}
+
+.actions {
+  position: relative;
+  background-color: transparent !important;
+  display: flex;
+  padding: 0 16px 16px;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  z-index: 1;
+}
+
+.cardOverlay {
+  --tg-theme-text-color: var(--ui-static-white);
+  --tg-theme-subtitle-text-color: color-mix(
+      in srgb,
+      var(--ui-static-white) 55%,
+      transparent
+  );
+  --tg-theme-accent-text-color: var(--ui-static-white);
+  --tg-theme-section-bg-color: transparent;
+  --text-confirm-color: var(--ui-accent-green);
+
+  color: var(--ui-static-white);
+}
+
+.cardOverlay .label {
+  color: var(--tg-theme-subtitle-text-color);
+}
+
+.cardOverlay .prefix {
+  color: var(--tg-theme-subtitle-text-color);
+}
+
+:global(body.material) .cardOverlay .data {
+  padding: 92px 0 31px;
+}
+
+.cardDefault {
+  color: var(--tg-theme-text-color);
+  background: var(--tg-theme-section-bg-color);
+}
+
+:global(body.apple) .cardDefault .label {
+  color: var(--tg-theme-text-color);
+}
+
+:global(body.material) .cardDefault .label {
+  color: var(--tg-theme-subtitle-text-color);
+}
+
+:global(body.material) .cardDefault {
+  background-color: var(--tg-theme-section-bg-color);
+}
+
+:global(body.material) .cardDefault .data {
+  padding: 32px 0 42px;
+}
+
+:global(body.material) .cardDefault .amount {
+  font-size: 44px;
+  font-weight: 500;
+}
+
+.overlayButton {
+  background: color-mix(in srgb, var(--ui-static-white) 10%, transparent) !important;
+  background-blend-mode: plus-lighter, normal;
+  color: var(--ui-static-white) !important;
+}
+
+.overlayButton svg,
+.overlayButton path {
+  fill: var(--ui-static-white) !important;
+}

@@ -7,7 +7,7 @@ import Skeleton, { SkeletonBlock } from "../../../components/Skeleton"
 
 import ActionButtons from "../Wallet/components/ActionButtons"
 
-import * as styles from "./NewNavigation.skeleton.module.scss"
+import * as styles from "./NewNavigation.skeleton.module.css"
 
 // Mirrors the first visible view (Wallet tab): the top navigation panel
 // (avatar + wallet-name pill + QR), a big balance, the action-button row, an

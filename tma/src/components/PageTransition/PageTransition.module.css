@@ -1,0 +1,24 @@
+.root {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.contained {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.withBottomInset {
+  /* Reserve scroll room to clear the bar; when the switcher lifts the bar to
+     --bottom-clearance, grow by the same 64px bar allowance. */
+  padding-bottom: calc(var(--bottom-clearance, env(safe-area-inset-bottom, 0px)) + 64px);
+}

@@ -12,7 +12,7 @@ import TabBar from "../../../components/TabBar"
 import { useSkin } from "../../../hooks/DeviceProvider"
 import { getTabsConfig, pageVariants } from "./navigationConfig"
 
-import * as styles from "./NewNavigation.module.scss"
+import * as styles from "./NewNavigation.module.css"
 
 function NewNavigation() {
     const { isApple, skin } = useSkin()

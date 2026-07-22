@@ -12,7 +12,7 @@ import useAssets from "../../../../../hooks/useAssets"
 
 import { squarify } from "./treemap"
 
-import * as styles from "./AssetHeatmap.module.scss"
+import * as styles from "./AssetHeatmap.module.css"
 
 const cx = (...classes) => classes.filter(Boolean).join(" ")
 
@@ -37,7 +37,7 @@ const FILL_W = 0.78
 const FILL_H = 0.72
 const LINE_EM = 1.1 // pinned in the stylesheet
 const GAP_EM = 0.2 // the 2px labels gap, at typical tile type size
-const CHANGE_SCALE = 0.85 // percent line, relative to the ticker (see SCSS)
+const CHANGE_SCALE = 0.85 // percent line, relative to the ticker (see CSS)
 const SOLO_AREA_K = 0.34
 
 // Canvas-measured glyph widths in em, cached per unique label — exact with

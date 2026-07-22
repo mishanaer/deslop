@@ -3,7 +3,7 @@ import ImageAvatar from "../../../components/ImageAvatar"
 import Text from "../../../components/Text"
 import Skeleton from "../../../components/Skeleton"
 
-import * as styles from "./ColorAssetPage.module.scss"
+import * as styles from "./ColorAssetPage.module.css"
 
 // Neutral hero placeholders shown while the screen chunk loads. Mirrors the
 // AssetSection layout (big avatar + name/price/ticker) so the swap into the

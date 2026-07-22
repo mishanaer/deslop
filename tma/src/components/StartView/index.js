@@ -1,11 +1,9 @@
 import Text from "../Text"
 import PropTypes from "prop-types"
 
-import * as styles from "./StartView.module.scss"
-
 const StartView = ({ title, description }) => {
     return (
-        <div className={styles.root}>
+        <div className="flex flex-col items-center justify-center gap-12 px-start-view-inline py-start-view-block text-center text-foreground">
             <Text variant="title1" weight="bold">
                 {title}
             </Text>

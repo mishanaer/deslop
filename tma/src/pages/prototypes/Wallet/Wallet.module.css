@@ -1,0 +1,10 @@
+:global(body.material) .wallet .spacer {
+  height: 12px;
+}
+
+.imagePlayground {
+  width: 100%;
+  height: 400px;
+  background-image: url("https://picsum.photos/1200/1200");
+  background-size: cover;
+}

@@ -1,7 +1,7 @@
 import { useMemo } from "react"
 import StoryCard from "../../components/StoryCard"
 import { parseStoryParams } from "../../components/StoryCard/parseStoryParams"
-import styles from "./StoryPage.module.scss"
+import styles from "./StoryPage.module.css"
 
 export default function StoryPage() {
     const params = useMemo(() => parseStoryParams(), [])

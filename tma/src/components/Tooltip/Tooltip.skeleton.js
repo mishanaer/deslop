@@ -1,7 +1,7 @@
 import Page from "../Page"
 import Skeleton, { SkeletonBlock } from "../Skeleton"
 
-import * as styles from "./Tooltip.skeleton.module.scss"
+import * as styles from "./Tooltip.skeleton.module.css"
 
 // Same anchor grid the showcase pins its trigger dots to, so the placeholder
 // reads as the real screen: two control rows above a framed field of eight

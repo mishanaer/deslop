@@ -1,4 +1,4 @@
-import * as styles from "./ActionButtons.module.scss"
+import * as styles from "./ActionButtons.module.css"
 import { MultilineButton } from "../../../../../components/Button"
 
 import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"

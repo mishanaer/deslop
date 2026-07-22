@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { useTransform } from "motion/react"
-import * as styles from "./Wheel.module.scss"
+import * as styles from "./Wheel.module.css"
 
 import { drumTransform } from "../../utils/drum"
 import { STEP_WIDTH } from "./useWheelSnap"

@@ -2,7 +2,7 @@ import { createPortal } from "react-dom"
 import PropTypes from "prop-types"
 import { AnimatePresence } from "motion/react"
 import SnackbarItem from "./SnackbarItem"
-import * as styles from "./Snackbar.module.scss"
+import * as styles from "./Snackbar.module.css"
 
 const positionClass = {
     top: styles.host_top,
