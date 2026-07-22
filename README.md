@@ -17,6 +17,9 @@
 [TMA](./tma/README.md) — библиотека готовых React-компонентов для Telegram Mini
 Apps.
 
+Сделана на основе проекта
+[wallet_animations](https://github.com/IlyaGrshin/wallet_animations) Ильи Гришина.
+
 ## sasha
 
 [sasha](./sasha/SKILL.md) — скилл для ИИ-агентов, который помогает писать,
