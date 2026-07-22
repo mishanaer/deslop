@@ -1,8 +1,8 @@
-# Web UI
+# TMA
 
-A reusable web component library with a Vite Storybook for components,
-animations and full prototype flows. Telegram Mini Apps are supported through
-an optional integration layer rather than defining the whole library.
+A Telegram Mini Apps component library with a Vite Storybook for components,
+animations and full prototype flows. The optional integration layer keeps the
+components safe to render in a normal browser too.
 
 ## Stack
 
@@ -44,7 +44,7 @@ configure the base path through `vite.config.js` instead.
 | `yarn dev`              | Vite dev server on port 3000 (entry: `src/index.js`)          |
 | `yarn build`            | Build the showcase into `build/` and the library into `dist/` |
 | `yarn build:storybook`  | Build only the component showcase into `build/`               |
-| `yarn build:lib`        | Build only the reusable `@deslop/web-ui` package into `dist/` |
+| `yarn build:lib`        | Build only the reusable `@deslop/tma` package into `dist/`    |
 | `yarn preview`          | Preview the production build locally                          |
 | `yarn lint`             | Lint JS + SCSS — run before declaring a task done             |
 | `yarn lint:js`          | ESLint only                                                   |
@@ -64,7 +64,7 @@ configure the base path through `vite.config.js` instead.
   (NavigationBar, BottomBar, HapticFeedback)
 - `storybook/components/CatalogPage/` — auto-generated catalog from `storybook/config.js`
 - `storybook/router/` — config-driven routing with lazy loading
-- `src/library.js` — public exports for the `@deslop/web-ui` package
+- `src/library.js` — public exports for the `@deslop/tma` package
 - `src/hooks/` — `DeviceProvider` (platform) and `AppearanceProvider` (theme)
 - `src/lib/twa/` — wrapper around the Telegram WebApp SDK
 - `src/icons/`, `src/images/`, `src/utils/`
@@ -72,22 +72,22 @@ configure the base path through `vite.config.js` instead.
 ## Primitives
 
 Colors, typography, fonts and icons come from the single canonical package at
-`../primitives`. Web UI does not keep a second copy. The Storybook resolves
+`../primitives`. TMA does not keep a second copy. The Storybook resolves
 that package directly, so local Primitives changes are reflected without copying
 files.
 
 ## Library usage
 
 ```jsx
-import { Cell, RegularButton, WebUIProvider } from "@deslop/web-ui"
-import "@deslop/web-ui/styles.css"
+import { Cell, RegularButton, TMAProvider } from "@deslop/tma"
+import "@deslop/tma/styles.css"
 
 export function App() {
     return (
-        <WebUIProvider>
+        <TMAProvider>
             <Cell>Account</Cell>
             <RegularButton label="Continue" />
-        </WebUIProvider>
+        </TMAProvider>
     )
 }
 ```
@@ -100,8 +100,8 @@ The visual system is unified and Apple-based. `Text` accepts direct
 
 Telegram-specific adapters live in `src/lib/twa/` and gracefully fall back to
 browser-safe no-op implementations. A Telegram Mini App should provide the
-official `Telegram.WebApp` global in its host application; the general Web UI
-package and Storybook do not load the Telegram SDK.
+official `Telegram.WebApp` global in its host application; the TMA package and
+Storybook do not load the Telegram SDK.
 
 ## Build configuration
 

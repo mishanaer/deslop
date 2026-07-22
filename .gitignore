@@ -1,5 +1,5 @@
 .DS_Store
-web-ui/.claude/
-web-ui/skills-lock.json
-web-ui/public/fonts/
-web-ui/scripts/fonts/
+tma/.claude/
+tma/skills-lock.json
+tma/public/fonts/
+tma/scripts/fonts/

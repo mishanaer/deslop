@@ -5,7 +5,7 @@ import { SnackbarProvider } from "./components/Snackbar"
 import AppearanceProvider from "./hooks/AppearanceProvider"
 import DeviceProvider from "./hooks/DeviceProvider"
 
-export const WebUIProvider = ({ children }) => (
+export const TMAProvider = ({ children }) => (
     <MotionProvider>
         <DeviceProvider>
             <AppearanceProvider>
@@ -15,8 +15,8 @@ export const WebUIProvider = ({ children }) => (
     </MotionProvider>
 )
 
-WebUIProvider.propTypes = {
+TMAProvider.propTypes = {
     children: PropTypes.node,
 }
 
-export default WebUIProvider
+export default TMAProvider

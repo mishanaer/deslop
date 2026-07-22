@@ -1,4 +1,4 @@
-# Web UI — Agent Rules
+# TMA — Agent Rules
 
 > Reusable web component library with a standalone Vite Storybook and optional
 > Telegram Web App integration. **No SSR, no RSC, no Next.js.** When external
@@ -65,13 +65,13 @@ yarn lint:scss    # Stylelint only
 
 ## Visual system
 
-- Web UI uses one Apple-based visual language across browsers and embedded
+- TMA uses one Apple-based visual language across browsers and embedded
   WebViews
-- Unless the user explicitly asks otherwise, use existing `@deslop/web-ui`
+- Unless the user explicitly asks otherwise, use existing `@deslop/tma`
   components and `@deslop/primitives` only. Do not add a local duplicate of an
-  existing Web UI component.
+  existing TMA component.
 - Before creating a component, search `src/components/`. If it is genuinely
-  missing, add it to Web UI using Primitives before using it in a product.
+  missing, add it to TMA using Primitives before using it in a product.
 - Reuse colors, typography, icons, spacing and radii from `@deslop/primitives`
 - `DeviceProvider` keeps the existing Apple skin context stable; do not add new
   Material variants or user-agent branches

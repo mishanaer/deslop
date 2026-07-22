@@ -1,5 +1,5 @@
 {
-    "name": "@deslop/web-ui",
+    "name": "@deslop/tma",
     "version": "0.1.0",
     "description": "Reusable web component library powered by Deslop Primitives, with optional Telegram Web App integration.",
     "type": "module",

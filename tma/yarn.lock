@@ -404,15 +404,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@deslop/primitives@link:../primitives::locator=%40deslop%2Fweb-ui%40workspace%3A.":
+"@deslop/primitives@link:../primitives::locator=%40deslop%2Ftma%40workspace%3A.":
   version: 0.0.0-use.local
-  resolution: "@deslop/primitives@link:../primitives::locator=%40deslop%2Fweb-ui%40workspace%3A."
+  resolution: "@deslop/primitives@link:../primitives::locator=%40deslop%2Ftma%40workspace%3A."
   languageName: node
   linkType: soft
 
-"@deslop/web-ui@workspace:.":
+"@deslop/tma@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@deslop/web-ui@workspace:."
+  resolution: "@deslop/tma@workspace:."
   dependencies:
     "@babel/core": "npm:^7.29.7"
     "@babel/preset-react": "npm:^7.29.7"

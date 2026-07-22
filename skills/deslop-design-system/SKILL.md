@@ -1,11 +1,11 @@
 ---
 name: deslop-design-system
-description: Apply the Deslop web design system to web interfaces. Use when building or refactoring a web UI in a repository that contains Deslop Primitives or its installed package; select shared colors, typography, spacing, radii, icons, and Web UI components and verify light and dark themes.
+description: Apply the Deslop TMA design system to web interfaces. Use when building or refactoring a web UI in a repository that contains Deslop Primitives or its installed package; select shared colors, typography, spacing, radii, icons, and TMA components and verify light and dark themes.
 ---
 
 # Deslop web design system
 
-Use the shared design system as the only source for visual decisions. Keep base assets in `primitives`; use `@deslop/web-ui` for ready React components when that package is available.
+Use the shared design system as the only source for visual decisions. Keep base assets in `primitives`; use `@deslop/tma` for ready React components when that package is available.
 
 ## Locate the kit
 
@@ -29,7 +29,7 @@ Use the shared design system as the only source for visual decisions. Keep base 
 
 ## Build or change a component
 
-1. Prefer an existing `@deslop/web-ui` component over a duplicate implementation.
+1. Prefer an existing `@deslop/tma` component over a duplicate implementation.
 2. If a component must be new, compose it from Primitives tokens only. Keep product-specific layout and behaviour outside the design system.
 3. Use `data-color-scheme="light"` or `data-color-scheme="dark"` only to explicitly control the theme. Otherwise retain the operating-system preference.
 4. Check both themes. Confirm that text, surfaces, separators, active controls, and icons remain readable.
