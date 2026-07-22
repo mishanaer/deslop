@@ -30,6 +30,7 @@
     --tma-control-active: var(--elevation);
     --tma-control-disabled: var(--elevation-10);
     --tma-text-disabled: var(--elevation-30);
+    --tma-shine-highlight: var(--elevation);
     --tma-action-primary-foreground: var(--primary);
     --tma-action-destructive-foreground: var(--background);
     --tma-story-background: var(--primary);
@@ -58,6 +59,7 @@
         --tma-control-active: var(--elevation);
         --tma-control-disabled: var(--elevation-20);
         --tma-text-disabled: var(--elevation-30);
+        --tma-shine-highlight: var(--primary);
         --tma-action-primary-foreground: var(--background);
         --tma-action-destructive-foreground: var(--primary);
         --tma-story-background: var(--background);
@@ -87,6 +89,7 @@
     --tma-control-active: var(--elevation);
     --tma-control-disabled: var(--elevation-20);
     --tma-text-disabled: var(--elevation-30);
+    --tma-shine-highlight: var(--primary);
     --tma-action-primary-foreground: var(--background);
     --tma-action-destructive-foreground: var(--primary);
     --tma-story-background: var(--background);
