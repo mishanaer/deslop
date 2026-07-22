@@ -1,7 +1,7 @@
 # TMA
 
-TMA — библиотека React-компонентов для веба и Telegram Mini Apps. Цвета, шрифты,
-отступы и иконки берутся из `@deslop/primitives`.
+TMA — библиотека React-компонентов для Telegram Mini Apps. Цвета, шрифты, отступы
+и иконки берутся из `@deslop/primitives`.
 
 ## Запуск
 
