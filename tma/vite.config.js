@@ -1,5 +1,6 @@
 import { defineConfig } from "vite"
 import { fileURLToPath } from "node:url"
+import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import svgr from "vite-plugin-svgr"
 import checker from "vite-plugin-checker"
@@ -8,9 +9,7 @@ import webpackStatsPlugin from "rollup-plugin-webpack-stats"
 const srcPath = fileURLToPath(new URL("./src", import.meta.url))
 const projectPath = fileURLToPath(new URL(".", import.meta.url))
 const storybookPath = fileURLToPath(new URL("./storybook", import.meta.url))
-const primitivesPath = fileURLToPath(
-    new URL("../primitives", import.meta.url)
-)
+const primitivesPath = fileURLToPath(new URL("../primitives", import.meta.url))
 const reactPath = fileURLToPath(
     new URL("./node_modules/react", import.meta.url)
 )
@@ -18,6 +17,7 @@ const reactPath = fileURLToPath(
 export default defineConfig(({ command }) => ({
     base: "./",
     plugins: [
+        tailwindcss(),
         react({
             include: /\.(jsx?|tsx?)$/,
             babel: {
@@ -33,7 +33,7 @@ export default defineConfig(({ command }) => ({
                         "eslint '{src,storybook}/**/*.{js,jsx,ts,tsx}'",
                 },
                 stylelint: {
-                    lintCommand: "stylelint '{src,storybook}/**/*.scss'",
+                    lintCommand: "stylelint '{src,storybook}/**/*.css'",
                 },
             }),
         svgr({

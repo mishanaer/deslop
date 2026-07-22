@@ -5,7 +5,7 @@ import Skeleton, {
     useRedactionClassName,
     waveRef,
 } from "../../Skeleton"
-import * as styles from "./MultilineButton.module.scss"
+import * as styles from "./MultilineButton.module.css"
 
 /**
  * Compact icon-over-label action tile (e.g. Send / Add). Extra props spread

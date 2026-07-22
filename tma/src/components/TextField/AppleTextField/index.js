@@ -5,7 +5,7 @@ import Text from "../../Text"
 import TextArea from "../TextArea"
 import ClearIcon from "@deslop/primitives/icons/circle-close.svg?react"
 import SearchIcon from "@deslop/primitives/icons/search.svg?react"
-import * as styles from "./AppleTextField.module.scss"
+import * as styles from "./AppleTextField.module.css"
 
 const BackgroundColor = {
     tertiaryFill: "var(--tertiary-fill-background)",

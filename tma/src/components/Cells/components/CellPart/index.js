@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import Text from "../../../Text"
-import * as styles from "./CellPart.module.scss"
+import * as styles from "./CellPart.module.css"
 
 export const CellPart = ({
     type,

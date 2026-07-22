@@ -5,7 +5,7 @@ import WebApp from "../../../../../lib/twa"
 
 import { useColorScheme } from "../../../../../hooks/useColorScheme"
 import { blendColors } from "../../../../../utils/common"
-import * as styles from "./NavigationPanel.module.scss"
+import * as styles from "./NavigationPanel.module.css"
 import QRCodeIcon from "@deslop/primitives/icons/qr.svg?react"
 import DropdownControl from "./DropdownControl"
 import { getUiColor } from "@deslop/primitives/colors"

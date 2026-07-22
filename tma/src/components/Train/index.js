@@ -1,10 +1,20 @@
 import PropTypes from "prop-types"
-import * as styles from "./Train.module.scss"
+
+import { cn } from "@utils/cn"
+
+const dividerClasses = {
+    space: "gap-8",
+    dot: "gap-0 [&>*:not(:first-child)::before]:mx-[3px] [&>*:not(:first-child)::before]:inline-block [&>*:not(:first-child)::before]:content-['·']",
+}
 
 function Train({ divider = "space", children, className, ...props }) {
     return (
         <div
-            className={`${styles.root} ${styles[divider]} ${className || ""}`}
+            className={cn(
+                "flex items-center",
+                dividerClasses[divider],
+                className
+            )}
             {...props}
         >
             {children}

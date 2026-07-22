@@ -9,7 +9,7 @@ import ChevronLeftIcon from "@deslop/primitives/icons/chevron-left.svg?react"
 import EllipsisIcon from "@deslop/primitives/icons/circle-more.svg?react"
 import XmarkIcon from "@deslop/primitives/icons/cross.svg?react"
 
-import * as styles from "./PanelHeader.showcase.module.scss"
+import * as styles from "./PanelHeader.showcase.module.css"
 
 const noop = () => {}
 

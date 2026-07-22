@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import { useColorScheme } from "../../hooks/useColorScheme"
 import { useGradientCanvas } from "./hooks/useGradientCanvas"
 import { usePatternCanvas } from "./hooks/usePatternCanvas"
-import * as styles from "./GradientBackground.module.scss"
+import * as styles from "./GradientBackground.module.css"
 
 /**
  * Генерирует 4-цветный градиент на canvas как фоновое изображение

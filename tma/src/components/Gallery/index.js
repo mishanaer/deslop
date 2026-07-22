@@ -1,6 +1,6 @@
 import { useRef, useEffect, Children, useEffectEvent } from "react"
 import PropTypes from "prop-types"
-import * as styles from "./Gallery.module.scss"
+import * as styles from "./Gallery.module.css"
 
 const Gallery = ({ children, onPageChange, onScrollProgress }) => {
     const containerRef = useRef(null)

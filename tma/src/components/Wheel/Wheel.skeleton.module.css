@@ -1,0 +1,53 @@
+.wheelWrapper {
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wheel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--side-padding);
+}
+
+.block {
+  --skeleton-inset-bottom: 0px;
+  --skeleton-radius: 12px;
+
+  display: block;
+}
+
+.button {
+  width: 96px;
+  height: 40px;
+}
+
+.value {
+  --skeleton-radius: 14px;
+
+  width: 72px;
+  height: 48px;
+  margin: 0 auto;
+}
+
+.container {
+  position: relative;
+  height: 140px;
+}
+
+.indicator {
+  width: 32px;
+  height: 100%;
+  margin: 0 auto;
+}

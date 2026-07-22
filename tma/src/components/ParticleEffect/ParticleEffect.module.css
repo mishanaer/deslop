@@ -1,0 +1,28 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.content {
+  display: inline-flex;
+  align-items: baseline;
+  transition: filter 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.root.hidden .content {
+  filter: opacity(0);
+}
+
+.canvas {
+  position: absolute;
+  pointer-events: none;
+}
+
+.root.fallback .canvas {
+  display: none;
+}
+
+.root.fallback.hidden .content {
+  filter: blur(7px);
+}

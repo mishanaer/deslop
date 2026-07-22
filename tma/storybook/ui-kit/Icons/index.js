@@ -4,7 +4,7 @@ import Cell from "../../../src/components/Cells"
 import { BackButton } from "../../../src/lib/twa"
 import { iconComponents } from "@deslop/primitives/icons-react"
 
-import * as styles from "./Icons.module.scss"
+import * as styles from "./Icons.module.css"
 
 const sortedIcons = Object.entries(iconComponents).toSorted(([a], [b]) =>
     a.localeCompare(b)

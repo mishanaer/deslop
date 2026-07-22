@@ -6,7 +6,7 @@ import { RegularButton, MultilineButton } from "../Button"
 import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"
 import PlusIcon from "@deslop/primitives/icons/plus.svg?react"
 
-import * as styles from "./Button.skeleton.module.scss"
+import * as styles from "./Button.skeleton.module.css"
 
 // Suspense fallback for the Button showcase. Reuses the real buttons: under the
 // Skeleton provider each button renders as a neutral gray pill (redaction

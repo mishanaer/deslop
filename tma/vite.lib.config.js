@@ -1,13 +1,12 @@
 import { fileURLToPath } from "node:url"
 
+import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
 const srcPath = fileURLToPath(new URL("./src", import.meta.url))
-const primitivesPath = fileURLToPath(
-    new URL("../primitives", import.meta.url)
-)
+const primitivesPath = fileURLToPath(new URL("../primitives", import.meta.url))
 const reactPath = fileURLToPath(
     new URL("./node_modules/react", import.meta.url)
 )
@@ -31,6 +30,7 @@ const isExternal = (id) =>
 export default defineConfig({
     publicDir: false,
     plugins: [
+        tailwindcss(),
         react({
             include: /\.(jsx?|tsx?)$/,
             babel: { configFile: true },
@@ -55,6 +55,7 @@ export default defineConfig({
     resolve: {
         alias: {
             "@": srcPath,
+            "@utils": `${srcPath}/utils`,
             "@deslop/primitives": primitivesPath,
             react: reactPath,
         },

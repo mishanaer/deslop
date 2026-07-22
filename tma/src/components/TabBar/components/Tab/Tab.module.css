@@ -1,0 +1,65 @@
+.tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--ui-space-2);
+  flex: 1 0 0;
+  text-decoration: none;
+  font-weight: var(--ui-caption-font-weight);
+  color: var(--tg-theme-text-color);
+}
+
+.tab svg,
+.tab path,
+.tab :global(.wallet-lottie_fill-color) path {
+  fill: var(--tg-theme-text-color);
+}
+
+.tab :global(.wallet-lottie_stroke-color) path {
+  stroke: var(--tg-theme-text-color);
+}
+
+:global(body.apple) .tab {
+  padding: var(--ui-space-4) 0 var(--ui-space-6);
+  font-size: var(--ui-caption-font-size);
+  line-height: var(--ui-caption-line-height);
+  opacity: 0.85;
+  position: relative;
+  z-index: 2;
+}
+
+:global(body.apple) .tab svg,
+:global(body.apple) .tab path {
+  height: 32px;
+}
+
+:global(body.apple) .tab .icon {
+  height: 32px;
+}
+
+:global(body.material) .tab {
+  padding: var(--ui-space-4) 0;
+  font-size: var(--ui-caption-font-size);
+  line-height: var(--ui-caption-line-height);
+  gap: 0;
+  opacity: 0.44;
+}
+
+:global(body.material) .tab svg,
+:global(body.material) .tab path {
+  height: 28px;
+}
+
+:global(body.material) .tab .icon {
+  height: 28px;
+}
+
+:global(body.apple) .tab:not(:first-child) {
+  margin-left: -7.33px;
+}
+
+:global(body.apple) .active {
+  opacity: 1;
+  border-radius: var(--ui-radius-full);
+}

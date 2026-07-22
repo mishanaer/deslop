@@ -1,0 +1,5 @@
+.stage {
+  display: flex;
+  justify-content: center;
+  padding: 24px var(--side-padding);
+}

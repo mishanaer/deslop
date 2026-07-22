@@ -9,10 +9,10 @@ import { SPRING } from "../../utils/animations"
 
 import CellStackContext from "./context"
 import Morph from "./Morph"
-import * as styles from "./CellStack.module.scss"
+import * as styles from "./CellStack.module.css"
 
 // Section-grade corners (see SectionList): squircled from JS, border-radius
-// in SCSS as the fallback.
+// in CSS as the fallback.
 const APPLE_RADIUS = componentRadiusPixels.section
 const MATERIAL_RADIUS = radiusPixels["16"]
 const SMOOTHING = 0.6 // Figma iOS squircle smoothing
@@ -22,7 +22,7 @@ const FILL_TRANSITION = { ease: "linear", duration: 0.15 }
 // Collapsed-stack look per card depth behind the front card (front = 0): each
 // card peeks out from under the previous one and fades with depth; cards past
 // the second edge disappear. Collapsed geometry itself comes from the grid in
-// SCSS, so these are the only stack numbers.
+// CSS, so these are the only stack numbers.
 const PEEK = 13
 const SCALE_STEP = 0.09
 const FADE_STEP = 0.1

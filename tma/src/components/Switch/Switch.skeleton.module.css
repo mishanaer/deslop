@@ -1,0 +1,16 @@
+.switchTrack {
+  display: inline-block;
+  inline-size: 51px;
+  block-size: 31px;
+  vertical-align: middle;
+
+  --skeleton-radius: 100px;
+  --skeleton-inset-bottom: 0;
+}
+
+.standaloneRow {
+  display: flex;
+  gap: 16px;
+  padding-block: 12px;
+  padding-inline: var(--side-padding);
+}

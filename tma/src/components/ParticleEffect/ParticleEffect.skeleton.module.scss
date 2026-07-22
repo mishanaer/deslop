@@ -1,7 +1,0 @@
-// Centers a single redacted title bar in the same region the particle
-// numbers occupy, matching the showcase Stage padding.
-.stage {
-    display: flex;
-    justify-content: center;
-    padding: 24px var(--side-padding);
-}

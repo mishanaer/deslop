@@ -4,7 +4,7 @@ import StartView from "../../../components/StartView"
 import { RegularButton } from "../../../components/Button"
 import Skeleton from "../../../components/Skeleton"
 
-import * as styles from "./Onboarding.module.scss"
+import * as styles from "./Onboarding.module.css"
 
 // Loading placeholder for the Onboarding gallery's first screen. Reuses the real
 // layout so the black top region (cover) is preserved, but the illustration

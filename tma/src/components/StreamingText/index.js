@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { useReducedMotion } from "motion/react"
 
-import * as styles from "./StreamingText.module.scss"
+import * as styles from "./StreamingText.module.css"
 
 const SPEED_PRESETS = {
     slow: 0.08,

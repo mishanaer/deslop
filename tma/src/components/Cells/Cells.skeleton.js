@@ -5,7 +5,7 @@ import ImageAvatar from "../ImageAvatar"
 import InitialsAvatar from "../InitialsAvatar"
 import Skeleton, { SkeletonBlock } from "../Skeleton"
 
-import * as styles from "./Cells.skeleton.module.scss"
+import * as styles from "./Cells.skeleton.module.css"
 
 // Loading placeholder for the Cell showcase. It mirrors the showcase's section
 // layout (Text / Start / End / Switch / Editable / Triple / Combined) so the

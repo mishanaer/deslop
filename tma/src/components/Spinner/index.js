@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 import SpinnerIcon from "@deslop/primitives/icons/loader.svg?react"
 
-import * as styles from "./Spinner.module.scss"
+import * as styles from "./Spinner.module.css"
 
 const Spinner = ({ centered, className, size, ...rest }) => {
     const combinedClassName = [styles.spinner, className]

@@ -4,7 +4,7 @@ import Cell from "../Cells"
 import Gallery from "."
 import Skeleton, { SkeletonBlock } from "../Skeleton"
 
-import * as styles from "./Gallery.skeleton.module.scss"
+import * as styles from "./Gallery.skeleton.module.css"
 
 // A full-width redacted block per gallery page.
 const TILES = [0, 1, 2, 3]

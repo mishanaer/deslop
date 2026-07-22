@@ -1,0 +1,8 @@
+.smallAssets {
+  overflow: hidden;
+}
+
+.smallAssets :global(.Cell:last-child .body),
+.smallAssets :global(.Cell:last-child .end) {
+  border-bottom: 0.33px solid var(--tg-theme-section-separator-color);
+}

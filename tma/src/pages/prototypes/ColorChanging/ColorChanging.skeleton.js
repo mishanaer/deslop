@@ -1,7 +1,7 @@
 import { RegularButton } from "../../../components/Button"
 import Skeleton from "../../../components/Skeleton"
 
-import * as styles from "./ColorChanging.module.scss"
+import * as styles from "./ColorChanging.module.css"
 
 // ColorChanging (catalog title "Background Tests") renders no <Page> — just a
 // full-height centered filled button. Reuse the real button so the placeholder

@@ -7,7 +7,7 @@ import AssetList from "./components/AssetList"
 
 import useAssets from "../../../hooks/useAssets"
 
-import * as styles from "./Trading.module.scss"
+import * as styles from "./Trading.module.css"
 
 function Trading() {
     const { error } = useAssets()

@@ -7,7 +7,7 @@ import { useSkin } from "../../hooks/DeviceProvider"
 
 import HeaderButton, { HEADER_BUTTON_VARIANTS } from "./HeaderButton"
 import { ModalChromeContext } from "./context"
-import * as styles from "./PanelHeader.module.scss"
+import * as styles from "./PanelHeader.module.css"
 
 // The modal "шапка": a glass navigation bar with left/right actions and a
 // centered title. 64px tall standalone, 70px inside a ModalView (via

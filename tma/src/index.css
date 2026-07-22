@@ -1,6 +1,4 @@
-@import "@deslop/primitives/colors.css";
-@import "@deslop/primitives/layout.css";
-@import "@deslop/primitives/typography.css";
+@import "./styles/tailwind.css";
 
 * {
     box-sizing: border-box;

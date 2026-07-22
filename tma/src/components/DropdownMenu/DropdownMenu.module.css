@@ -1,0 +1,67 @@
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.container .selected {
+  padding: var(--ui-space-12) 0;
+  height: 100%;
+}
+
+.container .trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.root {
+  position: relative;
+  width: 250px;
+  overflow: hidden;
+}
+
+.root .item {
+  cursor: pointer;
+  color: var(--tg-theme-text-color);
+  position: relative;
+}
+
+.root .item:hover {
+  background-color: var(--ui-fill-tertiary);
+  border-radius: var(--ui-radius-full);
+}
+
+:global(body.material) .root {
+  background-color: var(--tg-theme-section-bg-color);
+  box-shadow: 0 0.33px 1px 0.5px color-mix(in srgb, var(--ui-static-black) 12%, transparent);
+  border-radius: var(--ui-radius-8);
+}
+
+:global(body.material) .root .item {
+  border-bottom: 0;
+  padding: var(--ui-space-12) var(--ui-layout-content-inset);
+}
+
+:global(body.apple) .root {
+  border-radius: var(--ui-component-dropdown-menu-radius);
+  padding: var(--ui-layout-content-inset);
+  background: var(--glass-tint-background);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px 0 color-mix(in srgb, var(--ui-static-black) 10%, transparent);
+}
+
+@supports (-apple-visual-effect: -apple-system-glass-material) {
+  :global(body.apple) .root {
+    -apple-visual-effect: -apple-system-glass-material;
+    backdrop-filter: none;
+  }
+}
+
+:global(body.apple) .root .item {
+  padding: var(--ui-component-dropdown-item-block-spacing) var(--ui-space-8);
+}
+
+:global(body.apple) .root .item:last-child {
+  border-bottom: 0;
+}

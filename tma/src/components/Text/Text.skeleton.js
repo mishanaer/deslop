@@ -3,7 +3,7 @@ import SectionList from "../SectionList"
 import Text from "."
 import Skeleton from "../Skeleton"
 
-import * as styles from "./Text.skeleton.module.scss"
+import * as styles from "./Text.skeleton.module.css"
 
 // Typographic specimen placeholder: redacted lines across the same variants the
 // Text screen showcases, at varied widths so the shimmer reads as real copy

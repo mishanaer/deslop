@@ -10,7 +10,7 @@ import Badge from "../../../../../components/Text/Badge"
 import ParticleEffect from "../../../../../components/ParticleEffect"
 import { generateRandomBalance } from "../../../../../utils/number"
 
-import * as styles from "./BalanceCard.module.scss"
+import * as styles from "./BalanceCard.module.css"
 
 const CHANGE_DATA = {
     today: {

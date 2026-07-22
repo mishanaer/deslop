@@ -1,0 +1,166 @@
+:root {
+  --cell-separator-height: 0.33px;
+  --image-cell-offset: 0;
+}
+
+:global(body.material) {
+  --image-cell-offset: -6px;
+}
+
+.root:last-child,
+.root:has(+ [aria-hidden="true"]:last-child) {
+  --cell-separator-height: var(--last-cell-separator-height, 0px);
+}
+
+.root {
+  display: flex;
+  flex-direction: row;
+  color: var(--tg-theme-text-color);
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.root:focus {
+  outline: none;
+}
+
+.root:focus-visible {
+  background-color: var(--ui-press-highlight);
+}
+
+.root .start {
+  display: flex;
+  align-items: center;
+}
+
+.root .start .image {
+  border-radius: var(--ui-radius-full);
+  object-fit: contain;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.root .start .icon {
+  display: flex;
+  border-radius: var(--ui-radius-full);
+  justify-content: center;
+  align-items: center;
+}
+
+.root .start .icon svg,
+.root .start .icon path {
+  fill: var(--ui-static-white);
+}
+
+.root .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  border-bottom: var(--cell-separator-height) solid var(--tg-theme-section-separator-color);
+}
+
+.root .end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0 0 var(--ui-space-8);
+  padding-right: var(--side-padding);
+  text-align: right;
+  border-bottom: var(--cell-separator-height) solid var(--tg-theme-section-separator-color);
+  white-space: nowrap;
+}
+
+.root .end .caption::first-letter {
+  text-transform: capitalize;
+}
+
+.root .end.received .label, .root .end.received .caption {
+  color: var(--text-confirm-color);
+}
+
+.root .end.failed .label, .root .end.failed .caption {
+  color: var(--tg-theme-destructive-text-color);
+}
+
+:global(body.apple) .root {
+  padding-left: var(--side-padding);
+  min-height: 44px;
+}
+
+:global(body.apple) .root .start {
+  padding: var(--ui-space-12) var(--ui-space-10) var(--ui-space-12) 0;
+}
+
+:global(body.apple) .root .start .icon {
+  background: linear-gradient(156.88deg, var(--ui-accent-cyan) 14.96%, var(--ui-accent-blue) 85.04%);
+}
+
+:global(body.apple) .root .start .icon,
+:global(body.apple) .root .start .image {
+  width: 40px;
+  height: 40px;
+}
+
+:global(body.apple) .root .body {
+  min-height: 52px;
+  padding: var(--ui-space-10) var(--side-padding) var(--ui-component-cell-body-block-end-spacing) 0;
+}
+
+:global(body.apple) .root .body > *:nth-child(2) {
+  margin-top: 1px;
+}
+
+:global(body.apple) .root .body > *:nth-child(3) {
+  margin-top: 1px;
+}
+
+:global(body.apple) .root .body:has(> *:nth-child(3)) > *:nth-child(2) {
+  margin-top: 0;
+}
+
+:global(body.apple) .root .end {
+  gap: 1px;
+}
+
+:global(body.material) .root {
+  padding-left: var(--side-padding);
+  min-height: 50px;
+}
+
+:global(body.material) .root .start {
+  padding: 7px 15px 7px 0;
+}
+
+:global(body.material) .root .start .icon {
+  background: var(--tg-theme-button-color);
+}
+
+:global(body.material) .root .start .icon,
+:global(body.material) .root .start .image {
+  width: 42px;
+  height: 42px;
+  margin-left: -6px;
+}
+
+:global(body.material) .root .body {
+  padding: 9px 12px 9px 0;
+}
+
+:global(body.material) .root .body > *:nth-child(2) {
+  margin-top: 2px;
+}
+
+:global(body.material) .root .body > *:nth-child(3) {
+  margin-top: 1px;
+}
+
+:global(body.material) .root .body:has(> *:nth-child(3)) > *:nth-child(2) {
+  margin-top: 0;
+}
+
+:global(body.material) .root .end {
+  gap: 2px;
+}

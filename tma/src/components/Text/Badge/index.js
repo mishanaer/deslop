@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import Text from "../index"
-import * as styles from "./Badge.module.scss"
+import * as styles from "./Badge.module.css"
 
 const Badge = ({
     variant = "filled",

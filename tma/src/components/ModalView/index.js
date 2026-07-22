@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { AnimatePresence } from "motion/react"
 import { componentRadiusPixels, radiusPixels } from "@deslop/primitives/layout"
-import * as styles from "./ModalView.module.scss"
+import * as styles from "./ModalView.module.css"
 
 import WebApp, { BackButton } from "../../lib/twa"
 

@@ -7,7 +7,7 @@ import CellPart from "./components/CellPart"
 import EditableCell from "./components/EditableCell"
 import SwitchCell from "./components/SwitchCell"
 
-import * as styles from "./Cell.module.scss"
+import * as styles from "./Cell.module.css"
 
 /**
  * List row. Compound: Cell.Start / Cell.End / Cell.Part / Cell.Text /

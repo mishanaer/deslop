@@ -1,4 +1,4 @@
-import "./viewTransition.scss"
+import "./viewTransition.css"
 
 export const VIEW_TRANSITION_DURATION = 200
 

@@ -1,7 +1,7 @@
 import Page from "../Page"
 import Skeleton, { SkeletonBlock } from "../Skeleton"
 
-import * as styles from "./DropdownMenu.skeleton.module.scss"
+import * as styles from "./DropdownMenu.skeleton.module.css"
 
 // Same anchor grid the showcase pins its trigger dots to, so the placeholder
 // reads as the real screen: a framed field with eight menu triggers. The

@@ -11,7 +11,7 @@ import patternSvg from "../../images/pattern.svg"
 import { useColorScheme } from "../../hooks/useColorScheme"
 import { useViewportHeight } from "./useViewportHeight"
 import { usePreventScroll } from "./usePreventScroll"
-import * as styles from "./TextField.showcase.module.scss"
+import * as styles from "./TextField.showcase.module.css"
 import { accentColors, avatarGradients } from "@deslop/primitives/tokens"
 import { getUiColor } from "@deslop/primitives/colors"
 

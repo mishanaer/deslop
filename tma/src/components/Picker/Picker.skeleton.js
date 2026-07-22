@@ -4,7 +4,7 @@ import Cell from "../Cells"
 import Text from "../Text"
 import Skeleton from "../Skeleton"
 
-import * as styles from "./Picker.skeleton.module.scss"
+import * as styles from "./Picker.skeleton.module.css"
 
 // Mock month labels of varied width so the redacted rows read as a real
 // picker wheel rather than identical bars. The middle one sits on the

@@ -1,4 +1,4 @@
-import * as styles from "./Collectibles.module.scss"
+import * as styles from "./Collectibles.module.css"
 import Text from "../../../../../components/Text"
 import SectionList from "../../../../../components/SectionList"
 

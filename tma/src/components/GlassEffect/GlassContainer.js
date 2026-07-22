@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import * as styles from "./GlassContainer.module.scss"
+import * as styles from "./GlassContainer.module.css"
 import GlassBorder from "./GlassBorder"
 
 /**

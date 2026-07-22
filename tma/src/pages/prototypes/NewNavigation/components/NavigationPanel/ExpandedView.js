@@ -3,7 +3,7 @@ import Cell from "../../../../../components/Cells"
 import ImageAvatar from "../../../../../components/ImageAvatar"
 import { getAssetIcon } from "../../../../../utils/AssetsMap"
 
-import * as styles from "./NavigationPanel.module.scss"
+import * as styles from "./NavigationPanel.module.css"
 
 const wallets = [
     {

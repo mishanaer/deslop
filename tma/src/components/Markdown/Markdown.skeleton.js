@@ -4,7 +4,7 @@ import Page from "../Page"
 import Text from "../Text"
 import Skeleton, { SkeletonBlock } from "../Skeleton"
 
-import * as styles from "./Markdown.skeleton.module.scss"
+import * as styles from "./Markdown.skeleton.module.css"
 
 // Paragraph line: mirrors Markdown's own <p> variant mapping so the loading
 // bars land at the article's real body size.

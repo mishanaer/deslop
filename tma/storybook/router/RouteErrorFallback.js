@@ -1,7 +1,7 @@
 import { RegularButton } from "../../src/components/Button"
 import Text from "../../src/components/Text"
 
-import * as styles from "./RouteErrorFallback.module.scss"
+import * as styles from "./RouteErrorFallback.module.css"
 
 const handleReload = () => {
     window.location.reload()

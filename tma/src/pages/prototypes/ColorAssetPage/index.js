@@ -16,7 +16,7 @@ import ArrowDownIcon from "@deslop/primitives/icons/arrow-down.svg?react"
 import PlusIcon from "@deslop/primitives/icons/plus.svg?react"
 import ArrowsSwapIcon from "@deslop/primitives/icons/arrows-swap.svg?react"
 
-import * as styles from "./ColorAssetPage.module.scss"
+import * as styles from "./ColorAssetPage.module.css"
 
 // Placeholder cards rendered while the fetch is in flight; each reveals on
 // its own once its data and accent color are ready.

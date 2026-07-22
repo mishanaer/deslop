@@ -6,7 +6,7 @@ import SegmentedControl from "../SegmentedControl"
 
 import { BackButton } from "../../lib/twa"
 
-import * as styles from "./Tooltip.showcase.module.scss"
+import * as styles from "./Tooltip.showcase.module.css"
 
 const ANCHORS = [
     { key: "tl", top: "0%", left: "0%" },

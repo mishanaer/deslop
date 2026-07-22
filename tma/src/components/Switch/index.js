@@ -1,7 +1,7 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
 import WebApp from "../../lib/twa"
-import * as styles from "./Switch.module.scss"
+import * as styles from "./Switch.module.css"
 
 /**
  * iOS/Material toggle. Controlled when `value` is passed, otherwise

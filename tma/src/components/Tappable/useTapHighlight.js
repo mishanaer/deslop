@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-import * as styles from "./useTapHighlight.module.scss"
+import * as styles from "./useTapHighlight.module.css"
 
 export const supportsTouch =
     typeof window !== "undefined" && "ontouchstart" in window

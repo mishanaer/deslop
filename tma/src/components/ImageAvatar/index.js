@@ -8,7 +8,7 @@ import {
     waveRef,
 } from "../Skeleton"
 import { Image } from "../Image"
-import * as styles from "./ImageAvatar.module.scss"
+import * as styles from "./ImageAvatar.module.css"
 
 const ImageAvatar = forwardRef(
     ({ size = 40, className, style, src, shape = "circle" }, ref) => {

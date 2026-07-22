@@ -6,7 +6,7 @@ import Text from "../../../src/components/Text"
 import { BackButton } from "../../../src/lib/twa"
 import { typographyStyles } from "@deslop/primitives/tokens"
 
-import * as styles from "./Typography.module.scss"
+import * as styles from "./Typography.module.css"
 
 const TypeSample = ({ token }) => {
     const { name, fontSize, lineHeight, fontWeight, letterSpacing, caps } =

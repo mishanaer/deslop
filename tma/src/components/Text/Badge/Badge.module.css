@@ -1,0 +1,76 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  padding: var(--ui-space-4) var(--ui-space-8);
+  border-radius: var(--ui-component-badge-radius);
+}
+
+.badge[data-variant="title1"], .badge[data-variant="title2"], .badge[data-variant="title3"] {
+  padding: var(--ui-space-6) var(--ui-space-12);
+}
+
+.badge[data-variant="footnote"] {
+  border-radius: var(--ui-component-badge-footnote-radius);
+}
+
+.badge.filled {
+  background-color: var(--badge-background, var(--tg-theme-button-color));
+  color: var(--badge-text-color, var(--tg-theme-button-text-color));
+}
+
+.badge.tinted {
+  background-color: rgb(from var(--badge-background) r g b/10%);
+  color: var(--badge-text-color, var(--tg-theme-accent-text-color));
+}
+
+.badge.gray {
+  background-color: var(--tertiary-fill-background);
+  color: var(--tg-theme-text-color);
+}
+
+.badge.media {
+  background-color: var(--tg-theme-section-bg-color);
+  color: var(--tg-theme-text-color);
+}
+
+.badge.outlined {
+  background-color: transparent;
+  color: var(--tg-theme-text-color);
+  border: 0.5px solid var(--tg-theme-section-separator-color);
+}
+
+.badge[data-circled="true"] {
+  padding: var(--ui-space-4);
+  border-radius: var(--ui-radius-full);
+}
+
+.badge[data-circled="true"][data-variant="footnote"] {
+  padding: var(--ui-space-4) 7px;
+  border-radius: var(--ui-component-badge-circled-footnote-radius);
+}
+
+.badge[data-circled="true"][data-variant="subheadline1"], .badge[data-circled="true"][data-variant="subheadline2"], .badge[data-circled="true"][data-variant="body"] {
+  padding: var(--ui-space-4) 7px;
+  border-radius: var(--ui-component-badge-circled-text-radius);
+}
+
+.badge[data-circled="true"][data-variant="title1"], .badge[data-circled="true"][data-variant="title2"], .badge[data-circled="true"][data-variant="title3"] {
+  padding: var(--ui-space-6) 7px;
+  border-radius: var(--ui-component-badge-circled-text-radius);
+}
+
+.badge[data-squared="true"] {
+  padding: var(--ui-space-4);
+  border-radius: var(--ui-component-badge-radius);
+}
+
+.badge[data-squared="true"][data-variant="footnote"] {
+  border-radius: var(--ui-component-badge-footnote-radius);
+}
+
+.badge[data-squared="true"][data-variant="title1"], .badge[data-squared="true"][data-variant="title2"], .badge[data-squared="true"][data-variant="title3"] {
+  padding: var(--ui-space-6) var(--ui-space-4);
+}

@@ -1,0 +1,70 @@
+.root {
+  display: flex;
+  border-radius: var(--ui-radius-16);
+  justify-content: flex-start;
+  align-items: center;
+  transition: background-color 250ms ease;
+}
+
+.root::after {
+  transition: transform 250ms ease, border-color 250ms ease, opacity 250ms ease;
+  content: "";
+  background-color: var(--ui-static-white);
+  border-radius: var(--ui-radius-full);
+  transform: translateX(0%);
+}
+
+.root[data-state="true"]::after {
+  transform: translateX(75%);
+}
+
+:global(body.apple) .root {
+  width: 64px;
+  padding: var(--ui-space-2);
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+:global(body.apple) .root::after {
+  width: 39px;
+  height: 24px;
+  border-radius: var(--ui-radius-12);
+  filter: none;
+}
+
+:global(body.apple) .root[data-state="false"]::after {
+  transform: translateX(0%);
+}
+
+:global(body.apple) .root[data-state="true"]::after {
+  border-color: var(--tg-theme-accent-text-color);
+  transform: translateX(53%);
+}
+
+:global(body.apple) .root[data-state="true"] {
+  background-color: var(--text-confirm-color);
+}
+
+:global(body.material) .root {
+  width: 32px;
+  height: 14px;
+  background-color: var(--tg-theme-section-separator-color);
+}
+
+:global(body.material) .root::after {
+  width: 16px;
+  height: 16px;
+  filter: 0;
+  border: 2px solid var(--tg-theme-section-separator-color);
+}
+
+:global(body.material) .root[data-state="false"]::after {
+  transform: translateX(-5%);
+}
+
+:global(body.material) .root[data-state="true"]::after {
+  border-color: var(--tg-theme-button-color);
+}
+
+:global(body.material) .root[data-state="true"] {
+  background-color: var(--tg-theme-button-color);
+}

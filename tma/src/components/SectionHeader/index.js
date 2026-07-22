@@ -1,13 +1,20 @@
 import PropTypes from "prop-types"
 
+import { cn } from "@utils/cn"
+
 import Text from "../Text"
-import * as styles from "./SectionHeader.module.scss"
+
+const baseClassName =
+    "flex justify-between gap-compact px-content py-10 text-section"
 
 function SectionHeader({ type, title, value, ...props }) {
     switch (type) {
         case "Headline":
             return (
-                <div className={`${styles.root} ${styles.Headline}`} {...props}>
+                <div
+                    className={cn(baseClassName, "text-foreground")}
+                    {...props}
+                >
                     <Text variant="title3" weight="bold">
                         {title}
                     </Text>
@@ -20,23 +27,17 @@ function SectionHeader({ type, title, value, ...props }) {
             )
         case "Footer":
             return (
-                <div className={`${styles.root} ${styles.Footer}`} {...props}>
-                    <Text variant="footnote">
-                        {title}
-                    </Text>
+                <div className={baseClassName} {...props}>
+                    <Text variant="footnote">{title}</Text>
                 </div>
             )
         default:
             return (
-                <div className={`${styles.root}`} {...props}>
+                <div className={baseClassName} {...props}>
                     <Text variant="body" weight="semibold">
                         {title}
                     </Text>
-                    {value && (
-                        <Text variant="footnote">
-                            {value}
-                        </Text>
-                    )}
+                    {value && <Text variant="footnote">{value}</Text>}
                 </div>
             )
     }

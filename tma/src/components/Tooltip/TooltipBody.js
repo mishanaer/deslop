@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 import Text from "../Text"
 
-import * as styles from "./Tooltip.module.scss"
+import * as styles from "./Tooltip.module.css"
 
 const TooltipBody = ({ content, badge, compact }) => (
     <div

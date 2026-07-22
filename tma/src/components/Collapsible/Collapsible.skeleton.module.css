@@ -1,0 +1,9 @@
+.switchTrack {
+  display: inline-block;
+  inline-size: 51px;
+  block-size: 31px;
+  vertical-align: middle;
+
+  --skeleton-radius: 100px;
+  --skeleton-inset-bottom: 0;
+}

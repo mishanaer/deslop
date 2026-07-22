@@ -5,7 +5,7 @@ import {
 } from "../utils/constants"
 import { getContainerDimensions } from "../utils/gradientUtils"
 import { fillCanvasWithPattern } from "../utils/patternUtils"
-import * as styles from "../GradientBackground.module.scss"
+import * as styles from "../GradientBackground.module.css"
 
 export function usePatternCanvas({
     patternCanvasRef,

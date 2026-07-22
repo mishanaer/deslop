@@ -13,7 +13,7 @@ import {
     getViewportBounds,
 } from "./dropdownUtils"
 
-import * as styles from "./DropdownMenu.module.scss"
+import * as styles from "./DropdownMenu.module.css"
 
 const MenuItem = ({ item, isSelected, onClick, onMouseEnter, itemRef }) => (
     <div

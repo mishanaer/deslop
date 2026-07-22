@@ -4,7 +4,7 @@ import ArrowDownIcon from "@deslop/primitives/icons/arrow-down.svg?react"
 import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"
 import ChevronRightIcon from "@deslop/primitives/icons/chevron-right.svg?react"
 import { Redaction, useSkeletonContext } from "../Skeleton"
-import * as styles from "./Text.module.scss"
+import * as styles from "./Text.module.css"
 
 const variantMap = {
     title1: "title32",

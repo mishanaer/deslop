@@ -1,0 +1,93 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  background: color-mix(in srgb, var(--ui-static-black) 50%, transparent);
+  z-index: 1000;
+  will-change: opacity;
+}
+
+.sheet {
+  align-items: flex-end;
+}
+
+.centered {
+  align-items: center;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--tg-theme-section-bg-color);
+  color: var(--tg-theme-text-color);
+  overflow: hidden;
+  will-change: transform;
+}
+
+.panel:focus, .panel:focus-visible {
+  outline: none;
+}
+
+.bottomSheet {
+  width: 100%;
+  max-height: 95dvh;
+  border-radius: var(--ui-component-modal-radius) var(--ui-component-modal-radius) 0 0;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+:global(body.material) .bottomSheet {
+  border-radius: var(--ui-radius-16) var(--ui-radius-16) 0 0;
+}
+
+.dialog {
+  width: min(480px, 100% - 48px);
+  max-height: 85dvh;
+  border-radius: var(--ui-component-modal-radius);
+}
+
+:global(body.material) .dialog {
+  border-radius: var(--ui-radius-16);
+}
+
+.plain.bottomSheet {
+  min-height: 65dvh;
+}
+
+.blurWarmup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: currentcolor;
+  opacity: 0.01;
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.trayViewport {
+  flex: none;
+  overflow: hidden;
+}
+
+.measure {
+  position: relative;
+}
+
+.page {
+  position: relative;
+  max-height: 90dvh;
+  overflow-y: auto;
+  overscroll-behavior-y: none;
+}
+
+.dialog .page {
+  max-height: 85dvh;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior-y: none;
+}

@@ -12,7 +12,7 @@ import Skeleton from "../../../../../components/Skeleton"
 
 import useAssets from "../../../../../hooks/useAssets"
 
-import * as styles from "./AssetList.module.scss"
+import * as styles from "./AssetList.module.css"
 
 // Loading rows; the varied mock lengths give the skeleton a realistic
 // rhythm instead of identical bars.

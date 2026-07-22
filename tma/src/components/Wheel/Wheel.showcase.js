@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import * as styles from "./Wheel.showcase.module.scss"
+import * as styles from "./Wheel.showcase.module.css"
 
 import Page from "../Page"
 import SectionList from "../SectionList"

@@ -1,7 +1,7 @@
 import { useId } from "react"
 import PropTypes from "prop-types"
 
-import * as styles from "../../TabBar.module.scss"
+import * as styles from "../../TabBar.module.css"
 
 function GradientMask({
     width,

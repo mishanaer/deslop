@@ -3,7 +3,7 @@ import SectionList from "../SectionList"
 import Text from "../Text"
 import Skeleton from "../Skeleton"
 
-import * as styles from "./FitText.skeleton.module.scss"
+import * as styles from "./FitText.skeleton.module.css"
 
 // Holds the first showcase region while the chunk loads: a redacted title bar
 // in the same stage box the live FitText occupies.

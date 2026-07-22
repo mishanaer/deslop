@@ -4,7 +4,7 @@ import MarkdownToJsx from "markdown-to-jsx"
 
 import Text from "../Text"
 import SharedTable from "../Table"
-import * as styles from "./Markdown.module.scss"
+import * as styles from "./Markdown.module.css"
 
 const QuoteContext = createContext(false)
 

@@ -1,6 +1,6 @@
 import BalanceCard from "../../../Wallet/components/BalanceCard"
-import * as balanceCardStyles from "../../../Wallet/components/BalanceCard/BalanceCard.module.scss"
-import * as ButtonStyles from "../../../../../components/Button/MultilineButton/MultilineButton.module.scss"
+import * as balanceCardStyles from "../../../Wallet/components/BalanceCard/BalanceCard.module.css"
+import * as ButtonStyles from "../../../../../components/Button/MultilineButton/MultilineButton.module.css"
 import { MultilineButton } from "../../../../../components/Button"
 
 import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"

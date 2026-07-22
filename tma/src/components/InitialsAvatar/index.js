@@ -8,7 +8,7 @@ import {
 import { isUnicode } from "../../utils/common"
 import { avatarGradients } from "@deslop/primitives/tokens"
 
-import * as styles from "./InitialsAvatar.module.scss"
+import * as styles from "./InitialsAvatar.module.css"
 
 const InitialsAvatar = ({ size = 40, userId, name }) => {
     const redacted = Boolean(useSkeletonContext())

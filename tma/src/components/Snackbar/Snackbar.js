@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import Text from "../Text"
-import * as styles from "./Snackbar.module.scss"
+import * as styles from "./Snackbar.module.css"
 
 const Snackbar = ({ icon, title, description, link, action }) => {
     const hasDescription = Boolean(description)

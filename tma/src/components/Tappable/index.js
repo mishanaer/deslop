@@ -5,7 +5,7 @@ import { useSkin } from "../../hooks/DeviceProvider"
 
 import { useTapHighlight } from "./useTapHighlight"
 
-import * as styles from "./Tappable.module.scss"
+import * as styles from "./Tappable.module.css"
 
 const cx = (...classes) => classes.filter(Boolean).join(" ")
 

@@ -1,0 +1,69 @@
+::view-transition-old(root) {
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0.26, 0.08, 0.25, 1);
+  animation-fill-mode: both;
+  animation-name: slide-out;
+}
+
+::view-transition-new(root) {
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0.26, 0.08, 0.25, 1);
+  animation-fill-mode: both;
+  animation-name: slide-in;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.02);
+    filter: blur(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: scale(0.99);
+    filter: blur(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.02);
+    filter: blur(2px);
+  }
+}

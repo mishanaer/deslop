@@ -3,7 +3,7 @@ import SectionList from "../SectionList"
 import Cell from "../Cells"
 import Skeleton, { SkeletonBlock } from "../Skeleton"
 
-import * as styles from "./Wheel.skeleton.module.scss"
+import * as styles from "./Wheel.skeleton.module.css"
 
 const SECTIONS = [
     "Uncontrolled Wheel",
