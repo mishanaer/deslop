@@ -20,9 +20,10 @@ npx @deslop/design-system setup --web
 npx @deslop/design-system setup --mini-app
 ```
 
-Подробнее — в [документации design-system](./design-system/README.md).
+## Состав
 
-## Для агентов
-
-- [AGENTS.md](./AGENTS.md) — общие правила работы со всем репозиторием.
+- [AGENTS.md](./AGENTS.md) — общие правила работы агента.
 - [sasha](./sasha/SKILL.md) — правила работы с русскими текстами в интерфейсе.
+
+Компоненты Mini Apps сделаны на основе проекта
+[wallet_animations](https://github.com/IlyaGrshin/wallet_animations) Ильи Гришина.
