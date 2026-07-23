@@ -1,18 +1,27 @@
 {
     "name": "@deslop/tma",
     "version": "0.1.0",
-    "description": "Reusable web component library powered by Deslop Primitives, with optional Telegram Web App integration.",
+    "description": "React component library for Telegram Mini Apps powered by Deslop Primitives.",
     "type": "module",
     "files": [
-        "dist"
+        "agent",
+        "bin",
+        "dist",
+        "src"
     ],
+    "bin": {
+        "tma": "./bin/tma.mjs"
+    },
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "exports": {
         ".": {
             "import": "./dist/index.js"
         },
-        "./styles.css": "./dist/styles.css"
+        "./styles.css": "./dist/styles.css",
+        "./agent/AGENTS.md": "./agent/AGENTS.md",
+        "./agent/COMPONENTS.md": "./agent/COMPONENTS.md",
+        "./agent/components.json": "./agent/components.json"
     },
     "sideEffects": [
         "**/*.css"
@@ -43,11 +52,13 @@
         "build": "yarn build:storybook && yarn build:lib",
         "build:storybook": "vite build",
         "build:lib": "vite build --config vite.lib.config.js",
+        "prepack": "vite build --config vite.lib.config.js",
         "preview": "vite preview",
         "deploy": "./deploy.sh",
-        "lint": "yarn check:styles && yarn lint:js && yarn lint:css",
+        "lint": "yarn check:styles && yarn check:agent && yarn lint:js && yarn lint:css",
         "check:styles": "node scripts/check-styling.mjs",
-        "lint:js": "eslint '{src,storybook}/**/*.{js,jsx,ts,tsx}'",
+        "check:agent": "node scripts/check-agent-kit.mjs",
+        "lint:js": "eslint '{src,storybook}/**/*.{js,jsx,ts,tsx}' 'bin/**/*.mjs' 'agent/**/*.mjs' 'scripts/check-agent-kit.mjs'",
         "lint:css": "stylelint '{src,storybook}/**/*.css'",
         "format": "prettier --write '{src,storybook}/**/*.{js,jsx,ts,tsx,json,css}' --cache",
         "format:check": "prettier --check '{src,storybook}/**/*.{js,jsx,ts,tsx,json,css}' --cache",

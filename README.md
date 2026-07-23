@@ -20,7 +20,8 @@
 ## TMA
 
 [TMA](./tma/README.md) — библиотека готовых React-компонентов для Telegram Mini
-Apps.
+Apps. Команда `npx @deslop/tma setup` переносит компоненты и правила для агентов
+прямо в продуктовый проект.
 
 Сделана на основе проекта
 [wallet_animations](https://github.com/IlyaGrshin/wallet_animations) Ильи Гришина.

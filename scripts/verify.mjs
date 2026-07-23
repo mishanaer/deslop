@@ -34,11 +34,19 @@ const commands = [
     args: ["./scripts/check-styling.mjs"],
   },
   {
+    label: "TMA: consumer integration",
+    cwd: tma,
+    args: ["./scripts/check-agent-kit.mjs"],
+  },
+  {
     label: "TMA: JavaScript lint",
     cwd: tma,
     args: [
       "./node_modules/eslint/bin/eslint.js",
       "{src,storybook}/**/*.{js,jsx,ts,tsx}",
+      "bin/**/*.mjs",
+      "agent/**/*.mjs",
+      "scripts/check-agent-kit.mjs",
     ],
   },
   {
