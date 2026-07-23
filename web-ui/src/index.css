@@ -107,7 +107,7 @@
   --web-avatar-foreground: var(--background);
   --web-badge-accent: var(--accent-green);
   --web-badge-border: var(--elevation-20);
-  --web-badge-fill: var(--elevation-10);
+  --web-badge-fill: var(--elevation-5);
   --web-badge-foreground: var(--primary);
   --web-badge-media: var(--elevation);
   --web-badge-on-accent: var(--primary);
@@ -132,7 +132,7 @@
   --web-avatar-foreground: var(--primary);
   --web-badge-accent: var(--accent-green);
   --web-badge-border: var(--elevation-20);
-  --web-badge-fill: var(--elevation-20);
+  --web-badge-fill: var(--elevation-5);
   --web-badge-foreground: var(--primary);
   --web-badge-media: var(--elevation);
   --web-badge-on-accent: var(--background);
