@@ -23,10 +23,6 @@ npx @deslop/design-system setup --mini-app
 ## Состав
 
 - [AGENTS.md](./AGENTS.md) — общие правила работы агента.
-- [primitives](./primitives/README.md) — цвета, шрифты, отступы, скругления и
-  иконки.
-- [web-ui](./web-ui/README.md) — React-компоненты для веб-продуктов.
-- [mini-apps](./mini-app/README.md) — React-компоненты для Telegram Mini Apps.
 - [sasha](./sasha/SKILL.md) — правила работы с русскими текстами в интерфейсе.
 
 Компоненты Mini Apps сделаны на основе проекта
