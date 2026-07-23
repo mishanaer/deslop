@@ -3,7 +3,7 @@
 Единый источник цветов, типографики, отступов, радиусов, шрифтов и иконок для продуктов Deslop.
 
 Primitives хранят базовые правила. Готовые React-компоненты находятся отдельно
-в `@deslop/web-ui` и `@deslop/tma`.
+в `@deslop/web-ui` и `@deslop/mini-app`.
 
 ## Состав
 
@@ -27,14 +27,14 @@ import "@deslop/primitives/typography.css";
 
 `colors.css` выбирает тему ОС автоматически. Для явного переключения задайте `data-color-scheme="light"` или `data-color-scheme="dark"` на `html` либо на корневом контейнере.
 
-Пакет пока приватный: Web UI и TMA подключают его локально через
+Пакет пока приватный: Web UI и Mini App подключают его локально через
 `link:../primitives`. Перед установкой в независимый проект нужно выбрать способ
 распространения — приватный registry, Git-зависимость или монорепозиторий — и
 отдельно подтвердить право на распространение файлов из `fonts/`.
 
-## Внутри TMA
+## Внутри Mini App
 
-TMA уже подключает Primitives через `src/styles/tailwind.css`. В компонентах
+Mini App уже подключает Primitives через `src/styles/tailwind.css`. В компонентах
 используйте семантические Tailwind-классы, а не прямые импорты и не новые CSS
 Modules:
 
@@ -46,12 +46,12 @@ Modules:
 </section>
 ```
 
-Полный порядок работы описан в [TMA README](../tma/README.md#стили).
+Полный порядок работы описан в [Mini App README](../mini-app/README.md#стили).
 
 ## Правила применения
 
 - В Primitives лежат `--background`, `--elevation`, `--primary`, палитры `--accent-*` и `--elevation-*`. Семантические роли задаёт библиотека компонентов конкретного продукта.
-- В TMA используйте роли из `tma/src/styles/theme.css`, в Web UI — shadcn-роли из `web-ui/src/index.css`. Не используйте базовый цвет напрямую внутри компонента, если для него уже есть роль продукта.
+- В Mini App используйте роли из `mini-app/src/styles/theme.css`, в Web UI — shadcn-роли из `web-ui/src/index.css`. Не используйте базовый цвет напрямую внутри компонента, если для него уже есть роль продукта.
 - Используйте `--ui-font-interface` для интерфейсного текста и `--ui-font-interface-caps` только для стиля Caption.
 - Берите отступы из `--ui-space-*` и `--ui-layout-*`, радиусы — из `--ui-radius-*` и `--ui-component-*-radius`.
 - Не добавляйте в компоненты произвольные HEX-цвета, размеры, `border-radius` или другие значения, если для них уже есть токен.
@@ -90,7 +90,7 @@ npm run check
 ## Deslop design system
 
 Если пользователь явно не попросил иначе, используй готовые компоненты из
-`@deslop/web-ui` для веба или `@deslop/tma` для Telegram Mini Apps. Токены,
+`@deslop/web-ui` для веба или `@deslop/mini-app` для Telegram Mini Apps. Токены,
 шрифты и иконки бери из `@deslop/primitives`.
 
 Перед созданием компонента проверь выбранную библиотеку. Не создавай в продукте

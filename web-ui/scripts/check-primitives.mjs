@@ -346,7 +346,7 @@ for (const avatarContract of [
   "--avatar-${avatarGradientNames[index]}-gradient",
 ]) {
   if (!avatarComponent.includes(avatarContract)) {
-    errors.push(`src/components/ui/avatar.tsx: missing TMA avatar contract ${avatarContract}`)
+    errors.push(`src/components/ui/avatar.tsx: missing Mini App avatar contract ${avatarContract}`)
   }
 }
 
@@ -364,16 +364,16 @@ for (const badgeContract of [
   "border-badge-border",
 ]) {
   if (!badgeComponent.includes(badgeContract)) {
-    errors.push(`src/components/ui/badge.tsx: missing TMA badge contract ${badgeContract}`)
+    errors.push(`src/components/ui/badge.tsx: missing Mini App badge contract ${badgeContract}`)
   }
 }
 
 if (!buttonComponent.includes("rounded-button")) {
-  errors.push("src/components/ui/button.tsx: buttons must use the TMA radius token")
+  errors.push("src/components/ui/button.tsx: buttons must use the Mini App radius token")
 }
 
 if (!buttonComponent.includes('default: "h-12 px-4 py-3.5')) {
-  errors.push("src/components/ui/button.tsx: default buttons must use the TMA 48px size")
+  errors.push("src/components/ui/button.tsx: default buttons must use the Mini App 48px size")
 }
 
 if (!styles.includes("--radius-text-field: var(--ui-component-text-field-radius)")) {
@@ -401,7 +401,7 @@ if (!selectComponent.includes("overflow-y-auto rounded-text-field") || !selectCo
 }
 
 if (!cardComponent.includes("rounded-section")) {
-  errors.push("src/components/ui/card.tsx: cards must use the TMA section radius token")
+  errors.push("src/components/ui/card.tsx: cards must use the Mini App section radius token")
 }
 
 if (!calendarComponent.includes("group/calendar rounded-section")) {

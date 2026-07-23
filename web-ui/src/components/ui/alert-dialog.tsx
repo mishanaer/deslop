@@ -4,6 +4,7 @@ import * as React from "react"
 import { AlertDialog as AlertDialogPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
+import { IconAvatar } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 
 function AlertDialog({
@@ -133,10 +134,10 @@ function AlertDialogMedia({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <div
+    <IconAvatar
       data-slot="alert-dialog-media"
       className={cn(
-        "mb-2 inline-flex size-16 items-center justify-center rounded-md bg-muted sm:group-data-[size=default]/alert-dialog-content:row-span-2 *:[svg:not([class*='size-'])]:size-8",
+        "mb-2 size-16 sm:group-data-[size=default]/alert-dialog-content:row-span-2 [&_svg:not([class*='size-'])]:size-8",
         className
       )}
       {...props}

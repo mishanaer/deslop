@@ -41,23 +41,23 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--chart-1)",
+    color: "var(--accent-blue)",
   },
   mobile: {
     label: "Mobile",
-    color: "var(--chart-2)",
+    color: "var(--accent-cyan)",
   },
 } satisfies ChartConfig
 
 const chartConfigWithIcons = {
   desktop: {
     label: "Desktop",
-    color: "var(--chart-1)",
+    color: "var(--accent-blue)",
     icon: Code2Icon,
   },
   mobile: {
     label: "Mobile",
-    color: "var(--chart-2)",
+    color: "var(--accent-cyan)",
     icon: PanelLeftIcon,
   },
 } satisfies ChartConfig
@@ -110,12 +110,12 @@ function AreaChartCard({
             {gradient ? (
               <defs>
                 <linearGradient id={`${gradientId}-desktop`} x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="var(--color-desktop)" stopOpacity={0.8} />
-                  <stop offset="95%" stopColor="var(--color-desktop)" stopOpacity={0.1} />
+                  <stop offset="5%" stopColor="var(--color-desktop)" stopOpacity={0.35} />
+                  <stop offset="95%" stopColor="var(--color-desktop)" stopOpacity={0.06} />
                 </linearGradient>
                 <linearGradient id={`${gradientId}-mobile`} x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="var(--color-mobile)" stopOpacity={0.8} />
-                  <stop offset="95%" stopColor="var(--color-mobile)" stopOpacity={0.1} />
+                  <stop offset="5%" stopColor="var(--color-mobile)" stopOpacity={0.28} />
+                  <stop offset="95%" stopColor="var(--color-mobile)" stopOpacity={0.04} />
                 </linearGradient>
               </defs>
             ) : null}
@@ -140,16 +140,18 @@ function AreaChartCard({
               dataKey="mobile"
               type={curve}
               fill={gradient ? `url(#${gradientId}-mobile)` : "var(--color-mobile)"}
-              fillOpacity={gradient ? 1 : 0.24}
+              fillOpacity={gradient ? 1 : 0.16}
               stroke="var(--color-mobile)"
+              strokeOpacity={0.55}
               stackId={stacked ? "visitors" : undefined}
             />
             <Area
               dataKey="desktop"
               type={curve}
               fill={gradient ? `url(#${gradientId}-desktop)` : "var(--color-desktop)"}
-              fillOpacity={gradient ? 1 : 0.36}
+              fillOpacity={gradient ? 1 : 0.24}
               stroke="var(--color-desktop)"
+              strokeOpacity={0.55}
               stackId={stacked ? "visitors" : undefined}
             />
           </RechartsAreaChart>

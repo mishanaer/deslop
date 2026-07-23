@@ -32,7 +32,7 @@ function SignupBlock({ className, ...props }: ComponentProps<"div">) {
     >
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle>Create an account</CardTitle>
+          <CardTitle className="text-2xl">Create an account</CardTitle>
           <CardDescription>Enter your information below to create your account.</CardDescription>
         </CardHeader>
         <CardContent>

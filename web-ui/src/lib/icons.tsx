@@ -15,7 +15,7 @@ import CircleClosePrimitive from "@deslop/primitives/icons/circle-close.svg?reac
 import CircleInfoPrimitive from "@deslop/primitives/icons/circle-info.svg?react"
 import CircleMorePrimitive from "@deslop/primitives/icons/circle-more.svg?react"
 import CirclePrimitive from "@deslop/primitives/icons/circle.svg?react"
-import CrossSmallPrimitive from "@deslop/primitives/icons/cross-small.svg?react"
+import CrossPrimitive from "@deslop/primitives/icons/cross.svg?react"
 import LoaderPrimitive from "@deslop/primitives/icons/loader.svg?react"
 import MenuPrimitive from "@deslop/primitives/icons/menu.svg?react"
 import MinusPrimitive from "@deslop/primitives/icons/minus.svg?react"
@@ -77,4 +77,4 @@ export const PlusIcon = createPrimitiveIcon(PlusPrimitive, "PlusIcon")
 export const SearchIcon = createPrimitiveIcon(SearchPrimitive, "SearchIcon")
 export const SunIcon = createPrimitiveIcon(SunPrimitive, "SunIcon")
 export const TriangleAlertIcon = createPrimitiveIcon(CircleAlertPrimitive, "TriangleAlertIcon")
-export const XIcon = createPrimitiveIcon(CrossSmallPrimitive, "XIcon")
+export const XIcon = createPrimitiveIcon(CrossPrimitive, "XIcon")

@@ -29,10 +29,10 @@ const navigation = [
 function SidebarBlock() {
   return (
     <SidebarProvider
-      className="min-h-[560px] overflow-hidden rounded-section border"
-      style={{ "--sidebar-width": "14rem" } as CSSProperties}
+      className="relative min-h-[560px] overflow-hidden rounded-section border"
+      style={{ "--sidebar-width": "14rem", "--sidebar": "var(--background)" } as CSSProperties}
     >
-      <Sidebar collapsible="none" className="border-r">
+      <Sidebar collapsible="offcanvas" className="absolute h-full border-r">
         <SidebarHeader className="p-4">
           <div className="font-semibold">Deslop</div>
           <div className="text-xs text-muted-foreground">Product workspace</div>
@@ -55,15 +55,15 @@ function SidebarBlock() {
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter className="p-3">
-          <Button className="w-full" size="sm"><PlusIcon /> New project</Button>
+          <Button className="w-full"><PlusIcon /> New project</Button>
         </SidebarFooter>
       </Sidebar>
-      <SidebarInset className="min-w-0 bg-background">
+      <SidebarInset className="min-w-0 bg-card">
         <header className="flex h-14 items-center gap-3 border-b px-4">
           <SidebarTrigger />
           <span className="font-medium">Overview</span>
         </header>
-        <div className="grid flex-1 gap-4 p-4 sm:grid-cols-2">
+        <div className="grid flex-1 gap-4 p-4 [&>div]:border-0 [&>div]:bg-accent [&>div]:shadow-none sm:grid-cols-2">
           <div className="rounded-section border p-5">
             <p className="font-medium">Active projects</p>
             <p className="mt-2 text-3xl font-semibold">12</p>

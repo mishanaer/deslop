@@ -5,7 +5,8 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const primitives = resolve(root, "primitives");
-const tma = resolve(root, "tma");
+const miniApp = resolve(root, "mini-app");
+const webUi = resolve(root, "web-ui");
 
 const commands = [
   {
@@ -29,18 +30,18 @@ const commands = [
     args: ["./scripts/check-icons.mjs"],
   },
   {
-    label: "TMA: styling architecture",
-    cwd: tma,
+    label: "Mini App: styling architecture",
+    cwd: miniApp,
     args: ["./scripts/check-styling.mjs"],
   },
   {
-    label: "TMA: consumer integration",
-    cwd: tma,
+    label: "Mini App: consumer integration",
+    cwd: miniApp,
     args: ["./scripts/check-agent-kit.mjs"],
   },
   {
-    label: "TMA: JavaScript lint",
-    cwd: tma,
+    label: "Mini App: JavaScript lint",
+    cwd: miniApp,
     args: [
       "./node_modules/eslint/bin/eslint.js",
       "{src,storybook}/**/*.{js,jsx,ts,tsx}",
@@ -50,21 +51,21 @@ const commands = [
     ],
   },
   {
-    label: "TMA: CSS lint",
-    cwd: tma,
+    label: "Mini App: CSS lint",
+    cwd: miniApp,
     args: [
       "./node_modules/stylelint/bin/stylelint.mjs",
       "{src,storybook}/**/*.css",
     ],
   },
   {
-    label: "TMA: Storybook build",
-    cwd: tma,
+    label: "Mini App: Storybook build",
+    cwd: miniApp,
     args: ["./node_modules/vite/bin/vite.js", "build"],
   },
   {
-    label: "TMA: library build",
-    cwd: tma,
+    label: "Mini App: library build",
+    cwd: miniApp,
     args: [
       "./node_modules/vite/bin/vite.js",
       "build",
@@ -72,19 +73,58 @@ const commands = [
       "vite.lib.config.js",
     ],
   },
+  {
+    label: "Web UI: primitives",
+    cwd: webUi,
+    args: ["./scripts/check-primitives.mjs"],
+  },
+  {
+    label: "Web UI: consumer integration",
+    cwd: webUi,
+    args: ["./scripts/check-agent-kit.mjs"],
+  },
+  {
+    label: "Web UI: TypeScript",
+    cwd: webUi,
+    args: ["./node_modules/typescript/bin/tsc", "--noEmit"],
+  },
+  {
+    label: "Web UI: Storybook build",
+    cwd: webUi,
+    args: ["./node_modules/vite/bin/vite.js", "build"],
+  },
+  {
+    label: "Web UI: library build",
+    cwd: webUi,
+    args: [
+      "./node_modules/vite/bin/vite.js",
+      "build",
+      "--config",
+      "vite.lib.config.ts",
+    ],
+  },
 ];
 
-const requiredTmaFiles = commands.flatMap(({ cwd, args }) =>
-  cwd === tma && args[0].startsWith("./node_modules/")
-    ? [resolve(tma, args[0])]
+const requiredMiniAppFiles = commands.flatMap(({ cwd, args }) =>
+  cwd === miniApp && args[0].startsWith("./node_modules/")
+    ? [resolve(miniApp, args[0])]
     : [],
 );
 
-const missingDependency = requiredTmaFiles.find((file) => !existsSync(file));
+const requiredWebUiFiles = commands.flatMap(({ cwd, args }) =>
+  cwd === webUi && args[0].startsWith("./node_modules/")
+    ? [resolve(webUi, args[0])]
+    : [],
+);
+
+const missingDependency = [...requiredMiniAppFiles, ...requiredWebUiFiles].find(
+  (file) => !existsSync(file),
+);
 
 if (missingDependency) {
-  console.error("TMA dependencies are not installed. Run:");
-  console.error("  corepack yarn --cwd tma install --immutable");
+  console.error("Mini App or Web UI dependencies are not installed. Run:");
+  console.error("  corepack yarn --cwd mini-app install --immutable");
+  console.error("  corepack pnpm --dir web-ui install --frozen-lockfile");
   process.exit(1);
 }
 

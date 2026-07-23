@@ -93,6 +93,40 @@ function AvatarFallback({
   )
 }
 
+type IconAvatarProps = React.ComponentProps<"div"> & {
+  shape?: "circle" | "rounded"
+  size?: "default" | "sm" | "lg"
+}
+
+const IconAvatar = React.forwardRef<HTMLDivElement, IconAvatarProps>(
+  (
+    {
+      children,
+      className,
+      shape = "circle",
+      size = "default",
+      ...props
+    },
+    ref
+  ) => (
+    <div
+      ref={ref}
+      data-slot="icon-avatar"
+      data-shape={shape}
+      data-size={size}
+      className={cn(
+        "flex aspect-square size-10 shrink-0 items-center justify-center overflow-hidden bg-muted text-foreground select-none data-[size=lg]:size-14 data-[size=sm]:size-6 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-6 data-[size=lg]:[&_svg:not([class*='size-'])]:size-8 data-[size=sm]:[&_svg:not([class*='size-'])]:size-4",
+        shape === "circle" ? "rounded-full" : "rounded-lg",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  )
+)
+IconAvatar.displayName = "IconAvatar"
+
 type ImageAvatarProps = Omit<React.ComponentProps<"div">, "children"> & {
   alt?: string
   shape?: "circle" | "rounded"
@@ -224,6 +258,7 @@ export {
   Avatar,
   AvatarImage,
   AvatarFallback,
+  IconAvatar,
   AvatarBadge,
   AvatarGroup,
   AvatarGroupCount,
