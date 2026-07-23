@@ -45,7 +45,7 @@ function SidebarBlock() {
                 {navigation.map((item, index) => (
                   <SidebarMenuItem key={item.label}>
                     <SidebarMenuButton isActive={index === 0}>
-                      <item.icon />
+                      <item.icon className={index === 0 ? "size-6!" : undefined} />
                       <span>{item.label}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

@@ -55,7 +55,7 @@ function DashboardBlock() {
             <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                <SidebarMenuItem><SidebarMenuButton isActive><CheckIcon /><span>Overview</span></SidebarMenuButton></SidebarMenuItem>
+                <SidebarMenuItem><SidebarMenuButton isActive><CheckIcon className="size-6!" /><span>Overview</span></SidebarMenuButton></SidebarMenuItem>
                 <SidebarMenuItem><SidebarMenuButton><Code2Icon /><span>Projects</span></SidebarMenuButton></SidebarMenuItem>
                 <SidebarMenuItem><SidebarMenuButton><BellIcon /><span>Notifications</span></SidebarMenuButton></SidebarMenuItem>
               </SidebarMenu>

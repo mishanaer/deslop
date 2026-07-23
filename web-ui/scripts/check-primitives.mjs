@@ -242,6 +242,10 @@ if (!icons.includes("@deslop/primitives/icons/")) {
   errors.push("src/lib/icons.tsx: icons must come from @deslop/primitives")
 }
 
+if (!styles.includes("color: var(--elevation-40)")) {
+  errors.push("src/index.css: icons must use Elevation 40 by default")
+}
+
 for (const primitiveStylesheet of ["colors.css", "layout.css", "typography.css"]) {
   if (!styles.includes(`@deslop/primitives/${primitiveStylesheet}`)) {
     errors.push(`src/index.css: missing @deslop/primitives/${primitiveStylesheet}`)
@@ -289,7 +293,7 @@ for (const bridge of [
   "--destructive-foreground: var(--web-action-destructive-foreground)",
   "--border: var(--elevation-10)",
   "--input: var(--web-input)",
-  "--ring: var(--elevation-20)",
+  "--ring: var(--elevation-10)",
   "--chart-1: var(--accent-orange)",
   "--chart-2: var(--accent-teal)",
   "--chart-3: var(--accent-blue)",
@@ -378,6 +382,10 @@ for (const badgeContract of [
 
 if (!buttonComponent.includes("rounded-button")) {
   errors.push("src/components/ui/button.tsx: buttons must use the Mini App radius token")
+}
+
+if (!buttonComponent.includes("[&_svg]:text-current")) {
+  errors.push("src/components/ui/button.tsx: button icons must use the text color")
 }
 
 if (!buttonComponent.includes('default: "h-12 px-4 py-3.5')) {

@@ -163,7 +163,7 @@
   --destructive-foreground: var(--web-action-destructive-foreground);
   --border: var(--elevation-10);
   --input: var(--web-input);
-  --ring: var(--elevation-20);
+  --ring: var(--elevation-10);
   --sidebar: var(--elevation);
   --sidebar-foreground: var(--web-foreground);
   --sidebar-primary: var(--web-action-primary);
@@ -193,7 +193,7 @@
 
   .ui-icon {
     display: block;
-    color: currentcolor;
+    color: var(--elevation-40);
   }
 
   .dark *,
