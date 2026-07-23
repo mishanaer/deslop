@@ -253,8 +253,7 @@ for (const bridge of [
   "--web-foreground: var(--primary)",
   "--web-subtle-fill: var(--elevation-5)",
   "--web-subtle-fill: var(--elevation-10)",
-  "--web-input: var(--elevation-10)",
-  "--web-input: var(--elevation-20)",
+  "--web-input: var(--elevation-5)",
   "--web-muted-foreground: var(--elevation-60)",
   "--web-action-primary: var(--accent-green)",
   "--web-action-primary-foreground: var(--primary)",
@@ -318,6 +317,15 @@ for (const bridge of [
   if (!styles.includes(bridge)) {
     errors.push(`src/index.css: missing primitive bridge ${bridge}`)
   }
+}
+
+const inputElevationFiveCount =
+  styles.match(/--web-input:\s*var\(--elevation-5\)/g)?.length ?? 0
+
+if (inputElevationFiveCount !== 2) {
+  errors.push(
+    "src/index.css: light and dark inputs must both use Elevation 5"
+  )
 }
 
 if (!styles.includes(".ui-hover-elevation-5:hover")) {
