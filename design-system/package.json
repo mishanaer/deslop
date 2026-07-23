@@ -1,0 +1,20 @@
+{
+  "name": "@deslop/design-system",
+  "version": "0.1.0",
+  "description": "One-command setup for the Deslop design system.",
+  "type": "module",
+  "files": [
+    "bin",
+    "scripts"
+  ],
+  "bin": {
+    "design-system": "./bin/design-system.mjs"
+  },
+  "scripts": {
+    "check": "node ./scripts/check-installer.mjs"
+  },
+  "dependencies": {
+    "@deslop/mini-app": "^0.1.0",
+    "@deslop/web-ui": "^0.1.0"
+  }
+}
