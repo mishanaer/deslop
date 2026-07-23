@@ -290,7 +290,7 @@ for (const bridge of [
   "--destructive-foreground: var(--web-action-destructive-foreground)",
   "--border: var(--elevation-10)",
   "--input: var(--web-input)",
-  "--ring: var(--elevation-40)",
+  "--ring: var(--elevation-20)",
   "--chart-1: var(--accent-orange)",
   "--chart-2: var(--accent-teal)",
   "--chart-3: var(--accent-blue)",
