@@ -19,7 +19,11 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import {
+  ImageAvatar,
+  InitialsAvatar,
+} from "@/components/ui/avatar"
+import ilyaAvatar from "../../../tma/src/icons/avatars/IlyaG.jpg"
 import { Badge } from "@/components/ui/badge"
 import {
   Breadcrumb,
@@ -153,9 +157,65 @@ export function ComponentDemo({ slug }: { slug: string; title: string }) {
         </DemoFrame>
       )
     case "avatar":
-      return <DemoFrame><Avatar className="size-12"><AvatarFallback>DS</AvatarFallback></Avatar></DemoFrame>
+      return (
+        <DemoFrame>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <ImageAvatar src={ilyaAvatar} alt="Ilya Grishin" size={56} />
+            <ImageAvatar
+              src={ilyaAvatar}
+              alt="Ilya Grishin"
+              shape="rounded"
+            />
+            <InitialsAvatar userId={0} name="Alice Johnson" size={24} />
+            <InitialsAvatar userId={1} name="Bob Smith" />
+            <InitialsAvatar userId={2} name="Charlie Brown" size={56} />
+            <InitialsAvatar userId={3} name="Diana Prince" />
+            <InitialsAvatar userId={4} name="Evan Rogers" />
+            <InitialsAvatar userId={5} name="Fiona Apple" />
+            <InitialsAvatar userId={6} name="George Lucas" />
+          </div>
+        </DemoFrame>
+      )
     case "badge":
-      return <DemoFrame><div className="flex gap-2"><Badge>Badge</Badge><Badge variant="secondary">Secondary</Badge><Badge variant="outline">Outline</Badge></div></DemoFrame>
+      return (
+        <DemoFrame>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <Badge variant="filled" textVariant="caption1" weight="semibold">
+              Filled
+            </Badge>
+            <Badge variant="tinted" textVariant="caption1" weight="semibold">
+              Tinted
+            </Badge>
+            <Badge variant="gray" textVariant="caption1" weight="semibold">
+              Gray
+            </Badge>
+            <span className="rounded-md bg-background p-2">
+              <Badge variant="media" textVariant="caption1" weight="semibold">
+                Media
+              </Badge>
+            </span>
+            <Badge variant="outlined" textVariant="caption1" weight="semibold">
+              Outlined
+            </Badge>
+            <Badge
+              variant="filled"
+              textVariant="caption1"
+              weight="semibold"
+              circled
+            >
+              1
+            </Badge>
+            <Badge
+              variant="gray"
+              textVariant="caption1"
+              weight="semibold"
+              squared
+            >
+              2
+            </Badge>
+          </div>
+        </DemoFrame>
+      )
     case "breadcrumb":
       return (
         <DemoFrame>
@@ -163,7 +223,7 @@ export function ComponentDemo({ slug }: { slug: string; title: string }) {
         </DemoFrame>
       )
     case "button":
-      return <DemoFrame><div className="flex flex-wrap justify-center gap-3"><Button>Button</Button><Button variant="secondary">Secondary</Button><Button variant="outline">Outline</Button><Button variant="ghost">Ghost</Button></div></DemoFrame>
+      return <DemoFrame><div className="flex flex-wrap items-center justify-center gap-3"><Button>Button</Button><Button><PlusIcon /> With icon</Button><Button size="icon" aria-label="Add item"><PlusIcon /></Button><Button variant="secondary">Secondary</Button><Button variant="outline">Outline</Button><Button variant="ghost">Ghost</Button></div></DemoFrame>
     case "button-group":
       return <DemoFrame><ButtonGroup><Button variant="outline">Back</Button><Button variant="outline">Next</Button></ButtonGroup></DemoFrame>
     case "card":

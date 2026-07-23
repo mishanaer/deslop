@@ -10,6 +10,7 @@
   --spacing: var(--ui-space-4);
 
   --font-sans: var(--ui-font-interface);
+  --font-caps: var(--ui-font-interface-caps);
   --font-mono: var(--ui-font-mono);
   --font-weight-medium: 600;
   --font-weight-semibold: 600;
@@ -42,6 +43,9 @@
   --radius-xl: var(--ui-radius-12);
   --radius-2xl: var(--ui-radius-16);
   --radius-3xl: var(--ui-radius-20);
+  --radius-button: var(--ui-component-button-regular-radius);
+  --radius-section: var(--ui-component-section-radius);
+  --radius-text-field: var(--ui-component-text-field-radius);
 
   --color-background: var(--page-background);
   --color-page: var(--web-background);
@@ -68,6 +72,13 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-avatar-foreground: var(--web-avatar-foreground);
+  --color-badge-accent: var(--web-badge-accent);
+  --color-badge-border: var(--web-badge-border);
+  --color-badge-fill: var(--web-badge-fill);
+  --color-badge-foreground: var(--web-badge-foreground);
+  --color-badge-media: var(--web-badge-media);
+  --color-badge-on-accent: var(--web-badge-on-accent);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -89,6 +100,13 @@
   --web-action-primary-foreground: var(--primary);
   --web-action-destructive: var(--accent-red);
   --web-action-destructive-foreground: var(--background);
+  --web-avatar-foreground: var(--background);
+  --web-badge-accent: var(--accent-green);
+  --web-badge-border: var(--elevation-20);
+  --web-badge-fill: var(--elevation-10);
+  --web-badge-foreground: var(--primary);
+  --web-badge-media: var(--elevation);
+  --web-badge-on-accent: var(--primary);
   --chart-1: var(--accent-orange);
   --chart-2: var(--accent-teal);
   --chart-3: var(--accent-blue);
@@ -107,6 +125,13 @@
   --web-action-primary-foreground: var(--background);
   --web-action-destructive: var(--accent-red);
   --web-action-destructive-foreground: var(--primary);
+  --web-avatar-foreground: var(--primary);
+  --web-badge-accent: var(--accent-green);
+  --web-badge-border: var(--elevation-20);
+  --web-badge-fill: var(--elevation-20);
+  --web-badge-foreground: var(--primary);
+  --web-badge-media: var(--elevation);
+  --web-badge-on-accent: var(--background);
   --chart-1: var(--accent-indigo);
   --chart-2: var(--accent-green);
   --chart-3: var(--accent-yellow);
@@ -128,7 +153,7 @@
   --secondary-foreground: var(--web-foreground);
   --muted: var(--web-subtle-fill);
   --muted-foreground: var(--web-muted-foreground);
-  --action-accent: var(--web-subtle-fill);
+  --action-accent: var(--elevation-5);
   --action-accent-foreground: var(--web-foreground);
   --destructive: var(--web-action-destructive);
   --destructive-foreground: var(--web-action-destructive-foreground);
@@ -139,7 +164,7 @@
   --sidebar-foreground: var(--web-foreground);
   --sidebar-primary: var(--web-action-primary);
   --sidebar-primary-foreground: var(--web-action-primary-foreground);
-  --sidebar-accent: var(--web-subtle-fill);
+  --sidebar-accent: var(--elevation-5);
   --sidebar-accent-foreground: var(--web-foreground);
   --sidebar-border: var(--elevation-10);
   --sidebar-ring: var(--elevation-40);
@@ -147,7 +172,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring;
   }
 
   html {
@@ -182,5 +207,24 @@
   button,
   a {
     -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .ui-background-blur {
+    @apply backdrop-blur-lg;
+  }
+
+  .ui-background-elevation-5 {
+    background-color: var(--elevation-5);
+  }
+
+  @media (hover: hover) {
+    .ui-hover-elevation-5:hover {
+      background-image: linear-gradient(
+        var(--elevation-5),
+        var(--elevation-5)
+      );
+    }
   }
 }

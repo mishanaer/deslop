@@ -18,8 +18,34 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 
-import { componentCategories, components, getComponent } from "./catalog"
+import {
+  areaCharts,
+  blocks,
+  componentCategories,
+  components,
+  getBlock,
+  getComponent,
+} from "./catalog"
 import { ComponentDemo } from "./component-demo"
+import { AreaChartPreview, BlockPreview } from "./section-demos"
+
+const searchEntries = [
+  ...components.map((component) => ({
+    title: component.title,
+    category: component.category,
+    href: `/docs/components/${component.slug}`,
+  })),
+  ...blocks.map((block) => ({
+    title: block.title,
+    category: "Blocks",
+    href: `/blocks/${block.slug}`,
+  })),
+  ...areaCharts.map((chart) => ({
+    title: `Area Chart — ${chart.title}`,
+    category: "Charts",
+    href: "/charts/area",
+  })),
+]
 
 function usePathname() {
   const [pathname, setPathname] = useState(window.location.pathname)
@@ -95,12 +121,12 @@ function SearchDialog({ navigate }: { navigate: (path: string) => void }) {
   }, [])
 
   const results = useMemo(
-    () => components.filter((component) => component.title.toLowerCase().includes(query.toLowerCase())),
+    () => searchEntries.filter((entry) => entry.title.toLowerCase().includes(query.toLowerCase())),
     [query]
   )
 
-  const select = (slug: string) => {
-    navigate(`/docs/components/${slug}`)
+  const select = (href: string) => {
+    navigate(href)
     setOpen(false)
     setQuery("")
   }
@@ -116,14 +142,14 @@ function SearchDialog({ navigate }: { navigate: (path: string) => void }) {
         <DialogTitle className="sr-only">Search documentation</DialogTitle>
         <div className="flex items-center gap-2 border-b px-4">
           <SearchIcon className="size-4 text-muted-foreground" />
-          <Input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Type a component name..." className="h-12 border-0 px-0 shadow-none focus-visible:ring-0" />
+          <Input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Type a component name..." className="h-12 border-0 bg-transparent px-0 shadow-none focus-visible:ring-0 dark:bg-transparent" />
           <Button variant="ghost" size="icon-xs" onClick={() => setOpen(false)}><XIcon /></Button>
         </div>
         <div className="max-h-80 overflow-y-auto p-2">
-          {results.map((component) => (
-            <button key={component.slug} onClick={() => select(component.slug)} className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm hover:bg-accent">
-              <span>{component.title}</span>
-              <span className="text-xs text-muted-foreground">{component.category}</span>
+          {results.map((entry) => (
+            <button key={entry.href} onClick={() => select(entry.href)} className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm hover:bg-accent">
+              <span>{entry.title}</span>
+              <span className="text-xs text-muted-foreground">{entry.category}</span>
             </button>
           ))}
           {results.length === 0 && <p className="px-3 py-8 text-center text-sm text-muted-foreground">No results found.</p>}
@@ -137,16 +163,17 @@ function Header({ navigate }: { navigate: (path: string) => void }) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 border-b bg-background">
       <div className="mx-auto flex h-14 max-w-[1440px] items-center gap-4 px-4 lg:px-8">
         <Button variant="ghost" size="icon-sm" className="lg:hidden" onClick={() => setMobileOpen((value) => !value)}><MenuIcon /></Button>
-        <AppLink href="/docs" navigate={navigate} className="flex items-center gap-2 font-semibold tracking-tight">
+        <AppLink href="/docs/components" navigate={navigate} className="flex items-center gap-2 font-semibold tracking-tight">
           <span className="grid size-6 grid-cols-2 gap-0.5 rounded-sm bg-foreground p-1"><span className="bg-background" /><span className="bg-background" /><span className="col-span-2 bg-background" /></span>
           <span>web/ui</span>
         </AppLink>
         <nav className="hidden items-center gap-5 text-sm lg:flex">
-          <AppLink href="/docs" navigate={navigate} className="text-foreground/70 transition-colors hover:text-foreground">Docs</AppLink>
-          <AppLink href="/docs/components" navigate={navigate} className="text-foreground/70 transition-colors hover:text-foreground">Components</AppLink>
+          <AppLink href="/docs/components" navigate={navigate} className="text-muted-foreground transition-colors hover:text-foreground">Components</AppLink>
+          <AppLink href="/blocks" navigate={navigate} className="text-muted-foreground transition-colors hover:text-foreground">Blocks</AppLink>
+          <AppLink href="/charts/area" navigate={navigate} className="text-muted-foreground transition-colors hover:text-foreground">Charts</AppLink>
         </nav>
         <div className="ml-auto flex items-center gap-2">
           <div className="hidden sm:block"><SearchDialog navigate={navigate} /></div>
@@ -157,16 +184,17 @@ function Header({ navigate }: { navigate: (path: string) => void }) {
         </div>
       </div>
       {mobileOpen && (
-        <div className="border-t p-4 lg:hidden"><nav className="flex flex-col gap-1"><AppLink href="/docs" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Docs</AppLink><AppLink href="/docs/components" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Components</AppLink></nav></div>
+        <div className="border-t p-4 lg:hidden"><nav className="flex flex-col gap-1"><AppLink href="/docs/components" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Components</AppLink><AppLink href="/blocks" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Blocks</AppLink><AppLink href="/charts/area" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Charts</AppLink></nav></div>
       )}
     </header>
   )
 }
 
 function Sidebar({ pathname, navigate }: { pathname: string; navigate: (path: string) => void }) {
-  const sections = [
-    { title: "Introduction", href: "/docs" },
+  const sectionLinks = [
     { title: "Components", href: "/docs/components" },
+    { title: "Blocks", href: "/blocks" },
+    { title: "Area Charts", href: "/charts/area" },
   ]
 
   return (
@@ -174,10 +202,12 @@ function Sidebar({ pathname, navigate }: { pathname: string; navigate: (path: st
       <div className="mb-8">
         <p className="mb-2 px-2 text-xs font-medium text-muted-foreground">Sections</p>
         <nav className="space-y-0.5">
-          {sections.map((item) => <AppLink key={item.href} href={item.href} navigate={navigate} className={cn("block rounded-md px-2 py-1.5 text-sm", pathname === item.href ? "bg-accent font-medium" : "text-muted-foreground hover:text-foreground")}>{item.title}</AppLink>)}
+          {sectionLinks.map((item) => (
+            <AppLink key={item.href} href={item.href} navigate={navigate} className={cn("block rounded-md px-2 py-1.5 text-sm", pathname === item.href ? "bg-accent font-medium text-foreground" : "text-muted-foreground hover:text-foreground")}>{item.title}</AppLink>
+          ))}
         </nav>
       </div>
-      <div>
+      {pathname.startsWith("/docs/components") ? <div>
         <p className="mb-2 px-2 text-xs font-medium text-muted-foreground">Components</p>
         <nav className="space-y-0.5">
           {components.map((component) => {
@@ -185,25 +215,23 @@ function Sidebar({ pathname, navigate }: { pathname: string; navigate: (path: st
             return <AppLink key={component.slug} href={href} navigate={navigate} className={cn("block rounded-md px-2 py-1.5 text-sm", pathname === href ? "bg-accent font-medium text-foreground" : "text-muted-foreground hover:text-foreground")}>{component.title}</AppLink>
           })}
         </nav>
-      </div>
+      </div> : null}
+      {pathname.startsWith("/blocks") ? <div>
+        <p className="mb-2 px-2 text-xs font-medium text-muted-foreground">Blocks</p>
+        <nav className="space-y-0.5">
+          {blocks.map((block) => {
+            const href = `/blocks/${block.slug}`
+            return <AppLink key={block.slug} href={href} navigate={navigate} className={cn("block rounded-md px-2 py-1.5 text-sm", pathname === href ? "bg-accent font-medium text-foreground" : "text-muted-foreground hover:text-foreground")}>{block.title}</AppLink>
+          })}
+        </nav>
+      </div> : null}
+      {pathname.startsWith("/charts") ? <div>
+        <p className="mb-2 px-2 text-xs font-medium text-muted-foreground">Charts</p>
+        <nav className="space-y-0.5">
+          <AppLink href="/charts/area" navigate={navigate} className="block rounded-md bg-accent px-2 py-1.5 text-sm font-medium text-foreground">Area Charts</AppLink>
+        </nav>
+      </div> : null}
     </aside>
-  )
-}
-
-function IntroPage({ navigate }: { navigate: (path: string) => void }) {
-  return (
-    <article className="max-w-3xl py-12 lg:py-16">
-      <p className="mb-3 text-sm font-medium text-muted-foreground">Web UI</p>
-      <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Build your component library.</h1>
-      <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">A set of accessible React components copied into the Deslop repository and ready to be adapted to our primitives.</p>
-      <div className="mt-8 flex flex-wrap gap-3"><Button asChild><AppLink href="/docs/components" navigate={navigate}>Browse components</AppLink></Button><Button variant="outline" asChild><a href="https://github.com/shadcn-ui/ui" target="_blank" rel="noreferrer">Original shadcn/ui</a></Button></div>
-      <Separator className="my-12" />
-      <h2 className="text-2xl font-semibold tracking-tight">Open code</h2>
-      <p className="mt-3 leading-7 text-muted-foreground">Every component lives in <code className="rounded bg-muted px-1.5 py-1 text-sm text-foreground">src/components/ui</code>. Agents can inspect and change the implementation instead of wrapping a black-box dependency.</p>
-      <div className="mt-8 grid gap-4 sm:grid-cols-3">
-        {[{ value: components.length, label: "components" }, { value: "React 19", label: "runtime" }, { value: "Tailwind 4", label: "styling" }].map((item) => <div key={item.label} className="rounded-xl border p-5"><div className="text-2xl font-semibold">{item.value}</div><div className="mt-1 text-sm text-muted-foreground">{item.label}</div></div>)}
-      </div>
-    </article>
   )
 }
 
@@ -216,9 +244,9 @@ function ComponentsPage({ navigate }: { navigate: (path: string) => void }) {
         {componentCategories.map((category) => (
           <section key={category}>
             <h2 className="mb-4 text-sm font-medium text-muted-foreground">{category}</h2>
-            <div className="grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-px overflow-hidden rounded-xl border bg-background sm:grid-cols-2 xl:grid-cols-3">
               {components.filter((component) => component.category === category).map((component) => (
-                <AppLink key={component.slug} href={`/docs/components/${component.slug}`} navigate={navigate} className="group flex min-h-28 items-start justify-between gap-4 bg-card p-5 transition-colors hover:bg-muted/50"><div><h3 className="font-medium">{component.title}</h3><p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">{component.description}</p></div><ChevronRightIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" /></AppLink>
+                <AppLink key={component.slug} href={`/docs/components/${component.slug}`} navigate={navigate} className="ui-background-elevation-5 ui-hover-elevation-5 group flex min-h-28 items-start justify-between gap-4 p-5 transition-colors"><div><h3 className="font-medium">{component.title}</h3><p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">{component.description}</p></div><ChevronRightIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" /></AppLink>
               ))}
             </div>
           </section>
@@ -228,11 +256,97 @@ function ComponentsPage({ navigate }: { navigate: (path: string) => void }) {
   )
 }
 
+function BlocksPage({ navigate }: { navigate: (path: string) => void }) {
+  return (
+    <article className="py-12 lg:py-16">
+      <h1 className="text-4xl font-bold tracking-tight">Blocks</h1>
+      <p className="mt-4 max-w-2xl text-lg text-muted-foreground">Ready-made product layouts composed from Web UI components and Deslop Primitives.</p>
+      <div className="mt-10 space-y-14">
+        {blocks.map((block) => (
+          <section key={block.slug} id={block.slug}>
+            <div className="mb-4 flex items-end justify-between gap-4">
+              <div>
+                <p className="text-xs font-medium text-muted-foreground">{block.category}</p>
+                <h2 className="mt-1 text-2xl font-semibold">{block.title}</h2>
+                <p className="mt-2 text-sm text-muted-foreground">{block.description}</p>
+              </div>
+              <Button variant="outline" asChild><AppLink href={`/blocks/${block.slug}`} navigate={navigate}>View block</AppLink></Button>
+            </div>
+            <div className="overflow-hidden rounded-section border bg-background p-3 sm:p-5">
+              <BlockPreview slug={block.slug} />
+            </div>
+          </section>
+        ))}
+      </div>
+    </article>
+  )
+}
+
+function BlockPage({ slug }: { slug: string }) {
+  const block = getBlock(slug)
+  if (!block) return <NotFound />
+
+  const source = `import { ${block.exportName} } from "@deslop/web-ui/blocks/${block.module}"\n\nexport function Page() {\n  return <${block.exportName} />\n}`
+
+  return (
+    <article className="min-w-0 py-12 lg:py-16">
+      <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground"><span>Blocks</span><ChevronRightIcon className="size-3.5" /><span>{block.category}</span></div>
+      <h1 className="text-4xl font-bold tracking-tight">{block.title}</h1>
+      <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">{block.description}</p>
+      <section id="preview" className="mt-10">
+        <Tabs defaultValue="preview">
+          <div className="flex items-center justify-between"><TabsList className="h-9"><TabsTrigger value="preview">Preview</TabsTrigger><TabsTrigger value="code">Code</TabsTrigger></TabsList><span className="text-xs text-muted-foreground">Primitives</span></div>
+          <TabsContent value="preview" className="mt-4 overflow-hidden rounded-section border bg-background p-3 sm:p-5"><BlockPreview slug={block.slug} /></TabsContent>
+          <TabsContent value="code" className="mt-4"><pre className="overflow-x-auto rounded-section border bg-muted p-5 text-sm leading-6"><code>{source}</code></pre></TabsContent>
+        </Tabs>
+      </section>
+      <section id="installation" className="mt-12"><h2 className="text-2xl font-semibold tracking-tight">Installation</h2><p className="mt-3 text-muted-foreground">Import the block from Web UI.</p><pre className="mt-4 overflow-x-auto rounded-section border bg-muted p-5 text-sm"><code>{`import { ${block.exportName} } from "@deslop/web-ui/blocks/${block.module}"`}</code></pre></section>
+      <section id="source" className="mt-12"><h2 className="text-2xl font-semibold tracking-tight">Source</h2><p className="mt-3 leading-7 text-muted-foreground">The implementation is stored in <code className="rounded bg-muted px-1.5 py-1 text-sm text-foreground">src/components/blocks/{block.module}.tsx</code>.</p></section>
+    </article>
+  )
+}
+
+function AreaChartsPage() {
+  return (
+    <article className="min-w-0 py-12 lg:py-16">
+      <h1 className="text-4xl font-bold tracking-tight">Area Charts</h1>
+      <p className="mt-4 max-w-2xl text-lg text-muted-foreground">Ready-to-use Recharts compositions connected to Deslop color and typography tokens.</p>
+      <div className="mt-10 space-y-14">
+        {areaCharts.map((chart) => {
+          const source = `import { ${chart.exportName} } from "@deslop/web-ui/charts/area"\n\nexport function Example() {\n  return <${chart.exportName} />\n}`
+          return (
+            <section key={chart.slug} id={chart.slug}>
+              <div className="mb-4">
+                <h2 className="text-2xl font-semibold">{chart.title}</h2>
+                <p className="mt-2 text-sm text-muted-foreground">{chart.description}</p>
+              </div>
+              <Tabs defaultValue="preview">
+                <TabsList className="h-9"><TabsTrigger value="preview">Preview</TabsTrigger><TabsTrigger value="code">Code</TabsTrigger></TabsList>
+                <TabsContent value="preview" className="mt-4"><AreaChartPreview slug={chart.slug} /></TabsContent>
+                <TabsContent value="code" className="mt-4"><pre className="overflow-x-auto rounded-section border bg-muted p-5 text-sm leading-6"><code>{source}</code></pre></TabsContent>
+              </Tabs>
+            </section>
+          )
+        })}
+      </div>
+    </article>
+  )
+}
+
 function ComponentPage({ slug }: { slug: string }) {
   const component = getComponent(slug)
   if (!component) return <NotFound />
 
-  const source = `import { ${component.title.replaceAll(" ", "")} } from "@deslop/web-ui/components/${component.slug}"\n\nexport function Example() {\n  return <${component.title.replaceAll(" ", "")} />\n}`
+  const componentName = component.title.replaceAll(" ", "")
+  const importNames =
+    component.slug === "avatar" ? "ImageAvatar, InitialsAvatar" : componentName
+  const example =
+    component.slug === "avatar"
+      ? '<InitialsAvatar userId={0} name="Alice Johnson" />'
+      : component.slug === "badge"
+        ? '<Badge variant="filled">Badge</Badge>'
+      : `<${componentName} />`
+  const source = `import { ${importNames} } from "@deslop/web-ui/components/${component.slug}"\n\nexport function Example() {\n  return ${example}\n}`
 
   return (
     <article className="min-w-0 py-12 lg:py-16">
@@ -241,12 +355,12 @@ function ComponentPage({ slug }: { slug: string }) {
       <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">{component.description}</p>
       <section id="preview" className="mt-10">
         <Tabs defaultValue="preview">
-          <div className="flex items-center justify-between"><TabsList className="h-9"><TabsTrigger value="preview">Preview</TabsTrigger><TabsTrigger value="code">Code</TabsTrigger></TabsList><span className="text-xs text-muted-foreground">Radix</span></div>
+          <div className="flex items-center justify-between"><TabsList className="h-9"><TabsTrigger value="preview">Preview</TabsTrigger><TabsTrigger value="code">Code</TabsTrigger></TabsList><span className="text-xs text-muted-foreground">Primitives</span></div>
           <TabsContent value="preview" className="mt-4 overflow-hidden rounded-xl border bg-card"><ComponentDemo slug={component.slug} title={component.title} /></TabsContent>
-          <TabsContent value="code" className="mt-4"><pre className="overflow-x-auto rounded-xl border bg-muted/40 p-5 text-sm leading-6"><code>{source}</code></pre></TabsContent>
+          <TabsContent value="code" className="mt-4"><pre className="overflow-x-auto rounded-xl border bg-muted p-5 text-sm leading-6"><code>{source}</code></pre></TabsContent>
         </Tabs>
       </section>
-      <section id="installation" className="mt-12"><h2 className="text-2xl font-semibold tracking-tight">Installation</h2><p className="mt-3 text-muted-foreground">Import the component from Web UI.</p><pre className="mt-4 overflow-x-auto rounded-xl border bg-muted/40 p-5 text-sm"><code>{`import { ${component.title.replaceAll(" ", "")} } from "@deslop/web-ui/components/${component.slug}"`}</code></pre></section>
+      <section id="installation" className="mt-12"><h2 className="text-2xl font-semibold tracking-tight">Installation</h2><p className="mt-3 text-muted-foreground">Import the component from Web UI.</p><pre className="mt-4 overflow-x-auto rounded-xl border bg-muted p-5 text-sm"><code>{`import { ${importNames} } from "@deslop/web-ui/components/${component.slug}"`}</code></pre></section>
       <section id="source" className="mt-12"><h2 className="text-2xl font-semibold tracking-tight">Source</h2><p className="mt-3 leading-7 text-muted-foreground">The implementation is stored in <code className="rounded bg-muted px-1.5 py-1 text-sm text-foreground">src/components/ui/{component.slug}.tsx</code>.</p></section>
     </article>
   )
@@ -259,12 +373,18 @@ function NotFound() {
 export function StorybookApp() {
   const { pathname, navigate } = usePathname()
   const componentMatch = pathname.match(/^\/docs\/components\/([^/]+)$/)
+  const blockMatch = pathname.match(/^\/blocks\/([^/]+)$/)
 
   let page: ReactNode
-  if (pathname === "/" || pathname === "/docs") page = <IntroPage navigate={navigate} />
+  if (pathname === "/" || pathname === "/docs") page = <ComponentsPage navigate={navigate} />
   else if (pathname === "/docs/components") page = <ComponentsPage navigate={navigate} />
   else if (componentMatch) page = <ComponentPage slug={componentMatch[1]} />
+  else if (pathname === "/blocks") page = <BlocksPage navigate={navigate} />
+  else if (blockMatch) page = <BlockPage slug={blockMatch[1]} />
+  else if (pathname === "/charts" || pathname === "/charts/area") page = <AreaChartsPage />
   else page = <NotFound />
+
+  const showDetailNavigation = Boolean(componentMatch || blockMatch)
 
   return (
     <TooltipProvider>
@@ -273,7 +393,7 @@ export function StorybookApp() {
         <div className="mx-auto flex max-w-[1440px]">
           <Sidebar pathname={pathname} navigate={navigate} />
           <main className="min-w-0 flex-1 px-5 sm:px-8 lg:px-12 xl:px-16">{page}</main>
-          <aside className="sticky top-14 hidden h-[calc(100vh-3.5rem)] w-52 shrink-0 px-8 py-16 xl:block"><p className="mb-3 text-xs font-medium">On This Page</p><nav className="space-y-2 text-sm text-muted-foreground"><a href="#preview" className="block hover:text-foreground">Preview</a><a href="#installation" className="block hover:text-foreground">Installation</a><a href="#source" className="block hover:text-foreground">Source</a></nav></aside>
+          {showDetailNavigation ? <aside className="sticky top-14 hidden h-[calc(100vh-3.5rem)] w-52 shrink-0 px-8 py-16 xl:block"><p className="mb-3 text-xs font-medium">On This Page</p><nav className="space-y-2 text-sm text-muted-foreground"><a href="#preview" className="block hover:text-foreground">Preview</a><a href="#installation" className="block hover:text-foreground">Installation</a><a href="#source" className="block hover:text-foreground">Source</a></nav></aside> : null}
         </div>
       </div>
     </TooltipProvider>

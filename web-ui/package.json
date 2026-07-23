@@ -13,7 +13,9 @@
   "exports": {
     ".": "./dist/index.js",
     "./styles.css": "./dist/styles.css",
-    "./components/*": "./dist/components/ui/*.js"
+    "./components/*": "./dist/components/ui/*.js",
+    "./blocks/*": "./dist/blocks/*.js",
+    "./charts/*": "./dist/charts/*.js"
   },
   "sideEffects": [
     "**/*.css"

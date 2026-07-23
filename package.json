@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prepare": "node ./scripts/install-git-hooks.mjs",
+    "setup": "node ./scripts/install-git-hooks.mjs",
     "verify": "node ./scripts/verify.mjs"
   }
 }
