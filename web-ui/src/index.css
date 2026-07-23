@@ -98,7 +98,7 @@
   --web-background: var(--background);
   --web-foreground: var(--primary);
   --web-subtle-fill: var(--elevation-5);
-  --web-input: var(--elevation-10);
+  --web-input: var(--elevation-5);
   --web-muted-foreground: var(--elevation-60);
   --web-action-primary: var(--accent-green);
   --web-action-primary-foreground: var(--primary);
@@ -123,7 +123,7 @@
   --web-background: var(--background);
   --web-foreground: var(--primary);
   --web-subtle-fill: var(--elevation-10);
-  --web-input: var(--elevation-20);
+  --web-input: var(--elevation-5);
   --web-muted-foreground: var(--elevation-60);
   --web-action-primary: var(--accent-green);
   --web-action-primary-foreground: var(--background);
@@ -163,7 +163,7 @@
   --destructive-foreground: var(--web-action-destructive-foreground);
   --border: var(--elevation-10);
   --input: var(--web-input);
-  --ring: var(--elevation-20);
+  --ring: var(--elevation-10);
   --sidebar: var(--elevation);
   --sidebar-foreground: var(--web-foreground);
   --sidebar-primary: var(--web-action-primary);
@@ -193,7 +193,7 @@
 
   .ui-icon {
     display: block;
-    color: currentcolor;
+    color: var(--elevation-40);
   }
 
   .dark *,

@@ -242,6 +242,10 @@ if (!icons.includes("@deslop/primitives/icons/")) {
   errors.push("src/lib/icons.tsx: icons must come from @deslop/primitives")
 }
 
+if (!styles.includes("color: var(--elevation-40)")) {
+  errors.push("src/index.css: icons must use Elevation 40 by default")
+}
+
 for (const primitiveStylesheet of ["colors.css", "layout.css", "typography.css"]) {
   if (!styles.includes(`@deslop/primitives/${primitiveStylesheet}`)) {
     errors.push(`src/index.css: missing @deslop/primitives/${primitiveStylesheet}`)
@@ -253,8 +257,7 @@ for (const bridge of [
   "--web-foreground: var(--primary)",
   "--web-subtle-fill: var(--elevation-5)",
   "--web-subtle-fill: var(--elevation-10)",
-  "--web-input: var(--elevation-10)",
-  "--web-input: var(--elevation-20)",
+  "--web-input: var(--elevation-5)",
   "--web-muted-foreground: var(--elevation-60)",
   "--web-action-primary: var(--accent-green)",
   "--web-action-primary-foreground: var(--primary)",
@@ -290,7 +293,7 @@ for (const bridge of [
   "--destructive-foreground: var(--web-action-destructive-foreground)",
   "--border: var(--elevation-10)",
   "--input: var(--web-input)",
-  "--ring: var(--elevation-20)",
+  "--ring: var(--elevation-10)",
   "--chart-1: var(--accent-orange)",
   "--chart-2: var(--accent-teal)",
   "--chart-3: var(--accent-blue)",
@@ -318,6 +321,15 @@ for (const bridge of [
   if (!styles.includes(bridge)) {
     errors.push(`src/index.css: missing primitive bridge ${bridge}`)
   }
+}
+
+const inputElevationFiveCount =
+  styles.match(/--web-input:\s*var\(--elevation-5\)/g)?.length ?? 0
+
+if (inputElevationFiveCount !== 2) {
+  errors.push(
+    "src/index.css: light and dark inputs must both use Elevation 5"
+  )
 }
 
 if (!styles.includes(".ui-hover-elevation-5:hover")) {
@@ -370,6 +382,10 @@ for (const badgeContract of [
 
 if (!buttonComponent.includes("rounded-button")) {
   errors.push("src/components/ui/button.tsx: buttons must use the Mini App radius token")
+}
+
+if (!buttonComponent.includes("[&_svg]:text-current")) {
+  errors.push("src/components/ui/button.tsx: button icons must use the text color")
 }
 
 if (!buttonComponent.includes('default: "h-12 px-4 py-3.5')) {
