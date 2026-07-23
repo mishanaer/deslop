@@ -12,15 +12,15 @@
 [primitives](./primitives/README.md) — набор базовых элементов: цветов,
 шрифтов, отступов, скруглений и иконок
 
-## Web UI
+## web-ui
 
-[Web UI](./web-ui/README.md) — библиотека React-компонентов для веб-продуктов.
+[web-ui](./web-ui/README.md) — библиотека React-компонентов для веб-продуктов.
 Команда `npx @deslop/web-ui setup` переносит компоненты и правила для агентов
 прямо в продуктовый проект
 
-## Mini App
+## mini-apps
 
-[Mini App](./mini-app/README.md) — библиотека готовых React-компонентов для Telegram Mini
+[mini-apps](./mini-app/README.md) — библиотека готовых React-компонентов для Telegram Mini
 Apps. Команда `npx @deslop/mini-app setup` переносит компоненты и правила для агентов
 прямо в продуктовый проект
 
