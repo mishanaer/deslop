@@ -19,6 +19,7 @@
             "import": "./dist/index.js"
         },
         "./styles.css": "./dist/styles.css",
+        "./setup": "./bin/mini-app.mjs",
         "./agent/AGENTS.md": "./agent/AGENTS.md",
         "./agent/COMPONENTS.md": "./agent/COMPONENTS.md",
         "./agent/components.json": "./agent/components.json"

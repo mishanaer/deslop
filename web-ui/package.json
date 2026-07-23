@@ -21,6 +21,7 @@
     "./components/*": "./dist/components/ui/*.js",
     "./blocks/*": "./dist/blocks/*.js",
     "./charts/*": "./dist/charts/*.js",
+    "./setup": "./bin/web-ui.mjs",
     "./agent/AGENTS.md": "./agent/AGENTS.md",
     "./agent/COMPONENTS.md": "./agent/COMPONENTS.md",
     "./agent/components.json": "./agent/components.json"

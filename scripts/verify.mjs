@@ -7,8 +7,14 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const primitives = resolve(root, "primitives");
 const miniApp = resolve(root, "mini-app");
 const webUi = resolve(root, "web-ui");
+const designSystem = resolve(root, "design-system");
 
 const commands = [
+  {
+    label: "Design System: installer",
+    cwd: designSystem,
+    args: ["./scripts/check-installer.mjs"],
+  },
   {
     label: "Primitives: tokens",
     cwd: primitives,
