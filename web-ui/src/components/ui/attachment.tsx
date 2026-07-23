@@ -3,6 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { Slot } from "radix-ui"
 
 import { cn } from "@/lib/utils"
+import { IconAvatar } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 
 const attachmentVariants = cva(
@@ -46,13 +47,13 @@ function Attachment({
 }
 
 const attachmentMediaVariants = cva(
-  "relative flex aspect-square w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted text-foreground group-data-[orientation=vertical]/attachment:w-full group-data-[size=sm]/attachment:w-8 group-data-[size=xs]/attachment:w-7 group-data-[size=xs]/attachment:rounded-md group-data-[state=error]/attachment:bg-destructive group-data-[state=error]/attachment:text-destructive-foreground group-data-[orientation=vertical]/attachment:*:data-[slot=spinner]:size-6! [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 group-data-[orientation=vertical]/attachment:[&_svg:not([class*='size-'])]:size-6 group-data-[size=xs]/attachment:[&_svg:not([class*='size-'])]:size-3.5",
+  "relative aspect-square size-10 shrink-0 overflow-hidden group-data-[orientation=vertical]/attachment:size-auto group-data-[orientation=vertical]/attachment:w-full group-data-[size=sm]/attachment:size-8 group-data-[size=xs]/attachment:size-7 group-data-[state=error]/attachment:bg-destructive group-data-[state=error]/attachment:text-destructive-foreground group-data-[orientation=vertical]/attachment:*:data-[slot=spinner]:size-6! group-data-[size=sm]/attachment:[&_svg:not([class*='size-'])]:size-5 group-data-[size=xs]/attachment:[&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         icon: "",
         image:
-          "opacity-60 group-data-[state=done]/attachment:opacity-100 group-data-[state=idle]/attachment:opacity-100 *:[img]:aspect-square *:[img]:w-full *:[img]:object-cover",
+          "flex items-center justify-center rounded-lg bg-muted text-foreground opacity-60 group-data-[state=done]/attachment:opacity-100 group-data-[state=idle]/attachment:opacity-100 *:[img]:aspect-square *:[img]:w-full *:[img]:object-cover",
       },
     },
     defaultVariants: {
@@ -66,6 +67,17 @@ function AttachmentMedia({
   variant = "icon",
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof attachmentMediaVariants>) {
+  if (variant === "icon") {
+    return (
+      <IconAvatar
+        data-slot="attachment-media"
+        data-variant="icon"
+        className={cn(attachmentMediaVariants({ variant }), className)}
+        {...props}
+      />
+    )
+  }
+
   return (
     <div
       data-slot="attachment-media"
@@ -144,7 +156,7 @@ function AttachmentActions({
 function AttachmentAction({
   className,
   variant,
-  size = "icon-xs",
+  size = "icon-sm",
   ...props
 }: React.ComponentProps<typeof Button>) {
   return (

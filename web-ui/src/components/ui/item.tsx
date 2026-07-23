@@ -3,6 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { Slot } from "radix-ui"
 
 import { cn } from "@/lib/utils"
+import { IconAvatar } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
 
 function ItemGroup({ className, ...props }: React.ComponentProps<"div">) {
@@ -77,7 +78,7 @@ const itemMediaVariants = cva(
     variants: {
       variant: {
         default: "bg-transparent",
-        icon: "size-8 rounded-sm border bg-muted [&_svg:not([class*='size-'])]:size-4",
+        icon: "size-8 [&_svg:not([class*='size-'])]:size-4",
         image:
           "size-10 overflow-hidden rounded-sm [&_img]:size-full [&_img]:object-cover",
       },
@@ -93,6 +94,17 @@ function ItemMedia({
   variant = "default",
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof itemMediaVariants>) {
+  if (variant === "icon") {
+    return (
+      <IconAvatar
+        data-slot="item-media"
+        data-variant="icon"
+        className={cn(itemMediaVariants({ variant }), className)}
+        {...props}
+      />
+    )
+  }
+
   return (
     <div
       data-slot="item-media"

@@ -1,0 +1,98 @@
+.navPanel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+  padding: 12px 14px;
+  background: var(--tg-theme-section-bg-color);
+}
+
+.avatar {
+  --skeleton-radius: 50%;
+  --skeleton-inset-bottom: 0px;
+
+  width: 36px;
+  height: 36px;
+}
+
+.namePill {
+  --skeleton-radius: 17px;
+  --skeleton-inset-bottom: 0px;
+
+  width: 128px;
+  height: 34px;
+}
+
+.qr {
+  --skeleton-radius: 18px;
+  --skeleton-inset-bottom: 0px;
+
+  width: 36px;
+  height: 36px;
+}
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 28px 0 44px;
+}
+
+.amount {
+  --skeleton-radius: 12px;
+  --skeleton-inset-bottom: 0px;
+
+  width: min(56%, 200px);
+  height: 48px;
+}
+
+.tabBar {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 100px;
+  background: var(--mini-app-elevation);
+  backdrop-filter: saturate(300%) blur(8px);
+  box-shadow: 0 0 10px 0 var(--elevation-10);
+}
+
+:global(body.apple) .tabBar {
+  left: 21px;
+  right: 21px;
+  bottom: var(--bottom-clearance, 21px);
+}
+
+:global(body.material) .tabBar {
+  left: 16px;
+  right: 16px;
+  bottom: var(--bottom-clearance, 16px);
+}
+
+.tab {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0 10px;
+}
+
+.icon {
+  --skeleton-radius: 50%;
+  --skeleton-inset-bottom: 0px;
+
+  width: 28px;
+  height: 28px;
+}
+
+.label {
+  --skeleton-radius: 3px;
+  --skeleton-inset-bottom: 0px;
+
+  width: 34px;
+  height: 8px;
+}

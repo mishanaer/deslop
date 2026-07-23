@@ -1,0 +1,31 @@
+.bar {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  padding: 4px;
+  border-radius: 100px;
+  background: var(--mini-app-elevation);
+  backdrop-filter: saturate(300%) blur(8px);
+  box-shadow: 0 0 10px 0 var(--elevation-10);
+}
+
+:global(body.apple) .bar {
+  left: 21px;
+  right: 21px;
+  bottom: var(--bottom-clearance, 21px);
+}
+
+:global(body.material) .bar {
+  left: 16px;
+  right: 16px;
+  bottom: var(--bottom-clearance, 16px);
+}
+
+.slot {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 0;
+}

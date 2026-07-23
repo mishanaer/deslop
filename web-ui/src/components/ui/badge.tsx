@@ -47,8 +47,8 @@ const badgeVariants = cva(
     },
     defaultVariants: {
       variant: "filled",
-      textVariant: "body",
-      weight: "regular",
+      textVariant: "caption1",
+      weight: "semibold",
       shape: "default",
     },
   }
@@ -64,8 +64,8 @@ type BadgeProps = React.ComponentProps<"span"> &
 function Badge({
   className,
   variant = "filled",
-  textVariant = "body",
-  weight = "regular",
+  textVariant = "caption1",
+  weight = "semibold",
   circled = false,
   squared = false,
   asChild = false,

@@ -1,6 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
+import { IconAvatar } from "@/components/ui/avatar"
 
 function Empty({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -34,7 +35,7 @@ const emptyMediaVariants = cva(
     variants: {
       variant: {
         default: "bg-transparent",
-        icon: "flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground [&_svg:not([class*='size-'])]:size-6",
+        icon: "",
       },
     },
     defaultVariants: {
@@ -48,6 +49,17 @@ function EmptyMedia({
   variant = "default",
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof emptyMediaVariants>) {
+  if (variant === "icon") {
+    return (
+      <IconAvatar
+        data-slot="empty-icon"
+        data-variant="icon"
+        className={cn(emptyMediaVariants({ variant }), className)}
+        {...props}
+      />
+    )
+  }
+
   return (
     <div
       data-slot="empty-icon"

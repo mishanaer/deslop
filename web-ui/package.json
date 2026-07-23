@@ -3,11 +3,16 @@
   "version": "0.1.0",
   "description": "React components for Deslop web products, based on shadcn/ui.",
   "type": "module",
-  "private": true,
   "packageManager": "pnpm@10.13.1",
   "files": [
-    "dist"
+    "agent",
+    "bin",
+    "dist",
+    "src"
   ],
+  "bin": {
+    "web-ui": "./bin/web-ui.mjs"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "exports": {
@@ -15,20 +20,25 @@
     "./styles.css": "./dist/styles.css",
     "./components/*": "./dist/components/ui/*.js",
     "./blocks/*": "./dist/blocks/*.js",
-    "./charts/*": "./dist/charts/*.js"
+    "./charts/*": "./dist/charts/*.js",
+    "./agent/AGENTS.md": "./agent/AGENTS.md",
+    "./agent/COMPONENTS.md": "./agent/COMPONENTS.md",
+    "./agent/components.json": "./agent/components.json"
   },
   "sideEffects": [
     "**/*.css"
   ],
   "scripts": {
     "check:primitives": "node scripts/check-primitives.mjs",
+    "check:agent": "node scripts/check-agent-kit.mjs",
     "dev": "vite --port 3100",
     "storybook": "vite --port 3100",
     "build": "pnpm build:storybook && pnpm build:lib",
     "build:storybook": "vite build",
     "build:lib": "vite build --config vite.lib.config.ts",
+    "prepack": "pnpm build:lib",
     "typecheck": "tsc --noEmit",
-    "verify": "pnpm check:primitives && pnpm typecheck && pnpm build:storybook && pnpm build:lib",
+    "verify": "pnpm check:primitives && pnpm check:agent && pnpm typecheck && pnpm build:storybook && pnpm build:lib",
     "preview": "vite preview --port 3100"
   },
   "peerDependencies": {
@@ -37,7 +47,6 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
-    "@deslop/primitives": "link:../primitives",
     "@hookform/resolvers": "^5.4.0",
     "@shadcn/react": "^0.2.1",
     "class-variance-authority": "^0.7.1",
@@ -59,6 +68,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@deslop/primitives": "link:../primitives",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.17",

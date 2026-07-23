@@ -208,7 +208,7 @@ const productSemanticDeclaration =
 
 if (productSemanticDeclaration.test(css)) {
   report(
-    "colors.css contains a product semantic token; keep product roles in TMA or Web UI",
+    "colors.css contains a product semantic token; keep product roles in Mini App or Web UI",
   );
 }
 

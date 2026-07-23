@@ -1,0 +1,64 @@
+.root {
+  background-color: var(--tg-theme-section-bg-color);
+  transition: background-color 0.2s ease;
+}
+
+.root .body {
+  display: flex;
+  padding: 16px 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: var(--mini-app-static-white);
+}
+
+.root .body .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+
+.root .buttons {
+  display: flex;
+  flex-direction: row;
+  padding: 0 16px 16px;
+  gap: 8px;
+}
+
+:global(body.apple) .root .buttons svg,
+:global(body.apple) .root .buttons path {
+  width: 28px;
+  height: 28px;
+}
+
+:global(body.material) .root .buttons {
+  box-shadow: 0 0.33px 1px 0 var(--elevation-5);
+  padding: 0 8px 8px;
+}
+
+:global(body.material) .root .buttons svg,
+:global(body.material) .root .buttons path {
+  width: 32px;
+  height: 32px;
+}
+
+.bannerContainer {
+  padding: 16px 16px 0;
+}
+
+.bannerContainer .banner {
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--mini-app-fill-tertiary);
+  color: var(--mini-app-static-white);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

@@ -1,0 +1,103 @@
+.navPanel {
+  position: relative;
+  width: 100%;
+  display: flex;
+  z-index: 200;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  min-height: 60px;
+}
+
+:global(body.material) .navPanel {
+  padding-top: 14px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: transparent;
+  backdrop-filter: brightness(50%);
+  z-index: 199;
+  will-change: opacity;
+}
+
+.bounds {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: var(--quaternary-fill-background);
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease;
+  position: relative;
+  z-index: 201;
+  will-change: background-color;
+}
+
+.bounds .avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-size: contain;
+  will-change: transform;
+}
+
+.bounds svg,
+.bounds path {
+  fill: var(--tg-theme-text-color);
+}
+
+.bounds.transparent {
+  background-color: transparent;
+}
+
+.dropdownWrapper {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  will-change: transform;
+  z-index: 202;
+}
+
+.dropdownControl {
+  padding: 9px 12px;
+  border-radius: 26px;
+  color: var(--tg-theme-text-color);
+  text-align: center;
+  background-color: var(--mini-app-elevation);
+  overflow: hidden;
+  will-change: transform;
+  z-index: 202;
+}
+
+.contentWrapper {
+  position: relative;
+  will-change: transform, opacity, filter;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  width: calc(var(--split-pane-width, 100vw) - 36px);
+  text-align: left;
+  gap: 6px;
+}
+
+.item {
+  padding: 4px 0;
+
+  --cell-separator-height: 0;
+
+  border-radius: 20px;
+  border: 0.33px solid var(--tg-theme-section-separator-color);
+  margin: 3px 0;
+}
+
+.item.active {
+  border: 2px solid var(--tg-theme-accent-text-color);
+}

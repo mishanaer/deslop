@@ -1,0 +1,104 @@
+/* Mini App semantic roles. Every value points directly to Deslop Primitives. */
+
+:root {
+    --mini-app-background-secondary: var(--background);
+    --mini-app-elevation: var(--elevation);
+    --mini-app-action-primary-background: var(--accent-green);
+    --mini-app-action-destructive-background: var(--accent-red);
+    --mini-app-story-badge: var(--accent-indigo);
+    --mini-app-heatmap-gain-1: var(--accent-mint);
+    --mini-app-heatmap-gain-2: var(--accent-green);
+    --mini-app-heatmap-gain-3: var(--accent-teal);
+    --mini-app-heatmap-loss-1: var(--accent-orange);
+    --mini-app-heatmap-loss-2: var(--accent-red);
+    --mini-app-heatmap-loss-3: var(--accent-brown);
+    --mini-app-toast-link: var(--accent-cyan);
+}
+
+:root,
+:where([data-color-scheme="light"]) {
+    --mini-app-static-white: var(--background);
+    --mini-app-static-black: var(--primary);
+    --mini-app-background: var(--background);
+    --mini-app-text-primary: var(--primary);
+    --mini-app-text-secondary: var(--elevation-50);
+    --mini-app-text-section: var(--elevation-60);
+    --mini-app-separator: var(--elevation-20);
+    --mini-app-separator-translucent: var(--elevation-20);
+    --mini-app-fill-tertiary: var(--elevation-10);
+    --mini-app-fill-quaternary: var(--elevation-5);
+    --mini-app-control-active: var(--elevation);
+    --mini-app-control-disabled: var(--elevation-10);
+    --mini-app-text-disabled: var(--elevation-30);
+    --mini-app-shine-highlight: var(--elevation);
+    --mini-app-action-primary-foreground: var(--primary);
+    --mini-app-action-destructive-foreground: var(--background);
+    --mini-app-story-background: var(--primary);
+    --mini-app-story-muted: var(--background);
+    --mini-app-story-subtle: var(--background);
+    --mini-app-material-layer-1: var(--elevation-5);
+    --mini-app-material-layer-2: var(--elevation-10);
+    --mini-app-glass-tint: var(--elevation-5);
+    --mini-app-toast-background: var(--primary);
+    --mini-app-toast-text: var(--background);
+    --mini-app-press-highlight: var(--elevation-20);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-color-scheme="light"]) {
+        --mini-app-static-white: var(--primary);
+        --mini-app-static-black: var(--background);
+        --mini-app-background: var(--background);
+        --mini-app-text-primary: var(--primary);
+        --mini-app-text-secondary: var(--elevation-60);
+        --mini-app-text-section: var(--elevation-50);
+        --mini-app-separator: var(--elevation-20);
+        --mini-app-separator-translucent: var(--elevation-20);
+        --mini-app-fill-tertiary: var(--elevation-20);
+        --mini-app-fill-quaternary: var(--elevation-10);
+        --mini-app-control-active: var(--elevation);
+        --mini-app-control-disabled: var(--elevation-20);
+        --mini-app-text-disabled: var(--elevation-30);
+        --mini-app-shine-highlight: var(--primary);
+        --mini-app-action-primary-foreground: var(--background);
+        --mini-app-action-destructive-foreground: var(--primary);
+        --mini-app-story-background: var(--background);
+        --mini-app-story-muted: var(--primary);
+        --mini-app-story-subtle: var(--elevation-50);
+        --mini-app-material-layer-1: var(--elevation-5);
+        --mini-app-material-layer-2: var(--elevation-10);
+        --mini-app-glass-tint: var(--elevation-5);
+        --mini-app-toast-background: var(--elevation-5);
+        --mini-app-toast-text: var(--primary);
+        --mini-app-press-highlight: var(--elevation-20);
+    }
+}
+
+:root[data-color-scheme="dark"],
+:where([data-color-scheme="dark"]) {
+    --mini-app-static-white: var(--primary);
+    --mini-app-static-black: var(--background);
+    --mini-app-background: var(--background);
+    --mini-app-text-primary: var(--primary);
+    --mini-app-text-secondary: var(--elevation-60);
+    --mini-app-text-section: var(--elevation-50);
+    --mini-app-separator: var(--elevation-20);
+    --mini-app-separator-translucent: var(--elevation-20);
+    --mini-app-fill-tertiary: var(--elevation-20);
+    --mini-app-fill-quaternary: var(--elevation-10);
+    --mini-app-control-active: var(--elevation);
+    --mini-app-control-disabled: var(--elevation-20);
+    --mini-app-text-disabled: var(--elevation-30);
+    --mini-app-shine-highlight: var(--primary);
+    --mini-app-action-primary-foreground: var(--background);
+    --mini-app-action-destructive-foreground: var(--primary);
+    --mini-app-story-background: var(--background);
+    --mini-app-story-muted: var(--primary);
+    --mini-app-story-subtle: var(--elevation-50);
+    --mini-app-material-layer-1: var(--elevation-5);
+    --mini-app-material-layer-2: var(--elevation-10);
+    --mini-app-glass-tint: var(--elevation-5);
+    --mini-app-toast-background: var(--elevation-5);
+    --mini-app-toast-text: var(--primary);
+    --mini-app-press-highlight: var(--elevation-20);
+}

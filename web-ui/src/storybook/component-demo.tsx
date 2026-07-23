@@ -20,10 +20,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import {
+  IconAvatar,
   ImageAvatar,
   InitialsAvatar,
 } from "@/components/ui/avatar"
-import ilyaAvatar from "../../../tma/src/icons/avatars/IlyaG.jpg"
+import ilyaAvatar from "../../../mini-app/src/icons/avatars/IlyaG.jpg"
 import { Badge } from "@/components/ui/badge"
 import {
   Breadcrumb,
@@ -173,6 +174,9 @@ export function ComponentDemo({ slug }: { slug: string; title: string }) {
             <InitialsAvatar userId={4} name="Evan Rogers" />
             <InitialsAvatar userId={5} name="Fiona Apple" />
             <InitialsAvatar userId={6} name="George Lucas" />
+            <IconAvatar size="sm"><BellIcon /></IconAvatar>
+            <IconAvatar><BellIcon /></IconAvatar>
+            <IconAvatar size="lg"><BellIcon /></IconAvatar>
           </div>
         </DemoFrame>
       )
@@ -223,7 +227,51 @@ export function ComponentDemo({ slug }: { slug: string; title: string }) {
         </DemoFrame>
       )
     case "button":
-      return <DemoFrame><div className="flex flex-wrap items-center justify-center gap-3"><Button>Button</Button><Button><PlusIcon /> With icon</Button><Button size="icon" aria-label="Add item"><PlusIcon /></Button><Button variant="secondary">Secondary</Button><Button variant="outline">Outline</Button><Button variant="ghost">Ghost</Button></div></DemoFrame>
+      return (
+        <DemoFrame>
+          <div className="w-full max-w-3xl space-y-8">
+            <section className="space-y-3">
+              <p className="text-sm font-semibold text-muted-foreground">Variants</p>
+              <div className="flex flex-wrap items-center gap-3">
+                <Button>Default</Button>
+                <Button variant="secondary">Secondary</Button>
+                <Button variant="outline">Outline</Button>
+                <Button variant="ghost">Ghost</Button>
+                <Button variant="destructive">Destructive</Button>
+                <Button variant="link">Link</Button>
+              </div>
+            </section>
+
+            <section className="space-y-3">
+              <p className="text-sm font-semibold text-muted-foreground">Sizes</p>
+              <div className="flex flex-wrap items-center gap-3">
+                <Button size="sm">Small</Button>
+                <Button size="default">Default</Button>
+              </div>
+            </section>
+
+            <section className="space-y-3">
+              <p className="text-sm font-semibold text-muted-foreground">Icons</p>
+              <div className="flex flex-wrap items-center gap-3">
+                <Button><PlusIcon /> With icon</Button>
+                <Button size="icon-sm" aria-label="Add item, small"><PlusIcon /></Button>
+                <Button size="icon" aria-label="Add item"><PlusIcon /></Button>
+              </div>
+            </section>
+
+            <section className="space-y-3">
+              <p className="text-sm font-semibold text-muted-foreground">Disabled</p>
+              <div className="flex flex-wrap items-center gap-3">
+                <Button disabled>Default</Button>
+                <Button variant="secondary" disabled>Secondary</Button>
+                <Button variant="outline" disabled>Outline</Button>
+                <Button variant="ghost" disabled>Ghost</Button>
+                <Button variant="destructive" disabled>Destructive</Button>
+              </div>
+            </section>
+          </div>
+        </DemoFrame>
+      )
     case "button-group":
       return <DemoFrame><ButtonGroup><Button variant="outline">Back</Button><Button variant="outline">Next</Button></ButtonGroup></DemoFrame>
     case "card":
@@ -237,7 +285,7 @@ export function ComponentDemo({ slug }: { slug: string; title: string }) {
     case "collapsible":
       return (
         <DemoFrame>
-          <Collapsible open={collapsibleOpen} onOpenChange={setCollapsibleOpen} className="w-full max-w-sm space-y-2"><div className="flex items-center justify-between"><span className="text-sm font-medium">3 repositories</span><CollapsibleTrigger asChild><Button variant="ghost" size="icon-sm"><ChevronsUpDownIcon /></Button></CollapsibleTrigger></div><div className="rounded-md border px-4 py-3 font-mono text-sm">@deslop/web-ui</div><CollapsibleContent className="space-y-2"><div className="rounded-md border px-4 py-3 font-mono text-sm">@deslop/tma</div><div className="rounded-md border px-4 py-3 font-mono text-sm">@deslop/primitives</div></CollapsibleContent></Collapsible>
+          <Collapsible open={collapsibleOpen} onOpenChange={setCollapsibleOpen} className="w-full max-w-sm space-y-2"><div className="flex items-center justify-between"><span className="text-sm font-medium">3 repositories</span><CollapsibleTrigger asChild><Button variant="ghost" size="icon-sm"><ChevronsUpDownIcon /></Button></CollapsibleTrigger></div><div className="rounded-md border px-4 py-3 font-mono text-sm">@deslop/web-ui</div><CollapsibleContent className="space-y-2"><div className="rounded-md border px-4 py-3 font-mono text-sm">@deslop/mini-app</div><div className="rounded-md border px-4 py-3 font-mono text-sm">@deslop/primitives</div></CollapsibleContent></Collapsible>
         </DemoFrame>
       )
     case "dialog":
@@ -281,7 +329,7 @@ export function ComponentDemo({ slug }: { slug: string; title: string }) {
     case "switch":
       return <DemoFrame><div className="flex items-center gap-2"><Switch id="airplane" /><Label htmlFor="airplane">Airplane mode</Label></div></DemoFrame>
     case "table":
-      return <DemoFrame><div className="w-full max-w-lg rounded-md border"><Table><TableHeader><TableRow><TableHead>Package</TableHead><TableHead>Status</TableHead></TableRow></TableHeader><TableBody><TableRow><TableCell>@deslop/web-ui</TableCell><TableCell><Badge variant="secondary">Ready</Badge></TableCell></TableRow><TableRow><TableCell>@deslop/primitives</TableCell><TableCell><Badge variant="secondary">Connected</Badge></TableCell></TableRow></TableBody></Table></div></DemoFrame>
+      return <DemoFrame><div className="w-full max-w-lg"><Table><TableHeader><TableRow><TableHead>Package</TableHead><TableHead>Status</TableHead></TableRow></TableHeader><TableBody><TableRow><TableCell>@deslop/web-ui</TableCell><TableCell><Badge variant="secondary">Ready</Badge></TableCell></TableRow><TableRow><TableCell>@deslop/primitives</TableCell><TableCell><Badge variant="secondary">Connected</Badge></TableCell></TableRow></TableBody></Table></div></DemoFrame>
     case "tabs":
       return <DemoFrame><Tabs defaultValue="account" className="w-full max-w-sm"><TabsList><TabsTrigger value="account">Account</TabsTrigger><TabsTrigger value="password">Password</TabsTrigger></TabsList><TabsContent value="account" className="rounded-md border p-4 text-sm">Manage your account settings.</TabsContent><TabsContent value="password" className="rounded-md border p-4 text-sm">Change your password here.</TabsContent></Tabs></DemoFrame>
     case "textarea":

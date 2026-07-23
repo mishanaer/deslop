@@ -1,0 +1,102 @@
+@import "./styles/tailwind.css";
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+svg[viewBox="0 0 24 24"] {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+:root {
+    --side-padding: var(--ui-layout-content-inset);
+    --tg-theme-bg-color: var(--mini-app-background);
+    --tg-theme-text-color: var(--mini-app-text-primary);
+    --tg-theme-secondary-bg-color: var(--mini-app-background-secondary);
+    --tg-theme-button-color: var(--accent-blue);
+    --tg-theme-button-text-color: var(--mini-app-background);
+    --tg-theme-subtitle-text-color: var(--mini-app-text-secondary);
+    --tg-theme-destructive-text-color: var(--accent-red);
+    --tg-theme-section-bg-color: var(--mini-app-elevation);
+    --tg-theme-accent-text-color: var(--accent-blue);
+    --tg-theme-link-color: var(--accent-blue);
+    --tg-theme-section-header-text-color: var(--mini-app-text-section);
+    --tg-theme-section-separator-color: var(--mini-app-separator);
+    --tg-theme-bottom-bar-bg-color: var(--mini-app-elevation);
+    --tg-theme-hint-color: var(--mini-app-text-secondary);
+    --secondary-button-color: var(--mini-app-fill-tertiary);
+    --text-confirm-color: var(--accent-green);
+    --tertiary-fill-background: var(--mini-app-fill-tertiary);
+    --quaternary-fill-background: var(--mini-app-fill-quaternary);
+    --separator-non-opaque: var(--mini-app-separator-translucent);
+    --segmented_control_active_background: var(--mini-app-control-active);
+    --button-disabled-color: var(--mini-app-control-disabled);
+    --text-disabled-color: var(--mini-app-text-disabled);
+    --border-color: var(--elevation-30);
+    --background-material-regular-color-1: var(--mini-app-material-layer-1);
+    --background-material-regular-color-2: var(--mini-app-material-layer-2);
+    --background-material-regular-blend-mode-1: normal;
+    --background-material-regular-blend-mode-2: normal;
+    --glass-tint-background: var(--mini-app-glass-tint);
+    --toast-background: var(--mini-app-toast-background);
+    --toast-text: var(--mini-app-toast-text);
+    --toast-link: var(--mini-app-toast-link);
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding-top: calc(
+        env(safe-area-inset-top) + var(--tg-content-safe-area-inset-top, 0px)
+    );
+    padding-right: env(safe-area-inset-right);
+    padding-left: env(safe-area-inset-left);
+    color: var(--mini-app-text-primary);
+    background: var(--mini-app-background);
+    font-family: var(--ui-font-interface);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 200ms ease;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-color-scheme="light"]) *,
+    :root:not([data-color-scheme="light"]) *::before,
+    :root:not([data-color-scheme="light"]) *::after {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+}
+
+:where([data-color-scheme="dark"]) *,
+:where([data-color-scheme="dark"]) *::before,
+:where([data-color-scheme="dark"]) *::after,
+:root[data-color-scheme="dark"] *,
+:root[data-color-scheme="dark"] *::before,
+:root[data-color-scheme="dark"] *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

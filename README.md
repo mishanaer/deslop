@@ -15,12 +15,13 @@
 ## Web UI
 
 [Web UI](./web-ui/README.md) — библиотека React-компонентов для веб-продуктов.
-Основана на shadcn/ui и использует Deslop Primitives.
+Команда `npx @deslop/web-ui setup` переносит компоненты и правила для агентов
+прямо в продуктовый проект.
 
-## TMA
+## Mini App
 
-[TMA](./tma/README.md) — библиотека готовых React-компонентов для Telegram Mini
-Apps. Команда `npx @deslop/tma setup` переносит компоненты и правила для агентов
+[Mini App](./mini-app/README.md) — библиотека готовых React-компонентов для Telegram Mini
+Apps. Команда `npx @deslop/mini-app setup` переносит компоненты и правила для агентов
 прямо в продуктовый проект.
 
 Сделана на основе проекта
