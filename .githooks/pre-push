@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+root="$(git rev-parse --show-toplevel)"
+cd "$root"
+
+echo "Running Deslop verification before push..."
+node ./scripts/verify.mjs

@@ -20,6 +20,111 @@ const walk = async (directory) => {
 const normalize = (path) => relative(root, path).replaceAll("\\", "/")
 const files = (await Promise.all(sourceRoots.map(walk))).flat()
 const failures = []
+const sourceCodeFiles = files.filter((path) =>
+    [".js", ".jsx", ".ts", ".tsx"].includes(extname(path))
+)
+
+const paletteClass =
+    /(?:^|[\s"'`])(?:bg|text|border|outline|ring|fill|stroke)-(?:black|white|slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)(?:[\s"'`/:-]|$)/
+const arbitraryTailwindClass = /[a-z][a-z0-9-]*-\[[^\]]+\]/
+const arbitraryColorClass =
+    /(?:bg|text|border|outline|ring|fill|stroke)-\[[^\]]*(?:#|rgb\(|hsl\(|oklch\(|color-mix\()/
+const externalUiImport =
+    /from\s+["'](?:@mui\/|@chakra-ui\/|antd(?:\/|["'])|lucide-react(?:\/|["'])|react-icons(?:\/|["'])|@radix-ui\/|shadcn(?:\/|["']))/
+const literalColor = /(?:#[0-9a-f]{3,8}\b|rgba?\(|hsla?\(|oklch\()/i
+const rawControl = /<(?:button|input|select|textarea)\b/
+const allowedLiteralColorFiles = new Set([
+    "src/components/GradientBackground/GradientBackground.js",
+    "src/components/GradientBackground/hooks/useGradientCanvas.js",
+])
+const allowedRawSvgFiles = new Set([
+    "src/components/TabBar/components/GradientMask/index.js",
+])
+const existingArbitraryClasses = new Map([
+    [
+        "src/components/Image/index.js",
+        ["rounded-[inherit]", "ease-[cubic-bezier(0.23,1,0.32,1)]"],
+    ],
+    ["src/components/Train/index.js", ["mx-[3px]", "content-['·']"]],
+])
+const allowedCheckSuppressions = new Set([
+    "src/components/Cells/components/EditableCell/EditableCell.module.css:stylelint-disable-next-line no-duplicate-selectors */",
+    "src/pages/prototypes/Trading/components/AssetList/index.js:eslint-disable-next-line react-hooks/incompatible-library",
+])
+
+for (const path of sourceCodeFiles) {
+    const source = await readFile(path, "utf8")
+    const file = normalize(path)
+
+    if (paletteClass.test(source)) {
+        failures.push(
+            `${file} uses a Tailwind palette color; use a token from @deslop/primitives`
+        )
+    }
+
+    if (arbitraryColorClass.test(source)) {
+        failures.push(
+            `${file} uses an arbitrary Tailwind color; use a token from @deslop/primitives`
+        )
+    }
+
+    const withoutExistingArbitraryClasses = (
+        existingArbitraryClasses.get(file) ?? []
+    ).reduce(
+        (content, value) => content.replaceAll(value, ""),
+        source
+    )
+    if (arbitraryTailwindClass.test(withoutExistingArbitraryClasses)) {
+        failures.push(
+            `${file} adds an arbitrary Tailwind value; add a Primitives token first`
+        )
+    }
+
+    if (externalUiImport.test(source)) {
+        failures.push(
+            `${file} imports another UI or icon library; use TMA and @deslop/primitives`
+        )
+    }
+
+    if (literalColor.test(source) && !allowedLiteralColorFiles.has(file)) {
+        failures.push(
+            `${file} hardcodes a color; use a token from @deslop/primitives`
+        )
+    }
+
+    if (source.includes("<svg") && !allowedRawSvgFiles.has(file)) {
+        failures.push(
+            `${file} contains a local SVG; use an icon from @deslop/primitives`
+        )
+    }
+
+    if (
+        (file.startsWith("src/pages/") || file.startsWith("storybook/")) &&
+        rawControl.test(source)
+    ) {
+        failures.push(
+            `${file} renders a raw form control; use a component from src/components`
+        )
+    }
+}
+
+for (const path of files.filter((path) =>
+    [".css", ".js", ".jsx", ".ts", ".tsx"].includes(extname(path))
+)) {
+    const source = await readFile(path, "utf8")
+    const file = normalize(path)
+    const suppressions = source.match(
+        /(?:eslint-disable(?:-next-line)?[^\n]*|stylelint-disable(?:-next-line)?[^\n]*|@ts-ignore|@ts-expect-error)/g
+    ) ?? []
+
+    for (const suppression of suppressions) {
+        if (!allowedCheckSuppressions.has(`${file}:${suppression.trim()}`)) {
+            failures.push(
+                `${file} disables a check; fix the source instead of suppressing validation`
+            )
+        }
+    }
+}
 
 const scssFiles = files.filter((path) =>
     [".scss", ".sass"].includes(extname(path))
@@ -92,6 +197,17 @@ const packageJson = JSON.parse(
 const dependencies = {
     ...packageJson.dependencies,
     ...packageJson.devDependencies,
+}
+for (const dependency of Object.keys(dependencies)) {
+    if (
+        /^(?:@mui\/|@chakra-ui\/|antd$|lucide-react$|react-icons$|@radix-ui\/|shadcn$)/.test(
+            dependency
+        )
+    ) {
+        failures.push(
+            `Remove forbidden UI or icon dependency: ${dependency}`
+        )
+    }
 }
 for (const dependency of [
     "sass",

@@ -5,44 +5,89 @@ import { Slot } from "radix-ui"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-full border border-transparent px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3",
+  "inline-flex w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-sm px-2 py-1 font-sans text-base font-normal whitespace-nowrap tabular-nums outline-none transition-[color,background-color,border-color,box-shadow] focus-visible:ring-[3px] focus-visible:ring-ring [&>svg]:pointer-events-none [&>svg]:size-3",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
-        secondary:
-          "bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 [a&]:hover:bg-destructive/90",
+        filled: "bg-badge-accent text-badge-on-accent",
+        tinted: "bg-badge-fill text-badge-accent",
+        gray: "bg-badge-fill text-badge-foreground",
+        media: "bg-badge-media text-badge-foreground",
+        outlined:
+          "border-[0.5px] border-badge-border bg-transparent text-badge-foreground",
+        default: "bg-badge-accent text-badge-on-accent",
+        secondary: "bg-badge-fill text-badge-foreground",
         outline:
-          "border-border text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
-        ghost: "[a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 [a&]:hover:underline",
+          "border-[0.5px] border-badge-border bg-transparent text-badge-foreground",
+      },
+      textVariant: {
+        title1: "px-3 py-1.5 text-3xl font-bold tracking-tight",
+        title2: "px-3 py-1.5 text-2xl font-bold tracking-tight",
+        title3: "px-3 py-1.5 text-xl font-bold tracking-tight",
+        body: "text-base",
+        callout: "text-base",
+        subheadline1: "text-sm",
+        subheadline2: "text-sm",
+        footnote: "rounded-xs text-sm",
+        caption1: "font-caps text-xs uppercase",
+        caption2: "font-caps text-xs uppercase",
+        overline: "font-caps text-xs uppercase",
+      },
+      weight: {
+        regular: "font-normal",
+        medium: "font-semibold",
+        semibold: "font-semibold",
+        bold: "font-bold",
+      },
+      shape: {
+        default: "",
+        circled: "rounded-full p-1",
+        squared: "rounded-sm p-1",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "filled",
+      textVariant: "body",
+      weight: "regular",
+      shape: "default",
     },
   }
 )
 
+type BadgeProps = React.ComponentProps<"span"> &
+  Omit<VariantProps<typeof badgeVariants>, "shape"> & {
+    asChild?: boolean
+    circled?: boolean
+    squared?: boolean
+  }
+
 function Badge({
   className,
-  variant = "default",
+  variant = "filled",
+  textVariant = "body",
+  weight = "regular",
+  circled = false,
+  squared = false,
   asChild = false,
   ...props
-}: React.ComponentProps<"span"> &
-  VariantProps<typeof badgeVariants> & { asChild?: boolean }) {
+}: BadgeProps) {
   const Comp = asChild ? Slot.Root : "span"
+  const shape = squared ? "squared" : circled ? "circled" : "default"
 
   return (
     <Comp
       data-slot="badge"
       data-variant={variant}
-      className={cn(badgeVariants({ variant }), className)}
+      data-text-variant={textVariant}
+      data-circled={circled || undefined}
+      data-squared={squared || undefined}
+      className={cn(
+        badgeVariants({ variant, textVariant, weight, shape }),
+        className
+      )}
       {...props}
     />
   )
 }
 
-export { Badge, badgeVariants }
+export { Badge, badgeVariants, type BadgeProps }

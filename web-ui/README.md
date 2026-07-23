@@ -4,13 +4,22 @@
 использует цвета, типографику, отступы, радиусы и иконки из Deslop Primitives.
 
 Базовые палитры берутся из Primitives, а семантические роли shadcn определены в
-`src/index.css` с префиксом `--web-*`.
+`src/index.css` с префиксом `--web-*`. Компоненты используют готовые значения
+Primitives без локальных палитр и производных оттенков.
 
 `Background` используется для фона страницы, `Elevation` — для карточек и
-всплывающих элементов, `Primary` — для основного текста. В тёмной теме тени
-отключены.
+всплывающих элементов, `Elevation 5` — для нейтральных hover-состояний,
+`Primary` — для основного текста. В тёмной теме тени отключены.
 
-Компоненты хранятся в `src/components/ui`, витрина — в `src/storybook`.
+Базовые компоненты хранятся в `src/components/ui`, готовые композиции — в
+`src/components/blocks`, графики — в `src/components/charts`. Витрина находится
+в `src/storybook`. `ImageAvatar`, `InitialsAvatar` и `Badge` адаптированы из
+библиотеки TMA.
+
+```tsx
+import { DashboardBlock } from "@deslop/web-ui/blocks/dashboard"
+import { ChartAreaInteractive } from "@deslop/web-ui/charts/area"
+```
 
 ## Запуск
 

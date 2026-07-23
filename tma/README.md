@@ -8,10 +8,12 @@ TMA — библиотека React-компонентов для Telegram Mini A
 Требования: Node.js 20.19+ или 22.12+, Yarn 4.5.3.
 
 ```bash
-cd tma
-yarn install --immutable
-yarn dev
+npm install
+corepack yarn --cwd tma install --immutable
+corepack yarn --cwd tma dev
 ```
+
+`npm install` один раз включает автоматическую проверку перед каждым `git push`.
 
 ## Стили
 

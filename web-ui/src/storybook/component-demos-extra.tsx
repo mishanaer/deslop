@@ -339,7 +339,7 @@ export function ExtraComponentDemo({ slug }: { slug: string }) {
     case "form":
       return <FormDemo />
     case "hover-card":
-      return <DemoFrame><HoverCard><HoverCardTrigger asChild><Button variant="link">@deslop/web-ui</Button></HoverCardTrigger><HoverCardContent><div className="flex gap-3"><Avatar><AvatarFallback>WU</AvatarFallback></Avatar><div><p className="font-semibold">Web UI</p><p className="mt-1 text-sm text-muted-foreground">React components for Deslop web products.</p><p className="mt-3 text-xs text-muted-foreground">61 components</p></div></div></HoverCardContent></HoverCard></DemoFrame>
+      return <DemoFrame><HoverCard><HoverCardTrigger asChild><Button variant="link">@deslop/web-ui</Button></HoverCardTrigger><HoverCardContent><div className="flex gap-3"><Avatar><AvatarFallback name="Web UI" userId={4} /></Avatar><div><p className="font-semibold">Web UI</p><p className="mt-1 text-sm text-muted-foreground">React components for Deslop web products.</p><p className="mt-3 text-xs text-muted-foreground">61 components</p></div></div></HoverCardContent></HoverCard></DemoFrame>
     case "input-group":
       return <DemoFrame><InputGroup className="max-w-md"><InputGroupAddon><InputGroupText>https://</InputGroupText></InputGroupAddon><InputGroupInput placeholder="example.com" /><InputGroupAddon align="inline-end"><InputGroupButton><SearchIcon /> Check</InputGroupButton></InputGroupAddon></InputGroup></DemoFrame>
     case "item":
@@ -349,7 +349,7 @@ export function ExtraComponentDemo({ slug }: { slug: string }) {
     case "menubar":
       return <DemoFrame><Menubar><MenubarMenu><MenubarTrigger>File</MenubarTrigger><MenubarContent><MenubarItem>New component<MenubarShortcut>⌘N</MenubarShortcut></MenubarItem><MenubarItem>Open story<MenubarShortcut>⌘O</MenubarShortcut></MenubarItem><MenubarSeparator /><MenubarItem>Export</MenubarItem></MenubarContent></MenubarMenu><MenubarMenu><MenubarTrigger>Edit</MenubarTrigger><MenubarContent><MenubarItem>Undo<MenubarShortcut>⌘Z</MenubarShortcut></MenubarItem><MenubarItem>Redo<MenubarShortcut>⇧⌘Z</MenubarShortcut></MenubarItem></MenubarContent></MenubarMenu></Menubar></DemoFrame>
     case "message":
-      return <DemoFrame><MessageGroup className="w-full max-w-md"><Message><MessageAvatar><Avatar className="size-8"><AvatarFallback>AI</AvatarFallback></Avatar></MessageAvatar><MessageContent><MessageHeader>Design agent · now</MessageHeader><Bubble variant="secondary"><BubbleContent>The component now uses Deslop Primitives.</BubbleContent></Bubble><MessageFooter>Delivered</MessageFooter></MessageContent></Message><Message align="end"><MessageContent><Bubble align="end"><BubbleContent>Looks good. Add it to the library.</BubbleContent></Bubble></MessageContent></Message></MessageGroup></DemoFrame>
+      return <DemoFrame><MessageGroup className="w-full max-w-md"><Message><MessageAvatar><Avatar className="size-8"><AvatarFallback name="Design Agent" userId={5} /></Avatar></MessageAvatar><MessageContent><MessageHeader>Design agent · now</MessageHeader><Bubble variant="secondary"><BubbleContent>The component now uses Deslop Primitives.</BubbleContent></Bubble><MessageFooter>Delivered</MessageFooter></MessageContent></Message><Message align="end"><MessageContent><Bubble align="end"><BubbleContent>Looks good. Add it to the library.</BubbleContent></Bubble></MessageContent></Message></MessageGroup></DemoFrame>
     case "message-scroller":
       return <MessageScrollerDemo />
     case "native-select":
