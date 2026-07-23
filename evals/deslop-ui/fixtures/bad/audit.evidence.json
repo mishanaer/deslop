@@ -1,0 +1,39 @@
+{
+  "sourceOnly": false,
+  "expectedErrorCodes": [
+    "audit.finding-structure",
+    "audit.section",
+    "audit.unsupported-completeness",
+    "audit.vague-critique",
+    "claim.a11y.missing-evidence",
+    "claim.dark-theme.missing-evidence",
+    "claim.responsive.missing-evidence",
+    "evidence.unknown-kind"
+  ],
+  "claims": [
+    "rendered",
+    "responsive-verified",
+    "dark-theme-verified",
+    "a11y-verified"
+  ],
+  "evidence": [
+    {
+      "id": "single-light-render",
+      "kind": "render",
+      "surface": "dashboard",
+      "state": "default",
+      "viewport": "1440x900",
+      "theme": "light",
+      "artifact": "evals/deslop-ui/fixtures/artifacts/dashboard-1440-light.svg"
+    },
+    {
+      "id": "unsupported-observation",
+      "kind": "guess",
+      "surface": "dashboard",
+      "state": "default",
+      "viewport": "1440x900",
+      "theme": "light",
+      "artifact": "evals/deslop-ui/fixtures/artifacts/dashboard-1440-light.svg"
+    }
+  ]
+}

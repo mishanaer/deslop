@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "snapshotDigest": "sha256:c673dfbad45ffc58439b63297fc7e9f7585f9c0295507b5bea8fe6e3478bbf93",
+  "caseCount": 27,
+  "uniqueFreshAgents": 27,
+  "caseGateCount": 104,
+  "caseGatesPassed": 104,
+  "rubricGateCount": 17,
+  "rubricGatesPassed": 17,
+  "blockingRubricGateCount": 10,
+  "blockingRubricGatesPassed": 10,
+  "nonBlockingScore": 28,
+  "maximumNonBlockingScore": 28,
+  "verdict": "PASS"
+}

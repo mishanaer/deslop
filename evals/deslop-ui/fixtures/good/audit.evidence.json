@@ -1,0 +1,37 @@
+{
+  "sourceOnly": false,
+  "claims": [
+    "rendered",
+    "responsive-verified",
+    "keyboard-tested"
+  ],
+  "evidence": [
+    {
+      "id": "settings-narrow-error",
+      "kind": "render",
+      "surface": "settings",
+      "state": "system-error",
+      "viewport": "360x800",
+      "theme": "light",
+      "artifact": "evals/deslop-ui/fixtures/artifacts/settings-360-light.svg"
+    },
+    {
+      "id": "settings-tablet-error",
+      "kind": "render",
+      "surface": "settings",
+      "state": "system-error",
+      "viewport": "768x900",
+      "theme": "light",
+      "artifact": "evals/deslop-ui/fixtures/artifacts/settings-768-light.svg"
+    },
+    {
+      "id": "settings-keyboard-trace",
+      "kind": "keyboard",
+      "surface": "settings",
+      "state": "system-error",
+      "viewport": "360x800",
+      "theme": "light",
+      "artifact": "evals/deslop-ui/fixtures/artifacts/settings.keyboard.json"
+    }
+  ]
+}

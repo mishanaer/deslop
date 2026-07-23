@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-label="Synthetic asymmetric case-review reference" data-fixture="synthetic">
+  <title>Synthetic asymmetric case-review reference</title>
+  <desc>An original eval reference with a compact rail, dominant evidence canvas, vertical risk trace, and contextual decision timeline.</desc>
+  <rect width="1280" height="800" fill="#f0eee8"/>
+  <rect width="76" height="800" fill="#17201d"/>
+  <circle cx="38" cy="40" r="15" fill="#f4c65d"/>
+  <rect x="24" y="102" width="28" height="28" rx="7" fill="#f0eee8" opacity=".95"/>
+  <rect x="27" y="158" width="22" height="22" rx="6" fill="#8d9994"/>
+  <rect x="27" y="208" width="22" height="22" rx="6" fill="#8d9994"/>
+  <circle cx="38" cy="742" r="16" fill="#8d9994"/>
+
+  <text x="108" y="48" fill="#69736f" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2">CASE REVIEW / 1042</text>
+  <text x="108" y="88" fill="#17201d" font-family="Georgia, serif" font-size="34" font-weight="700">Campaign evidence room</text>
+  <rect x="1038" y="34" width="102" height="38" rx="19" fill="#ffffff" stroke="#bfc5c1"/>
+  <text x="1066" y="58" fill="#17201d" font-family="Arial, sans-serif" font-size="13">Hold</text>
+  <rect x="1148" y="34" width="104" height="38" rx="19" fill="#17201d"/>
+  <text x="1175" y="58" fill="#ffffff" font-family="Arial, sans-serif" font-size="13">Approve</text>
+
+  <rect x="108" y="122" width="772" height="632" rx="4" fill="#faf9f5"/>
+  <text x="140" y="162" fill="#69736f" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">DECISION SIGNAL</text>
+  <text x="140" y="246" fill="#17201d" font-family="Georgia, serif" font-size="82" font-weight="700">84</text>
+  <text x="252" y="216" fill="#17201d" font-family="Arial, sans-serif" font-size="20" font-weight="700">evidence strength</text>
+  <text x="252" y="246" fill="#69736f" font-family="Arial, sans-serif" font-size="14">3 material exceptions require review</text>
+
+  <line x1="140" y1="286" x2="842" y2="286" stroke="#d7d7d0"/>
+  <text x="140" y="330" fill="#69736f" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">EXCEPTION TRACE</text>
+  <line x1="164" y1="368" x2="164" y2="650" stroke="#c84c3f" stroke-width="3"/>
+  <circle cx="164" cy="394" r="8" fill="#c84c3f"/>
+  <circle cx="164" cy="496" r="8" fill="#f4c65d" stroke="#17201d"/>
+  <circle cx="164" cy="598" r="8" fill="#faf9f5" stroke="#17201d" stroke-width="2"/>
+
+  <text x="194" y="388" fill="#17201d" font-family="Arial, sans-serif" font-size="16" font-weight="700">Budget threshold crossed</text>
+  <text x="194" y="414" fill="#69736f" font-family="Arial, sans-serif" font-size="13">Confirmed · €18,400 above approved range</text>
+  <rect x="690" y="374" width="120" height="28" rx="14" fill="#f1ded9"/>
+  <text x="722" y="393" fill="#8b2f27" font-family="Arial, sans-serif" font-size="11" font-weight="700">BLOCKING</text>
+
+  <text x="194" y="490" fill="#17201d" font-family="Arial, sans-serif" font-size="16" font-weight="700">Audience overlap</text>
+  <text x="194" y="516" fill="#69736f" font-family="Arial, sans-serif" font-size="13">Inferred · compare segments before release</text>
+  <rect x="704" y="476" width="106" height="28" rx="14" fill="#f7ebc9"/>
+  <text x="734" y="495" fill="#6f5310" font-family="Arial, sans-serif" font-size="11" font-weight="700">REVIEW</text>
+
+  <text x="194" y="592" fill="#17201d" font-family="Arial, sans-serif" font-size="16" font-weight="700">Creative rights</text>
+  <text x="194" y="618" fill="#69736f" font-family="Arial, sans-serif" font-size="13">Missing · owner confirmation requested</text>
+  <rect x="700" y="578" width="110" height="28" rx="14" fill="#e7ebe9"/>
+  <text x="728" y="597" fill="#42504a" font-family="Arial, sans-serif" font-size="11" font-weight="700">PENDING</text>
+
+  <rect x="904" y="122" width="348" height="632" rx="4" fill="#17201d"/>
+  <text x="936" y="162" fill="#9ca8a3" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">DECISION LOG</text>
+  <text x="936" y="210" fill="#ffffff" font-family="Georgia, serif" font-size="25">Context stays visible</text>
+  <text x="936" y="238" fill="#9ca8a3" font-family="Arial, sans-serif" font-size="13">while evidence is inspected.</text>
+  <line x1="936" y1="278" x2="1220" y2="278" stroke="#3b4642"/>
+  <text x="936" y="320" fill="#f4c65d" font-family="Arial, sans-serif" font-size="11" font-weight="700">09:42 · OWNER</text>
+  <text x="936" y="348" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">Requested budget exception</text>
+  <text x="936" y="400" fill="#f4c65d" font-family="Arial, sans-serif" font-size="11" font-weight="700">10:18 · REVIEWER</text>
+  <text x="936" y="428" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">Flagged audience overlap</text>
+  <text x="936" y="480" fill="#f4c65d" font-family="Arial, sans-serif" font-size="11" font-weight="700">11:06 · LEGAL</text>
+  <text x="936" y="508" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">Awaiting rights confirmation</text>
+  <rect x="936" y="654" width="284" height="60" rx="3" fill="#f4c65d"/>
+  <text x="962" y="690" fill="#17201d" font-family="Arial, sans-serif" font-size="14" font-weight="700">Resolve 3 exceptions →</text>
+
+  <text x="108" y="784" fill="#69736f" font-family="Arial, sans-serif" font-size="10">SYNTHETIC OSS-SAFE EVAL REFERENCE · NO THIRD-PARTY ASSETS</text>
+</svg>

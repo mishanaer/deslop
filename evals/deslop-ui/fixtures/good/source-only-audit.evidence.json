@@ -1,0 +1,17 @@
+{
+  "sourceOnly": true,
+  "claims": [
+    "code-confirmed"
+  ],
+  "evidence": [
+    {
+      "id": "source-only-skill",
+      "kind": "source",
+      "surface": "skill-routing",
+      "state": "source-only",
+      "viewport": "not-observed",
+      "theme": "not-observed",
+      "artifact": "deslop-ui/SKILL.md"
+    }
+  ]
+}

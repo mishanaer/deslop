@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="900" viewBox="0 0 768 900" role="img" aria-label="Synthetic settings error tablet fixture">
+  <rect width="768" height="900" fill="#fafafa"/>
+  <rect x="32" y="32" width="704" height="96" rx="14" fill="#fee2e2" stroke="#ef4444"/>
+  <rect x="32" y="152" width="704" height="600" rx="14" fill="#ffffff" stroke="#d4d4d8"/>
+  <rect x="32" y="776" width="240" height="56" rx="12" fill="#18181b"/>
+  <text x="56" y="88" fill="#991b1b" font-family="sans-serif" font-size="22">Save failed</text>
+</svg>

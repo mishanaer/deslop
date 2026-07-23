@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deslop UI"
+  short_description: "Distinctive product UI design and critique"
+  default_prompt: "Use $deslop-ui to design or improve this interface with Deslop components, distinctive composition, and visual quality checks."

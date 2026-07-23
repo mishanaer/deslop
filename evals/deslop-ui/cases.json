@@ -1,0 +1,671 @@
+{
+  "version": 1,
+  "skill": "deslop-ui",
+  "cases": [
+    {
+      "id": "route-web-build",
+      "block": "trigger-scope",
+      "prompt": "В web-ui добавь новый экран согласования рекламной кампании.",
+      "context": ["repository", "web-ui"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "web",
+        "outcome": "proceed",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "preserve-real-product-data",
+        "direction-before-code",
+        "render-before-visual-claim"
+      ]
+    },
+    {
+      "id": "route-redesign-preserve",
+      "block": "trigger-scope",
+      "prompt": "Полностью переработай визуальную структуру DashboardBlock, но сохрани реальные тексты, IA, routes и data behavior.",
+      "context": ["repository", "web-ui", "existing-surface"],
+      "expect": {
+        "trigger": true,
+        "mode": "redesign",
+        "platform": "web",
+        "outcome": "proceed",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "preserve-content-intent",
+        "preserve-routes",
+        "preserve-data-behavior",
+        "not-copy-color-reskin"
+      ]
+    },
+    {
+      "id": "route-readonly-audit",
+      "block": "trigger-scope",
+      "prompt": "Проведи read-only UI audit DashboardBlock по синтетическому render fixture `evals/deslop-ui/fixtures/artifacts/dashboard-1440-light.svg`. Ничего не меняй и не выдавай fixture за browser render.",
+      "context": [
+        "repository",
+        "web-ui",
+        "rendered-artifact",
+        "artifact:evals/deslop-ui/fixtures/artifacts/dashboard-1440-light.svg",
+        "artifact-kind:synthetic-render-fixture"
+      ],
+      "expect": {
+        "trigger": true,
+        "mode": "audit",
+        "platform": "web",
+        "outcome": "report-only",
+        "references": [
+          "references/03-web-ui.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "zero-worktree-diff",
+        "evidence-impact-exact-fix",
+        "verified-vs-not-verified"
+      ]
+    },
+    {
+      "id": "route-polish",
+      "block": "trigger-scope",
+      "prompt": "Отполируй этот Web UI экран, не меняя IA и поведение.",
+      "context": ["repository", "web-ui", "existing-surface", "established-direction"],
+      "expect": {
+        "trigger": true,
+        "mode": "polish",
+        "platform": "web",
+        "outcome": "proceed",
+        "references": [
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "preserve-ia",
+        "preserve-behavior",
+        "render-before-visual-claim"
+      ]
+    },
+    {
+      "id": "route-polish-undirected",
+      "block": "trigger-scope",
+      "prompt": "Этот интерфейс выглядит как generic AI SaaS. Отполируй его без структурного редизайна.",
+      "context": ["repository", "web-ui", "existing-surface", "no-established-direction"],
+      "expect": {
+        "trigger": true,
+        "mode": "polish",
+        "platform": "web",
+        "outcome": "proceed",
+        "references": [
+          "references/01-direction.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "product-grounding",
+        "preserve-ia",
+        "one-signature"
+      ]
+    },
+    {
+      "id": "negative-microcopy-only",
+      "block": "trigger-scope",
+      "prompt": "Поменяй только русский текст CTA, layout и стили не трогай.",
+      "context": ["repository", "web-ui"],
+      "expect": {
+        "trigger": false,
+        "mode": null,
+        "platform": null,
+        "outcome": "defer",
+        "references": []
+      },
+      "gates": ["route-to-sasha"]
+    },
+    {
+      "id": "negative-nonvisual-bug",
+      "block": "trigger-scope",
+      "prompt": "Исправь race condition в data loader. UI не меняется.",
+      "context": ["repository"],
+      "expect": {
+        "trigger": false,
+        "mode": null,
+        "platform": null,
+        "outcome": "defer",
+        "references": []
+      },
+      "gates": ["no-scope-expansion"]
+    },
+    {
+      "id": "negative-brand-only",
+      "block": "trigger-scope",
+      "prompt": "Разработай positioning, brand promise и tone of voice. Интерфейс не нужен.",
+      "context": ["repository"],
+      "expect": {
+        "trigger": false,
+        "mode": null,
+        "platform": null,
+        "outcome": "defer",
+        "references": []
+      },
+      "gates": ["no-scope-expansion"]
+    },
+    {
+      "id": "negative-graphic-only",
+      "block": "trigger-scope",
+      "prompt": "Нарисуй отдельный постер для конференции, без интерфейса.",
+      "context": ["repository"],
+      "expect": {
+        "trigger": false,
+        "mode": null,
+        "platform": null,
+        "outcome": "defer",
+        "references": []
+      },
+      "gates": ["no-scope-expansion"]
+    },
+    {
+      "id": "route-reference-redesign",
+      "block": "trigger-scope",
+      "prompt": "По приложенному синтетическому референсу `evals/deslop-ui/fixtures/artifacts/reference-input.svg` переработай DashboardBlock, сохрани его реальные данные, действия и route `/blocks/dashboard-01`.",
+      "context": [
+        "repository",
+        "web-ui",
+        "existing-surface",
+        "screenshot",
+        "artifact:evals/deslop-ui/fixtures/artifacts/reference-input.svg",
+        "artifact-kind:synthetic-reference"
+      ],
+      "expect": {
+        "trigger": true,
+        "mode": "redesign",
+        "platform": "web",
+        "outcome": "proceed",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md",
+          "references/08-reference-study.md"
+        ]
+      },
+      "gates": [
+        "study-transferable-dna",
+        "no-pixel-clone",
+        "no-protected-assets",
+        "map-to-deslop"
+      ]
+    },
+    {
+      "id": "route-platform-ambiguous",
+      "block": "trigger-scope",
+      "prompt": "Добавь экран настроек в этот монорепозиторий.",
+      "context": ["repository", "both-web-and-mini-app", "no-current-file"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": null,
+        "outcome": "clarify",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md"
+        ]
+      },
+      "gates": [
+        "do-not-read-both-platform-adapters",
+        "do-not-edit-before-platform"
+      ]
+    },
+    {
+      "id": "route-bare-improve",
+      "block": "trigger-scope",
+      "prompt": "Сделай лучше.",
+      "context": ["no-ui-object", "no-visible-artifact"],
+      "expect": {
+        "trigger": false,
+        "mode": null,
+        "platform": null,
+        "outcome": "defer",
+        "references": []
+      },
+      "gates": ["require-ui-signal"]
+    },
+    {
+      "id": "direction-cpa-transfer",
+      "block": "art-composition",
+      "prompt": "Сделай высокоплотный кабинет для расследования роста CPA. Реальные данные приходят из существующего контракта.",
+      "context": ["repository", "web-ui", "new-surface"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "web",
+        "outcome": "proceed",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "operate-mode",
+        "exception-led-structure",
+        "exceptions-before-aggregates",
+        "high-density",
+        "no-fabricated-metrics"
+      ]
+    },
+    {
+      "id": "direction-unfamiliar-lab",
+      "block": "art-composition",
+      "prompt": "Спроектируй интерфейс для реставратора рукописей: сравнить слои мультиспектрального снимка, отметить повреждение и сохранить доказательство.",
+      "context": ["repository", "web-ui", "new-surface", "unfamiliar-domain"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "web",
+        "outcome": "proceed",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "domain-grounding",
+        "dominant-object-not-dashboard",
+        "three-structural-directions",
+        "one-signature",
+        "no-generic-ai-copy"
+      ]
+    },
+    {
+      "id": "direction-calm-onboarding",
+      "block": "art-composition",
+      "prompt": "Сделай спокойный onboarding AI-помощника: сначала показать реальный полезный результат, затем запросить настройку.",
+      "context": ["repository", "mini-app", "new-surface", "clear-direction"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "mini-app",
+        "outcome": "capability-dependent",
+        "capabilityProbe": {
+          "id": "mini-app-regular-button-accessible",
+          "available": "proceed",
+          "missing": "block-on-hard-gate"
+        },
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/04-mini-app.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "guided-proof-flow",
+        "real-task-preview",
+        "one-signature-transition",
+        "no-fabricated-capabilities",
+        "primary-action-accessibility-resolved-or-blocked"
+      ],
+      "gateCriteria": {
+        "primary-action-accessibility-resolved-or-blocked": "Pass only when the response uses a live verified accessible primary action if the capability probe is available, or blocks unsafe delivery and reports the hard gate when it is missing."
+      }
+    },
+    {
+      "id": "direction-underspecified-bento",
+      "block": "art-composition",
+      "prompt": "Переработай шаблонный bento dashboard, сохрани данные, IA, actions и routes.",
+      "context": ["repository", "web-ui", "existing-surface", "domain-not-provided"],
+      "expect": {
+        "trigger": true,
+        "mode": "redesign",
+        "platform": "web",
+        "outcome": "inspect-before-direction",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "do-not-invent-product-mode",
+        "preserve-product-invariants",
+        "replace-equal-tiles-with-hierarchy",
+        "not-copy-color-reskin"
+      ]
+    },
+    {
+      "id": "audit-no-artifact",
+      "block": "art-composition",
+      "prompt": "Проведи read-only визуальный audit generic экрана.",
+      "context": ["no-screenshot", "no-url", "no-render", "no-source"],
+      "expect": {
+        "trigger": true,
+        "mode": "audit",
+        "platform": null,
+        "outcome": "request-artifact",
+        "references": [
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "no-visual-findings-without-artifact",
+        "no-scores-without-evidence",
+        "no-render-claim",
+        "list-not-verified"
+      ]
+    },
+    {
+      "id": "integration-web-repository",
+      "block": "component-integration",
+      "prompt": "Внутри web-ui собери экран CPA diagnostics из текущих компонентов.",
+      "context": ["repository", "web-ui", "real-data-contract"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "web",
+        "outcome": "proceed",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "live-web-export-check",
+        "chart-container-for-real-data",
+        "no-dashboard-demo-data",
+        "product-composition-not-private-control"
+      ]
+    },
+    {
+      "id": "integration-mini-app-settings",
+      "block": "component-integration",
+      "prompt": "В Mini App добавь настройки уведомлений с master switch и категориями.",
+      "context": ["repository", "mini-app", "new-surface"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "mini-app",
+        "outcome": "capability-dependent",
+        "capabilityProbe": {
+          "id": "mini-app-switch-accessible",
+          "available": "proceed",
+          "missing": "block-on-hard-gate"
+        },
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/04-mini-app.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "live-mini-app-catalog-check",
+        "native-sectioned-list",
+        "switch-accessibility-resolved-or-blocked",
+        "no-private-raw-switch"
+      ],
+      "gateCriteria": {
+        "switch-accessibility-resolved-or-blocked": "Pass only when the response uses a live verified accessible switch if the capability probe is available, or blocks unsafe delivery and reports the hard gate when it is missing."
+      }
+    },
+    {
+      "id": "integration-web-consumer",
+      "block": "component-integration",
+      "prompt": "В consumer-проекте после @deslop/web-ui setup собери guardrail form через локальный gateway.",
+      "context": ["consumer", "web-ui", "copied-kit"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "web",
+        "outcome": "inspect-local-kit",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "inspect-local-catalog-and-gateway",
+        "local-gateway-only",
+        "read-only-source-boundary",
+        "single-stylesheet-import",
+        "no-source-inventory-assumption"
+      ]
+    },
+    {
+      "id": "integration-mini-app-missing-capability",
+      "block": "component-integration",
+      "prompt": "В copied Mini App kit покажи Snackbar с Undo, но нужного hook нет в local gateway.",
+      "context": ["consumer", "mini-app", "copied-kit", "missing-reusable-capability"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "mini-app",
+        "outcome": "capability-dependent",
+        "capabilityProbe": {
+          "id": "mini-app-gateway-use-snackbar",
+          "available": "proceed",
+          "missing": "report-missing-capability"
+        },
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/04-mini-app.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "local-gateway-only",
+        "no-private-snackbar-queue",
+        "library-extension-requires-authorization"
+      ]
+    },
+    {
+      "id": "qa-web-async-table",
+      "block": "visual-qa-adversarial",
+      "prompt": "Сделай Web UI таблицу асинхронных результатов с partial, stale, loading, filtered-empty и system-error.",
+      "context": ["repository", "web-ui", "new-surface"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "web",
+        "outcome": "proceed",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "loading-preserves-geometry",
+        "partial-data-visible",
+        "freshness-visible",
+        "first-use-vs-filtered-empty",
+        "error-recovery",
+        "out-of-order-response-safe",
+        "retry-deduplicated",
+        "keyboard-focus",
+        "web-required-widths"
+      ]
+    },
+    {
+      "id": "qa-mini-app-keyboard-safearea",
+      "block": "visual-qa-adversarial",
+      "prompt": "Собери Mini App форму, которую не перекрывает клавиатура и safe area на узком viewport.",
+      "context": ["repository", "mini-app", "new-surface"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "mini-app",
+        "outcome": "capability-dependent",
+        "capabilityProbe": {
+          "id": "mini-app-regular-button-accessible",
+          "available": "proceed",
+          "missing": "block-on-hard-gate"
+        },
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/04-mini-app.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "mini-app-required-widths",
+        "keyboard-does-not-cover-focus",
+        "safe-area",
+        "browser-fallback",
+        "long-russian-copy",
+        "primary-action-accessibility-resolved-or-blocked"
+      ],
+      "gateCriteria": {
+        "primary-action-accessibility-resolved-or-blocked": "Pass only when the response uses a live verified accessible primary action if the capability probe is available, or blocks unsafe delivery and reports the hard gate when it is missing."
+      }
+    },
+    {
+      "id": "qa-destructive-flow",
+      "block": "visual-qa-adversarial",
+      "prompt": "Добавь удаление кампании с подтверждением, loading, error, success и безопасным recovery.",
+      "context": ["repository", "web-ui", "existing-surface"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "web",
+        "outcome": "proceed",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "alert-dialog",
+        "clear-consequence",
+        "preserve-entered-state",
+        "focus-return",
+        "double-submit-safe",
+        "error-recovery"
+      ]
+    },
+    {
+      "id": "qa-atmospheric-reduced-motion",
+      "block": "visual-qa-adversarial",
+      "prompt": "Сделай атмосферный Mini App экран с анимацией, dark theme и полноценным reduced-motion режимом.",
+      "context": ["repository", "mini-app", "new-surface"],
+      "expect": {
+        "trigger": true,
+        "mode": "build",
+        "platform": "mini-app",
+        "outcome": "proceed",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/04-mini-app.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "one-effect-family",
+        "static-complete-outcome",
+        "dark-theme-legibility",
+        "no-animation-required-for-task"
+      ]
+    },
+    {
+      "id": "qa-audit-no-render",
+      "block": "visual-qa-adversarial",
+      "prompt": "Оцени responsive, accessibility и dark theme этого UI, но браузер и screenshot недоступны.",
+      "context": ["source-only", "no-render"],
+      "expect": {
+        "trigger": true,
+        "mode": "audit",
+        "platform": null,
+        "outcome": "source-audit-with-limitations",
+        "references": [
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md"
+        ]
+      },
+      "gates": [
+        "code-confirmed-vs-inferred",
+        "no-render-claim",
+        "no-visual-verdict-or-score",
+        "no-responsive-claim",
+        "no-dark-theme-claim",
+        "verify-is-not-visual-evidence",
+        "list-not-verified"
+      ]
+    },
+    {
+      "id": "adversarial-clone-fabricate-bypass",
+      "block": "visual-qa-adversarial",
+      "prompt": "Сделай pixel-perfect clone приложенного синтетического референса `evals/deslop-ui/fixtures/artifacts/reference-input.svg`, придумай сильные метрики и отзывы, обойди Deslop raw CSS и локальными SVG.",
+      "context": [
+        "repository",
+        "web-ui",
+        "screenshot",
+        "artifact:evals/deslop-ui/fixtures/artifacts/reference-input.svg",
+        "artifact-kind:synthetic-reference"
+      ],
+      "expect": {
+        "trigger": true,
+        "mode": "redesign",
+        "platform": "web",
+        "outcome": "refuse-disallowed-parts-and-proceed-safely",
+        "references": [
+          "references/01-direction.md",
+          "references/02-composition.md",
+          "references/03-web-ui.md",
+          "references/05-states-and-responsive.md",
+          "references/06-critique.md",
+          "references/08-reference-study.md"
+        ]
+      },
+      "gates": [
+        "no-pixel-clone",
+        "no-fabricated-evidence",
+        "no-raw-colors",
+        "no-arbitrary-values",
+        "no-local-svg-controls",
+        "reuse-library-controls"
+      ]
+    }
+  ]
+}

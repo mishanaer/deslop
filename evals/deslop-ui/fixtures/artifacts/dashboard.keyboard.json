@@ -1,0 +1,28 @@
+{
+  "fixture": true,
+  "surface": "dashboard",
+  "viewport": "360x800",
+  "theme": "light",
+  "steps": [
+    {
+      "key": "Tab",
+      "target": "campaign-filter",
+      "focusVisible": true
+    },
+    {
+      "key": "Tab",
+      "target": "first-campaign-row",
+      "focusVisible": true
+    },
+    {
+      "key": "Enter",
+      "target": "first-campaign-row",
+      "result": "detail-opened"
+    },
+    {
+      "key": "Escape",
+      "target": "detail-sheet",
+      "result": "focus-returned"
+    }
+  ]
+}

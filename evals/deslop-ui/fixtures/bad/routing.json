@@ -1,0 +1,97 @@
+{
+  "expectedErrorCodes": [
+    "claim.dark-theme.missing-evidence",
+    "claim.duplicate",
+    "claim.unknown",
+    "claim.pixel-perfect-clone",
+    "claim.rendered.missing-evidence",
+    "claim.responsive.missing-evidence",
+    "routing.mode",
+    "routing.outcome",
+    "routing.platform",
+    "routing.read-only",
+    "routing.references",
+    "routing.trigger"
+  ],
+  "results": [
+    {
+      "id": "route-web-build",
+      "trigger": true,
+      "mode": "polish",
+      "platform": "mini-app",
+      "outcome": "proceed",
+      "references": [
+        "references/04-mini-app.md"
+      ],
+      "readOnly": false,
+      "claims": ["rendered", "looks-great", "rendered"],
+      "evidence": []
+    },
+    {
+      "id": "route-readonly-audit",
+      "trigger": true,
+      "mode": "audit",
+      "platform": "web",
+      "outcome": "report-only",
+      "references": [
+        "references/03-web-ui.md"
+      ],
+      "readOnly": false,
+      "claims": ["rendered", "responsive-verified", "dark-theme-verified"],
+      "evidence": []
+    },
+    {
+      "id": "negative-microcopy-only",
+      "trigger": true,
+      "mode": "polish",
+      "platform": "web",
+      "outcome": "proceed",
+      "references": [
+        "references/03-web-ui.md"
+      ],
+      "readOnly": false,
+      "claims": [],
+      "evidence": []
+    },
+    {
+      "id": "route-reference-redesign",
+      "trigger": true,
+      "mode": "redesign",
+      "platform": "web",
+      "outcome": "proceed",
+      "references": [
+        "references/03-web-ui.md"
+      ],
+      "readOnly": false,
+      "claims": ["pixel-perfect-clone"],
+      "evidence": []
+    },
+    {
+      "id": "route-platform-ambiguous",
+      "trigger": true,
+      "mode": "build",
+      "platform": "web",
+      "outcome": "proceed",
+      "references": [
+        "references/03-web-ui.md",
+        "references/04-mini-app.md"
+      ],
+      "readOnly": false,
+      "claims": [],
+      "evidence": []
+    },
+    {
+      "id": "audit-no-artifact",
+      "trigger": true,
+      "mode": "audit",
+      "platform": null,
+      "outcome": "request-artifact",
+      "references": [
+        "references/06-critique.md"
+      ],
+      "readOnly": true,
+      "claims": ["rendered", "responsive-verified"],
+      "evidence": []
+    }
+  ]
+}

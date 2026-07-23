@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="Synthetic dashboard desktop dark fixture">
+  <rect width="1440" height="900" fill="#09090b"/>
+  <rect x="32" y="32" width="280" height="836" rx="16" fill="#18181b" stroke="#3f3f46"/>
+  <rect x="336" y="32" width="1072" height="120" rx="16" fill="#18181b" stroke="#3f3f46"/>
+  <rect x="336" y="176" width="640" height="692" rx="16" fill="#18181b" stroke="#3f3f46"/>
+  <rect x="1000" y="176" width="408" height="692" rx="16" fill="#18181b" stroke="#3f3f46"/>
+  <text x="368" y="92" fill="#fafafa" font-family="sans-serif" font-size="28">Dashboard fixture</text>
+</svg>

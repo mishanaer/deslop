@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "passing": {
+    "blocking_gates_must_pass": true,
+    "minimum_non_blocking_score": 22,
+    "maximum_non_blocking_score": 28
+  },
+  "gates": [
+    {
+      "id": "schema",
+      "blocking": true,
+      "evidence": "SKILL.md frontmatter",
+      "criterion": "Frontmatter has only scalar string name and description, exact skill name, no scaffold/TODO text, and usable trigger and exclusion language."
+    },
+    {
+      "id": "reference-routing",
+      "blocking": true,
+      "evidence": "SKILL.md and references/",
+      "criterion": "Every bundled reference exists, is linked directly from SKILL.md, and has a narrow conditional route."
+    },
+    {
+      "id": "live-paths",
+      "blocking": true,
+      "evidence": "Repository filesystem",
+      "criterion": "All repository paths named as sources of truth exist; consumer-only paths are explicitly contextual."
+    },
+    {
+      "id": "live-components",
+      "blocking": true,
+      "evidence": "Web source exports, Web catalog, Mini App machine catalog, and Mini App public exports",
+      "criterion": "Component identifiers in integration and composition guidance resolve to current live exports or catalog entries."
+    },
+    {
+      "id": "no-inventory-copy",
+      "blocking": true,
+      "evidence": "03-web-ui.md and 04-mini-app.md",
+      "criterion": "References point to live catalogs and do not copy most of an inventory or freeze component counts."
+    },
+    {
+      "id": "trigger-coverage",
+      "blocking": true,
+      "evidence": "cases.json",
+      "criterion": "All four modes, positive UI triggers, platform ambiguity, screenshot study, and at least four negative triggers are represented."
+    },
+    {
+      "id": "audit-integrity",
+      "blocking": true,
+      "evidence": "SKILL.md and 06-critique.md",
+      "criterion": "Audit is read-only, distinguishes observed/code-confirmed/inferred, requires evidence-impact-exact-fix, and forbids unrendered visual claims."
+    },
+    {
+      "id": "visual-qa-integrity",
+      "blocking": true,
+      "evidence": "05-states-and-responsive.md and 06-critique.md",
+      "criterion": "Required viewports, state/recovery coverage, focus, dark theme, reduced motion, and explicit verified/not-verified reporting are present. Build/verify commands are never accepted as visual evidence."
+    },
+    {
+      "id": "artifact-evidence",
+      "blocking": true,
+      "evidence": "06-critique.md and eval fixtures",
+      "criterion": "Every observed claim identifies surface, state, viewport, theme and an artifact or reproduced behavior. Source-only audits use code-confirmed/inferred and may not issue a visual verdict or score."
+    },
+    {
+      "id": "behavioral-execution",
+      "blocking": true,
+      "evidence": "runs/final/manifest.json and one isolated result per cases.json entry",
+      "criterion": "Every prompt is executed by a distinct fresh read-only agent against the current skill snapshot; raw output, routing, reads, tool ledger, case gates, timing and verdict are retained and validated."
+    },
+    {
+      "id": "anti-slop",
+      "blocking": false,
+      "points": 4,
+      "evidence": "01-direction.md, 02-composition.md, 06-critique.md",
+      "criterion": "Direction is product-grounded, structure precedes styling, boldness is spent once, and generic motifs are review signals rather than universal bans."
+    },
+    {
+      "id": "component-discipline",
+      "blocking": false,
+      "points": 4,
+      "evidence": "SKILL.md, 03-web-ui.md, 04-mini-app.md",
+      "criterion": "The skill reuses library behavior, separates composition from reusable controls, uses public consumer boundaries, and reports missing capability without private duplication."
+    },
+    {
+      "id": "state-completeness",
+      "blocking": false,
+      "points": 4,
+      "evidence": "05-states-and-responsive.md",
+      "criterion": "Loading, partial, empty variants, validation/system error, success, offline/stale, permission, keyboard and content stress cases are covered conditionally; async work considers stale-to-fresh transitions, duplicate retry and out-of-order responses when applicable."
+    },
+    {
+      "id": "responsive-transformation",
+      "blocking": false,
+      "points": 4,
+      "evidence": "02-composition.md and 05-states-and-responsive.md",
+      "criterion": "Responsive behavior changes persistence, ordering, disclosure or interaction model instead of merely shrinking or stacking."
+    },
+    {
+      "id": "reference-study",
+      "blocking": false,
+      "points": 4,
+      "evidence": "08-reference-study.md",
+      "criterion": "Reference work extracts transferable design DNA without copying protected assets, content or pixels and maps decisions to Deslop."
+    },
+    {
+      "id": "memory-discipline",
+      "blocking": false,
+      "points": 4,
+      "evidence": "07-design-memory.md",
+      "criterion": "Persistent design memory stores intent and rationale, not transient experiments, raw token copies or component inventories."
+    },
+    {
+      "id": "provenance",
+      "blocking": false,
+      "points": 4,
+      "evidence": "NOTICE.md",
+      "criterion": "Every declared OSS influence has an HTTPS source, license identifier, bounded concept attribution, and no bundled third-party assets are claimed."
+    }
+  ]
+}
