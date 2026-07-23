@@ -4,6 +4,14 @@ React-компоненты для Telegram Mini Apps на основе `@deslop/
 
 ## Подключение
 
+Рекомендуемый способ — через единый установщик дизайн-системы:
+
+```bash
+npx @deslop/design-system setup --mini-app
+```
+
+Прямое подключение Mini App:
+
 ```bash
 npx @deslop/mini-app setup
 ```
