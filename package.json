@@ -5,6 +5,8 @@
   "scripts": {
     "prepare": "node ./scripts/install-git-hooks.mjs",
     "setup": "node ./scripts/install-git-hooks.mjs",
-    "verify": "node ./scripts/verify.mjs"
+    "verify": "node ./scripts/verify.mjs",
+    "verify:deslop-ui": "node ./scripts/verify-deslop-ui.mjs",
+    "verify:deslop-ui:raw": "node ./scripts/verify-deslop-ui.mjs --raw-runs"
   }
 }

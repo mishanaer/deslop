@@ -1,0 +1,29 @@
+{
+  "sourceOnly": true,
+  "expectedErrorCodes": [
+    "audit.source-only-scores",
+    "audit.source-only-verdict",
+    "claim.a11y.missing-evidence",
+    "claim.dark-theme.missing-evidence",
+    "claim.rendered.missing-evidence",
+    "claim.responsive.missing-evidence",
+    "claim.source-only.visual"
+  ],
+  "claims": [
+    "rendered",
+    "responsive-verified",
+    "dark-theme-verified",
+    "a11y-verified"
+  ],
+  "evidence": [
+    {
+      "id": "source-only-skill",
+      "kind": "source",
+      "surface": "skill-routing",
+      "state": "source-only",
+      "viewport": "not-observed",
+      "theme": "not-observed",
+      "artifact": "deslop-ui/SKILL.md"
+    }
+  ]
+}

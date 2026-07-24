@@ -1,0 +1,25 @@
+{
+  "fixture": true,
+  "surface": "dashboard",
+  "viewport": "360x800",
+  "theme": "light",
+  "tree": {
+    "role": "main",
+    "name": "Dashboard",
+    "children": [
+      {
+        "role": "heading",
+        "name": "Campaign exceptions",
+        "level": 1
+      },
+      {
+        "role": "table",
+        "name": "Campaign exceptions"
+      },
+      {
+        "role": "button",
+        "name": "Open selected exception"
+      }
+    ]
+  }
+}

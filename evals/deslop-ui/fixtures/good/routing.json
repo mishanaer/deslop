@@ -1,0 +1,176 @@
+{
+  "results": [
+    {
+      "id": "route-web-build",
+      "trigger": true,
+      "mode": "build",
+      "platform": "web",
+      "outcome": "proceed",
+      "references": [
+        "references/01-direction.md",
+        "references/02-composition.md",
+        "references/03-web-ui.md",
+        "references/05-states-and-responsive.md",
+        "references/06-critique.md"
+      ],
+      "readOnly": false,
+      "claims": [],
+      "evidence": []
+    },
+    {
+      "id": "route-readonly-audit",
+      "trigger": true,
+      "mode": "audit",
+      "platform": "web",
+      "outcome": "report-only",
+      "references": [
+        "references/03-web-ui.md",
+        "references/06-critique.md"
+      ],
+      "readOnly": true,
+      "claims": [
+        "rendered",
+        "responsive-verified",
+        "dark-theme-verified",
+        "a11y-verified"
+      ],
+      "evidence": [
+        {
+          "id": "dashboard-desktop-light",
+          "kind": "render",
+          "surface": "dashboard",
+          "state": "default",
+          "viewport": "1440x900",
+          "theme": "light",
+          "artifact": "evals/deslop-ui/fixtures/artifacts/dashboard-1440-light.svg"
+        },
+        {
+          "id": "dashboard-narrow-light",
+          "kind": "render",
+          "surface": "dashboard",
+          "state": "default",
+          "viewport": "360x800",
+          "theme": "light",
+          "artifact": "evals/deslop-ui/fixtures/artifacts/dashboard-360-light.svg"
+        },
+        {
+          "id": "dashboard-desktop-dark",
+          "kind": "render",
+          "surface": "dashboard",
+          "state": "default",
+          "viewport": "1440x900",
+          "theme": "dark",
+          "artifact": "evals/deslop-ui/fixtures/artifacts/dashboard-1440-dark.svg"
+        },
+        {
+          "id": "dashboard-a11y-tree",
+          "kind": "accessibility-tree",
+          "surface": "dashboard",
+          "state": "default",
+          "viewport": "360x800",
+          "theme": "light",
+          "artifact": "evals/deslop-ui/fixtures/artifacts/dashboard.a11y.json"
+        },
+        {
+          "id": "dashboard-keyboard-trace",
+          "kind": "keyboard",
+          "surface": "dashboard",
+          "state": "default",
+          "viewport": "360x800",
+          "theme": "light",
+          "artifact": "evals/deslop-ui/fixtures/artifacts/dashboard.keyboard.json"
+        }
+      ]
+    },
+    {
+      "id": "negative-microcopy-only",
+      "trigger": false,
+      "mode": null,
+      "platform": null,
+      "outcome": "defer",
+      "references": [],
+      "readOnly": true,
+      "claims": [],
+      "evidence": []
+    },
+    {
+      "id": "route-reference-redesign",
+      "trigger": true,
+      "mode": "redesign",
+      "platform": "web",
+      "outcome": "proceed",
+      "references": [
+        "references/01-direction.md",
+        "references/02-composition.md",
+        "references/03-web-ui.md",
+        "references/05-states-and-responsive.md",
+        "references/06-critique.md",
+        "references/08-reference-study.md"
+      ],
+      "readOnly": false,
+      "claims": [],
+      "evidence": [
+        {
+          "id": "provided-reference",
+          "kind": "input-reference",
+          "surface": "reference",
+          "state": "provided",
+          "viewport": "unknown",
+          "theme": "unknown",
+          "artifact": "evals/deslop-ui/fixtures/artifacts/reference-input.svg"
+        }
+      ]
+    },
+    {
+      "id": "route-platform-ambiguous",
+      "trigger": true,
+      "mode": "build",
+      "platform": null,
+      "outcome": "clarify",
+      "references": [
+        "references/01-direction.md",
+        "references/02-composition.md"
+      ],
+      "readOnly": true,
+      "claims": [],
+      "evidence": []
+    },
+    {
+      "id": "audit-no-artifact",
+      "trigger": true,
+      "mode": "audit",
+      "platform": null,
+      "outcome": "request-artifact",
+      "references": [
+        "references/06-critique.md"
+      ],
+      "readOnly": true,
+      "claims": [],
+      "evidence": []
+    },
+    {
+      "id": "qa-audit-no-render",
+      "trigger": true,
+      "mode": "audit",
+      "platform": null,
+      "outcome": "source-audit-with-limitations",
+      "references": [
+        "references/05-states-and-responsive.md",
+        "references/06-critique.md"
+      ],
+      "readOnly": true,
+      "claims": ["code-confirmed"],
+      "evidence": [
+        {
+          "id": "source-audit-skill",
+          "kind": "source",
+          "surface": "skill-routing",
+          "state": "source-only",
+          "viewport": "not-observed",
+          "theme": "not-observed",
+          "artifact": "deslop-ui/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

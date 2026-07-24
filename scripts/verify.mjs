@@ -16,6 +16,11 @@ const commands = [
     args: ["./scripts/check-installer.mjs"],
   },
   {
+    label: "Deslop UI: skill evals",
+    cwd: root,
+    args: ["./scripts/verify-deslop-ui.mjs"],
+  },
+  {
     label: "Primitives: tokens",
     cwd: primitives,
     args: ["./scripts/generate-layout-tokens.mjs", "--check"],

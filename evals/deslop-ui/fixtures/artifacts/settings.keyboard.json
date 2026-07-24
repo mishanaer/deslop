@@ -1,0 +1,19 @@
+{
+  "fixture": true,
+  "surface": "settings",
+  "state": "system-error",
+  "viewport": "360x800",
+  "theme": "light",
+  "steps": [
+    {
+      "key": "Escape",
+      "target": "error-dialog",
+      "result": "dialog-closed"
+    },
+    {
+      "expectedFocus": "save-settings",
+      "actualFocus": "document-body",
+      "pass": false
+    }
+  ]
+}

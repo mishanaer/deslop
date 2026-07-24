@@ -1,4 +1,5 @@
 .DS_Store
+evals/deslop-ui/runs/
 mini-app/.claude/
 mini-app/skills-lock.json
 mini-app/public/fonts/
