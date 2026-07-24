@@ -1,54 +1,25 @@
 # deslop
 
-Внутренний монорепозиторий дизайн-системы Deslop. Его пакеты не предназначены
-для публикации в npm или установки во внешние проекты.
+Библиотека компонентов и правила для агентской разработки
 
-## Структура
+## design-system
 
-- `primitives` — общие токены, шрифты и иконки.
-- `web-ui` — React-компоненты для веб-продуктов.
-- `mini-app` — React-компоненты для Telegram Mini Apps.
-- `sasha` — правила для русских интерфейсных текстов.
-
-`web-ui` и `mini-app` используют `../primitives` напрямую через алиасы Vite и
-TypeScript. Формального root workspace нет: Web UI сохраняет свой pnpm lock,
-а Mini App — свой Yarn lock.
-
-## Первичная установка
-
-Из корня репозитория:
+[design-system](./design-system/README.md) устанавливает дизайн-систему одной
+командой:
 
 ```bash
-(cd web-ui && corepack pnpm install --frozen-lockfile)
-(cd mini-app && corepack yarn install --immutable)
+npx @deslop/design-system setup
 ```
 
-Нужны Node.js с npm и Corepack. Версии pnpm и Yarn зафиксированы в
-`packageManager` соответствующих пакетов и выбираются из их директорий.
+Команда предложит выбрать веб-продукт или Telegram Mini App и подключит
+Primitives, нужные компоненты, правила для агента и локальные проверки.
 
-## Локальная разработка
+## AGENTS.md
 
-```bash
-(cd web-ui && corepack pnpm dev)
-(cd mini-app && corepack yarn dev)
-```
+[AGENTS.md](./AGENTS.md) задаёт общие правила работы агента: как общаться,
+действовать самостоятельно, менять код и проверять результат
 
-## Сборка
+## sasha
 
-```bash
-(cd web-ui && corepack pnpm build)
-(cd mini-app && corepack yarn build)
-```
-
-## Полная проверка
-
-После установки зависимостей:
-
-```bash
-npm run verify
-```
-
-Команда проверяет primitives, правила и каталоги компонентов, TypeScript,
-линтеры, Storybook-сборки и library-сборки обоих продуктов.
-
-Общие правила работы агента находятся в [AGENTS.md](AGENTS.md).
+[sasha](./sasha/SKILL.md) — скилл для ИИ-агентов, который помогает писать,
+проверять и улучшать русские тексты в интерфейсе
