@@ -132,4 +132,8 @@ elevation-colors:
   elevation-5:
     light: "#1111110D"
     dark: "#FFFFFF0D"
+
+  elevation-4:
+    light: "#1111110A"
+    dark: "#FFFFFF0A"
 ```
