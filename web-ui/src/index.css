@@ -60,6 +60,7 @@
   --color-primary-foreground: var(--action-primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-subtle-surface: var(--elevation-4);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--action-accent);

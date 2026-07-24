@@ -54,6 +54,7 @@ export const elevationColors = [
   { name: "Elevation 20", light: "#11111133", dark: "#FFFFFF33" },
   { name: "Elevation 10", light: "#1111111A", dark: "#FFFFFF1A" },
   { name: "Elevation 5", light: "#1111110D", dark: "#FFFFFF0D" },
+  { name: "Elevation 4", light: "#1111110A", dark: "#FFFFFF0A" },
 ];
 
 export const typographyStyles = [

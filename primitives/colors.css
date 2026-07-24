@@ -59,6 +59,7 @@
   --elevation-20: #11111133;
   --elevation-10: #1111111a;
   --elevation-5: #1111110d;
+  --elevation-4: #1111110a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -88,6 +89,7 @@
     --elevation-20: #ffffff33;
     --elevation-10: #ffffff1a;
     --elevation-5: #ffffff0d;
+    --elevation-4: #ffffff0a;
   }
 }
 
@@ -118,4 +120,5 @@
   --elevation-20: #ffffff33;
   --elevation-10: #ffffff1a;
   --elevation-5: #ffffff0d;
+  --elevation-4: #ffffff0a;
 }

@@ -63,7 +63,7 @@ function SidebarBlock() {
           <SidebarTrigger />
           <span className="font-medium">Overview</span>
         </header>
-        <div className="grid flex-1 gap-4 p-4 [&>div]:border-0 [&>div]:bg-accent [&>div]:shadow-none sm:grid-cols-2">
+        <div className="grid flex-1 gap-4 p-4 [&>div]:border-0 [&>div]:bg-subtle-surface [&>div]:shadow-none sm:grid-cols-2">
           <div className="rounded-section border p-5">
             <p className="font-medium">Active projects</p>
             <p className="mt-2 text-3xl font-semibold">12</p>
