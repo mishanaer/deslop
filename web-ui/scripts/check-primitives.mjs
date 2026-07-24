@@ -5,9 +5,6 @@ import { fileURLToPath } from "node:url"
 const root = fileURLToPath(new URL("../", import.meta.url))
 const sourceRoot = path.join(root, "src")
 const errors = []
-const packageManifest = JSON.parse(
-  await readFile(path.join(root, "package.json"), "utf8")
-)
 const primitiveColorDocs = await readFile(
   path.join(root, "../primitives/colors.md"),
   "utf8"
@@ -159,15 +156,6 @@ const calendarComponent = await readFile(
   path.join(sourceRoot, "components/ui/calendar.tsx"),
   "utf8"
 )
-
-for (const [entry, target] of [
-  ["./blocks/*", "./dist/blocks/*.js"],
-  ["./charts/*", "./dist/charts/*.js"],
-]) {
-  if (packageManifest.exports?.[entry] !== target) {
-    errors.push(`package.json: missing library export ${entry}`)
-  }
-}
 
 for (const source of [
   "components/blocks/dashboard.tsx",

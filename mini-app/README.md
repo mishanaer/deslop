@@ -1,37 +1,24 @@
 # Mini App
 
-React-компоненты для Telegram Mini Apps на основе `@deslop/primitives`.
+Внутренняя библиотека React-компонентов для Telegram Mini Apps. Общие токены,
+шрифты и иконки подключаются напрямую из соседней директории `../primitives`;
+пакет не устанавливается во внешние репозитории.
 
-## Подключение
+## Разработка
 
-Рекомендуемый способ — через единый установщик дизайн-системы:
-
-```bash
-npx @deslop/design-system setup --mini-app
-```
-
-Прямое подключение Mini App:
+Из корня монорепозитория:
 
 ```bash
-npx @deslop/mini-app setup
+(cd mini-app && corepack yarn install --immutable)
+(cd mini-app && corepack yarn dev)
 ```
 
-Команда добавит компоненты, стили, правила для агентов и проверку перед коммитом.
-Компоненты появятся в `src/components/mini-app`, исходники для чтения — в
-`.deslop/mini-app/source`.
-
-## Разработка Mini App
+## Проверка и сборка
 
 ```bash
-npm install
-corepack yarn --cwd mini-app install --immutable
-corepack yarn --cwd mini-app dev
+(cd mini-app && corepack yarn lint)
+(cd mini-app && corepack yarn build)
 ```
 
-## Проверка
-
-```bash
-npm run verify
-```
-
-Правила работы с Mini App: [AGENTS.md](AGENTS.md)
+Каталог компонентов: [agent/COMPONENTS.md](agent/COMPONENTS.md). Правила для
+изменений библиотеки: [AGENTS.md](AGENTS.md).

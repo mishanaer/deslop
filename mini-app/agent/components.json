@@ -1,9 +1,5 @@
 {
   "package": "@deslop/mini-app",
-  "localImport": "src/components/mini-app/index.js",
-  "source": ".deslop/mini-app/source",
-  "styles": "@deslop/mini-app/styles.css",
-  "provider": "MiniAppProvider",
   "components": [
     { "name": "Page", "category": "layout", "keywords": ["screen", "page", "background", "экран", "страница"] },
     { "name": "AppBar", "category": "navigation", "keywords": ["top bar", "title", "back", "header", "верхняя панель", "назад"] },

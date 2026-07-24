@@ -1,39 +1,26 @@
 # Web UI
 
-React-компоненты для веб-продуктов на основе `@deslop/primitives`.
+Внутренняя библиотека React-компонентов для веб-продуктов Deslop. Общие
+токены, шрифты и иконки подключаются напрямую из соседней директории
+`../primitives`; пакет не устанавливается во внешние репозитории.
 
-## Подключение
+## Разработка
 
-Рекомендуемый способ — через единый установщик дизайн-системы:
-
-```bash
-npx @deslop/design-system setup --web
-```
-
-Прямое подключение Web UI:
+Из корня монорепозитория:
 
 ```bash
-npx @deslop/web-ui setup
+(cd web-ui && corepack pnpm install --frozen-lockfile)
+(cd web-ui && corepack pnpm dev)
 ```
 
-Команда добавит компоненты, стили, правила для агентов и проверку перед коммитом.
-Компоненты появятся в `src/components/web-ui`, исходники для чтения — в
-`.deslop/web-ui/source`.
-
-## Разработка Web UI
+## Проверка и сборка
 
 ```bash
-cd web-ui
-pnpm install
-pnpm dev
+(cd web-ui && corepack pnpm verify)
+(cd web-ui && corepack pnpm build)
 ```
 
-## Проверка
-
-```bash
-npm run verify
-```
-
-Правила работы с Web UI: [AGENTS.md](AGENTS.md)
+Каталог компонентов: [agent/COMPONENTS.md](agent/COMPONENTS.md). Правила для
+изменений библиотеки: [AGENTS.md](AGENTS.md).
 
 Компоненты адаптированы из [shadcn/ui](https://github.com/shadcn-ui/ui), MIT.

@@ -7,14 +7,8 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const primitives = resolve(root, "primitives");
 const miniApp = resolve(root, "mini-app");
 const webUi = resolve(root, "web-ui");
-const designSystem = resolve(root, "design-system");
 
 const commands = [
-  {
-    label: "Design System: installer",
-    cwd: designSystem,
-    args: ["./scripts/check-installer.mjs"],
-  },
   {
     label: "Primitives: tokens",
     cwd: primitives,
@@ -41,7 +35,7 @@ const commands = [
     args: ["./scripts/check-styling.mjs"],
   },
   {
-    label: "Mini App: consumer integration",
+    label: "Mini App: agent catalog",
     cwd: miniApp,
     args: ["./scripts/check-agent-kit.mjs"],
   },
@@ -51,8 +45,6 @@ const commands = [
     args: [
       "./node_modules/eslint/bin/eslint.js",
       "{src,storybook}/**/*.{js,jsx,ts,tsx}",
-      "bin/**/*.mjs",
-      "agent/**/*.mjs",
       "scripts/check-agent-kit.mjs",
     ],
   },
@@ -85,7 +77,7 @@ const commands = [
     args: ["./scripts/check-primitives.mjs"],
   },
   {
-    label: "Web UI: consumer integration",
+    label: "Web UI: agent catalog",
     cwd: webUi,
     args: ["./scripts/check-agent-kit.mjs"],
   },

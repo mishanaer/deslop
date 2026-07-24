@@ -1,8 +1,5 @@
 {
   "package": "@deslop/web-ui",
-  "localImport": "src/components/web-ui/index.ts",
-  "source": ".deslop/web-ui/source",
-  "styles": "@deslop/web-ui/styles.css",
   "modules": [
     { "path": "components/accordion", "local": "ui/accordion", "category": "Layout" },
     { "path": "components/alert", "local": "ui/alert", "category": "Feedback" },

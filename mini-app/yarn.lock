@@ -404,19 +404,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@deslop/primitives@link:../primitives::locator=%40deslop%2Fmini-app%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@deslop/primitives@link:../primitives::locator=%40deslop%2Fmini-app%40workspace%3A."
-  languageName: node
-  linkType: soft
-
 "@deslop/mini-app@workspace:.":
   version: 0.0.0-use.local
   resolution: "@deslop/mini-app@workspace:."
   dependencies:
     "@babel/core": "npm:^7.29.7"
     "@babel/preset-react": "npm:^7.29.7"
-    "@deslop/primitives": "link:../primitives"
     "@eslint/js": "npm:^10.0.1"
     "@lisse/core": "npm:0.5.2"
     "@lisse/react": "npm:^0.5.2"
@@ -454,9 +447,6 @@ __metadata:
     vite-plugin-checker: "npm:^0.14.4"
     vite-plugin-svgr: "npm:^5.0.0"
     wouter: "npm:^3.10.0"
-  peerDependencies:
-    react: ">=18.2.0"
-    react-dom: ">=18.2.0"
   languageName: unknown
   linkType: soft
 

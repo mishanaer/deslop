@@ -1,37 +1,13 @@
 {
     "name": "@deslop/mini-app",
     "version": "0.1.0",
+    "private": true,
     "description": "React component library for Telegram Mini Apps powered by Deslop Primitives.",
     "type": "module",
-    "files": [
-        "agent",
-        "bin",
-        "dist",
-        "src"
-    ],
-    "bin": {
-        "mini-app": "./bin/mini-app.mjs"
-    },
-    "main": "./dist/index.js",
-    "module": "./dist/index.js",
-    "exports": {
-        ".": {
-            "import": "./dist/index.js"
-        },
-        "./styles.css": "./dist/styles.css",
-        "./setup": "./bin/mini-app.mjs",
-        "./agent/AGENTS.md": "./agent/AGENTS.md",
-        "./agent/COMPONENTS.md": "./agent/COMPONENTS.md",
-        "./agent/components.json": "./agent/components.json"
-    },
-    "sideEffects": [
-        "**/*.css"
-    ],
     "packageManager": "yarn@4.5.3",
     "resolutions": {
         "baseline-browser-mapping": "^2.10.43"
     },
-    "homepage": ".",
     "dependencies": {
         "@lisse/core": "0.5.2",
         "@lisse/react": "^0.5.2",
@@ -43,23 +19,18 @@
         "motion": "^12.42.2",
         "wouter": "^3.10.0"
     },
-    "peerDependencies": {
-        "react": ">=18.2.0",
-        "react-dom": ">=18.2.0"
-    },
     "scripts": {
         "dev": "vite",
         "start": "vite",
         "build": "yarn build:storybook && yarn build:lib",
         "build:storybook": "vite build",
         "build:lib": "vite build --config vite.lib.config.js",
-        "prepack": "vite build --config vite.lib.config.js",
         "preview": "vite preview",
         "deploy": "./deploy.sh",
         "lint": "yarn check:styles && yarn check:agent && yarn lint:js && yarn lint:css",
         "check:styles": "node scripts/check-styling.mjs",
         "check:agent": "node scripts/check-agent-kit.mjs",
-        "lint:js": "eslint '{src,storybook}/**/*.{js,jsx,ts,tsx}' 'bin/**/*.mjs' 'agent/**/*.mjs' 'scripts/check-agent-kit.mjs'",
+        "lint:js": "eslint '{src,storybook}/**/*.{js,jsx,ts,tsx}' 'scripts/check-agent-kit.mjs'",
         "lint:css": "stylelint '{src,storybook}/**/*.css'",
         "format": "prettier --write '{src,storybook}/**/*.{js,jsx,ts,tsx,json,css}' --cache",
         "format:check": "prettier --check '{src,storybook}/**/*.{js,jsx,ts,tsx,json,css}' --cache",
@@ -87,7 +58,6 @@
     "devDependencies": {
         "@babel/core": "^7.29.7",
         "@babel/preset-react": "^7.29.7",
-        "@deslop/primitives": "link:../primitives",
         "@eslint/js": "^10.0.1",
         "@relative-ci/agent": "^4.3.1",
         "@resvg/resvg-js": "^2.6.2",

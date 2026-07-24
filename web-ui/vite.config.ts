@@ -18,6 +18,7 @@ export default defineConfig({
     dedupe: ["react", "react-dom"],
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@deslop/primitives": path.resolve(__dirname, "../primitives"),
     },
   },
 })

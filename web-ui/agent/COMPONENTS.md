@@ -1,7 +1,7 @@
 # Компоненты Web UI
 
-Используй этот каталог до написания JSX. Все продуктовые компоненты импортируются
-из локальной папки `src/components/web-ui`.
+Используй этот каталог до написания JSX. Исходники компонентов находятся в
+`src/components` этого пакета.
 
 ## Быстрый выбор
 
@@ -24,18 +24,12 @@
 | Вход и регистрация | `blocks/login`, `blocks/signup` |
 | Area chart | `charts/area` |
 
-## Подключение
-
-Стили подключаются один раз в корневом entry-файле:
+## Импорты внутри пакета
 
 ```tsx
-import "@deslop/web-ui/styles.css"
-```
-
-Компоненты импортируются через локальный шлюз:
-
-```tsx
-import { Button, Card, Input } from "./components/web-ui"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
 
 export function ProfileForm() {
   return (
@@ -58,8 +52,4 @@ export function ProfileForm() {
 - Готовые блоки: `blocks/dashboard`, `blocks/sidebar`, `blocks/login`, `blocks/signup`.
 - Графики: `charts/area`.
 
-Исходный код доступен агенту в `.deslop/web-ui/source`. Эта папка нужна только
-для чтения: рабочие импорты всегда идут через `src/components/web-ui`.
-
 Если подходящего компонента нет, не заменяй его локальной реализацией: сначала
-зафиксируй запрос на добавление компонента в Web UI.

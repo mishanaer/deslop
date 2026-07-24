@@ -17,7 +17,9 @@
     "jsx": "react-jsx",
     "types": ["vite/client"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@deslop/primitives": ["../primitives/index.js"],
+      "@deslop/primitives/*": ["../primitives/*"]
     }
   },
   "include": ["src"]

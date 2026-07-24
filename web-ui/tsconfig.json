@@ -2,7 +2,9 @@
   "compilerOptions": {
     "moduleResolution": "Bundler",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@deslop/primitives": ["../primitives/index.js"],
+      "@deslop/primitives/*": ["../primitives/*"]
     }
   },
   "files": [],

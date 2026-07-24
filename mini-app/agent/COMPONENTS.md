@@ -1,7 +1,7 @@
 # Компоненты Mini App
 
-Используй этот каталог до написания JSX. Все продуктовые компоненты импортируются
-из локальной папки `src/components/mini-app`.
+Используй этот каталог до написания JSX. Исходники компонентов находятся в
+`src/components` этого пакета.
 
 ## Быстрый выбор
 
@@ -29,13 +29,10 @@
 | Таблица                                 | `Table`                               |
 | Выбор из прокручиваемого списка         | `Picker`, `Wheel`                     |
 
-## Каркас приложения
-
-Подключи стили один раз в корневом entry-файле и оберни приложение в провайдер:
+## Каркас Storybook-приложения
 
 ```jsx
-import "@deslop/mini-app/styles.css"
-import { MiniAppProvider } from "./components/mini-app/index.js"
+import MiniAppProvider from "@/MiniAppProvider"
 
 root.render(
     <MiniAppProvider>
@@ -47,16 +44,13 @@ root.render(
 ## Примеры
 
 ```jsx
-import {
-    AppBar,
-    Cell,
-    Cells,
-    Page,
-    RegularButton,
-    Switch,
-    Text,
-    TextField,
-} from "../components/mini-app/index.js"
+import AppBar from "@components/AppBar"
+import { RegularButton } from "@components/Button"
+import { Cell, default as Cells } from "@components/Cells"
+import Page from "@components/Page"
+import Switch from "@components/Switch"
+import Text from "@components/Text"
+import { TextField } from "@components/TextField"
 
 export function ProfilePage() {
     return (
@@ -74,7 +68,7 @@ export function ProfilePage() {
 }
 ```
 
-## Полный публичный набор
+## Полный набор
 
 - Каркас и навигация: `MiniAppProvider`, `Page`, `AppBar`, `PanelHeader`, `TabBar`, `Tabs`, `SplitView`, `PageTransition`, `Link`.
 - Действия и ввод: `RegularButton`, `MultilineButton`, `TextField`, `Switch`, `SegmentedControl`, `Picker`, `Wheel`, `DropdownMenu`, `Collapsible`, `Tappable`.
@@ -83,8 +77,5 @@ export function ProfilePage() {
 - Оверлеи и обратная связь: `ModalView`, `Tooltip`, `Snackbar`, `SnackbarHost`, `SnackbarProvider`, `Spinner`, `Skeleton`, `PageSkeleton`, `ErrorBoundary`.
 - Анимация и оформление: `MotionProvider`, `Morph`, `ParticleEffect`, `GradientBackground`, `GlassContainer`, `GlassBorder`, `Train`.
 - Темы: `AppearanceProvider`, `DeviceProvider`, `useAppearance`, `useColorScheme`, `useSkin`.
-
-Исходный код компонентов доступен агенту в `.deslop/mini-app/source`. Эта папка нужна
-только для чтения: рабочие импорты всегда идут через `src/components/mini-app`.
 
 Если подходящего компонента нет в этом списке, не заменяй его локальной реализацией: сначала зафиксируй запрос на добавление компонента в Mini App.
