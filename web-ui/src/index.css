@@ -70,6 +70,7 @@
   --color-separator: var(--elevation-20);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-slider-thumb: var(--web-slider-thumb);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -100,6 +101,7 @@
   --web-subtle-fill: var(--elevation-5);
   --web-input: var(--elevation-5);
   --web-muted-foreground: var(--elevation-60);
+  --web-slider-thumb: var(--elevation);
   --web-action-primary: var(--accent-green);
   --web-action-primary-foreground: var(--primary);
   --web-action-destructive: var(--accent-red);
@@ -125,6 +127,7 @@
   --web-subtle-fill: var(--elevation-10);
   --web-input: var(--elevation-5);
   --web-muted-foreground: var(--elevation-60);
+  --web-slider-thumb: var(--elevation-5);
   --web-action-primary: var(--accent-green);
   --web-action-primary-foreground: var(--background);
   --web-action-destructive: var(--accent-red);
