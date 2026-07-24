@@ -5,7 +5,7 @@ Deslop — набор инструментов, который помогает 
 
 ## design-system
 
-Набор компонентов для [Web UI](./web-ui/) и
+[Примитивы](./primitives/) и набор компонентов для [Web UI](./web-ui/) и
 [Telegram Mini Apps](./mini-app/)
 
 ## AGENTS.md
