@@ -36,6 +36,7 @@ const documentedColorTokens = new Set([
 ])
 const colorTokenPattern =
   /^(?:--(?:primary|background|elevation)$|--(?:accent|avatar|elevation)-)/
+const configurableWebTokens = new Set(["--web-primary-accent"])
 
 async function sourceFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true })
@@ -207,7 +208,11 @@ for (const [, token, value] of styles.matchAll(
   /^\s*(--web-[a-z0-9-]+):\s*([^;]+);$/gm
 )) {
   const reference = value.trim().match(/^var\((--[a-z0-9-]+)\)$/)?.[1]
-  if (!reference || !documentedColorTokens.has(reference)) {
+  if (
+    !reference ||
+    (!documentedColorTokens.has(reference) &&
+      !configurableWebTokens.has(reference))
+  ) {
     errors.push(`${token}: Web UI semantic colors must point directly to Primitives`)
   }
 }
@@ -247,7 +252,8 @@ for (const bridge of [
   "--web-subtle-fill: var(--elevation-10)",
   "--web-input: var(--elevation-5)",
   "--web-muted-foreground: var(--elevation-60)",
-  "--web-action-primary: var(--accent-green)",
+  "--web-primary-accent: var(--accent-green)",
+  "--web-action-primary: var(--web-primary-accent)",
   "--web-action-primary-foreground: var(--primary)",
   "--web-action-primary-foreground: var(--background)",
   "--web-action-destructive: var(--accent-red)",
@@ -255,7 +261,7 @@ for (const bridge of [
   "--web-action-destructive-foreground: var(--primary)",
   "--web-avatar-foreground: var(--background)",
   "--web-avatar-foreground: var(--primary)",
-  "--web-badge-accent: var(--accent-green)",
+  "--web-badge-accent: var(--web-primary-accent)",
   "--web-badge-border: var(--elevation-20)",
   "--web-badge-fill: var(--elevation-10)",
   "--web-badge-fill: var(--elevation-20)",

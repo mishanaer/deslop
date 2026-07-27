@@ -6,6 +6,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  --web-primary-accent: var(--accent-green);
+}
+
 @theme inline {
   --spacing: var(--ui-space-4);
 
@@ -103,12 +107,12 @@
   --web-input: var(--elevation-5);
   --web-muted-foreground: var(--elevation-60);
   --web-slider-thumb: var(--elevation);
-  --web-action-primary: var(--accent-green);
+  --web-action-primary: var(--web-primary-accent);
   --web-action-primary-foreground: var(--primary);
   --web-action-destructive: var(--accent-red);
   --web-action-destructive-foreground: var(--background);
   --web-avatar-foreground: var(--background);
-  --web-badge-accent: var(--accent-green);
+  --web-badge-accent: var(--web-primary-accent);
   --web-badge-border: var(--elevation-20);
   --web-badge-fill: var(--elevation-10);
   --web-badge-foreground: var(--primary);
@@ -129,12 +133,12 @@
   --web-input: var(--elevation-5);
   --web-muted-foreground: var(--elevation-60);
   --web-slider-thumb: var(--elevation-5);
-  --web-action-primary: var(--accent-green);
+  --web-action-primary: var(--web-primary-accent);
   --web-action-primary-foreground: var(--background);
   --web-action-destructive: var(--accent-red);
   --web-action-destructive-foreground: var(--primary);
   --web-avatar-foreground: var(--primary);
-  --web-badge-accent: var(--accent-green);
+  --web-badge-accent: var(--web-primary-accent);
   --web-badge-border: var(--elevation-20);
   --web-badge-fill: var(--elevation-20);
   --web-badge-foreground: var(--primary);
@@ -145,6 +149,11 @@
   --chart-3: var(--accent-yellow);
   --chart-4: var(--accent-purple);
   --chart-5: var(--accent-red);
+}
+
+:root[data-color-scheme="light"][data-primary-color="indigo"] {
+  --web-action-primary-foreground: var(--background);
+  --web-badge-on-accent: var(--background);
 }
 
 :root {

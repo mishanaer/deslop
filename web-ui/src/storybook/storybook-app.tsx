@@ -1,6 +1,8 @@
 import { useEffect, useState, type MouseEvent, type ReactNode } from "react"
+import { accentColors } from "@deslop/primitives/tokens"
 import {
   CheckIcon,
+  ChevronDownIcon,
   ChevronRightIcon,
   MenuIcon,
   MoonIcon,
@@ -8,6 +10,14 @@ import {
 } from "@/lib/icons"
 
 import { Button } from "@/components/ui/button"
+import {
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
@@ -81,6 +91,79 @@ function ThemeToggle() {
   )
 }
 
+const accentOptions = accentColors.map(({ name }) => ({
+  name,
+  value: name.toLowerCase(),
+}))
+
+function PrimaryColorPicker() {
+  const [primaryColor, setPrimaryColor] = useState(() => {
+    const storedAccent = localStorage.getItem("web-ui-primary-color")
+    return accentOptions.some(({ value }) => value === storedAccent)
+      ? storedAccent!
+      : "green"
+  })
+
+  useEffect(() => {
+    const root = document.documentElement
+    const primitiveToken = `var(--accent-${primaryColor})`
+
+    root.dataset.primaryColor = primaryColor
+    root.style.setProperty("--web-primary-accent", primitiveToken)
+    localStorage.setItem("web-ui-primary-color", primaryColor)
+  }, [primaryColor])
+
+  const selected =
+    accentOptions.find(({ value }) => value === primaryColor) ?? accentOptions[0]
+
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          size="sm"
+          className="gap-2 px-2.5"
+          aria-label={`Primary color: ${selected.name}`}
+        >
+          <span
+            className="size-3.5 rounded-full ring-1 ring-border"
+            style={{ backgroundColor: `var(--accent-${primaryColor})` }}
+          />
+          <span className="hidden sm:inline">{selected.name}</span>
+          <ChevronDownIcon className="size-3.5 text-muted-foreground" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="end" className="w-64 p-3">
+        <PopoverHeader className="px-1 pb-2">
+          <PopoverTitle>Primary color</PopoverTitle>
+          <PopoverDescription>
+            Uses an accent color from Primitives.
+          </PopoverDescription>
+        </PopoverHeader>
+        <div className="grid grid-cols-2 gap-1">
+          {accentOptions.map(({ name, value }) => (
+            <Button
+              key={value}
+              variant={primaryColor === value ? "secondary" : "ghost"}
+              size="sm"
+              className="justify-start px-2"
+              aria-pressed={primaryColor === value}
+              onClick={() => setPrimaryColor(value)}
+            >
+              <span
+                className="size-4 rounded-full ring-1 ring-border"
+                style={{ backgroundColor: `var(--accent-${value})` }}
+              />
+              <span>{name}</span>
+              {primaryColor === value ? <CheckIcon className="ml-auto" /> : null}
+            </Button>
+          ))}
+        </div>
+      </PopoverContent>
+    </Popover>
+  )
+}
+
 function Header({ navigate }: { navigate: (path: string) => void }) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -97,6 +180,7 @@ function Header({ navigate }: { navigate: (path: string) => void }) {
           <AppLink href="/charts/area" navigate={navigate} className="text-muted-foreground transition-colors hover:text-foreground">Charts</AppLink>
         </nav>
         <div className="ml-auto flex items-center gap-2">
+          <PrimaryColorPicker />
           <ThemeToggle />
         </div>
       </div>
