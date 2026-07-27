@@ -25,7 +25,7 @@ function documentedNames(sectionName) {
 const documentedColorTokens = new Set([
   ...documentedNames("accent-colors").map((name) => `--accent-${name}`),
   ...documentedNames("base-colors").map((name) => `--${name}`),
-  ...documentedNames("elevation-colors").map((name) =>
+  ...documentedNames("primary-colors").map((name) =>
     name === "primary" ? "--primary" : `--${name}`
   ),
   ...documentedNames("avatar-gradients").flatMap((name) => [
@@ -35,7 +35,8 @@ const documentedColorTokens = new Set([
   ]),
 ])
 const colorTokenPattern =
-  /^(?:--(?:primary|background|elevation)$|--(?:accent|avatar|elevation)-)/
+  /^(?:--(?:white|black|primary|background|surface|background-primary|background-secondary)$|--(?:accent|avatar|elevation|primary)-)/
+const configurableWebTokens = new Set(["--web-primary-accent"])
 
 async function sourceFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true })
@@ -83,7 +84,7 @@ for (const file of await sourceFiles(sourceRoot)) {
 
   if (nonPrimitiveNeutralHover.test(content)) {
     errors.push(
-      `${relative}: neutral hover backgrounds must use accent (Elevation 5)`
+      `${relative}: neutral hover backgrounds must use accent (Primary 4)`
     )
   }
 
@@ -110,6 +111,10 @@ const icons = await readFile(path.join(sourceRoot, "lib/icons.tsx"), "utf8")
 const catalog = await readFile(path.join(sourceRoot, "storybook/catalog.ts"), "utf8")
 const storybookApp = await readFile(
   path.join(sourceRoot, "storybook/storybook-app.tsx"),
+  "utf8"
+)
+const primitivesPage = await readFile(
+  path.join(sourceRoot, "storybook/primitives-page.tsx"),
   "utf8"
 )
 const primaryDemos = await readFile(
@@ -154,6 +159,82 @@ const cardComponent = await readFile(
 )
 const calendarComponent = await readFile(
   path.join(sourceRoot, "components/ui/calendar.tsx"),
+  "utf8"
+)
+const tabsComponent = await readFile(
+  path.join(sourceRoot, "components/ui/tabs.tsx"),
+  "utf8"
+)
+const dialogComponent = await readFile(
+  path.join(sourceRoot, "components/ui/dialog.tsx"),
+  "utf8"
+)
+const attachmentComponent = await readFile(
+  path.join(sourceRoot, "components/ui/attachment.tsx"),
+  "utf8"
+)
+const buttonGroupComponent = await readFile(
+  path.join(sourceRoot, "components/ui/button-group.tsx"),
+  "utf8"
+)
+const contextMenuComponent = await readFile(
+  path.join(sourceRoot, "components/ui/context-menu.tsx"),
+  "utf8"
+)
+const dropdownMenuComponent = await readFile(
+  path.join(sourceRoot, "components/ui/dropdown-menu.tsx"),
+  "utf8"
+)
+const hoverCardComponent = await readFile(
+  path.join(sourceRoot, "components/ui/hover-card.tsx"),
+  "utf8"
+)
+const checkboxComponent = await readFile(
+  path.join(sourceRoot, "components/ui/checkbox.tsx"),
+  "utf8"
+)
+const radioGroupComponent = await readFile(
+  path.join(sourceRoot, "components/ui/radio-group.tsx"),
+  "utf8"
+)
+const menubarComponent = await readFile(
+  path.join(sourceRoot, "components/ui/menubar.tsx"),
+  "utf8"
+)
+const navigationMenuComponent = await readFile(
+  path.join(sourceRoot, "components/ui/navigation-menu.tsx"),
+  "utf8"
+)
+const popoverComponent = await readFile(
+  path.join(sourceRoot, "components/ui/popover.tsx"),
+  "utf8"
+)
+const alertDialogComponent = await readFile(
+  path.join(sourceRoot, "components/ui/alert-dialog.tsx"),
+  "utf8"
+)
+const sheetComponent = await readFile(
+  path.join(sourceRoot, "components/ui/sheet.tsx"),
+  "utf8"
+)
+const drawerComponent = await readFile(
+  path.join(sourceRoot, "components/ui/drawer.tsx"),
+  "utf8"
+)
+const sidebarComponent = await readFile(
+  path.join(sourceRoot, "components/ui/sidebar.tsx"),
+  "utf8"
+)
+const sonnerComponent = await readFile(
+  path.join(sourceRoot, "components/ui/sonner.tsx"),
+  "utf8"
+)
+const switchComponent = await readFile(
+  path.join(sourceRoot, "components/ui/switch.tsx"),
+  "utf8"
+)
+const toggleGroupComponent = await readFile(
+  path.join(sourceRoot, "components/ui/toggle-group.tsx"),
   "utf8"
 )
 
@@ -207,7 +288,11 @@ for (const [, token, value] of styles.matchAll(
   /^\s*(--web-[a-z0-9-]+):\s*([^;]+);$/gm
 )) {
   const reference = value.trim().match(/^var\((--[a-z0-9-]+)\)$/)?.[1]
-  if (!reference || !documentedColorTokens.has(reference)) {
+  if (
+    !reference ||
+    (!documentedColorTokens.has(reference) &&
+      !configurableWebTokens.has(reference))
+  ) {
     errors.push(`${token}: Web UI semantic colors must point directly to Primitives`)
   }
 }
@@ -230,8 +315,8 @@ if (!icons.includes("@deslop/primitives/icons/")) {
   errors.push("src/lib/icons.tsx: icons must come from @deslop/primitives")
 }
 
-if (!styles.includes("color: var(--elevation-40)")) {
-  errors.push("src/index.css: icons must use Elevation 40 by default")
+if (!styles.includes("color: var(--primary-40)")) {
+  errors.push("src/index.css: icons must use Primary 40 by default")
 }
 
 for (const primitiveStylesheet of ["colors.css", "layout.css", "typography.css"]) {
@@ -241,33 +326,39 @@ for (const primitiveStylesheet of ["colors.css", "layout.css", "typography.css"]
 }
 
 for (const bridge of [
-  "--web-background: var(--background)",
+  "--web-background: var(--background-primary)",
   "--web-foreground: var(--primary)",
-  "--web-subtle-fill: var(--elevation-5)",
-  "--web-subtle-fill: var(--elevation-10)",
-  "--web-input: var(--elevation-5)",
-  "--web-muted-foreground: var(--elevation-60)",
-  "--web-action-primary: var(--accent-green)",
+  "--web-subtle-fill: var(--primary-4)",
+  "--web-input: var(--primary-4)",
+  "--web-muted-foreground: var(--primary-60)",
+  "--web-primary-accent: var(--accent-green)",
+  "--web-action-primary: var(--web-primary-accent)",
   "--web-action-primary-foreground: var(--primary)",
-  "--web-action-primary-foreground: var(--background)",
+  "--web-action-primary-foreground: var(--background-primary)",
   "--web-action-destructive: var(--accent-red)",
-  "--web-action-destructive-foreground: var(--background)",
+  "--web-action-destructive-foreground: var(--background-primary)",
   "--web-action-destructive-foreground: var(--primary)",
-  "--web-avatar-foreground: var(--background)",
+  "--web-avatar-foreground: var(--background-primary)",
   "--web-avatar-foreground: var(--primary)",
-  "--web-badge-accent: var(--accent-green)",
-  "--web-badge-border: var(--elevation-20)",
-  "--web-badge-fill: var(--elevation-10)",
-  "--web-badge-fill: var(--elevation-20)",
+  "--web-badge-accent: var(--web-primary-accent)",
+  "--web-badge-border: var(--primary-8)",
+  "--web-badge-fill: var(--primary-4)",
   "--web-badge-foreground: var(--primary)",
-  "--web-badge-media: var(--elevation)",
+  "--web-badge-media: var(--primary-4)",
   "--web-badge-on-accent: var(--primary)",
-  "--web-badge-on-accent: var(--background)",
+  "--web-badge-on-accent: var(--background-primary)",
   "--page-background: var(--web-background)",
+  "--color-static-white: var(--white)",
+  "--color-static-black: var(--black)",
+  "--color-separator: var(--primary-8)",
   "--foreground: var(--web-foreground)",
-  "--card: var(--elevation)",
+  "--card: var(--primary-4)",
   "--card-foreground: var(--web-foreground)",
-  "--popover: var(--elevation)",
+  "--active-control: var(--elevation-2)",
+  "--checkbox: var(--primary-5)",
+  "--floating-panel: var(--elevation-2)",
+  "--modal: var(--elevation-1)",
+  "--popover: var(--primary-4)",
   "--popover-foreground: var(--web-foreground)",
   "--action-primary: var(--web-action-primary)",
   "--action-primary-foreground: var(--web-action-primary-foreground)",
@@ -275,13 +366,13 @@ for (const bridge of [
   "--secondary-foreground: var(--web-foreground)",
   "--muted: var(--web-subtle-fill)",
   "--muted-foreground: var(--web-muted-foreground)",
-  "--action-accent: var(--elevation-5)",
+  "--action-accent: var(--primary-4)",
   "--action-accent-foreground: var(--web-foreground)",
   "--destructive: var(--web-action-destructive)",
   "--destructive-foreground: var(--web-action-destructive-foreground)",
-  "--border: var(--elevation-10)",
+  "--border: var(--primary-8)",
   "--input: var(--web-input)",
-  "--ring: var(--elevation-10)",
+  "--ring: var(--primary-8)",
   "--chart-1: var(--accent-orange)",
   "--chart-2: var(--accent-teal)",
   "--chart-3: var(--accent-blue)",
@@ -292,14 +383,15 @@ for (const bridge of [
   "--chart-3: var(--accent-yellow)",
   "--chart-4: var(--accent-purple)",
   "--chart-5: var(--accent-red)",
-  "--sidebar: var(--elevation)",
+  "--sidebar: var(--background-secondary)",
+  "--color-sidebar-surface: var(--background-secondary)",
   "--sidebar-foreground: var(--web-foreground)",
   "--sidebar-primary: var(--web-action-primary)",
   "--sidebar-primary-foreground: var(--web-action-primary-foreground)",
-  "--sidebar-accent: var(--elevation-5)",
+  "--sidebar-accent: var(--primary-4)",
   "--sidebar-accent-foreground: var(--web-foreground)",
-  "--sidebar-border: var(--elevation-10)",
-  "--sidebar-ring: var(--elevation-40)",
+  "--sidebar-border: var(--primary-8)",
+  "--sidebar-ring: var(--primary-8)",
   "--font-sans: var(--ui-font-interface)",
   "--font-caps: var(--ui-font-interface-caps)",
   "--radius-button: var(--ui-component-button-regular-radius)",
@@ -311,33 +403,55 @@ for (const bridge of [
   }
 }
 
-const inputElevationFiveCount =
-  styles.match(/--web-input:\s*var\(--elevation-5\)/g)?.length ?? 0
+const inputElevationFourCount =
+  styles.match(/--web-input:\s*var\(--primary-4\)/g)?.length ?? 0
 
-if (inputElevationFiveCount !== 2) {
+if (inputElevationFourCount !== 2) {
   errors.push(
-    "src/index.css: light and dark inputs must both use Elevation 5"
+    "src/index.css: light and dark inputs must both use Primary 4"
   )
 }
 
-if (!styles.includes(".ui-hover-elevation-5:hover")) {
-  errors.push("src/index.css: hover state layer must use Elevation 5")
+if (!styles.includes(".ui-hover-primary-4:hover")) {
+  errors.push("src/index.css: hover state layer must use Primary 4")
 }
 
-if (!styles.includes(".ui-background-elevation-5")) {
-  errors.push("src/index.css: Elevation 5 surfaces must use the primitive state layer")
+if (!styles.includes(".ui-background-primary-4")) {
+  errors.push("src/index.css: component surfaces must use Primary 4")
 }
 
 if (!styles.includes(".ui-background-blur")) {
   errors.push("src/index.css: popup and modal surfaces must share background blur")
 }
 
-if (!storybookApp.includes("ui-hover-elevation-5")) {
-  errors.push("src/storybook: component cards must use the Elevation 5 state layer")
+if (!storybookApp.includes("ui-hover-primary-4")) {
+  errors.push("src/storybook: component cards must use the Primary 4 state layer")
 }
 
-if (!storybookApp.includes("ui-background-elevation-5")) {
-  errors.push("src/storybook: component cards must use Elevation 5 surfaces")
+if (!storybookApp.includes("ui-background-primary-4")) {
+  errors.push("src/storybook: component cards must use Primary 4 surfaces")
+}
+
+if (
+  !primitivesPage.includes('title="Base colors"') ||
+  !primitivesPage.includes('title="Primary colors"') ||
+  !primitivesPage.includes('name.startsWith("Primary ")')
+) {
+  errors.push("src/storybook/primitives-page.tsx: base and primary colors must be separate sections")
+}
+
+if (
+  !storybookApp.includes(
+    'className="mt-4 overflow-hidden rounded-xl border bg-background"><ComponentDemo'
+  )
+) {
+  errors.push("src/storybook: component previews must use Background Primary")
+}
+
+const webSecondaryBackgroundUses =
+  styles.match(/var\(--background-secondary\)/g)?.length ?? 0
+if (webSecondaryBackgroundUses !== 2) {
+  errors.push("src/index.css: Background Secondary is reserved for the Web UI sidebar")
 }
 
 for (const avatarContract of [
@@ -388,6 +502,10 @@ if (!comboboxComponent.includes('className={cn("h-12 w-auto rounded-text-field"'
   errors.push("src/components/ui/combobox.tsx: combobox input must use the 48px size and text-field radius")
 }
 
+if (!comboboxComponent.includes("rounded-md bg-floating-panel")) {
+  errors.push("src/components/ui/combobox.tsx: Combobox popup must use Elevation 2")
+}
+
 if (!inputComponent.includes('"h-12 w-full min-w-0 rounded-text-field')) {
   errors.push("src/components/ui/input.tsx: inputs must use the 48px size and text-field radius")
 }
@@ -404,12 +522,128 @@ if (!selectComponent.includes("overflow-y-auto rounded-text-field") || !selectCo
   errors.push("src/components/ui/select.tsx: select menu must use the shared blur, radius, and 48px item size")
 }
 
+if (!selectComponent.includes("rounded-text-field border bg-floating-panel")) {
+  errors.push("src/components/ui/select.tsx: Select popup must use Elevation 2")
+}
+
 if (!cardComponent.includes("rounded-section")) {
   errors.push("src/components/ui/card.tsx: cards must use the Mini App section radius token")
 }
 
 if (!calendarComponent.includes("group/calendar rounded-section")) {
   errors.push("src/components/ui/calendar.tsx: calendar surface must use the section radius token")
+}
+
+if (!tabsComponent.includes('default: "bg-muted"')) {
+  errors.push("src/components/ui/tabs.tsx: tabs container must use Primary 4 through bg-muted")
+}
+
+if (!attachmentComponent.includes("rounded-xl border bg-card")) {
+  errors.push("src/components/ui/attachment.tsx: attachment must use the shared Primary 8 stroke")
+}
+
+if (!buttonGroupComponent.includes("rounded-button bg-muted")) {
+  errors.push("src/components/ui/button-group.tsx: Button Group must use Primary 4 background")
+}
+
+if ((contextMenuComponent.match(/bg-floating-panel/g)?.length ?? 0) !== 2) {
+  errors.push("src/components/ui/context-menu.tsx: Context Menu surfaces must use Elevation 2")
+}
+
+if ((dropdownMenuComponent.match(/bg-floating-panel/g)?.length ?? 0) !== 2) {
+  errors.push("src/components/ui/dropdown-menu.tsx: Dropdown Menu surfaces must use Elevation 2")
+}
+
+if (!hoverCardComponent.includes("rounded-md border bg-floating-panel")) {
+  errors.push("src/components/ui/hover-card.tsx: Hover Card must use Elevation 2")
+}
+
+if (!checkboxComponent.includes("border border-input bg-checkbox")) {
+  errors.push("src/components/ui/checkbox.tsx: unchecked Checkbox must use Primary 5")
+}
+
+if (
+  !radioGroupComponent.includes("rounded-full border bg-checkbox") ||
+  /\sshadow(?:-[^\s"]+)?/.test(radioGroupComponent) ||
+  radioGroupComponent.includes("border-input")
+) {
+  errors.push("src/components/ui/radio-group.tsx: Radio Group must use Primary 5 with a stroke and no shadow")
+}
+
+if ((menubarComponent.match(/bg-floating-panel/g)?.length ?? 0) !== 2) {
+  errors.push("src/components/ui/menubar.tsx: Menubar popup surfaces must use Elevation 2")
+}
+
+if ((navigationMenuComponent.match(/bg-floating-panel/g)?.length ?? 0) !== 2) {
+  errors.push("src/components/ui/navigation-menu.tsx: Navigation Menu surfaces must use Elevation 2")
+}
+
+if (!popoverComponent.includes("rounded-md border bg-floating-panel")) {
+  errors.push("src/components/ui/popover.tsx: Popover must use Elevation 2")
+}
+
+if (!sonnerComponent.includes('"--normal-bg": "var(--floating-panel)"')) {
+  errors.push("src/components/ui/sonner.tsx: Sonner toast must use Elevation 2")
+}
+
+if (
+  !switchComponent.includes("rounded-2xl bg-muted") ||
+  !switchComponent.includes("rounded-xl bg-static-white") ||
+  !switchComponent.includes("data-[state=checked]:bg-primary") ||
+  switchComponent.includes("dark:bg-foreground")
+) {
+  errors.push("src/components/ui/switch.tsx: Switch must use Primary 4 when inactive, the theme accent when active, and a static White thumb")
+}
+
+if (
+  !toggleGroupComponent.includes("rounded-segmented bg-accent") ||
+  !toggleGroupComponent.includes("data-[state=on]:bg-active-control") ||
+  toggleGroupComponent.includes("data-[state=on]:bg-card")
+) {
+  errors.push("src/components/ui/toggle-group.tsx: Toggle Group must use Primary 4 with an Elevation 2 active item")
+}
+
+for (const sidebarContract of [
+  "flex h-full w-(--sidebar-width) flex-col bg-sidebar-surface",
+  "relative flex w-full flex-1 flex-col bg-background",
+  "h-8 w-full bg-input shadow-none",
+  "border border-sidebar-border bg-sidebar-accent",
+]) {
+  if (!sidebarComponent.includes(sidebarContract)) {
+    errors.push(`src/components/ui/sidebar.tsx: missing current token contract ${sidebarContract}`)
+  }
+}
+
+if (
+  sidebarComponent.includes("flex w-full flex-1 flex-col bg-card") ||
+  sidebarComponent.includes("md:peer-data-[variant=inset]:shadow-sm") ||
+  sidebarComponent.includes("shadow-[0_0_0_1px_var(--sidebar-border)]")
+) {
+  errors.push("src/components/ui/sidebar.tsx: Sidebar must not use stale inset or stroke styles")
+}
+
+if (!extraDemos.includes('case "navigation-menu":') || !extraDemos.includes('className="min-h-80"')) {
+  errors.push("src/storybook: Navigation Menu preview must reserve space for its popup")
+}
+
+if (
+  !tabsComponent.includes("data-[state=active]:bg-active-control") ||
+  !tabsComponent.includes("data-[state=active]:text-foreground") ||
+  tabsComponent.includes("data-[state=active]:shadow") ||
+  tabsComponent.includes("hover:text-foreground")
+) {
+  errors.push("src/components/ui/tabs.tsx: tabs must keep muted hover text and use Elevation 2 without a shadow")
+}
+
+for (const [component, contract] of [
+  [dialogComponent, "rounded-lg border bg-modal p-6"],
+  [alertDialogComponent, "rounded-lg border bg-modal p-6"],
+  [sheetComponent, "gap-4 bg-modal shadow-lg"],
+  [drawerComponent, "flex h-auto flex-col bg-modal"],
+]) {
+  if (!component.includes(contract)) {
+    errors.push("src/components/ui: modal surfaces must use Elevation 1 through bg-modal")
+  }
 }
 
 if (errors.length) {

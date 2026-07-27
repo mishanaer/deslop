@@ -1,6 +1,8 @@
 import { useEffect, useState, type MouseEvent, type ReactNode } from "react"
+import { accentColors } from "@deslop/primitives/tokens"
 import {
   CheckIcon,
+  ChevronDownIcon,
   ChevronRightIcon,
   MenuIcon,
   MoonIcon,
@@ -8,6 +10,14 @@ import {
 } from "@/lib/icons"
 
 import { Button } from "@/components/ui/button"
+import {
+  Popover,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
@@ -21,6 +31,7 @@ import {
   getComponent,
 } from "./catalog"
 import { ComponentDemo } from "./component-demo"
+import { PrimitivesPage } from "./primitives-page"
 import { AreaChartPreview, BlockPreview } from "./section-demos"
 
 function usePathname() {
@@ -81,27 +92,107 @@ function ThemeToggle() {
   )
 }
 
+const accentOptions = accentColors.map(({ name }) => ({
+  name,
+  value: name.toLowerCase(),
+}))
+
+function PrimaryColorPicker() {
+  const [primaryColor, setPrimaryColor] = useState(() => {
+    const storedAccent = localStorage.getItem("web-ui-primary-color")
+    return accentOptions.some(({ value }) => value === storedAccent)
+      ? storedAccent!
+      : "green"
+  })
+
+  useEffect(() => {
+    const root = document.documentElement
+    const primitiveToken = `var(--accent-${primaryColor})`
+
+    root.dataset.primaryColor = primaryColor
+    root.style.setProperty("--web-primary-accent", primitiveToken)
+    localStorage.setItem("web-ui-primary-color", primaryColor)
+  }, [primaryColor])
+
+  const selected =
+    accentOptions.find(({ value }) => value === primaryColor) ?? accentOptions[0]
+
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          size="sm"
+          className="gap-2 px-2.5"
+          aria-label={`Primary color: ${selected.name}`}
+        >
+          <span
+            className="size-3.5 rounded-full ring-1 ring-border"
+            style={{ backgroundColor: `var(--accent-${primaryColor})` }}
+          />
+          <ChevronDownIcon className="size-3.5 text-muted-foreground" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent align="end" className="w-64 p-3">
+        <PopoverHeader className="px-1 pb-2">
+          <PopoverTitle>Primary color</PopoverTitle>
+          <PopoverDescription>
+            Uses an accent color from Primitives.
+          </PopoverDescription>
+        </PopoverHeader>
+        <div className="grid grid-cols-2 gap-1">
+          {accentOptions.map(({ name, value }) => (
+            <Button
+              key={value}
+              variant={primaryColor === value ? "secondary" : "ghost"}
+              size="sm"
+              className="justify-start px-2"
+              aria-pressed={primaryColor === value}
+              onClick={() => setPrimaryColor(value)}
+            >
+              <span
+                className="size-4 rounded-full ring-1 ring-border"
+                style={{ backgroundColor: `var(--accent-${value})` }}
+              />
+              <span>{name}</span>
+              {primaryColor === value ? <CheckIcon className="ml-auto" /> : null}
+            </Button>
+          ))}
+        </div>
+      </PopoverContent>
+    </Popover>
+  )
+}
+
 function Header({ navigate }: { navigate: (path: string) => void }) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background">
       <div className="mx-auto flex h-14 max-w-[1440px] items-center gap-4 px-4 lg:px-8">
-        <Button variant="ghost" size="icon-sm" className="lg:hidden" onClick={() => setMobileOpen((value) => !value)}><MenuIcon /></Button>
-        <AppLink href="/docs/components" navigate={navigate} className="flex items-center gap-2 font-semibold tracking-tight">
-          <span>web/ui</span>
-        </AppLink>
-        <nav className="hidden items-center gap-5 text-sm lg:flex">
+        <Button
+          variant="ghost"
+          size="icon-sm"
+          className="sm:hidden"
+          aria-label="Open navigation"
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((value) => !value)}
+        >
+          <MenuIcon />
+        </Button>
+        <nav className="hidden items-center gap-5 text-sm sm:flex">
+          <AppLink href="/primitives" navigate={navigate} className="text-muted-foreground transition-colors hover:text-foreground">Primitives</AppLink>
           <AppLink href="/docs/components" navigate={navigate} className="text-muted-foreground transition-colors hover:text-foreground">Components</AppLink>
           <AppLink href="/blocks" navigate={navigate} className="text-muted-foreground transition-colors hover:text-foreground">Blocks</AppLink>
           <AppLink href="/charts/area" navigate={navigate} className="text-muted-foreground transition-colors hover:text-foreground">Charts</AppLink>
         </nav>
         <div className="ml-auto flex items-center gap-2">
+          <PrimaryColorPicker />
           <ThemeToggle />
         </div>
       </div>
       {mobileOpen && (
-        <div className="border-t p-4 lg:hidden"><nav className="flex flex-col gap-1"><AppLink href="/docs/components" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Components</AppLink><AppLink href="/blocks" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Blocks</AppLink><AppLink href="/charts/area" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Charts</AppLink></nav></div>
+        <div className="border-t p-4 sm:hidden"><nav className="flex flex-col gap-1"><AppLink href="/primitives" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Primitives</AppLink><AppLink href="/docs/components" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Components</AppLink><AppLink href="/blocks" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Blocks</AppLink><AppLink href="/charts/area" navigate={(path) => { navigate(path); setMobileOpen(false) }} className="rounded-md px-3 py-2 text-sm hover:bg-accent">Charts</AppLink></nav></div>
       )}
     </header>
   )
@@ -109,13 +200,14 @@ function Header({ navigate }: { navigate: (path: string) => void }) {
 
 function Sidebar({ pathname, navigate }: { pathname: string; navigate: (path: string) => void }) {
   const sectionLinks = [
+    { title: "Primitives", href: "/primitives" },
     { title: "Components", href: "/docs/components" },
     { title: "Blocks", href: "/blocks" },
     { title: "Area Charts", href: "/charts/area" },
   ]
 
   return (
-    <aside className="sticky top-14 hidden h-[calc(100vh-3.5rem)] w-60 shrink-0 overflow-y-auto border-r px-4 py-8 lg:block">
+    <aside className="sticky top-14 hidden h-[calc(100vh-3.5rem)] w-60 shrink-0 overflow-y-auto border-r bg-sidebar-surface px-4 py-8 lg:block">
       <div className="mb-8">
         <p className="mb-2 px-2 text-xs font-medium text-muted-foreground">Sections</p>
         <nav className="space-y-0.5">
@@ -163,7 +255,7 @@ function ComponentsPage({ navigate }: { navigate: (path: string) => void }) {
             <h2 className="mb-4 text-sm font-medium text-muted-foreground">{category}</h2>
             <div className="grid gap-px overflow-hidden rounded-xl border bg-background sm:grid-cols-2 xl:grid-cols-3">
               {components.filter((component) => component.category === category).map((component) => (
-                <AppLink key={component.slug} href={`/docs/components/${component.slug}`} navigate={navigate} className="ui-background-elevation-5 ui-hover-elevation-5 group flex min-h-28 items-start justify-between gap-4 p-5 transition-colors"><div><h3 className="font-medium">{component.title}</h3><p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">{component.description}</p></div><ChevronRightIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" /></AppLink>
+                <AppLink key={component.slug} href={`/docs/components/${component.slug}`} navigate={navigate} className="ui-background-primary-4 ui-hover-primary-4 group flex min-h-28 items-start justify-between gap-4 p-5 transition-colors"><div><h3 className="font-medium">{component.title}</h3><p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">{component.description}</p></div><ChevronRightIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" /></AppLink>
               ))}
             </div>
           </section>
@@ -189,7 +281,7 @@ function BlocksPage({ navigate }: { navigate: (path: string) => void }) {
               </div>
               <Button variant="outline" asChild><AppLink href={`/blocks/${block.slug}`} navigate={navigate}>View block</AppLink></Button>
             </div>
-            <div className="overflow-hidden rounded-section bg-background p-3 sm:p-5">
+            <div className="overflow-hidden rounded-md bg-background p-3 sm:p-5">
               <BlockPreview slug={block.slug} />
             </div>
           </section>
@@ -213,7 +305,7 @@ function BlockPage({ slug }: { slug: string }) {
       <section id="preview" className="mt-10">
         <Tabs defaultValue="preview">
           <TabsList className="h-9"><TabsTrigger value="preview">Preview</TabsTrigger><TabsTrigger value="code">Code</TabsTrigger></TabsList>
-          <TabsContent value="preview" className="mt-4 overflow-hidden rounded-section bg-background p-3 sm:p-5"><BlockPreview slug={block.slug} /></TabsContent>
+          <TabsContent value="preview" className="mt-4 overflow-hidden rounded-md bg-background p-3 sm:p-5"><BlockPreview slug={block.slug} /></TabsContent>
           <TabsContent value="code" className="mt-4"><pre className="overflow-x-auto rounded-section border bg-muted p-5 text-sm leading-6"><code>{source}</code></pre></TabsContent>
         </Tabs>
       </section>
@@ -271,7 +363,7 @@ function ComponentPage({ slug }: { slug: string }) {
       <section id="preview" className="mt-10">
         <Tabs defaultValue="preview">
           <TabsList className="h-9"><TabsTrigger value="preview">Preview</TabsTrigger><TabsTrigger value="code">Code</TabsTrigger></TabsList>
-          <TabsContent value="preview" className="mt-4 overflow-hidden rounded-xl border bg-card"><ComponentDemo slug={component.slug} title={component.title} /></TabsContent>
+          <TabsContent value="preview" className="mt-4 overflow-hidden rounded-xl border bg-background"><ComponentDemo slug={component.slug} title={component.title} /></TabsContent>
           <TabsContent value="code" className="mt-4"><pre className="overflow-x-auto rounded-xl border bg-muted p-5 text-sm leading-6"><code>{source}</code></pre></TabsContent>
         </Tabs>
       </section>
@@ -290,6 +382,7 @@ export function StorybookApp() {
 
   let page: ReactNode
   if (pathname === "/" || pathname === "/docs") page = <ComponentsPage navigate={navigate} />
+  else if (pathname === "/primitives") page = <PrimitivesPage />
   else if (pathname === "/docs/components") page = <ComponentsPage navigate={navigate} />
   else if (componentMatch) page = <ComponentPage slug={componentMatch[1]} />
   else if (pathname === "/blocks") page = <BlocksPage navigate={navigate} />

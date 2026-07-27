@@ -28,7 +28,12 @@ export const accentColors = [
 ];
 
 export const baseColors = [
-  { name: "Background", light: "#F5F5F5", dark: "#111111" },
+  { name: "Background Secondary", light: "#F5F5F5", dark: "#1D1D1D" },
+  { name: "Background Primary", light: "#FFFFFF", dark: "#111111" },
+  { name: "Elevation 1", light: "#FFFFFF", dark: "#1D1D1D" },
+  { name: "Elevation 2", light: "#FFFFFF", dark: "#282828" },
+  { name: "White", light: "#FFFFFF", dark: "#FFFFFF" },
+  { name: "Black", light: "#111111", dark: "#111111" },
 ];
 
 export const avatarGradients = [
@@ -41,21 +46,24 @@ export const avatarGradients = [
   { name: "Pink", top: "#E0A2F3", bottom: "#D669ED" },
 ];
 
-export const elevationColors = [
-  { name: "Elevation", light: "#FFFFFF", dark: "#FFFFFF0D" },
+export const primaryColors = [
   { name: "Primary", light: "#111111", dark: "#FFFFFF" },
-  { name: "Elevation 90", light: "#111111E6", dark: "#FFFFFFE6" },
-  { name: "Elevation 80", light: "#111111CC", dark: "#FFFFFFCC" },
-  { name: "Elevation 70", light: "#111111B3", dark: "#FFFFFFB3" },
-  { name: "Elevation 60", light: "#11111199", dark: "#FFFFFF99" },
-  { name: "Elevation 50", light: "#11111180", dark: "#FFFFFF80" },
-  { name: "Elevation 40", light: "#11111166", dark: "#FFFFFF66" },
-  { name: "Elevation 30", light: "#1111114D", dark: "#FFFFFF4D" },
-  { name: "Elevation 20", light: "#11111133", dark: "#FFFFFF33" },
-  { name: "Elevation 10", light: "#1111111A", dark: "#FFFFFF1A" },
-  { name: "Elevation 5", light: "#1111110D", dark: "#FFFFFF0D" },
-  { name: "Elevation 4", light: "#1111110A", dark: "#FFFFFF0A" },
+  { name: "Primary 90", light: "#111111E6", dark: "#FFFFFFE6" },
+  { name: "Primary 80", light: "#111111CC", dark: "#FFFFFFCC" },
+  { name: "Primary 70", light: "#111111B3", dark: "#FFFFFFB3" },
+  { name: "Primary 60", light: "#11111199", dark: "#FFFFFF99" },
+  { name: "Primary 50", light: "#11111180", dark: "#FFFFFF80" },
+  { name: "Primary 40", light: "#11111166", dark: "#FFFFFF66" },
+  { name: "Primary 30", light: "#1111114D", dark: "#FFFFFF4D" },
+  { name: "Primary 20", light: "#11111133", dark: "#FFFFFF33" },
+  { name: "Primary 10", light: "#1111111A", dark: "#FFFFFF1A" },
+  { name: "Primary 8", light: "#11111114", dark: "#FFFFFF14" },
+  { name: "Primary 5", light: "#1111110D", dark: "#FFFFFF0D" },
+  { name: "Primary 4", light: "#1111110A", dark: "#FFFFFF0A" },
 ];
+
+// Compatibility export for Mini Apps while they migrate to primaryColors.
+export const elevationColors = primaryColors;
 
 export const typographyStyles = [
   {

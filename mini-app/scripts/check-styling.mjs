@@ -268,7 +268,7 @@ for (const required of [
 
 for (const token of [
     "--mini-app-background",
-    "--mini-app-elevation",
+    "--mini-app-surface",
     "--mini-app-text-primary",
     "--mini-app-text-secondary",
     "--mini-app-separator",

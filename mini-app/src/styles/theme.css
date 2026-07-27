@@ -2,7 +2,7 @@
 
 :root {
     --mini-app-background-secondary: var(--background);
-    --mini-app-elevation: var(--elevation);
+    --mini-app-surface: var(--surface);
     --mini-app-action-primary-background: var(--accent-green);
     --mini-app-action-destructive-background: var(--accent-red);
     --mini-app-story-badge: var(--accent-indigo);
@@ -27,10 +27,10 @@
     --mini-app-separator-translucent: var(--elevation-20);
     --mini-app-fill-tertiary: var(--elevation-10);
     --mini-app-fill-quaternary: var(--elevation-5);
-    --mini-app-control-active: var(--elevation);
+    --mini-app-control-active: var(--surface);
     --mini-app-control-disabled: var(--elevation-10);
     --mini-app-text-disabled: var(--elevation-30);
-    --mini-app-shine-highlight: var(--elevation);
+    --mini-app-shine-highlight: var(--surface);
     --mini-app-action-primary-foreground: var(--primary);
     --mini-app-action-destructive-foreground: var(--background);
     --mini-app-story-background: var(--primary);
@@ -56,7 +56,7 @@
         --mini-app-separator-translucent: var(--elevation-20);
         --mini-app-fill-tertiary: var(--elevation-20);
         --mini-app-fill-quaternary: var(--elevation-10);
-        --mini-app-control-active: var(--elevation);
+        --mini-app-control-active: var(--surface);
         --mini-app-control-disabled: var(--elevation-20);
         --mini-app-text-disabled: var(--elevation-30);
         --mini-app-shine-highlight: var(--primary);
@@ -86,7 +86,7 @@
     --mini-app-separator-translucent: var(--elevation-20);
     --mini-app-fill-tertiary: var(--elevation-20);
     --mini-app-fill-quaternary: var(--elevation-10);
-    --mini-app-control-active: var(--elevation);
+    --mini-app-control-active: var(--surface);
     --mini-app-control-disabled: var(--elevation-20);
     --mini-app-text-disabled: var(--elevation-30);
     --mini-app-shine-highlight: var(--primary);

@@ -51,8 +51,28 @@ accent-colors:
     dark: "#B78A66"
 
 base-colors:
-  background:
+  background-secondary:
     light: "#F5F5F5"
+    dark: "#1D1D1D"
+
+  background-primary:
+    light: "#FFFFFF"
+    dark: "#111111"
+
+  elevation-1:
+    light: "#FFFFFF"
+    dark: "#1D1D1D"
+
+  elevation-2:
+    light: "#FFFFFF"
+    dark: "#282828"
+
+  white:
+    light: "#FFFFFF"
+    dark: "#FFFFFF"
+
+  black:
+    light: "#111111"
     dark: "#111111"
 
 avatar-gradients:
@@ -84,56 +104,56 @@ avatar-gradients:
     top: "#E0A2F3"
     bottom: "#D669ED"
 
-elevation-colors:
-  elevation:
-    light: "#FFFFFF"
-    dark: "#FFFFFF0D"
-
+primary-colors:
   primary:
     light: "#111111"
     dark: "#FFFFFF"
 
-  elevation-90:
+  primary-90:
     light: "#111111E6"
     dark: "#FFFFFFE6"
 
-  elevation-80:
+  primary-80:
     light: "#111111CC"
     dark: "#FFFFFFCC"
 
-  elevation-70:
+  primary-70:
     light: "#111111B3"
     dark: "#FFFFFFB3"
 
-  elevation-60:
+  primary-60:
     light: "#11111199"
     dark: "#FFFFFF99"
 
-  elevation-50:
+  primary-50:
     light: "#11111180"
     dark: "#FFFFFF80"
 
-  elevation-40:
+  primary-40:
     light: "#11111166"
     dark: "#FFFFFF66"
 
-  elevation-30:
+  primary-30:
     light: "#1111114D"
     dark: "#FFFFFF4D"
 
-  elevation-20:
+  primary-20:
     light: "#11111133"
     dark: "#FFFFFF33"
 
-  elevation-10:
+  primary-10:
     light: "#1111111A"
     dark: "#FFFFFF1A"
 
-  elevation-5:
+  primary-8:
+    light: "#11111114"
+    dark: "#FFFFFF14"
+
+  primary-5:
     light: "#1111110D"
     dark: "#FFFFFF0D"
 
-  elevation-4:
+  primary-4:
     light: "#1111110A"
     dark: "#FFFFFF0A"
 ```

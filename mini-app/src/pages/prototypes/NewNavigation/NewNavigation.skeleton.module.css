@@ -55,7 +55,7 @@
   align-items: center;
   padding: 4px;
   border-radius: 100px;
-  background: var(--mini-app-elevation);
+  background: var(--mini-app-surface);
   backdrop-filter: saturate(300%) blur(8px);
   box-shadow: 0 0 10px 0 var(--elevation-10);
 }
