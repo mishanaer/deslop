@@ -1,9 +1,46 @@
 {
   "name": "@deslop/primitives",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "Design tokens, fonts, and icons shared by Deslop component libraries.",
   "type": "module",
+  "files": [
+    "*.css",
+    "*.d.ts",
+    "*.js",
+    "fonts",
+    "icons",
+    "README.md",
+    "TYPOGRAPHY.md",
+    "colors.md"
+  ],
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./colors": {
+      "types": "./colors.d.ts",
+      "import": "./colors.js"
+    },
+    "./layout": {
+      "types": "./layout.d.ts",
+      "import": "./layout.js"
+    },
+    "./tokens": {
+      "types": "./tokens.d.ts",
+      "import": "./tokens.js"
+    },
+    "./colors.css": "./colors.css",
+    "./layout.css": "./layout.css",
+    "./typography.css": "./typography.css",
+    "./icons/*": "./icons/*",
+    "./fonts/*": "./fonts/*"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "tokens:generate": "node ./scripts/generate-layout-tokens.mjs",
     "tokens:check": "node ./scripts/generate-layout-tokens.mjs --check",
