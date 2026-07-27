@@ -45,8 +45,8 @@ const projects = [
 function DashboardBlock() {
   return (
     <SidebarProvider
-      className="relative min-h-[760px] overflow-hidden rounded-section border"
-      style={{ "--sidebar-width": "14rem", "--sidebar": "var(--background)" } as CSSProperties}
+      className="relative min-h-[760px] overflow-hidden rounded-md border"
+      style={{ "--sidebar-width": "14rem" } as CSSProperties}
     >
       <Sidebar collapsible="offcanvas" className="absolute h-full border-r">
         <SidebarHeader className="p-4 font-semibold">Deslop</SidebarHeader>
@@ -63,13 +63,13 @@ function DashboardBlock() {
           </SidebarGroup>
         </SidebarContent>
       </Sidebar>
-      <SidebarInset className="min-w-0 bg-card">
+      <SidebarInset className="min-w-0 bg-background">
         <header className="flex h-14 items-center gap-3 border-b px-4">
           <SidebarTrigger />
           <span className="font-medium">Dashboard</span>
           <Button size="sm" className="ml-auto"><PlusIcon /> Add project</Button>
         </header>
-        <div className="flex flex-col gap-5 p-4 [&_[data-slot=card]]:border-0 [&_[data-slot=card]]:bg-accent [&_[data-slot=card]]:shadow-none lg:p-6">
+        <div className="flex flex-col gap-5 p-4 [&_[data-slot=card]]:rounded-md [&_[data-slot=card]]:border-0 lg:p-6">
           <div className="grid gap-4 md:grid-cols-3">
             {metrics.map((metric) => (
               <Card key={metric.label}>

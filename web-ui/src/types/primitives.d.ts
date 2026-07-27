@@ -11,4 +11,30 @@ declare module "@deslop/primitives/tokens" {
     light: string
     dark: string
   }[]
+
+  export const baseColors: readonly {
+    name: string
+    light: string
+    dark: string
+  }[]
+
+  export const primaryColors: readonly {
+    name: string
+    light: string
+    dark: string
+  }[]
+
+  export const elevationColors: typeof primaryColors
+
+  export const spacingTokens: Readonly<Record<string, string>>
+  export const radiusTokens: Readonly<Record<string, string>>
+
+  export const typographyStyles: readonly {
+    name: string
+    fontSize: string
+    lineHeight: string
+    fontWeight: number
+    letterSpacing: string
+    caps?: boolean
+  }[]
 }

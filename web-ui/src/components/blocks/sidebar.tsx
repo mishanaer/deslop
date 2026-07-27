@@ -29,8 +29,8 @@ const navigation = [
 function SidebarBlock() {
   return (
     <SidebarProvider
-      className="relative min-h-[560px] overflow-hidden rounded-section border"
-      style={{ "--sidebar-width": "14rem", "--sidebar": "var(--background)" } as CSSProperties}
+      className="relative min-h-[560px] overflow-hidden rounded-md border"
+      style={{ "--sidebar-width": "14rem" } as CSSProperties}
     >
       <Sidebar collapsible="offcanvas" className="absolute h-full border-r">
         <SidebarHeader className="p-4">
@@ -64,15 +64,15 @@ function SidebarBlock() {
           <span className="font-medium">Overview</span>
         </header>
         <div className="grid flex-1 gap-4 p-4 [&>div]:border-0 [&>div]:bg-subtle-surface [&>div]:shadow-none sm:grid-cols-2">
-          <div className="rounded-section border p-5">
+          <div className="rounded-md border p-5">
             <p className="font-medium">Active projects</p>
             <p className="mt-2 text-3xl font-semibold">12</p>
           </div>
-          <div className="rounded-section border p-5">
+          <div className="rounded-md border p-5">
             <p className="font-medium">Team members</p>
             <p className="mt-2 text-3xl font-semibold">24</p>
           </div>
-          <div className="min-h-64 rounded-section border p-5 sm:col-span-2">
+          <div className="min-h-64 rounded-md border p-5 sm:col-span-2">
             <p className="font-medium">Workspace activity</p>
             <p className="mt-2 text-sm text-muted-foreground">Select an item in the sidebar to open its content.</p>
           </div>

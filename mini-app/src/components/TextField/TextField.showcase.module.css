@@ -41,7 +41,7 @@
 
 .input input {
   border-radius: 36px;
-  background: var(--mini-app-elevation);
+  background: var(--mini-app-surface);
 }
 
 .input input::placeholder {

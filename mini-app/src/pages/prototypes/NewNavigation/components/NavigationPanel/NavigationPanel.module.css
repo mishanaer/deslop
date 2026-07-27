@@ -69,7 +69,7 @@
   border-radius: 26px;
   color: var(--tg-theme-text-color);
   text-align: center;
-  background-color: var(--mini-app-elevation);
+  background-color: var(--mini-app-surface);
   overflow: hidden;
   will-change: transform;
   z-index: 202;

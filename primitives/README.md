@@ -11,7 +11,7 @@ Primitives хранят базовые правила. Готовые React-ко
 
 | Что | Где | Как использовать |
 | --- | --- | --- |
-| Цвета | `colors.css`, `colors.md`, `tokens.js` | CSS-переменные `--background`, `--elevation`, `--primary`, `--elevation-*`, `--accent-*` и JS-массивы токенов |
+| Цвета | `colors.css`, `colors.md`, `tokens.js` | CSS-переменные `--white`, `--black`, `--background-primary`, `--background-secondary`, `--primary`, `--primary-*`, `--accent-*` и JS-массивы токенов |
 | Типографика и шрифты | `typography.css`, `TYPOGRAPHY.md` | CSS-переменные и локальные шрифты SB Sans |
 | Отступы и радиусы | `layout.json`, `layout.css`, `layout.js` | CSS-переменные и JS-токены |
 | Иконки | `icons/` | SVG размером 24 × 24 с понятными именами. Адаптированы из Иконостаса Ильи Пехтерева |
@@ -50,7 +50,7 @@ Modules:
 
 ## Правила применения
 
-- В Primitives лежат `--background`, `--elevation`, `--primary`, палитры `--accent-*` и `--elevation-*`. Семантические роли задаёт библиотека компонентов конкретного продукта.
+- В Primitives лежат постоянные `--white` и `--black`, тематические `--background-primary`, `--background-secondary`, `--primary`, палитры `--accent-*` и `--primary-*`. Старые `--background`, `--surface` и `--elevation-4…90` временно сохранены как алиасы для Mini Apps. Семантические роли задаёт библиотека компонентов конкретного продукта.
 - В Mini App используйте роли из `mini-app/src/styles/theme.css`, в Web UI — shadcn-роли из `web-ui/src/index.css`. Не используйте базовый цвет напрямую внутри компонента, если для него уже есть роль продукта.
 - Используйте `--ui-font-interface` для интерфейсного текста и `--ui-font-interface-caps` только для стиля Caption.
 - Берите отступы из `--ui-space-*` и `--ui-layout-*`, радиусы — из `--ui-radius-*` и `--ui-component-*-radius`.

@@ -11,7 +11,7 @@
     --color-*: initial;
     --color-background: var(--mini-app-background);
     --color-background-secondary: var(--mini-app-background-secondary);
-    --color-elevation: var(--mini-app-elevation);
+    --color-surface: var(--mini-app-surface);
     --color-text-primary: var(--mini-app-text-primary);
     --color-text-secondary: var(--mini-app-text-secondary);
     --color-text-section: var(--mini-app-text-section);

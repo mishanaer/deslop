@@ -5,7 +5,7 @@ import {
   accentColors,
   avatarGradients,
   baseColors,
-  elevationColors,
+  primaryColors,
 } from "../tokens.js";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -170,9 +170,9 @@ for (const color of baseColors) {
   });
 }
 
-for (const color of elevationColors) {
+for (const color of primaryColors) {
   checkPair({
-    section: "elevation-colors",
+    section: "primary-colors",
     cssToken:
       color.name === "Primary" ? "--primary" : `--${tokenKey(color.name)}`,
     source: color,

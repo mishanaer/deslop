@@ -21,12 +21,12 @@ svg[viewBox="0 0 24 24"] {
     --tg-theme-button-text-color: var(--mini-app-background);
     --tg-theme-subtitle-text-color: var(--mini-app-text-secondary);
     --tg-theme-destructive-text-color: var(--accent-red);
-    --tg-theme-section-bg-color: var(--mini-app-elevation);
+    --tg-theme-section-bg-color: var(--mini-app-surface);
     --tg-theme-accent-text-color: var(--accent-blue);
     --tg-theme-link-color: var(--accent-blue);
     --tg-theme-section-header-text-color: var(--mini-app-text-section);
     --tg-theme-section-separator-color: var(--mini-app-separator);
-    --tg-theme-bottom-bar-bg-color: var(--mini-app-elevation);
+    --tg-theme-bottom-bar-bg-color: var(--mini-app-surface);
     --tg-theme-hint-color: var(--mini-app-text-secondary);
     --secondary-button-color: var(--mini-app-fill-tertiary);
     --text-confirm-color: var(--accent-green);
