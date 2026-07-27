@@ -10,9 +10,9 @@ const catalog = JSON.parse(
   await readFile(resolve(root, "agent/components.json"), "utf8")
 )
 
-assert.equal(packageJson.private, true)
+assert.equal(packageJson.private, false)
 assert.equal(packageJson.bin, undefined)
-assert.equal(packageJson.exports, undefined)
+assert.equal(typeof packageJson.exports, "object")
 assert(catalog.modules.length >= 60)
 assert(!/\.deslop|setup|src\/components\/web-ui/.test(`${rules}\n${components}`))
 
