@@ -4,6 +4,10 @@
   "private": false,
   "description": "Design tokens, fonts, and icons shared by Deslop component libraries.",
   "type": "module",
+  "repository": "https://github.com/mishanaer/deslop.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": [
     "*.css",
     "*.d.ts",

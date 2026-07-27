@@ -4,6 +4,10 @@
   "private": false,
   "description": "React components for Deslop web products, based on shadcn/ui.",
   "type": "module",
+  "repository": "https://github.com/mishanaer/deslop.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": [
     "dist",
     "README.md",
