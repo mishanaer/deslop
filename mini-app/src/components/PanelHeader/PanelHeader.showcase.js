@@ -5,9 +5,11 @@ import SectionHeader from "../SectionHeader"
 import PanelHeader from "../PanelHeader"
 
 import { BackButton } from "../../lib/twa"
-import ChevronLeftIcon from "@deslop/primitives/icons/chevron-left.svg?react"
-import EllipsisIcon from "@deslop/primitives/icons/circle-more.svg?react"
-import XmarkIcon from "@deslop/primitives/icons/cross.svg?react"
+import {
+    IconArrowBackIosNew as ArrowBackIosNewIcon,
+    IconCross as XmarkIcon,
+    IconMore as EllipsisIcon,
+} from "@deslop/primitives/material-symbols-react"
 
 import * as styles from "./PanelHeader.showcase.module.css"
 
@@ -34,7 +36,7 @@ const PanelHeaderShowcase = () => (
         <Page>
             <Sample label="Regular">
                 <PanelHeader
-                    left={<ChevronLeftIcon />}
+                    left={<ArrowBackIosNewIcon />}
                     onLeft={noop}
                     right={<EllipsisIcon />}
                     onRight={noop}
@@ -56,7 +58,7 @@ const PanelHeaderShowcase = () => (
 
             <Sample label="Secondary">
                 <PanelHeader
-                    left={<ChevronLeftIcon />}
+                    left={<ArrowBackIosNewIcon />}
                     onLeft={noop}
                     leftVariant="secondary"
                     right={<EllipsisIcon />}
@@ -81,7 +83,7 @@ const PanelHeaderShowcase = () => (
 
             <Sample label="Overlay" over>
                 <PanelHeader
-                    left={<ChevronLeftIcon />}
+                    left={<ArrowBackIosNewIcon />}
                     onLeft={noop}
                     right={<EllipsisIcon />}
                     onRight={noop}
@@ -93,7 +95,7 @@ const PanelHeaderShowcase = () => (
 
             <Sample label="Title capsule">
                 <PanelHeader
-                    left={<ChevronLeftIcon />}
+                    left={<ArrowBackIosNewIcon />}
                     onLeft={noop}
                     right={<EllipsisIcon />}
                     onRight={noop}

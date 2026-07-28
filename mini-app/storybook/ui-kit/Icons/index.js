@@ -2,11 +2,11 @@ import Page from "../../../src/components/Page"
 import SectionList from "../../../src/components/SectionList"
 import Cell from "../../../src/components/Cells"
 import { BackButton } from "../../../src/lib/twa"
-import { iconComponents } from "@deslop/primitives/icons-react"
+import { materialSymbolComponents } from "@deslop/primitives/material-symbols-react"
 
 import * as styles from "./Icons.module.css"
 
-const sortedIcons = Object.entries(iconComponents).toSorted(([a], [b]) =>
+const sortedIcons = Object.entries(materialSymbolComponents).toSorted(([a], [b]) =>
     a.localeCompare(b)
 )
 
@@ -29,7 +29,10 @@ const IconsShowcase = () => (
                                 </span>
                             }
                         >
-                            <Cell.Text title={name} description="24 × 24" />
+                            <Cell.Text
+                                title={name}
+                                description="Material Symbols · Rounded · 24px"
+                            />
                         </Cell>
                     ))}
                 </SectionList.Item>

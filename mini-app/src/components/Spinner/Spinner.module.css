@@ -16,12 +16,12 @@
   animation-timing-function: steps(8);
 }
 
-:global(body.apple) .spinner path {
-  fill: var(--tg-theme-subtitle-text-color);
+:global(body.apple) .spinner {
+  color: var(--primary-60);
 }
 
 :global(body.material) .spinner {
-  color: var(--tg-theme-accent-text-color);
+  color: var(--accent-blue);
 }
 
 @media (prefers-reduced-motion) {

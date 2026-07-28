@@ -53,7 +53,7 @@ accent-colors:
 base-colors:
   background-secondary:
     light: "#F5F5F5"
-    dark: "#1D1D1D"
+    dark: "#111111"
 
   background-primary:
     light: "#FFFFFF"

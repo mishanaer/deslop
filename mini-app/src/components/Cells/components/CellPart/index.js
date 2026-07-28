@@ -1,4 +1,8 @@
 import PropTypes from "prop-types"
+import {
+    IconChevronDown,
+    IconChevronRight,
+} from "@deslop/primitives/material-symbols-react"
 import Text from "../../../Text"
 import * as styles from "./CellPart.module.css"
 
@@ -19,6 +23,15 @@ export const CellPart = ({
                 <Text variant="body" weight="regular">
                     {children}
                 </Text>
+            </div>
+        )
+    }
+
+    if (type === "Dropdown") {
+        return (
+            <div className={styles.dropdown}>
+                {children}
+                <IconChevronDown className={styles.dropdownIcon} size={12} />
             </div>
         )
     }
@@ -44,6 +57,10 @@ export const CellPart = ({
                 )}
             </div>
         )
+    }
+
+    if (type === "Chevron") {
+        return <IconChevronRight className={styles.chevron} size={24} />
     }
 
     return (

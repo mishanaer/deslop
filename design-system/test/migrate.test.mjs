@@ -39,7 +39,7 @@ test("migration transforms only registry-backed imports and reports the rest", a
   )
   assert.match(
     result.source,
-    /import \{ IconSearch as Find \} from "@deslop\/primitives\/icons-react"/,
+    /import \{ IconSearch as Find \} from "@deslop\/primitives\/material-symbols-react"/,
   )
   assert.match(result.source, /import \{ Camera \} from "lucide-react"/)
   assert.match(result.source, /from "@deslop\/web-ui\/toast"/)
@@ -68,7 +68,7 @@ test("every registered icon migration targets a real public export", async () =>
     assert.match(
       iconRuntime,
       new RegExp(`export const ${mapping.import}\\b`),
-      `${mapping.import} is not exported by @deslop/primitives/icons-react`,
+      `${mapping.import} is not exported by @deslop/primitives/material-symbols-react`,
     )
   }
 })

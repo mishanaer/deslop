@@ -17,7 +17,7 @@
   scroll-padding-inline: var(--tabs-side-padding);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  mask-image: linear-gradient(to right, transparent 0, var(--mini-app-static-black) var(--tabs-side-padding), var(--mini-app-static-black) calc(100% - var(--tabs-side-padding)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, var(--black) var(--tabs-side-padding), var(--black) calc(100% - var(--tabs-side-padding)), transparent 100%);
 }
 
 .list.scrollable::-webkit-scrollbar {
@@ -67,7 +67,7 @@
   border: 0;
   border-radius: var(--ui-component-tab-radius);
   cursor: pointer;
-  color: var(--tg-theme-subtitle-text-color);
+  color: var(--primary-60);
   transition: color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -78,12 +78,12 @@
 }
 
 .tab:focus-visible {
-  outline: 2px solid var(--tg-theme-accent-text-color);
+  outline: 2px solid var(--accent-blue);
   outline-offset: 2px;
 }
 
 .tab.active {
-  color: var(--tg-theme-accent-text-color);
+  color: var(--accent-blue);
 }
 
 .compact .tab {
@@ -95,22 +95,22 @@
   padding: var(--ui-component-tab-glass-block-spacing) var(--ui-space-14);
   border-radius: var(--ui-component-tab-glass-radius);
   z-index: 3;
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
 }
 
 .glassList .tab.active {
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
 }
 
 .glassList .indicator {
-  background-color: var(--tertiary-fill-background);
+  background-color: var(--primary-10);
   border-radius: inherit;
 }
 
 .indicator {
   position: absolute;
   inset: 0;
-  background-color: var(--mini-app-fill-tertiary);
+  background-color: var(--primary-10);
   border-radius: inherit;
   z-index: 0;
   pointer-events: none;

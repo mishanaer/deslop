@@ -3,9 +3,11 @@ import * as balanceCardStyles from "../../../Wallet/components/BalanceCard/Balan
 import * as ButtonStyles from "../../../../../components/Button/MultilineButton/MultilineButton.module.css"
 import { MultilineButton } from "../../../../../components/Button"
 
-import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"
-import ArrowsSwapIcon from "@deslop/primitives/icons/arrows-swap.svg?react"
-import PlusIcon from "@deslop/primitives/icons/plus.svg?react"
+import {
+    IconArrowUp as ArrowUpIcon,
+    IconPlus as PlusIcon,
+    IconSwap as ArrowsSwapIcon,
+} from "@deslop/primitives/material-symbols-react"
 
 export default function Profile() {
     return (

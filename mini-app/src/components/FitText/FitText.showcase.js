@@ -34,7 +34,7 @@ const Stage = ({ width, children }) => (
                 padding: "16px 0",
                 borderRadius: 12,
                 boxShadow:
-                    "inset 0 0 0 1px var(--tg-theme-section-separator-color)",
+                    "inset 0 0 0 1px var(--primary-20)",
             }}
         >
             {children}

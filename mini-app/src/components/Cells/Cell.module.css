@@ -13,11 +13,11 @@
 }
 
 .root {
-  --mini-app-press-highlight: var(--elevation-5);
+  --tappable-highlight: var(--primary-5);
 
   display: flex;
   flex-direction: row;
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
   cursor: pointer;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
@@ -28,7 +28,7 @@
 }
 
 .root:focus-visible {
-  background-color: var(--mini-app-press-highlight);
+  background-color: var(--tappable-highlight);
 }
 
 .root .start {
@@ -53,7 +53,7 @@
 
 .root .start .icon svg,
 .root .start .icon path {
-  fill: var(--mini-app-static-white);
+  fill: var(--white);
 }
 
 .root .body {
@@ -61,7 +61,7 @@
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
-  border-bottom: var(--cell-separator-height) solid var(--tg-theme-section-separator-color);
+  border-bottom: var(--cell-separator-height) solid var(--primary-20);
 }
 
 .root .end {
@@ -71,7 +71,7 @@
   padding: 0 0 0 var(--ui-space-8);
   padding-right: var(--side-padding);
   text-align: right;
-  border-bottom: var(--cell-separator-height) solid var(--tg-theme-section-separator-color);
+  border-bottom: var(--cell-separator-height) solid var(--primary-20);
   white-space: nowrap;
 }
 
@@ -80,11 +80,11 @@
 }
 
 .root .end.received .label, .root .end.received .caption {
-  color: var(--text-confirm-color);
+  color: var(--accent-green);
 }
 
 .root .end.failed .label, .root .end.failed .caption {
-  color: var(--tg-theme-destructive-text-color);
+  color: var(--accent-red);
 }
 
 :global(body.apple) .root {
@@ -137,7 +137,7 @@
 }
 
 :global(body.material) .root .start .icon {
-  background: var(--tg-theme-button-color);
+  background: var(--accent-blue);
 }
 
 :global(body.material) .root .start .icon,

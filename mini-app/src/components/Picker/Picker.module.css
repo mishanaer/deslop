@@ -19,7 +19,7 @@
   width: calc(100% - 32px);
   height: var(--item-height);
   border-radius: var(--ui-radius-8);
-  background-color: var(--quaternary-fill-background);
+  background-color: var(--primary-5);
   top: 50%;
   left: 0;
   transform: translateY(var(--selected-translate-y));
@@ -38,15 +38,15 @@
 
 .root::before {
   top: 0;
-  background-color: var(--tg-theme-section-bg-color);
-  mask-image: linear-gradient(to bottom, var(--elevation-90), var(--elevation-50));
+  background-color: var(--background-secondary);
+  mask-image: linear-gradient(to bottom, var(--primary-90), var(--primary-50));
 }
 
 .root::after {
   bottom: 0;
-  background: var(--mini-app-static-white);
-  background-color: var(--tg-theme-section-bg-color);
-  mask-image: linear-gradient(to bottom, var(--elevation-50), var(--elevation-90));
+  background: var(--white);
+  background-color: var(--background-secondary);
+  mask-image: linear-gradient(to bottom, var(--primary-50), var(--primary-90));
 }
 
 .root ul {
@@ -76,7 +76,7 @@
   text-align: center;
   flex-direction: column;
   justify-content: center;
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
   transform-origin: center center;
   will-change: transform;
 }

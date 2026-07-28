@@ -29,7 +29,7 @@
 }
 
 .root .middleOverlay {
-  color: var(--tg-theme-button-text-color);
+  color: var(--white);
 }
 
 .root .titlePill {

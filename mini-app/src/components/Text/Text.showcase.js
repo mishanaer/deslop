@@ -133,7 +133,7 @@ const TextShowcase = () => {
                                 weight="semibold"
                                 style={{
                                     backgroundColor:
-                                        "var(--tg-theme-button-color)",
+                                        "var(--accent-blue)",
                                 }}
                             >
                                 Filled
@@ -143,7 +143,7 @@ const TextShowcase = () => {
                                 textVariant="caption1"
                                 weight="semibold"
                                 style={{
-                                    color: "var(--tg-theme-button-color)",
+                                    color: "var(--accent-blue)",
                                 }}
                             >
                                 Tinted

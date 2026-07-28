@@ -31,6 +31,7 @@ const arbitraryColorClass =
     /(?:bg|text|border|outline|ring|fill|stroke)-\[[^\]]*(?:#|rgb\(|hsl\(|oklch\(|color-mix\()/
 const externalUiImport =
     /from\s+["'](?:@mui\/|@chakra-ui\/|antd(?:\/|["'])|lucide-react(?:\/|["'])|react-icons(?:\/|["'])|@radix-ui\/|shadcn(?:\/|["']))/
+const legacyPrimitiveIcon = /@deslop\/primitives\/icons\//
 const literalColor = /(?:#[0-9a-f]{3,8}\b|rgba?\(|hsla?\(|oklch\()/i
 const rawControl = /<(?:button|input|select|textarea)\b/
 const allowedLiteralColorFiles = new Set([
@@ -113,6 +114,12 @@ for (const path of files.filter((path) =>
 )) {
     const source = await readFile(path, "utf8")
     const file = normalize(path)
+
+    if (legacyPrimitiveIcon.test(source)) {
+        failures.push(
+            `${file} references a legacy SVG icon; use @deslop/primitives/material-symbols-react`
+        )
+    }
     const suppressions = source.match(
         /(?:eslint-disable(?:-next-line)?[^\n]*|stylelint-disable(?:-next-line)?[^\n]*|@ts-ignore|@ts-expect-error)/g
     ) ?? []
@@ -159,16 +166,16 @@ if (migratedModules.length > 0) {
     )
 }
 
-const legacySharedSemanticToken =
-    /--ui-(?:action|background|control|fill|glass|heatmap|material|overlay|press|separator|story|surface|text|toast)[a-z0-9-]*/
+const removedSemanticToken =
+    /(?:--tg-theme-[a-z0-9-]+|--mini-app-(?:action|background|control|fill|glass|material|press|separator|shine|static|surface|text|toast-(?:link|text))[a-z0-9-]*)/
 for (const path of files.filter((path) =>
     [".css", ".js", ".jsx", ".ts", ".tsx"].includes(extname(path))
 )) {
     const source = await readFile(path, "utf8")
-    const token = source.match(legacySharedSemanticToken)?.[0]
+    const token = source.match(removedSemanticToken)?.[0]
     if (token) {
         failures.push(
-            `${normalize(path)} uses ${token}; Mini App semantic colors must use the --mini-app-* namespace`
+            `${normalize(path)} uses removed semantic token ${token}; map the component directly to @deslop/primitives`
         )
     }
 
@@ -267,15 +274,15 @@ for (const required of [
 }
 
 for (const token of [
-    "--mini-app-background",
-    "--mini-app-surface",
-    "--mini-app-text-primary",
-    "--mini-app-text-secondary",
-    "--mini-app-separator",
-    "--mini-app-action-primary-background",
+    "--background-primary",
+    "--background-secondary",
+    "--primary",
+    "--primary-60",
+    "--primary-20",
+    "--accent-green",
 ]) {
-    if (!semanticTheme.includes(token) || !theme.includes(token)) {
-        failures.push(`Mini App semantic color is not connected to Tailwind: ${token}`)
+    if (!theme.includes(token)) {
+        failures.push(`Primitives color is not connected to Tailwind: ${token}`)
     }
 }
 
@@ -284,7 +291,22 @@ const primitiveSources = await Promise.all(
         readFile(resolve(root, "../primitives", file), "utf8")
     )
 )
-const ignoredPrimitiveTokens = new Set(["--ui-caption-text-transform"])
+const ignoredPrimitiveTokens = new Set([
+    "--ui-caption-text-transform",
+    "--background",
+    "--surface",
+    "--elevation-90",
+    "--elevation-80",
+    "--elevation-70",
+    "--elevation-60",
+    "--elevation-50",
+    "--elevation-40",
+    "--elevation-30",
+    "--elevation-20",
+    "--elevation-10",
+    "--elevation-5",
+    "--elevation-4",
+])
 const primitiveTokens = new Set(
     primitiveSources
         .flatMap(

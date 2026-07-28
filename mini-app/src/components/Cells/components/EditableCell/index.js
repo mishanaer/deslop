@@ -2,7 +2,7 @@ import { forwardRef } from "react"
 import PropTypes from "prop-types"
 
 import Text from "../../../Text"
-import ClearIcon from "@deslop/primitives/icons/circle-close.svg?react"
+import { IconCircleClose as ClearIcon } from "@deslop/primitives/material-symbols-react"
 import * as styles from "./EditableCell.module.css"
 
 const EditableCell = forwardRef(

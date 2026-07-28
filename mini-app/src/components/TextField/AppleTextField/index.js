@@ -3,13 +3,15 @@ import PropTypes from "prop-types"
 
 import Text from "../../Text"
 import TextArea from "../TextArea"
-import ClearIcon from "@deslop/primitives/icons/circle-close.svg?react"
-import SearchIcon from "@deslop/primitives/icons/search.svg?react"
+import {
+    IconCircleClose as ClearIcon,
+    IconSearch as SearchIcon,
+} from "@deslop/primitives/material-symbols-react"
 import * as styles from "./AppleTextField.module.css"
 
 const BackgroundColor = {
-    tertiaryFill: "var(--tertiary-fill-background)",
-    section: "var(--tg-theme-section-bg-color)",
+    tertiaryFill: "var(--primary-10)",
+    section: "var(--background-secondary)",
 }
 
 export const AppleTextField = forwardRef(

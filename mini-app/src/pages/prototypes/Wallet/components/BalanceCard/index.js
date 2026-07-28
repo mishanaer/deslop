@@ -89,7 +89,7 @@ export default function BalanceCard({
                     hidden={hidden}
                     color={
                         variant === "overlay"
-                            ? "var(--mini-app-static-white)"
+                            ? "var(--white)"
                             : undefined
                     }
                     onClick={() => setHidden((s) => !s)}
@@ -115,7 +115,7 @@ export default function BalanceCard({
                             <Text
                                 variant="subheadline2"
                                 weight="semibold"
-                                style={{ color: "var(--text-confirm-color)" }}
+                                style={{ color: "var(--accent-green)" }}
                             >
                                 {changeData.value}
                             </Text>
@@ -138,7 +138,7 @@ export default function BalanceCard({
                                 variant="tinted"
                                 circled
                                 style={{
-                                    color: "var(--text-confirm-color)",
+                                    color: "var(--accent-green)",
                                 }}
                             >
                                 {changeData.percent}
@@ -157,7 +157,7 @@ export default function BalanceCard({
                                 variant="subheadline2"
                                 weight="semibold"
                                 style={{
-                                    color: "var(--tg-theme-subtitle-text-color)",
+                                    color: "var(--primary-60)",
                                 }}
                             >
                                 {changeData.label}

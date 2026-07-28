@@ -41,10 +41,10 @@
 
 .input input {
   border-radius: 36px;
-  background: var(--mini-app-surface);
+  background: var(--background-secondary);
 }
 
 .input input::placeholder {
-  color: var(--tg-theme-subtitle-text-color);
+  color: var(--primary-60);
   opacity: 0.8;
 }

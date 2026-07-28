@@ -46,7 +46,7 @@ function InputPage() {
     // Цвет header в зависимости от темы
     const headerColorToken =
         colorScheme === "dark"
-            ? "--mini-app-static-black"
+            ? "--black"
             : "--avatar-green-bottom"
 
     return (

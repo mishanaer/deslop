@@ -7,17 +7,17 @@
   flex: 1 0 0;
   text-decoration: none;
   font-weight: var(--ui-caption-font-weight);
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
 }
 
 .tab svg,
 .tab path,
 .tab :global(.wallet-lottie_fill-color) path {
-  fill: var(--tg-theme-text-color);
+  fill: var(--primary);
 }
 
 .tab :global(.wallet-lottie_stroke-color) path {
-  stroke: var(--tg-theme-text-color);
+  stroke: var(--primary);
 }
 
 :global(body.apple) .tab {
@@ -38,6 +38,10 @@
   height: 32px;
 }
 
+:global(body.apple) .tab :global(.deslop-material-symbol) {
+  font-size: 32px !important;
+}
+
 :global(body.material) .tab {
   padding: var(--ui-space-4) 0;
   font-size: var(--ui-caption-font-size);
@@ -53,6 +57,10 @@
 
 :global(body.material) .tab .icon {
   height: 28px;
+}
+
+:global(body.material) .tab :global(.deslop-material-symbol) {
+  font-size: 28px !important;
 }
 
 :global(body.apple) .tab:not(:first-child) {

@@ -8,7 +8,7 @@ import Cell from "../../Cells"
 import ImageAvatar from "../../ImageAvatar"
 
 import { getAssetIcon } from "../../../utils/AssetsMap"
-import XmarkIcon from "@deslop/primitives/icons/cross.svg?react"
+import { IconCross as XmarkIcon } from "@deslop/primitives/material-symbols-react"
 import { MainButton } from "../../../lib/twa"
 import {
     DEMO_ASSETS,
@@ -27,7 +27,7 @@ const Modals = ({ modals, handlers }) => {
                 isOpen={modals.tray}
                 onClose={handlers.tray.close}
                 style={{
-                    backgroundColor: "var(--tg-theme-secondary-bg-color)",
+                    backgroundColor: "var(--background-primary)",
                 }}
             >
                 <ModalView.Page id="list">
@@ -45,7 +45,7 @@ const Modals = ({ modals, handlers }) => {
                 isOpen={modals.simple}
                 onClose={handlers.simple.close}
                 style={{
-                    backgroundColor: "var(--tg-theme-secondary-bg-color)",
+                    backgroundColor: "var(--background-primary)",
                 }}
             >
                 <PanelHeader

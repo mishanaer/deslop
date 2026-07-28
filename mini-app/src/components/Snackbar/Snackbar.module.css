@@ -5,9 +5,9 @@
   box-sizing: border-box;
   padding: var(--ui-component-snackbar-block-spacing) var(--ui-layout-content-inset);
   border-radius: var(--ui-component-snackbar-radius);
-  background: var(--toast-background);
+  background: var(--mini-app-toast-background);
   backdrop-filter: blur(25px);
-  color: var(--toast-text);
+  color: var(--white);
 }
 
 :global(body.material) .root {
@@ -22,7 +22,7 @@
   width: 28px;
   height: 28px;
   margin-right: var(--ui-space-12);
-  color: var(--toast-text);
+  color: var(--white);
 }
 
 .icon svg {
@@ -35,6 +35,10 @@
   fill: currentcolor;
 }
 
+.icon :global(.deslop-material-symbol) {
+  font-size: 28px !important;
+}
+
 :global(body.material) .icon {
   margin-right: 10px;
 }
@@ -45,7 +49,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color: var(--toast-text);
+  color: var(--white);
 }
 
 :global(body.material) .content {
@@ -55,7 +59,7 @@
 .title,
 .description {
   margin: 0;
-  color: var(--toast-text);
+  color: var(--white);
 }
 
 .action, .link {
@@ -64,13 +68,13 @@
   border: none;
   background: none;
   font: inherit;
-  color: var(--toast-link);
+  color: var(--accent-cyan);
   cursor: pointer;
   touch-action: manipulation;
 }
 
 .action:focus-visible, .link:focus-visible {
-  outline: 2px solid var(--toast-link);
+  outline: 2px solid var(--accent-cyan);
   outline-offset: 2px;
   border-radius: var(--ui-radius-4);
 }
@@ -115,7 +119,7 @@
   pointer-events: auto;
   width: 100%;
   border-radius: var(--ui-component-snackbar-radius);
-  background: var(--toast-background);
+  background: var(--mini-app-toast-background);
   backdrop-filter: blur(25px);
   touch-action: pan-y;
   cursor: grab;

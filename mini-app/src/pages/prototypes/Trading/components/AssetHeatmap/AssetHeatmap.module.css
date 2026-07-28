@@ -29,7 +29,7 @@
   border: 1.5px solid transparent;
   border-radius: 8px;
   background-clip: padding-box;
-  color: var(--mini-app-static-white);
+  color: var(--white);
   text-align: center;
   letter-spacing: -0.02em;
   font-size: 14px;

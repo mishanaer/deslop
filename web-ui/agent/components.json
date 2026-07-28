@@ -37,7 +37,7 @@
     "@radix-ui/*": "Use the matching @deslop/web-ui component",
     "radix-ui": "Use the matching @deslop/web-ui component",
     "cmdk": "components/command",
-    "lucide-react": "@deslop/primitives/icons-react",
+    "lucide-react": "@deslop/primitives/material-symbols-react",
     "sonner": "components/sonner"
   },
   "compoundContracts": [

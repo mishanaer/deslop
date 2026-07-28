@@ -3,7 +3,7 @@
   position: relative;
   align-items: flex-start;
   align-self: stretch;
-  box-shadow: 0 -0.33px 0 0 var(--separator-non-opaque);
+  box-shadow: 0 -0.33px 0 0 var(--primary-20);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -15,9 +15,9 @@
   border-radius: var(--ui-component-tab-bar-radius);
   padding: var(--ui-space-4);
   margin: 0;
-  background: var(--mini-app-surface);
+  background: var(--background-secondary);
   backdrop-filter: saturate(300%) blur(8px);
-  box-shadow: 0 0 10px 0 var(--elevation-10);
+  box-shadow: 0 0 10px 0 var(--primary-10);
 }
 
 @supports (-apple-visual-effect: -apple-system-glass-material) {
@@ -35,9 +35,9 @@
   border-radius: var(--ui-component-tab-bar-radius);
   padding: var(--ui-space-4);
   width: calc(100% - 32px);
-  background: var(--mini-app-surface);
+  background: var(--background-secondary);
   backdrop-filter: blur(30px) saturate(10);
-  box-shadow: 0 1px 2px 0 var(--elevation-10), 0 2px 16px 1px var(--elevation-10);
+  box-shadow: 0 1px 2px 0 var(--primary-10), 0 2px 16px 1px var(--primary-10);
 }
 
 .root::before {
@@ -46,7 +46,7 @@
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: var(--mini-app-fill-quaternary);
+  background: var(--primary-5);
   z-index: 0;
 }
 
@@ -56,7 +56,7 @@
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  box-shadow: inset 0 1px 0 0 var(--mini-app-static-white), inset 0 -0.5px 0 0 var(--mini-app-static-white);
+  box-shadow: inset 0 1px 0 0 var(--white), inset 0 -0.5px 0 0 var(--white);
   mix-blend-mode: soft-light;
   z-index: 2;
 }
@@ -71,7 +71,7 @@
 .root .gradient {
   --mask-color: var(
       --page-background,
-      var(--tg-theme-secondary-bg-color)
+      var(--background-primary)
   );
   --mask-opacity-top: 0;
   --mask-opacity-bottom: 0.9;
@@ -97,7 +97,7 @@
 }
 
 :global(body.apple) .root .activeIndicator {
-  background-color: var(--secondary-button-color);
+  background-color: var(--primary-10);
   border-radius: var(--ui-component-tab-bar-radius);
   height: calc(100% - var(--ui-space-8));
   top: var(--ui-space-4);
@@ -107,15 +107,15 @@
 }
 
 :global(body.material) .root .activeIndicator {
-  background-color: var(--tg-theme-text-color);
+  background-color: var(--primary);
 }
 
 .root .clipPathContainer {
-  --active-color: var(--mini-app-action-primary-background);
+  --active-color: var(--accent-green);
 
   position: absolute;
   display: flex;
-  background-color: var(--tertiary-fill-background);
+  background-color: var(--primary-10);
   width: calc(100% - var(--ui-space-8));
   clip-path: inset(0 calc(75% - 5px) 0 0% round var(--ui-component-tab-bar-radius));
   will-change: clip-path;

@@ -1,13 +1,13 @@
 import { useEffect } from "react"
 import PropTypes from "prop-types"
 import WebApp from "./webApp"
-import { getMiniAppColor } from "../../theme/colors"
+import { getResolvedColorToken } from "../../theme/colors"
 
 const BottomBar = ({ color }) => {
     useEffect(() => {
         WebApp.setBottomBarColor(color)
         return () => {
-            WebApp.setBottomBarColor(getMiniAppColor("elevation"))
+            WebApp.setBottomBarColor(getResolvedColorToken("--background-secondary"))
         }
     }, [color])
 

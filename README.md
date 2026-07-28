@@ -6,8 +6,8 @@ Deslop — дизайн-система и проверяемый workflow для
 
 ## Состав
 
-- [`@deslop/primitives`](./primitives/) — токены, шрифты, SVG и типизированные
-  React-иконки.
+- [`@deslop/primitives`](./primitives/) — токены, шрифты и self-hosted
+  Material Symbols с типизированным React API.
 - [`@deslop/web-ui`](./web-ui/) — собранные React-компоненты и CSS, не требующие
   компиляции исходников пакета в продукте.
 - [`@deslop/design-system`](./design-system/) — команды `doctor`, `migrate` и

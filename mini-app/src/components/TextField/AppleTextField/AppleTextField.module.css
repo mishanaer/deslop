@@ -11,21 +11,21 @@
   letter-spacing: inherit;
   border-radius: var(--ui-component-text-field-radius);
   background: var(--input-bg-color);
-  color: var(--tg-theme-text-color);
-  caret-color: var(--tg-theme-accent-text-color);
+  color: var(--primary);
+  caret-color: var(--accent-blue);
   border: none;
   outline: none;
   width: 100%;
 }
 
 .input::placeholder {
-  color: var(--tg-theme-subtitle-text-color);
+  color: var(--primary-60);
 }
 
 .icon {
   position: absolute;
   z-index: 1;
-  color: var(--tg-theme-subtitle-text-color);
+  color: var(--primary-60);
   top: 12px;
 }
 

@@ -17,11 +17,11 @@
 }
 
 .delta.up {
-  color: var(--text-confirm-color);
+  color: var(--accent-green);
 }
 
 .delta.down {
-  color: var(--tg-theme-destructive-text-color);
+  color: var(--accent-red);
 }
 
 :global([data-skeleton]) .delta.up, :global([data-skeleton]) .delta.down {

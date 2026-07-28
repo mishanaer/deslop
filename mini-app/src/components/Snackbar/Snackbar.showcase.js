@@ -5,8 +5,10 @@ import { useSnackbar } from "../Snackbar"
 
 import { BackButton } from "../../lib/twa"
 
-import ExclamationIcon from "@deslop/primitives/icons/circle-alert.svg?react"
-import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"
+import {
+    IconArrowUp as ArrowUpIcon,
+    IconCircleAlert as ExclamationIcon,
+} from "@deslop/primitives/material-symbols-react"
 
 const wrapperStyle = {
     padding: "12px var(--side-padding)",

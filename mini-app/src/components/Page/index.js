@@ -10,7 +10,7 @@ const { setHeaderColor, setBackgroundColor } = WebApp
 /**
  * Screen wrapper that syncs the TWA header/background colors and the
  * --page-background var (drives AppBar/TabBar fades). Renders children as-is.
- * @param {"primary"|"secondary"} [props.mode] Which --tg-theme bg to use.
+ * @param {"primary"|"secondary"} [props.mode] Which Primitives background to use.
  * @param {string} [props.headerColorToken] Primitive or Mini App color token.
  * @param {string} [props.backgroundColorToken] Primitive or Mini App color token.
  * @param {boolean} [props.expandOnMount]  Call WebApp.expand() on mount.
@@ -28,8 +28,8 @@ const Page = ({
     useColorScheme()
 
     const colorTokenMapping = {
-        primary: "--mini-app-background",
-        secondary: "--mini-app-background-secondary",
+        primary: "--background-primary",
+        secondary: "--background-secondary",
     }
 
     const resolvedHeaderToken = headerColorToken ?? colorTokenMapping[mode]

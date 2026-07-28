@@ -5,9 +5,9 @@ import WebApp from "../../../../../lib/twa"
 
 import { useColorScheme } from "../../../../../hooks/useColorScheme"
 import * as styles from "./NavigationPanel.module.css"
-import QRCodeIcon from "@deslop/primitives/icons/qr.svg?react"
+import { IconQrCode as QRCodeIcon } from "@deslop/primitives/material-symbols-react"
 import DropdownControl from "./DropdownControl"
-import { getMiniAppColor } from "../../../../../theme/colors"
+import { getResolvedColorToken } from "../../../../../theme/colors"
 
 export default function NavigationPanel({
     avatarUrl,
@@ -23,13 +23,13 @@ export default function NavigationPanel({
     }
 
     useEffect(() => {
-        const cw_color = getMiniAppColor("surface")
-        const tw_color = getMiniAppColor("story-background")
+        const cw_color = getResolvedColorToken("--background-secondary")
+        const tw_color = getResolvedColorToken("--black")
 
         const headerColor = activeSegment === 1 ? tw_color : cw_color
 
         if (view === "expanded") {
-            WebApp.setHeaderColor(getMiniAppColor("background"))
+            WebApp.setHeaderColor(getResolvedColorToken("--background-primary"))
         } else {
             WebApp.setHeaderColor(headerColor)
         }
@@ -42,8 +42,8 @@ export default function NavigationPanel({
             style={{
                 backgroundColor:
                     activeSegment === 1
-                        ? "var(--mini-app-story-background)"
-                        : "var(--tg-theme-section-bg-color)",
+                        ? "var(--black)"
+                        : "var(--background-secondary)",
             }}
         >
             <m.div

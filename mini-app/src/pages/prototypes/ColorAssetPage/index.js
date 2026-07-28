@@ -9,10 +9,12 @@ import Skeleton from "../../../components/Skeleton"
 import { RegularButton, MultilineButton } from "../../../components/Button"
 
 import useAssets from "../../../hooks/useAssets"
-import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"
-import ArrowDownIcon from "@deslop/primitives/icons/arrow-down.svg?react"
-import PlusIcon from "@deslop/primitives/icons/plus.svg?react"
-import ArrowsSwapIcon from "@deslop/primitives/icons/arrows-swap.svg?react"
+import {
+    IconArrowDown as ArrowDownIcon,
+    IconArrowUp as ArrowUpIcon,
+    IconPlus as PlusIcon,
+    IconSwap as ArrowsSwapIcon,
+} from "@deslop/primitives/material-symbols-react"
 
 import * as styles from "./ColorAssetPage.module.css"
 
@@ -87,8 +89,8 @@ function ActionButtons({ mode }) {
                         isFill={true}
                         key={index}
                         style={{
-                            color: "var(--mini-app-static-white)",
-                            backgroundColor: "var(--mini-app-fill-tertiary)",
+                            color: "var(--white)",
+                            backgroundColor: "var(--primary-10)",
                         }}
                     />
                 ))}
@@ -106,8 +108,8 @@ function ActionButtons({ mode }) {
                         label={button.name}
                         key={index}
                         style={{
-                            color: "var(--mini-app-static-white)",
-                            backgroundColor: "var(--mini-app-fill-tertiary)",
+                            color: "var(--white)",
+                            backgroundColor: "var(--primary-10)",
                         }}
                     />
                 ))}

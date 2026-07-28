@@ -4,5 +4,5 @@
 
 .smallAssets :global(.Cell:last-child .body),
 .smallAssets :global(.Cell:last-child .end) {
-  border-bottom: 0.33px solid var(--tg-theme-section-separator-color);
+  border-bottom: 0.33px solid var(--primary-20);
 }

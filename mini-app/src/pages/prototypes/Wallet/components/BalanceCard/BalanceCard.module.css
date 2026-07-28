@@ -26,15 +26,15 @@
 }
 
 .prefix {
-  color: var(--tg-theme-subtitle-text-color);
+  color: var(--primary-60);
 }
 
 .cardOverlay .amount span {
-  color: var(--mini-app-static-white);
+  color: var(--white);
 }
 
 .cardDefault .amount span {
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
 }
 
 .actions {
@@ -49,21 +49,20 @@
 }
 
 .cardOverlay {
-  --tg-theme-text-color: var(--mini-app-static-white);
-  --tg-theme-subtitle-text-color: var(--mini-app-story-subtle);
-  --tg-theme-accent-text-color: var(--mini-app-static-white);
-  --tg-theme-section-bg-color: transparent;
-  --text-confirm-color: var(--accent-green);
+  --primary: var(--white);
+  --primary-60: var(--mini-app-story-subtle);
+  --accent-blue: var(--white);
+  --background-secondary: transparent;
 
-  color: var(--mini-app-static-white);
+  color: var(--white);
 }
 
 .cardOverlay .label {
-  color: var(--tg-theme-subtitle-text-color);
+  color: var(--primary-60);
 }
 
 .cardOverlay .prefix {
-  color: var(--tg-theme-subtitle-text-color);
+  color: var(--primary-60);
 }
 
 :global(body.material) .cardOverlay .data {
@@ -71,20 +70,20 @@
 }
 
 .cardDefault {
-  color: var(--tg-theme-text-color);
-  background: var(--tg-theme-section-bg-color);
+  color: var(--primary);
+  background: var(--background-secondary);
 }
 
 :global(body.apple) .cardDefault .label {
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
 }
 
 :global(body.material) .cardDefault .label {
-  color: var(--tg-theme-subtitle-text-color);
+  color: var(--primary-60);
 }
 
 :global(body.material) .cardDefault {
-  background-color: var(--tg-theme-section-bg-color);
+  background-color: var(--background-secondary);
 }
 
 :global(body.material) .cardDefault .data {
@@ -97,12 +96,12 @@
 }
 
 .overlayButton {
-  background: var(--mini-app-glass-tint) !important;
+  background: var(--primary-5) !important;
   background-blend-mode: plus-lighter, normal;
-  color: var(--mini-app-static-white) !important;
+  color: var(--white) !important;
 }
 
 .overlayButton svg,
 .overlayButton path {
-  fill: var(--mini-app-static-white) !important;
+  fill: var(--white) !important;
 }

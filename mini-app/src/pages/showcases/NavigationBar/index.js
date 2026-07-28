@@ -5,7 +5,7 @@ import SectionList from "../../../components/SectionList"
 import Cell from "../../../components/Cells"
 
 import WebApp, { BackButton } from "../../../lib/twa"
-import { getMiniAppColor } from "../../../theme/colors"
+import { getResolvedColorToken } from "../../../theme/colors"
 
 const NavigationBar = () => {
     const [isFullscreen, setIsFullscreen] = useState(false)
@@ -13,7 +13,7 @@ const NavigationBar = () => {
     const [isSettingsButtonAvailable, setSettingsButtonAvailable] =
         useState(false)
     const [headerColor, setHeaderColor] = useState(() => {
-        const color = getMiniAppColor("background-secondary")
+        const color = getResolvedColorToken("--background-primary")
         return color.toUpperCase()
     })
     const colorInputRef = useRef(null)

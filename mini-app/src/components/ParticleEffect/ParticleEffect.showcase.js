@@ -9,7 +9,7 @@ import ParticleEffect from "."
 
 import { generateRandomBalance } from "../../utils/number"
 import { BackButton } from "../../lib/twa"
-import { getMiniAppColor } from "../../theme/colors"
+import { getResolvedColorToken } from "../../theme/colors"
 
 function Demo({ color, children }) {
     const [hidden, setHidden] = useState(true)
@@ -84,13 +84,13 @@ const ParticleEffectShowcase = () => (
                 <SectionList.Item header="On a dark surface (white particles)">
                     <div
                         style={{
-                            background: "var(--mini-app-background-secondary)",
+                            background: "var(--background-primary)",
                             padding: "24px",
                             borderRadius: "16px",
-                            color: "var(--mini-app-static-white)",
+                            color: "var(--white)",
                         }}
                     >
-                        <Demo color={getMiniAppColor("static-white")}>
+                        <Demo color={getResolvedColorToken("--white")}>
                             <Text variant="title1" weight="bold">
                                 7 412 TON
                             </Text>

@@ -3,8 +3,10 @@ import SectionList from "../SectionList"
 import Skeleton from "../Skeleton"
 import { RegularButton, MultilineButton } from "../Button"
 
-import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"
-import PlusIcon from "@deslop/primitives/icons/plus.svg?react"
+import {
+    IconArrowUp as ArrowUpIcon,
+    IconPlus as PlusIcon,
+} from "@deslop/primitives/material-symbols-react"
 
 import * as styles from "./Button.skeleton.module.css"
 

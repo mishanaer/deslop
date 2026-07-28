@@ -8,10 +8,12 @@ import Picker from "../Picker"
 
 import { BackButton } from "../../lib/twa"
 
-import WalletIcon from "@deslop/primitives/icons/wallet.svg?react"
-import ChartlineIcon from "@deslop/primitives/icons/bar-chart.svg?react"
-import ClockIcon from "@deslop/primitives/icons/clock.svg?react"
-import MagnifyIcon from "@deslop/primitives/icons/search.svg?react"
+import {
+    IconChart as ChartlineIcon,
+    IconClock as ClockIcon,
+    IconSearch as MagnifyIcon,
+    IconWallet as WalletIcon,
+} from "@deslop/primitives/material-symbols-react"
 
 const allTabs = [
     { label: "Wallet", icon: <WalletIcon /> },

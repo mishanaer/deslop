@@ -1,5 +1,5 @@
 .root {
-  background-color: var(--tg-theme-section-bg-color);
+  background-color: var(--background-secondary);
   transition: background-color 0.2s ease;
 }
 
@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  color: var(--mini-app-static-white);
+  color: var(--white);
 }
 
 .root .body .data {
@@ -35,8 +35,12 @@
   height: 28px;
 }
 
+:global(body.apple) .root .buttons :global(.deslop-material-symbol) {
+  font-size: 28px !important;
+}
+
 :global(body.material) .root .buttons {
-  box-shadow: 0 0.33px 1px 0 var(--elevation-5);
+  box-shadow: 0 0.33px 1px 0 var(--primary-5);
   padding: 0 8px 8px;
 }
 
@@ -46,6 +50,10 @@
   height: 32px;
 }
 
+:global(body.material) .root .buttons :global(.deslop-material-symbol) {
+  font-size: 32px !important;
+}
+
 .bannerContainer {
   padding: 16px 16px 0;
 }
@@ -53,8 +61,8 @@
 .bannerContainer .banner {
   padding: 8px 14px;
   border-radius: 10px;
-  background: var(--mini-app-fill-tertiary);
-  color: var(--mini-app-static-white);
+  background: var(--primary-10);
+  color: var(--white);
 }
 
 .list {

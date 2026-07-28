@@ -3,7 +3,7 @@
   --skeleton-inset-bottom: 0px;
 
   border-radius: var(--ui-radius-full);
-  color: var(--mini-app-static-white);
+  color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;

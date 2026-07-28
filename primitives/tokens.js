@@ -28,7 +28,7 @@ export const accentColors = [
 ];
 
 export const baseColors = [
-  { name: "Background Secondary", light: "#F5F5F5", dark: "#1D1D1D" },
+  { name: "Background Secondary", light: "#F5F5F5", dark: "#111111" },
   { name: "Background Primary", light: "#FFFFFF", dark: "#111111" },
   { name: "Elevation 1", light: "#FFFFFF", dark: "#1D1D1D" },
   { name: "Elevation 2", light: "#FFFFFF", dark: "#282828" },

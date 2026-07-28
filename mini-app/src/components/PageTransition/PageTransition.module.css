@@ -15,6 +15,25 @@
   width: 100%;
   height: 100%;
   overflow-y: auto;
+  scrollbar-color: var(--primary-30) transparent;
+  scrollbar-width: thin;
+}
+
+.scroll::-webkit-scrollbar {
+  width: var(--ui-space-4);
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: var(--ui-radius-full);
+  background: var(--primary-30);
+}
+
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-40);
 }
 
 .withBottomInset {

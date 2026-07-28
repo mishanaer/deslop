@@ -20,7 +20,7 @@ export const fillCanvasWithPattern = (
 
     if (isDark) {
         ctx.fillStyle = getComputedStyle(document.documentElement)
-            .getPropertyValue("--mini-app-static-black")
+            .getPropertyValue("--black")
             .trim()
         ctx.fillRect(0, 0, width, height)
         ctx.globalCompositeOperation = "destination-out"

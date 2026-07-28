@@ -17,9 +17,9 @@ import { useFocusTrap } from "../../hooks/useFocusTrap"
 import { useSplitView } from "../../hooks/useSplitView"
 import { useSkin } from "../../hooks/DeviceProvider"
 import { SPRING } from "../../utils/animations"
-import { getMiniAppColor } from "../../theme/colors"
+import { getResolvedColorToken } from "../../theme/colors"
 
-const getHeaderColor = () => getMiniAppColor("background-secondary")
+const getHeaderColor = () => getResolvedColorToken("--background-primary")
 
 // Squircle the panel corners (34px Apple, 16px Material). The sheet rounds its
 // top edge only; the centred dialog rounds all four. CSS border-radius is the
@@ -105,7 +105,7 @@ const ModalView = ({
         const headerColor = getHeaderColor()
         document.body.style.overflow = "hidden"
         WebApp.disableVerticalSwipes?.()
-        WebApp.setHeaderColor(getMiniAppColor("background"))
+        WebApp.setHeaderColor(getResolvedColorToken("--background-primary"))
         return () => {
             document.body.style.overflow = "auto"
             WebApp.enableVerticalSwipes?.()

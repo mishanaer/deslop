@@ -4,9 +4,11 @@ import TONWallet from "../TS"
 import Trading from "../Trading"
 import History from "./History"
 
-import WalletIcon from "@deslop/primitives/icons/wallet.svg?react"
-import TradeIcon from "@deslop/primitives/icons/bar-chart.svg?react"
-import HistoryIcon from "@deslop/primitives/icons/clock.svg?react"
+import {
+    IconChart as TradeIcon,
+    IconClock as HistoryIcon,
+    IconWallet as WalletIcon,
+} from "@deslop/primitives/material-symbols-react"
 
 export const getTabsConfig = () => ({
     wallet: [

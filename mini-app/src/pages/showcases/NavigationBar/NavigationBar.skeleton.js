@@ -3,13 +3,13 @@ import SectionList from "../../../components/SectionList"
 import Cell from "../../../components/Cells"
 import Text from "../../../components/Text"
 import Skeleton from "../../../components/Skeleton"
-import { getMiniAppColor } from "../../../theme/colors"
+import { getResolvedColorToken } from "../../../theme/colors"
 
 // Mirrors the single settings section: a color row plus three toggle rows.
 // Titles redact to bars sized by their mock strings; trailing controls become
 // simple redacted shapes rather than working pickers or switches.
 const ROWS = [
-    { title: "Header Color", value: getMiniAppColor("background-secondary") },
+    { title: "Header Color", value: getResolvedColorToken("--background-primary") },
     { title: "Back Button", toggle: true },
     { title: "Fullscreen", toggle: true },
     { title: "Settings Button", toggle: true },

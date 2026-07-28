@@ -3,7 +3,7 @@
   flex-direction: row;
   padding: 0 16px 16px;
   gap: 8px;
-  background: var(--tg-theme-section-bg-color);
+  background: var(--background-secondary);
 }
 
 :global(body.apple) .buttons svg,
@@ -12,9 +12,13 @@
   height: 28px;
 }
 
+:global(body.apple) .buttons :global(.deslop-material-symbol) {
+  font-size: 28px !important;
+}
+
 :global(body.material) .buttons {
-  background-color: var(--tg-theme-section-bg-color);
-  box-shadow: 0 0.33px 1px 0 var(--elevation-5);
+  background-color: var(--background-secondary);
+  box-shadow: 0 0.33px 1px 0 var(--primary-5);
   padding: 0 8px 8px;
 }
 
@@ -22,4 +26,8 @@
 :global(body.material) .buttons path {
   width: 32px;
   height: 32px;
+}
+
+:global(body.material) .buttons :global(.deslop-material-symbol) {
+  font-size: 32px !important;
 }

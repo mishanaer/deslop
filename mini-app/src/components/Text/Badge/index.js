@@ -25,12 +25,12 @@ const Badge = ({
         badgeStyle = {
             ...style,
             "--badge-background":
-                backgroundColor || "var(--tg-theme-button-color)",
+                backgroundColor || "var(--accent-blue)",
             ...(style?.color && { "--badge-text-color": style.color }),
         }
     } else if (variant === "tinted") {
         const tintedBackground =
-            style.color || backgroundColor || "var(--tg-theme-button-color)"
+            style.color || backgroundColor || "var(--accent-blue)"
 
         badgeStyle = {
             ...style,

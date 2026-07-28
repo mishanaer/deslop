@@ -1,6 +1,7 @@
 import "@deslop/web-ui/styles.css"
+import "@deslop/primitives/material-symbols.css"
 
-import { IconSearch } from "@deslop/primitives/icons-react"
+import { MaterialSymbol } from "@deslop/primitives/material-symbols-react"
 import { Button } from "@deslop/web-ui/components/button"
 import {
   Collapsible,
@@ -23,7 +24,7 @@ export function App() {
       <Dialog>
         <DialogTrigger asChild>
           <Button>
-            <IconSearch aria-hidden />
+            <MaterialSymbol name="search" aria-hidden />
             Открыть поиск
           </Button>
         </DialogTrigger>

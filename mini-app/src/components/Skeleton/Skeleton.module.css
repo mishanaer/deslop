@@ -1,5 +1,5 @@
 .redaction {
-  --skeleton-bg: var(--mini-app-fill-tertiary);
+  --skeleton-bg: var(--primary-10);
 
   position: relative;
   transition: color 0.45s cubic-bezier(0.23, 1, 0.32, 1);

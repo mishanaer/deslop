@@ -20,7 +20,7 @@ const GalleryPage = ({ color, label }) => (
             width: "100%",
             height: 200,
             backgroundColor: color,
-            color: "var(--mini-app-static-white)",
+            color: "var(--white)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

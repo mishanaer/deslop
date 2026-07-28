@@ -92,7 +92,7 @@ function NewNavigation() {
     )
 
     return (
-        <Page headerColorToken="--mini-app-surface">
+        <Page headerColorToken="--background-secondary">
             <BackButton />
 
             <div className={styles.container}>

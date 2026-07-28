@@ -1,8 +1,10 @@
 import PropTypes from "prop-types"
 
-import ArrowDownIcon from "@deslop/primitives/icons/arrow-down.svg?react"
-import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"
-import ChevronRightIcon from "@deslop/primitives/icons/chevron-right.svg?react"
+import {
+    IconArrowDown as ArrowDownIcon,
+    IconArrowUp as ArrowUpIcon,
+    IconChevronRight as ChevronRightIcon,
+} from "@deslop/primitives/material-symbols-react"
 import { Redaction, useSkeletonContext } from "../Skeleton"
 import * as styles from "./Text.module.css"
 
@@ -58,9 +60,13 @@ export const Text = ({
             data-caps={caps || undefined}
             data-skeleton={active || undefined}
         >
-            {arrow?.direction && <ArrowIcon className={styles.icon} />}
+            {arrow?.direction && (
+                <ArrowIcon className={styles.icon} size="1.25em" />
+            )}
             {content}
-            {chevron && <ChevronRightIcon className={styles.icon} />}
+            {chevron && (
+                <ChevronRightIcon className={styles.icon} size="1.25em" />
+            )}
         </Component>
     )
 }

@@ -11,7 +11,7 @@ const SplitViewPlaceholder = () => {
     const { setPaneBackground } = useSplitViewContext()
 
     useEffect(() => {
-        setPaneBackground?.("var(--tg-theme-secondary-bg-color)")
+        setPaneBackground?.("var(--background-primary)")
     }, [setPaneBackground])
 
     return (

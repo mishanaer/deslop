@@ -1,17 +1,17 @@
 .label {
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
   font-variant-numeric: lining-nums tabular-nums;
 }
 
 .label.accent {
-  color: var(--tg-theme-accent-text-color);
+  color: var(--accent-blue);
 }
 
 .description {
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
 }
 
 .caption {
   max-height: 18px;
-  color: var(--tg-theme-subtitle-text-color);
+  color: var(--primary-60);
 }

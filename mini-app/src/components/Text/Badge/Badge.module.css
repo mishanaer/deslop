@@ -17,29 +17,29 @@
 }
 
 .badge.filled {
-  background-color: var(--badge-background, var(--tg-theme-button-color));
-  color: var(--badge-text-color, var(--tg-theme-button-text-color));
+  background-color: var(--badge-background, var(--accent-blue));
+  color: var(--badge-text-color, var(--white));
 }
 
 .badge.tinted {
-  background-color: var(--mini-app-fill-tertiary);
-  color: var(--badge-text-color, var(--tg-theme-accent-text-color));
+  background-color: var(--primary-10);
+  color: var(--badge-text-color, var(--accent-blue));
 }
 
 .badge.gray {
-  background-color: var(--tertiary-fill-background);
-  color: var(--tg-theme-text-color);
+  background-color: var(--primary-10);
+  color: var(--primary);
 }
 
 .badge.media {
-  background-color: var(--tg-theme-section-bg-color);
-  color: var(--tg-theme-text-color);
+  background-color: var(--background-secondary);
+  color: var(--primary);
 }
 
 .badge.outlined {
   background-color: transparent;
-  color: var(--tg-theme-text-color);
-  border: 0.5px solid var(--tg-theme-section-separator-color);
+  color: var(--primary);
+  border: 0.5px solid var(--primary-20);
 }
 
 .badge[data-circled="true"] {

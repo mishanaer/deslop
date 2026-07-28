@@ -7,32 +7,32 @@
 }
 
 .button.filled {
-  background-color: var(--mini-app-action-primary-background);
-  color: var(--mini-app-action-primary-foreground);
+  background-color: var(--accent-green);
+  color: var(--black);
 }
 
 .button.tinted {
-  background-color: var(--secondary-button-color);
-  color: var(--mini-app-text-primary);
+  background-color: var(--primary-10);
+  color: var(--primary);
 }
 
 .button.plain {
-  background-color: var(--tg-theme-section-bg-color);
-  color: var(--mini-app-text-primary);
+  background-color: var(--background-secondary);
+  color: var(--primary);
 }
 
 .button.outlined {
-  color: var(--mini-app-text-primary);
+  color: var(--primary);
 }
 
 .button.gray {
-  background-color: var(--tertiary-fill-background);
-  color: var(--mini-app-text-primary);
+  background-color: var(--primary-10);
+  color: var(--primary);
 }
 
 .button.disabled {
-  background-color: var(--button-disabled-color);
-  color: var(--mini-app-text-disabled);
+  background-color: var(--primary-10);
+  color: var(--primary-30);
 }
 
 .button.skeleton {
@@ -62,7 +62,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--mini-app-shine-highlight) 26%,
+    var(--white) 26%,
     transparent 50%
   );
   mix-blend-mode: soft-light;

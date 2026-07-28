@@ -1,24 +1,3 @@
-export const miniAppSemanticColors = [
-    { name: "Action Primary Background", token: "--mini-app-action-primary-background" },
-    { name: "Action Primary Foreground", token: "--mini-app-action-primary-foreground" },
-    {
-        name: "Action Destructive Background",
-        token: "--mini-app-action-destructive-background",
-    },
-    {
-        name: "Action Destructive Foreground",
-        token: "--mini-app-action-destructive-foreground",
-    },
-    { name: "Background", token: "--mini-app-background" },
-    { name: "Text Primary", token: "--mini-app-text-primary" },
-    { name: "Text Secondary", token: "--mini-app-text-secondary" },
-    { name: "Section Text", token: "--mini-app-text-section" },
-    { name: "Separator", token: "--mini-app-separator" },
-    { name: "Control Active", token: "--mini-app-control-active" },
-    { name: "Control Disabled", token: "--mini-app-control-disabled" },
-    { name: "Text Disabled", token: "--mini-app-text-disabled" },
-]
-
 const rgbToHex = (value) => {
     const srgb = value.match(
         /^color\(srgb\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)/
@@ -47,6 +26,3 @@ export const getResolvedColorToken = (token) => {
 
     return rgbToHex(color)
 }
-
-export const getMiniAppColor = (token) =>
-    getResolvedColorToken(`--mini-app-${token}`)

@@ -1,6 +1,6 @@
 import VERTEX_SHADER from "./vertex.glsl?raw"
 import FRAGMENT_SHADER from "./fragment.glsl?raw"
-import { getMiniAppColor } from "../../theme/colors"
+import { getResolvedColorToken } from "../../theme/colors"
 
 const FEEDBACK_VARYINGS = [
     "outPosition",
@@ -60,7 +60,7 @@ export function resolveColor(input, fallbackEl) {
         input ||
         (fallbackEl
             ? getComputedStyle(fallbackEl).color
-            : getMiniAppColor("static-white"))
+            : getResolvedColorToken("--white"))
     const c = document.createElement("canvas")
     c.width = c.height = 1
     const ctx = c.getContext("2d")

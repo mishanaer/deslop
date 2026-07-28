@@ -5,12 +5,12 @@ import SectionList from "../../../components/SectionList"
 import Cell from "../../../components/Cells"
 
 import WebApp, { BackButton } from "../../../lib/twa"
-import { getMiniAppColor } from "../../../theme/colors"
+import { getResolvedColorToken } from "../../../theme/colors"
 
 import Picker from "../../../components/Picker"
 import Collapsible from "../../../components/Collapsible"
 const getDefaultColor = (telegramColor, token) =>
-    (telegramColor || getMiniAppColor(token)).toUpperCase()
+    (telegramColor || getResolvedColorToken(token)).toUpperCase()
 
 const BottomBar = () => {
     const [label, setLabel] = useState("")
@@ -74,10 +74,10 @@ const BottomBar = () => {
     const [textColorOverride, setTextColor] = useState(null)
     const buttonBgColor =
         buttonBgColorOverride ??
-        getDefaultColor(null, "action-primary-background")
+        getDefaultColor(null, "--accent-green")
     const textColor =
         textColorOverride ??
-        getDefaultColor(null, "action-primary-foreground")
+        getDefaultColor(null, "--black")
 
     const handleColorClick = () => {
         colorInputRef.current.click()

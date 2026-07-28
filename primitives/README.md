@@ -14,7 +14,7 @@ Primitives хранят базовые правила. Готовые React-ко
 | Цвета | `colors.css`, `colors.md`, `tokens.js` | CSS-переменные `--white`, `--black`, `--background-primary`, `--background-secondary`, `--primary`, `--primary-*`, `--accent-*` и JS-массивы токенов |
 | Типографика и шрифты | `typography.css`, `TYPOGRAPHY.md` | CSS-переменные и локальные шрифты SB Sans |
 | Отступы и радиусы | `layout.json`, `layout.css`, `layout.js` | CSS-переменные и JS-токены |
-| Иконки | `icons/` | SVG размером 24 × 24 с понятными именами. Адаптированы из Иконостаса Ильи Пехтерева |
+| Иконки | `material-symbols.css`, `material-symbols.json` | Self-hosted Material Symbols Rounded и одобренный набор имён. Исходник — Google Material Symbols |
 
 ## Подключение
 
@@ -50,39 +50,54 @@ Modules:
 ## Правила применения
 
 - В Primitives лежат постоянные `--white` и `--black`, тематические `--background-primary`, `--background-secondary`, `--primary`, палитры `--accent-*` и `--primary-*`. Старые `--background`, `--surface` и `--elevation-4…90` временно сохранены как алиасы для Mini Apps. Семантические роли задаёт библиотека компонентов конкретного продукта.
-- В Mini App используйте роли из `mini-app/src/styles/theme.css`, в Web UI — shadcn-роли из `web-ui/src/index.css`. Не используйте базовый цвет напрямую внутри компонента, если для него уже есть роль продукта.
+- Компоненты Mini App используют цветовые токены Primitives напрямую. В `mini-app/src/styles/theme.css` остаются только продуктовые роли, которым недостаточно одного токена (например, story и heatmap). Web UI использует shadcn-роли из `web-ui/src/index.css`.
 - Используйте `--ui-font-interface` для интерфейсного текста и `--ui-font-interface-caps` только для стиля Caption.
 - Берите отступы из `--ui-space-*` и `--ui-layout-*`, радиусы — из `--ui-radius-*` и `--ui-component-*-radius`.
 - Не добавляйте в компоненты произвольные HEX-цвета, размеры, `border-radius` или другие значения, если для них уже есть токен.
-- Используйте иконки из `icons/`; все исходные SVG имеют размер 24 × 24. Не рисуйте системные шевроны символами или CSS-линиями.
+- Используйте `MaterialSymbol` из Primitives. Не подключайте Lucide, локальные SVG или Google Fonts CDN напрямую.
 
 ## Иконки
 
-Для статического SVG импортируйте конкретный файл. Так сборщик видит только нужную иконку:
+Один раз подключите self-hosted font stylesheet в корне приложения:
 
-```js
-import chevronLeft from "@deslop/primitives/icons/chevron-left.svg";
+```css
+@import "@deslop/primitives/material-symbols.css";
 ```
 
-Готовые React-компоненты не зависят от Vite или SVG-loader-а:
+Используйте универсальный React-компонент. Все четыре оси Material Symbols
+доступны через props:
 
 ```tsx
-import { Icon, IconChevronLeft } from "@deslop/primitives/icons-react";
+import { MaterialSymbol } from "@deslop/primitives/material-symbols-react";
 
-<IconChevronLeft aria-label="Назад" />
-<Icon name="chevron-left" title="Назад" />
+<MaterialSymbol name="chevron_left" aria-label="Назад" />
+<MaterialSymbol
+  name="favorite"
+  fill
+  weight={500}
+  grade={100}
+  opticalSize={24}
+/>
 ```
 
-Не рассчитывайте, что `color: currentColor` перекрасит любой исходный SVG:
-часть иконок содержит заданные заливки. Проверьте результат в светлой и тёмной
-теме.
+По умолчанию используются `fill={false}`, `weight={400}`, `grade={0}` и
+`opticalSize`, равный числовому `size`. Цвет наследуется через `currentColor`.
+`materialSymbolNames` содержит одобренный базовый набор и одновременно является
+типом допустимых имён. Это гарантирует, что glyph действительно входит в
+self-hosted font subset.
+
+Старые SVG и путь `icons-react` временно сохранены как совместимый слой. Новый
+код должен использовать `material-symbols-react`; SVG больше не являются
+каноническим источником иконок.
 
 ## Изменение токенов
 
 - Цвета меняйте синхронно в `colors.md`, `colors.css` и `tokens.js`.
 - Отступы и радиусы меняйте в `layout.json`, затем выполните `npm run tokens:generate`.
 - Типографику меняйте синхронно в `TYPOGRAPHY.md`, `typography.css` и `tokens.js`.
-- Новые иконки добавляйте только в размере 24 × 24 и с именем в kebab-case.
+- Новую иконку сначала ищите в Material Symbols. Если она нужна нескольким
+  продуктам, добавьте ligature-имя в `material-symbols.json` и обновите React API
+  вместе с font subset командой `npm run icons:generate`.
 
 Перед передачей изменений запускайте:
 
@@ -90,4 +105,5 @@ import { Icon, IconChevronLeft } from "@deslop/primitives/icons-react";
 npm run check
 ```
 
-Проверка подтверждает синхронность layout-, color- и typography-токенов и размер SVG-иконок. После этого запустите lint и build самого продукта-потребителя.
+Проверка подтверждает синхронность токенов, Material Symbols registry и React
+API. После этого запустите lint и build самого продукта-потребителя.

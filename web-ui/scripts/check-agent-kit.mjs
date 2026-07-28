@@ -21,7 +21,7 @@ assert.deepEqual(catalog.adoption.allowlist.requiredFields, ["rule", "file", "re
 assert.equal(catalog.nativeControlReplacements.button, "components/button")
 assert.equal(catalog.nativeControlReplacements.select, "components/native-select")
 assert.equal(catalog.directDependencyReplacements.sonner, "components/sonner")
-assert.equal(catalog.directDependencyReplacements["lucide-react"], "@deslop/primitives/icons-react")
+assert.equal(catalog.directDependencyReplacements["lucide-react"], "@deslop/primitives/material-symbols-react")
 assert.equal(catalog.deprecatedTokens["--background"], "--background-primary")
 assert(catalog.modules.length >= 60)
 assert(!/\.deslop|setup|src\/components\/web-ui/.test(`${rules}\n${components}`))

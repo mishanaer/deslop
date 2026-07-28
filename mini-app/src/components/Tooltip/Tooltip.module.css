@@ -12,7 +12,7 @@
 }
 
 .trigger:focus-visible {
-  outline: 2px solid var(--tg-theme-link-color);
+  outline: 2px solid var(--accent-blue);
   outline-offset: 2px;
   border-radius: var(--ui-radius-4);
 }
@@ -21,7 +21,7 @@
   display: inline-block;
   background-color: var(--mini-app-toast-background);
   backdrop-filter: blur(25px);
-  color: var(--mini-app-static-white);
+  color: var(--white);
   will-change: transform, opacity, clip-path;
 }
 
@@ -47,7 +47,7 @@
   justify-content: center;
   flex-shrink: 0;
   padding: 3px var(--ui-space-4);
-  background-color: var(--mini-app-static-white);
-  color: var(--mini-app-static-black);
+  background-color: var(--white);
+  color: var(--black);
   border-radius: var(--ui-component-tooltip-badge-radius);
 }

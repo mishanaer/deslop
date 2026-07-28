@@ -4,8 +4,10 @@ import { RegularButton, MultilineButton } from "../Button"
 
 import { BackButton } from "../../lib/twa"
 
-import ArrowUpIcon from "@deslop/primitives/icons/arrow-up.svg?react"
-import PlusIcon from "@deslop/primitives/icons/plus.svg?react"
+import {
+    IconArrowUp as ArrowUpIcon,
+    IconPlus as PlusIcon,
+} from "@deslop/primitives/material-symbols-react"
 
 const ButtonShowcase = () => (
     <>

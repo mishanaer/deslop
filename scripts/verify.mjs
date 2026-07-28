@@ -26,12 +26,12 @@ const commands = [
     args: ["./scripts/check-typography-tokens.mjs"],
   },
   {
-    label: "Primitives: icons",
+    label: "Primitives: legacy SVG compatibility",
     cwd: primitives,
     args: ["./scripts/check-icons.mjs"],
   },
   {
-    label: "Primitives: React icons",
+    label: "Primitives: Material Symbols React API",
     cwd: primitives,
     args: ["./scripts/generate-react-icons.mjs", "--check"],
   },

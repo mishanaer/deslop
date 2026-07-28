@@ -20,8 +20,8 @@
 .panel {
   display: flex;
   flex-direction: column;
-  background: var(--tg-theme-section-bg-color);
-  color: var(--tg-theme-text-color);
+  background: var(--background-secondary);
+  color: var(--primary);
   overflow: hidden;
   will-change: transform;
 }

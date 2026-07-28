@@ -7,9 +7,11 @@ import Cell from "../../Cells"
 import ImageAvatar from "../../ImageAvatar"
 
 import { getAssetIcon } from "../../../utils/AssetsMap"
-import ChevronLeftIcon from "@deslop/primitives/icons/chevron-left.svg?react"
-import EllipsisIcon from "@deslop/primitives/icons/circle-more.svg?react"
-import XmarkIcon from "@deslop/primitives/icons/cross.svg?react"
+import {
+    IconChevronLeft as ChevronLeftIcon,
+    IconCross as XmarkIcon,
+    IconMore as EllipsisIcon,
+} from "@deslop/primitives/material-symbols-react"
 
 export const DEMO_ASSETS = [
     {

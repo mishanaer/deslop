@@ -70,7 +70,7 @@ deslop migrate --dry-run --json
 - известные alias-импорты `@/components/ui/*` в
   `@deslop/web-ui/components/*`;
 - однозначно сопоставленные Lucide-иконки в
-  `@deslop/primitives/icons-react`;
+  `@deslop/primitives/material-symbols-react`;
 - `toast` и `Toaster` из Sonner в Deslop entrypoints.
 
 Неизвестные иконки, сложные import-выражения и незарегистрированные локальные

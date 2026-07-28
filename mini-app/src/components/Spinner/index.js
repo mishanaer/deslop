@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 
-import SpinnerIcon from "@deslop/primitives/icons/loader.svg?react"
+import { IconLoader as SpinnerIcon } from "@deslop/primitives/material-symbols-react"
 
 import * as styles from "./Spinner.module.css"
 
@@ -9,10 +9,8 @@ const Spinner = ({ centered, className, size, ...rest }) => {
         .filter(Boolean)
         .join(" ")
 
-    const sizeStyle = size ? { width: size, height: size } : undefined
-
     const icon = (
-        <SpinnerIcon {...rest} className={combinedClassName} style={sizeStyle} />
+        <SpinnerIcon {...rest} className={combinedClassName} size={size ?? 24} />
     )
 
     if (centered) {

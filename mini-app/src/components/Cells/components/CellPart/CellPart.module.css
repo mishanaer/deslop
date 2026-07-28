@@ -1,12 +1,18 @@
 .chevron {
-  width: 7px;
-  height: 12px;
-  background-color: var(--border-color);
-  mask: url("@deslop/primitives/icons/chevron-right.svg") no-repeat center;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  color: var(--primary-30);
 }
 
 .dropdown {
-  color: var(--tg-theme-accent-text-color);
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent-blue);
+}
+
+.dropdownIcon {
+  display: none;
 }
 
 .colorpicker {
@@ -18,7 +24,7 @@
 .colorpicker label {
   margin-top: 1px;
   font-variant-numeric: lining-nums tabular-nums;
-  color: var(--tg-theme-accent-text-color);
+  color: var(--accent-blue);
 }
 
 .colorpicker input[type="color"] {
@@ -31,7 +37,7 @@
   border: 0;
   border-radius: var(--ui-radius-full);
   background: transparent;
-  box-shadow: inset 0 0 0 0.5px var(--elevation-20);
+  box-shadow: inset 0 0 0 0.5px var(--primary-20);
   cursor: pointer;
 }
 
@@ -50,23 +56,18 @@
   border-radius: var(--ui-radius-full);
 }
 
-:global(body.apple) .dropdown::after {
-  content: "";
+:global(body.apple) .dropdownIcon {
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  background-color: var(--tg-theme-accent-text-color);
-  mask: url("@deslop/primitives/icons/chevron-down.svg") no-repeat center;
-  margin-left: 5px;
+  margin-left: var(--ui-space-4);
 }
 
 :global(body.apple) .picker {
-  background-color: var(--tertiary-fill-background);
-  color: var(--tg-theme-text-color);
+  background-color: var(--primary-10);
+  color: var(--primary);
   padding: 7px var(--ui-space-10);
   border-radius: var(--ui-radius-18);
 }
 
 :global(body.material) .picker {
-  color: var(--tg-theme-accent-text-color);
+  color: var(--accent-blue);
 }

@@ -13,8 +13,8 @@
   width: var(--sidebar-width);
   height: 100%;
   overflow: hidden;
-  border-right: 0.5px solid var(--tg-theme-section-separator-color);
-  background: var(--tg-theme-secondary-bg-color);
+  border-right: 0.5px solid var(--primary-20);
+  background: var(--background-primary);
   animation: sidebar-in 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
@@ -31,7 +31,7 @@
   min-width: 0;
   height: 100%;
   overflow: hidden;
-  background: var(--tg-theme-secondary-bg-color);
+  background: var(--background-primary);
 }
 
 .placeholder {
@@ -39,7 +39,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: var(--tg-theme-hint-color);
+  color: var(--primary-60);
 }
 
 @keyframes sidebar-in {

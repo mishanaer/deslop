@@ -11,8 +11,8 @@ import FAQ from "./components/FAQ"
 function TONWallet() {
     return (
         <Page
-            headerColorToken="--mini-app-story-background"
-            backgroundColorToken="--mini-app-story-background"
+            headerColorToken="--black"
+            backgroundColorToken="--black"
         >
             <div className="ton-space">
                 <Profile />

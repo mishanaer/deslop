@@ -1,15 +1,15 @@
 import { useEffect } from "react"
 import WebApp from "./webApp"
-import { getMiniAppColor } from "../../theme/colors"
+import { getResolvedColorToken } from "../../theme/colors"
 
 const getDefaultColors = () => ({
     main: {
-        color: getMiniAppColor("action-primary-background"),
-        text_color: getMiniAppColor("action-primary-foreground"),
+        color: getResolvedColorToken("--accent-green"),
+        text_color: getResolvedColorToken("--black"),
     },
     secondary: {
-        color: getMiniAppColor("elevation"),
-        text_color: getMiniAppColor("action-primary-background"),
+        color: getResolvedColorToken("--background-secondary"),
+        text_color: getResolvedColorToken("--accent-green"),
     },
 })
 

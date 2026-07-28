@@ -60,7 +60,7 @@ function GradientMask({
                         y="0"
                         width={overlayWidth}
                         height={overlayHeight}
-                        fill="var(--mini-app-static-white)"
+                        fill="var(--white)"
                     />
                     <rect
                         x={left}
@@ -69,7 +69,7 @@ function GradientMask({
                         height={innerHeight}
                         rx={rx}
                         ry={rx}
-                        fill="var(--mini-app-static-black)"
+                        fill="var(--black)"
                     />
                 </mask>
             </defs>

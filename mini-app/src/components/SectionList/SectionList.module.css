@@ -4,7 +4,7 @@
   align-items: flex-start;
   align-self: stretch;
   padding-bottom: calc(var(--ui-layout-content-inset) + env(safe-area-inset-bottom));
-  background-color: var(--tg-theme-secondary-bg-color);
+  background-color: transparent;
 }
 
 .root section {
@@ -35,7 +35,7 @@
 }
 
 :global(body.apple) .root section .container {
-  background-color: var(--tg-theme-section-bg-color);
+  background-color: var(--elevation-1);
   border-radius: var(--ui-component-section-radius);
   overflow: hidden;
 }
@@ -47,7 +47,7 @@
 }
 
 :global(body.material) .root section .card {
-  background-color: var(--tg-theme-section-bg-color);
+  background-color: var(--elevation-1);
   border-radius: var(--ui-radius-16);
   overflow: hidden;
 }

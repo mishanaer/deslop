@@ -1,5 +1,7 @@
-import MoonIcon from "@deslop/primitives/icons/moon.svg?react"
-import SunIcon from "@deslop/primitives/icons/sun.svg?react"
+import {
+    IconMoon as MoonIcon,
+    IconSun as SunIcon,
+} from "@deslop/primitives/material-symbols-react"
 
 import AppBar from "../../../src/components/AppBar"
 import { useSplitViewContext } from "../../../src/components/SplitView/context"

@@ -72,7 +72,7 @@ const Onboarding = () => {
     }, [])
 
     return (
-        <Page headerColorToken="--mini-app-story-background">
+        <Page headerColorToken="--black">
             <BackButton />
             <Gallery onPageChange={handlePageChange}>
                 {GalleryPages.map(

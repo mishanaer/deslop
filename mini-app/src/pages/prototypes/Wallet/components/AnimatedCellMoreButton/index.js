@@ -5,7 +5,7 @@ import Text from "../../../../../components/Text"
 import { useSkin } from "../../../../../hooks/DeviceProvider"
 import { getAssetIcon } from "../../../../../utils/AssetsMap"
 import { TRANSITIONS } from "../../../../../utils/animations"
-import EyeOffIcon from "@deslop/primitives/icons/eye-off.svg?react"
+import { IconVisibilityOff as EyeOffIcon } from "@deslop/primitives/material-symbols-react"
 
 export default function AnimatedCellMoreButton({ onClick, state }) {
     const { isApple } = useSkin()

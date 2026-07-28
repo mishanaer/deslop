@@ -28,9 +28,9 @@
 
 .button {
   padding: var(--ui-space-10) var(--ui-space-24);
-  background-color: var(--quaternary-fill-background);
+  background-color: var(--primary-5);
   border: none;
-  color: var(--tg-theme-accent-text-color);
+  color: var(--accent-blue);
   font-size: var(--ui-body-font-size);
   line-height: var(--ui-body-line-height);
   font-weight: var(--ui-body-font-weight);
@@ -39,7 +39,7 @@
 }
 
 .button:active {
-  background-color: var(--tertiary-fill-background);
+  background-color: var(--primary-10);
 }
 
 .button:disabled {
@@ -69,12 +69,12 @@
 
 .wheelContainer::before {
   left: 0;
-  background: linear-gradient(to right, var(--tg-theme-section-bg-color), transparent);
+  background: linear-gradient(to right, var(--background-secondary), transparent);
 }
 
 .wheelContainer::after {
   right: 0;
-  background: linear-gradient(to left, var(--tg-theme-section-bg-color), transparent);
+  background: linear-gradient(to left, var(--background-secondary), transparent);
 }
 
 .centerIndicator {
@@ -84,7 +84,7 @@
   left: 50%;
   top: 0;
   transform: translateX(-50%);
-  background-color: var(--quaternary-fill-background);
+  background-color: var(--primary-5);
   border-radius: var(--ui-radius-8);
   pointer-events: none;
   z-index: 0;
@@ -103,7 +103,7 @@
   line-height: var(--ui-title-52-line-height);
   font-weight: var(--ui-title-52-font-weight);
   font-variant-numeric: lining-nums tabular-nums;
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
   text-align: center;
   user-select: none;
   padding: 0 var(--side-padding);
@@ -145,7 +145,7 @@
   line-height: var(--ui-subtitle-line-height);
   font-weight: var(--ui-subtitle-font-weight);
   font-variant-numeric: lining-nums tabular-nums;
-  color: var(--tg-theme-hint-color);
+  color: var(--primary-60);
   margin-bottom: var(--ui-space-4);
   user-select: none;
 }
@@ -154,6 +154,6 @@
   display: block;
   width: 2px;
   height: 8px;
-  background-color: var(--separator-non-opaque);
+  background-color: var(--primary-20);
   border-radius: 1px;
 }

@@ -23,18 +23,18 @@
 
 .root .item {
   cursor: pointer;
-  color: var(--tg-theme-text-color);
+  color: var(--primary);
   position: relative;
 }
 
 .root .item:hover {
-  background-color: var(--mini-app-fill-tertiary);
+  background-color: var(--primary-10);
   border-radius: var(--ui-radius-full);
 }
 
 :global(body.material) .root {
-  background-color: var(--tg-theme-section-bg-color);
-  box-shadow: 0 0.33px 1px 0.5px var(--elevation-10);
+  background-color: var(--background-secondary);
+  box-shadow: 0 0.33px 1px 0.5px var(--primary-10);
   border-radius: var(--ui-radius-8);
 }
 
@@ -46,9 +46,9 @@
 :global(body.apple) .root {
   border-radius: var(--ui-component-dropdown-menu-radius);
   padding: var(--ui-layout-content-inset);
-  background: var(--glass-tint-background);
+  background: var(--primary-5);
   backdrop-filter: blur(8px);
-  box-shadow: 0 0 10px 0 var(--elevation-10);
+  box-shadow: 0 0 10px 0 var(--primary-10);
 }
 
 @supports (-apple-visual-effect: -apple-system-glass-material) {

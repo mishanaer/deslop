@@ -2,21 +2,7 @@
   position: relative;
   cursor: pointer;
 
-  --highlight-default: var(--mini-app-press-highlight);
-}
-
-@media (prefers-color-scheme: dark) {
-  .root {
-    --highlight-default: var(--mini-app-press-highlight);
-  }
-}
-
-:global([data-color-scheme="light"]) .root {
-  --highlight-default: var(--mini-app-press-highlight);
-}
-
-:global([data-color-scheme="dark"]) .root {
-  --highlight-default: var(--mini-app-press-highlight);
+  --highlight-default: var(--tappable-highlight, var(--primary-20));
 }
 
 .fade {

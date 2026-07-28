@@ -5,7 +5,7 @@
 .canvas {
   margin: 0 var(--side-padding);
   border-radius: 20px;
-  background: var(--tg-theme-section-bg-color);
+  background: var(--background-secondary);
 }
 
 .over {
