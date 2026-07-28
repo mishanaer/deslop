@@ -1,8 +1,4 @@
 export {
-  componentRadiusPixels,
-  componentRadiusTokens,
-  componentSpacingPixels,
-  componentSpacingTokens,
   layoutTokens,
   radiusPixels,
   radiusTokens,

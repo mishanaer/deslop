@@ -1,0 +1,20 @@
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  overflow: hidden;
+  background-color: var(--background-secondary);
+}
+
+:global([data-mini-app].apple) .sectionContainer {
+  border-radius: 26px;
+}
+
+:global([data-mini-app].material) .sectionContainer {
+  border-radius: 16px;
+  box-shadow: 0 0.33px 1px 0 var(--primary-5);
+}
+
+.glassHeader {
+  padding: 6px 0 0;
+}

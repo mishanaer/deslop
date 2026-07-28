@@ -3,8 +3,8 @@ import { fileURLToPath } from "node:url";
 
 const check = process.argv.includes("--check");
 const root = fileURLToPath(new URL("../", import.meta.url));
-const jsPath = `${root}/icons-react.js`;
-const typesPath = `${root}/icons-react.d.ts`;
+const jsPath = `${root}/material-symbols-react.js`;
+const typesPath = `${root}/material-symbols-react.d.ts`;
 const config = JSON.parse(await readFile(`${root}/material-symbols.json`, "utf8"));
 
 const names = [...new Set(config.names)].sort();
@@ -175,7 +175,7 @@ async function verify(path, expected) {
   }
 
   if (actual !== expected) {
-    throw new Error(`${path} is stale; run npm run icons:react:generate`);
+    throw new Error(`${path} is stale; run scripts/generate-react-icons.mjs`);
   }
 }
 

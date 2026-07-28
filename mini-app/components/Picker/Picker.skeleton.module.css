@@ -1,0 +1,34 @@
+.wheel {
+  position: relative;
+  height: 200px;
+  padding: 0 16px;
+  overflow: hidden;
+}
+
+.selected {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  right: 16px;
+  height: 34px;
+  transform: translateY(-50%);
+  border-radius: 8px;
+  background-color: var(--primary-5);
+  pointer-events: none;
+}
+
+:global([data-mini-app].apple) .selected {
+  border-radius: 20px;
+}
+
+.rows {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+  mask-image: linear-gradient(to bottom, transparent, var(--black) 28%, var(--black) 72%, transparent);
+}

@@ -17,8 +17,6 @@ const groupNames = [
   "spacing",
   "radius",
   "semanticSpacing",
-  "componentSpacing",
-  "componentRadius",
 ];
 
 for (const groupName of groupNames) {
@@ -86,14 +84,6 @@ const cssDeclarations = [
   ...Object.entries(sourceTokens.semanticSpacing).map(
     ([name, value]) => `    --ui-layout-${name}: ${referenceToCss(value)};`,
   ),
-  ...Object.entries(sourceTokens.componentSpacing).map(
-    ([name, value]) =>
-      `    --ui-component-${name}-spacing: ${referenceToCss(value)};`,
-  ),
-  ...Object.entries(sourceTokens.componentRadius).map(
-    ([name, value]) =>
-      `    --ui-component-${name}-radius: ${referenceToCss(value)};`,
-  ),
 ];
 
 const cssOutput = [
@@ -121,13 +111,9 @@ const jsDeclarations = [
   ["spacingTokens", resolvedTokens.spacing],
   ["radiusTokens", resolvedTokens.radius],
   ["semanticSpacingTokens", resolvedTokens.semanticSpacing],
-  ["componentSpacingTokens", resolvedTokens.componentSpacing],
-  ["componentRadiusTokens", resolvedTokens.componentRadius],
   ["spacingPixels", toPixels(sourceTokens.spacing)],
   ["radiusPixels", toPixels(sourceTokens.radius)],
   ["semanticSpacingPixels", toPixels(sourceTokens.semanticSpacing)],
-  ["componentSpacingPixels", toPixels(sourceTokens.componentSpacing)],
-  ["componentRadiusPixels", toPixels(sourceTokens.componentRadius)],
 ];
 
 const jsOutput = [
@@ -141,8 +127,6 @@ const jsOutput = [
   "    spacing: spacingTokens,",
   "    radius: radiusTokens,",
   "    semanticSpacing: semanticSpacingTokens,",
-  "    componentSpacing: componentSpacingTokens,",
-  "    componentRadius: componentRadiusTokens,",
   "})",
   "",
 ].join("\n");

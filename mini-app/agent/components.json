@@ -1,5 +1,5 @@
 {
-    "package": "@deslop/mini-app",
+    "source": "mini-app/index.js",
     "components": [
         {
             "name": "Page",

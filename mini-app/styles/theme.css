@@ -1,0 +1,25 @@
+/* Product-specific roles with product meaning or theme-dependent mappings. */
+
+:where([data-mini-app]) {
+    --mini-app-story-badge: var(--accent-indigo);
+    --mini-app-heatmap-gain-1: var(--accent-mint);
+    --mini-app-heatmap-gain-2: var(--accent-green);
+    --mini-app-heatmap-gain-3: var(--accent-teal);
+    --mini-app-heatmap-loss-1: var(--accent-orange);
+    --mini-app-heatmap-loss-2: var(--accent-red);
+    --mini-app-heatmap-loss-3: var(--accent-brown);
+    --mini-app-story-subtle: var(--white);
+    --mini-app-toast-background: var(--black);
+}
+
+@media (prefers-color-scheme: dark) {
+    :where([data-mini-app]:not([data-color-scheme="light"])) {
+        --mini-app-story-subtle: var(--primary-50);
+        --mini-app-toast-background: var(--primary-5);
+    }
+}
+
+:where([data-mini-app][data-color-scheme="dark"]) {
+    --mini-app-story-subtle: var(--primary-50);
+    --mini-app-toast-background: var(--primary-5);
+}

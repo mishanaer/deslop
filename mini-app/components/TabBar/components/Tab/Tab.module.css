@@ -1,0 +1,68 @@
+.tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--ui-space-2);
+  flex: 1 0 0;
+  text-decoration: none;
+  font-weight: var(--ui-caption-font-weight);
+  color: var(--primary-90);
+}
+
+.tab svg,
+.tab path,
+.tab :global(.wallet-lottie_fill-color) path {
+  fill: var(--primary-90);
+}
+
+.tab :global(.wallet-lottie_stroke-color) path {
+  stroke: var(--primary-90);
+}
+
+:global([data-mini-app].apple) .tab {
+  padding: var(--ui-space-4) 0 var(--ui-space-6);
+  font-size: var(--ui-caption-font-size);
+  line-height: var(--ui-caption-line-height);
+  opacity: 1;
+  position: relative;
+  z-index: 2;
+}
+
+:global([data-mini-app].apple) .tab svg,
+:global([data-mini-app].apple) .tab path {
+  height: 32px;
+}
+
+:global([data-mini-app].apple) .tab .icon {
+  height: 32px;
+}
+
+:global([data-mini-app].apple) .tab :global(.deslop-material-symbol) {
+  font-size: 32px !important;
+}
+
+:global([data-mini-app].apple) .active {
+  opacity: 1;
+  border-radius: var(--ui-radius-full);
+}
+
+.tab.active {
+  color: var(--tab-bar-active-color, var(--accent-green));
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+
+:global([data-color-scheme="light"]) .tab.active {
+  mix-blend-mode: multiply;
+}
+
+.tab.active svg,
+.tab.active path,
+.tab.active :global(.wallet-lottie_fill-color) path {
+  fill: var(--tab-bar-active-color, var(--accent-green));
+}
+
+.tab.active :global(.wallet-lottie_stroke-color) path {
+  stroke: var(--tab-bar-active-color, var(--accent-green));
+}
