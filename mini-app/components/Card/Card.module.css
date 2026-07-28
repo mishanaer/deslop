@@ -1,0 +1,3 @@
+.root:last-child {
+    --cell-separator-height: 0px;
+}

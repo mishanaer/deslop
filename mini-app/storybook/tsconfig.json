@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "types": ["vite/client"],
+    "paths": {
+      "@components/*": ["../components/*"],
+      "@hooks/*": ["../hooks/*"],
+      "@lib/*": ["../lib/*"],
+      "@theme/*": ["../theme/*"],
+      "@mini-utils/*": ["../utils/*"],
+      "@primitives/*": ["../../primitives/*"],
+      "@utils/*": ["./examples/utils/*"],
+      "@icons/*": ["./assets/icons/*"],
+      "@images/*": ["./assets/images/*"]
+    }
+  },
+  "include": [".storybook/**/*", "stories/**/*", "examples/**/*", "../**/*", "../../primitives/**/*"],
+  "exclude": ["node_modules", "storybook-static", "../build", "../dist"]
+}

@@ -1,0 +1,25 @@
+/* Optional full-page shell. Do not import this file into embedded host screens. */
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding-top: calc(
+        env(safe-area-inset-top) + var(--tg-content-safe-area-inset-top, 0px)
+    );
+    padding-right: env(safe-area-inset-right);
+    padding-left: env(safe-area-inset-left);
+    color: var(--primary);
+    background: var(--background-secondary);
+    font-family: var(--ui-font-interface);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 200ms ease;
+}
+
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+    display: none;
+}

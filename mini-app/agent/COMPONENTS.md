@@ -1,7 +1,7 @@
 # Компоненты Mini App
 
 Используй этот каталог до написания JSX. Исходники компонентов находятся в
-`src/components` этого пакета.
+`components` этой папки.
 
 ## Быстрый выбор
 
@@ -30,10 +30,10 @@
 | Таблица                                 | `Table`                                           |
 | Выбор из прокручиваемого списка         | `Picker`, `Wheel`                                 |
 
-## Каркас Storybook-приложения
+## Каркас приложения
 
 ```jsx
-import MiniAppProvider from "@/MiniAppProvider"
+import MiniAppProvider from "./mini-app/MiniAppProvider"
 
 root.render(
     <MiniAppProvider>
@@ -45,13 +45,13 @@ root.render(
 ## Примеры
 
 ```jsx
-import AppBar from "@components/AppBar"
-import { RegularButton } from "@components/Button"
-import { Cell, default as Cells } from "@components/Cells"
-import Page from "@components/Page"
-import Switch from "@components/Switch"
-import Text from "@components/Text"
-import { TextField } from "@components/TextField"
+import AppBar from "./mini-app/components/AppBar"
+import { RegularButton } from "./mini-app/components/Button"
+import { Cell, default as Cells } from "./mini-app/components/Cells"
+import Page from "./mini-app/components/Page"
+import Switch from "./mini-app/components/Switch"
+import Text from "./mini-app/components/Text"
+import { TextField } from "./mini-app/components/TextField"
 
 export function ProfilePage() {
     return (

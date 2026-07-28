@@ -1,0 +1,5 @@
+# Generated and installed files
+node_modules
+storybook-static
+build
+coverage

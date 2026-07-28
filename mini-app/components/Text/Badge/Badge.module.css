@@ -1,0 +1,76 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  padding: var(--ui-space-4) var(--ui-space-8);
+  border-radius: var(--ui-radius-6);
+}
+
+.badge[data-variant="title1"], .badge[data-variant="title2"], .badge[data-variant="title3"] {
+  padding: var(--ui-space-6) var(--ui-space-12);
+}
+
+.badge[data-variant="footnote"] {
+  border-radius: var(--ui-radius-4);
+}
+
+.badge.filled {
+  background-color: var(--badge-background, var(--accent-blue));
+  color: var(--badge-text-color, var(--white));
+}
+
+.badge.tinted {
+  background-color: var(--primary-10);
+  color: var(--badge-text-color, var(--accent-blue));
+}
+
+.badge.gray {
+  background-color: var(--primary-10);
+  color: var(--primary);
+}
+
+.badge.media {
+  background-color: var(--background-secondary);
+  color: var(--primary);
+}
+
+.badge.outlined {
+  background-color: transparent;
+  color: var(--primary);
+  border: 0.5px solid var(--primary-20);
+}
+
+.badge[data-circled="true"] {
+  padding: var(--ui-space-4);
+  border-radius: var(--ui-radius-full);
+}
+
+.badge[data-circled="true"][data-variant="footnote"] {
+  padding: var(--ui-space-4) 7px;
+  border-radius: var(--ui-radius-11);
+}
+
+.badge[data-circled="true"][data-variant="subheadline1"], .badge[data-circled="true"][data-variant="subheadline2"], .badge[data-circled="true"][data-variant="body"] {
+  padding: var(--ui-space-4) 7px;
+  border-radius: var(--ui-radius-13);
+}
+
+.badge[data-circled="true"][data-variant="title1"], .badge[data-circled="true"][data-variant="title2"], .badge[data-circled="true"][data-variant="title3"] {
+  padding: var(--ui-space-6) 7px;
+  border-radius: var(--ui-radius-13);
+}
+
+.badge[data-squared="true"] {
+  padding: var(--ui-space-4);
+  border-radius: var(--ui-radius-6);
+}
+
+.badge[data-squared="true"][data-variant="footnote"] {
+  border-radius: var(--ui-radius-4);
+}
+
+.badge[data-squared="true"][data-variant="title1"], .badge[data-squared="true"][data-variant="title2"], .badge[data-squared="true"][data-variant="title3"] {
+  padding: var(--ui-space-6) var(--ui-space-4);
+}

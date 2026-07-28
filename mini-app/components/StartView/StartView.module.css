@@ -1,0 +1,10 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ui-space-12);
+    padding: var(--ui-space-44) var(--ui-space-32);
+    color: var(--primary);
+    text-align: center;
+}

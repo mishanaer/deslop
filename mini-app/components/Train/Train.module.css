@@ -1,0 +1,18 @@
+.root {
+    display: flex;
+    align-items: center;
+}
+
+.space {
+    gap: var(--ui-space-8);
+}
+
+.dot {
+    gap: 0;
+}
+
+.dot > *:not(:first-child)::before {
+    display: inline-block;
+    margin-inline: var(--ui-space-3);
+    content: "·";
+}

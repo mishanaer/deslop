@@ -1,0 +1,11 @@
+.root {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--ui-layout-compact-gap);
+    padding: var(--ui-space-10) var(--ui-layout-content-inset);
+    color: var(--primary-60);
+}
+
+.headline {
+    color: var(--primary);
+}

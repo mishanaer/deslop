@@ -1,0 +1,140 @@
+.root {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--ui-space-9) var(--ui-layout-content-inset);
+  border-radius: var(--ui-radius-26);
+  background: var(--mini-app-toast-background);
+  backdrop-filter: blur(25px);
+  color: var(--white);
+}
+
+:global([data-mini-app].material) .root {
+  padding: var(--ui-space-10) var(--ui-layout-content-inset);
+}
+
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: var(--ui-space-12);
+  color: var(--white);
+}
+
+.icon svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+.icon svg path {
+  fill: currentcolor;
+}
+
+.icon :global(.deslop-material-symbol) {
+  font-size: 28px !important;
+}
+
+:global([data-mini-app].material) .icon {
+  margin-right: 10px;
+}
+
+.content {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--white);
+}
+
+:global([data-mini-app].material) .content {
+  gap: var(--ui-space-2);
+}
+
+.title,
+.description {
+  margin: 0;
+  color: var(--white);
+}
+
+.action, .link {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: var(--accent-cyan);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.action:focus-visible, .link:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+  border-radius: var(--ui-radius-4);
+}
+
+.link {
+  text-align: left;
+}
+
+.action {
+  flex-shrink: 0;
+  margin-left: var(--ui-space-12);
+  white-space: nowrap;
+}
+
+:global([data-mini-app].material) .action {
+  margin-left: 10px;
+}
+
+.host {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ui-layout-control-gap);
+  padding: 0 var(--ui-layout-content-inset);
+  pointer-events: none;
+}
+
+.host_top {
+  top: calc(env(safe-area-inset-top) + var(--ui-space-12));
+}
+
+.host_bottom {
+  bottom: var(--bottom-clearance, calc(env(safe-area-inset-bottom) + var(--ui-space-12)));
+  flex-direction: column-reverse;
+}
+
+.item {
+  pointer-events: auto;
+  width: 100%;
+  border-radius: var(--ui-radius-26);
+  background: var(--mini-app-toast-background);
+  backdrop-filter: blur(25px);
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.item:active {
+  cursor: grabbing;
+}
+
+.item > .root {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+:global([data-mini-app].material) .item {
+  border-radius: 28px;
+  backdrop-filter: none;
+}

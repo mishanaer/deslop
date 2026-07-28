@@ -1,0 +1,28 @@
+.group {
+  padding: var(--ui-space-12) var(--ui-layout-content-inset);
+}
+
+.track {
+  position: relative;
+  display: flex;
+  width: 100%;
+  gap: var(--ui-space-4);
+  padding: var(--ui-space-2);
+  border-radius: var(--ui-radius-18);
+  background-color: var(--primary-5);
+}
+
+.segment {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ui-space-6) 0;
+  border-radius: var(--ui-radius-16);
+}
+
+.active {
+  background-color: var(--primary-5);
+  border: 0;
+  box-shadow: none;
+}

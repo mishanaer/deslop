@@ -1,0 +1,32 @@
+@import "../../primitives/colors.css";
+@import "../../primitives/layout.css";
+@import "../../primitives/material-symbols.css";
+@import "../../primitives/typography.css";
+@import "./theme.css";
+
+:where([data-mini-app]),
+:where([data-mini-app]) *,
+:where([data-mini-app]) *::before,
+:where([data-mini-app]) *::after {
+    box-sizing: border-box;
+}
+
+:where([data-mini-app]) {
+    --side-padding: var(--ui-layout-content-inset);
+
+    color: var(--primary);
+    font-family: var(--ui-font-interface);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :where([data-mini-app]) *,
+    :where([data-mini-app]) *::before,
+    :where([data-mini-app]) *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
