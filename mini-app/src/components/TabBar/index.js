@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react"
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { useResizeObserver } from "../../hooks/useResizeObserver"
-import { GlassBorder } from "../GlassEffect"
 import * as styles from "./TabBar.module.css"
 import Tab from "./components/Tab"
 import { useIndicatorDrag } from "./useIndicatorDrag"
@@ -112,7 +111,6 @@ const TabBar = ({ tabs, onChange, defaultIndex = 0 }) => {
                 onChange={handleSegmentClick}
             />
 
-            <GlassBorder />
             <GradientMask
                 width={rootWidth}
                 height={64}

@@ -9,6 +9,7 @@ import {
 import Page from "../Page"
 import Text from "../Text"
 import TabBar from "../TabBar"
+import { useAppearance } from "../../hooks/useColorScheme"
 import { BackButton } from "../../lib/twa"
 
 const tabs = [
@@ -30,22 +31,14 @@ const layers = [
         number: "02",
         name: "Base surface",
         selector: ".root",
-        tokens: ["--primary-5"],
-        details: "saturate(300%) blur(16px)",
+        tokens: ["--white"],
+        details:
+            "opacity 10% · blur(16px) · shadow 0 8px 20px primary-20 (light only)",
         purpose: "Основная стеклянная капсула компонента.",
         preview: "surface",
     },
     {
         number: "03",
-        name: "Glass rim + shadow",
-        selector: ".glassBorder / .root",
-        tokens: ["--primary-10", "--primary-5"],
-        details: "mix-blend-mode: overlay · shadow 0 0 10px",
-        purpose: "Световой кант и внешнее отделение от страницы.",
-        preview: "rim",
-    },
-    {
-        number: "04",
         name: "Active segment",
         selector: ".clipPathContainer",
         tokens: ["--primary-8"],
@@ -54,7 +47,7 @@ const layers = [
         preview: "selection",
     },
     {
-        number: "05",
+        number: "04",
         name: "Inactive content",
         selector: ".tab",
         tokens: ["--primary-90"],
@@ -63,7 +56,7 @@ const layers = [
         preview: "inactive",
     },
     {
-        number: "06",
+        number: "05",
         name: "Active content",
         selector: ".tab.active",
         tokens: ["--accent-orange"],
@@ -119,6 +112,7 @@ const useTokenValues = () => {
 }
 
 const LayerPreview = ({ type }) => {
+    const { colorScheme } = useAppearance()
     const isContent = type === "inactive" || type === "active"
     const containerStyle =
         type === "fade"
@@ -138,23 +132,23 @@ const LayerPreview = ({ type }) => {
                 <div
                     style={{
                         ...capsuleStyle,
-                        background: "var(--primary-5)",
                         backdropFilter: "saturate(300%) blur(16px)",
+                        boxShadow:
+                            colorScheme === "dark"
+                                ? "none"
+                                : "0 8px 20px var(--primary-20)",
                     }}
-                />
-            )}
-            {type === "rim" && (
-                <div
-                    style={{
-                        ...capsuleStyle,
-                        padding: 1,
-                        background:
-                            "linear-gradient(8deg, transparent, var(--primary-10), transparent)",
-                        boxShadow: "0 0 10px var(--primary-5)",
-                        mask: "linear-gradient(var(--black) 0 0) content-box, linear-gradient(var(--black) 0 0)",
-                        maskComposite: "exclude",
-                    }}
-                />
+                >
+                    <div
+                        style={{
+                            position: "absolute",
+                            inset: 0,
+                            borderRadius: "inherit",
+                            background: "var(--white)",
+                            opacity: 0.1,
+                        }}
+                    />
+                </div>
             )}
             {type === "selection" && (
                 <div

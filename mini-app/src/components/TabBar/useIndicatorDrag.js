@@ -20,8 +20,8 @@ export function useIndicatorDrag({
 
     const segmentPercent = 100 / tabsLength
 
-    const indicatorWidth = `calc(${segmentPercent}% + 7.33px - 4px)`
-    const indicatorLeft = `calc(${segmentPercent * activeIndex}% - ${3.67 * activeIndex}px)`
+    const indicatorWidth = `${segmentPercent}%`
+    const indicatorLeft = `${segmentPercent * activeIndex}%`
 
     const clipLeft = indicatorLeft
     const clipRight = `calc(100% - (${indicatorLeft} + ${indicatorWidth}))`

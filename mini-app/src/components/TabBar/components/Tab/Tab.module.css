@@ -42,10 +42,6 @@
   font-size: 32px !important;
 }
 
-:global(body.apple) .tab:not(:first-child) {
-  margin-left: -7.33px;
-}
-
 :global(body.apple) .active {
   opacity: 1;
   border-radius: var(--ui-radius-full);

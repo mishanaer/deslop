@@ -1,11 +1,8 @@
 .root {
-  --glass-border-color: var(--primary-10);
-
   display: flex;
   position: relative;
   align-items: flex-start;
   align-self: stretch;
-  box-shadow: 0 -0.33px 0 0 var(--primary-20);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -17,9 +14,24 @@
   border-radius: var(--ui-component-tab-bar-radius);
   padding: var(--ui-space-4);
   margin: 0;
-  background: var(--primary-5);
+  background: transparent;
   backdrop-filter: saturate(300%) blur(16px);
-  box-shadow: 0 0 10px 0 var(--primary-5);
+  box-shadow: 0 8px 20px 0 var(--primary-20);
+}
+
+:global(body.apple) .root::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: var(--white);
+  content: "";
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+:global(body.apple[data-color-scheme="dark"]) .root {
+  box-shadow: none;
 }
 
 @supports (-apple-visual-effect: -apple-system-glass-material) {
@@ -65,7 +77,7 @@
 }
 
 :global(body.apple) .root .activeIndicator {
-  background-color: var(--primary-10);
+  background-color: var(--primary-8);
   border-radius: var(--ui-component-tab-bar-radius);
   height: calc(100% - var(--ui-space-8));
   top: var(--ui-space-4);

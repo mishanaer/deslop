@@ -7,12 +7,29 @@
   display: flex;
   padding: 4px;
   border-radius: 100px;
-  background: var(--background-secondary);
+  background: transparent;
   backdrop-filter: saturate(300%) blur(16px);
-  box-shadow: 0 0 10px 0 var(--primary-10);
+  box-shadow: 0 8px 20px 0 var(--primary-20);
+}
+
+.bar::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: var(--white);
+  content: "";
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+:global([data-color-scheme="dark"]) .bar {
+  box-shadow: none;
 }
 
 .slot {
+  position: relative;
+  z-index: 1;
   flex: 1 0 0;
   display: flex;
   flex-direction: column;
