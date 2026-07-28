@@ -8,8 +8,7 @@
 ## Primitives
 
 [Primitives](./primitives/README.md) — единый набор токенов, шрифтов и иконок
-для продуктов. Готовые компоненты находятся в
-[`@deslop/mini-app`](./mini-app/README.md).
+для продуктов.
 
 ## mini-apps
 
