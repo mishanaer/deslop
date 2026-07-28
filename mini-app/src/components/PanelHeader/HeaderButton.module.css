@@ -20,7 +20,7 @@
 
 .regular {
   background: var(--primary-5);
-  box-shadow: 0 0 10px 0 var(--primary-10);
+  box-shadow: 0 2px 10px 0 var(--primary-5);
   color: var(--primary);
   backdrop-filter: blur(8px);
 }

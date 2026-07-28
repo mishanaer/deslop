@@ -81,9 +81,13 @@ test("doctor detects the consumer environment and migration risks", async (conte
     ["--background", "--primary"],
   )
   assert.equal(plan.source.hardcodedVisuals.files, 1)
-  assert.equal(plan.recommendation.strategy, "blocked-tailwind-upgrade-required")
-  assert.equal(plan.recommendation.blockers.length, 1)
-  assert.deepEqual(plan.recommendation.nextCommands, [])
+  assert.equal(plan.recommendation.strategy, "primitives-and-review")
+  assert.equal(plan.recommendation.blockers.length, 0)
+  assert.deepEqual(plan.recommendation.nextCommands, [
+    "deslop migrate --dry-run",
+    "deslop migrate",
+    "deslop audit --strict",
+  ])
 })
 
 test("doctor prints by default and writes only with explicit output", async (context) => {

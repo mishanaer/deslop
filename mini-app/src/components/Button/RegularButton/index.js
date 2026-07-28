@@ -14,6 +14,7 @@ import { useSkin } from "../../../hooks/DeviceProvider"
 /**
  * Pill button. Reuse instead of a raw <button>. Extra props (onClick, etc.)
  * spread onto the underlying motion element.
+ * @param {object} props
  * @param {"filled"|"outlined"} props.variant
  * @param {string} props.label
  * @param {boolean} [props.isShine] Sweep highlight; only affects `filled`.

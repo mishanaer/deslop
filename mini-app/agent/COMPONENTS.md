@@ -5,29 +5,30 @@
 
 ## Быстрый выбор
 
-| Задача                                  | Компонент                             |
-| --------------------------------------- | ------------------------------------- |
-| Экран и фон страницы                    | `Page`                                |
-| Верхняя панель, заголовок, кнопка назад | `AppBar`, `PanelHeader`               |
-| Нижняя навигация                        | `TabBar`                              |
-| Вкладки                                 | `Tabs`                                |
-| Кнопка                                  | `RegularButton`, `MultilineButton`    |
-| Поле ввода или textarea                 | `TextField`                           |
-| Переключатель                           | `Switch`                              |
-| Сегментированный выбор                  | `SegmentedControl`                    |
-| Строка списка или настроек              | `Cell`, `Cells`                       |
-| Группа строк                            | `CellStack`, `SectionList`            |
-| Выпадающее меню                         | `DropdownMenu`                        |
-| Модальное окно или шторка               | `ModalView`                           |
-| Всплывающая подсказка                   | `Tooltip`                             |
-| Уведомление                             | `Snackbar`                            |
-| Загрузка                                | `Skeleton`, `PageSkeleton`, `Spinner` |
-| Аватар                                  | `ImageAvatar`, `InitialsAvatar`       |
-| Текст                                   | `Text`, `FitText`, `Markdown`         |
-| Бейдж                                   | `Badge`                               |
-| Галерея                                 | `Gallery`                             |
-| Таблица                                 | `Table`                               |
-| Выбор из прокручиваемого списка         | `Picker`, `Wheel`                     |
+| Задача                                  | Компонент                                         |
+| --------------------------------------- | ------------------------------------------------- |
+| Экран и фон страницы                    | `Page`                                            |
+| Верхняя панель, заголовок, кнопка назад | `AppBar`, `PanelHeader`                           |
+| Нижняя навигация                        | `TabBar`                                          |
+| Вкладки                                 | `Tabs`                                            |
+| Кнопка                                  | `RegularButton`, `MultilineButton`                |
+| Поле ввода                              | `TextField`                                       |
+| Переключатель                           | `Switch`                                          |
+| Сегментированный выбор                  | `SegmentedControl`                                |
+| Строка списка или настроек              | `Cell`, `Cells`                                   |
+| Группа строк                            | `CellStack`, `SectionList`                        |
+| Выпадающее меню                         | `DropdownMenu`                                    |
+| Раскрывающийся блок                     | `Collapsible`                                     |
+| Модальное окно или шторка               | `ModalView`                                       |
+| Всплывающая подсказка                   | `Tooltip`                                         |
+| Уведомление                             | `Snackbar`                                        |
+| Загрузка                                | `Skeleton`, `PageSkeleton`, `Spinner`             |
+| Аватар                                  | `ImageAvatar`, `InitialsAvatar`                   |
+| Текст                                   | `Text`, `FitText`, `Markdown`                     |
+| Бейдж                                   | `Badge`                                           |
+| Галерея                                 | `Gallery`                                         |
+| Таблица                                 | `Table`                                           |
+| Выбор из прокручиваемого списка         | `Picker`, `Wheel`                                 |
 
 ## Каркас Storybook-приложения
 

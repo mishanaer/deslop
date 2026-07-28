@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react"
-import { createPortal } from "react-dom"
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { AnimatePresence } from "motion/react"
@@ -18,6 +17,7 @@ import { useSplitView } from "../../hooks/useSplitView"
 import { useSkin } from "../../hooks/DeviceProvider"
 import { SPRING } from "../../utils/animations"
 import { getResolvedColorToken } from "../../theme/colors"
+import Portal from "../Portal"
 
 const getHeaderColor = () => getResolvedColorToken("--background-primary")
 
@@ -156,59 +156,60 @@ const ModalView = ({
         ? corner
         : { topLeft: corner, topRight: corner, bottomLeft: 0, bottomRight: 0 }
 
-    return createPortal(
-        <AnimatePresence>
-            {isOpen && (
-                <>
-                    <BackButton onClick={canPop ? pop : onClose} />
-                    <m.div
-                        className={overlayClass}
-                        {...overlayMotion}
-                        onClick={onClose}
-                    >
-                        <ModalPanel
-                            panelRef={modalRef}
-                            corners={corners}
-                            role="dialog"
-                            aria-modal="true"
-                            className={panelClass}
-                            variants={panelVariants}
-                            initial="hidden"
-                            animate="visible"
-                            exit="exit"
-                            style={{ ...style, y }}
-                            {...dragProps}
-                            onPointerDown={onPanelPointerDown}
-                            onClick={(event) => event.stopPropagation()}
-                            {...props}
+    return (
+        <Portal>
+            <AnimatePresence>
+                {isOpen && (
+                    <>
+                        <BackButton onClick={canPop ? pop : onClose} />
+                        <m.div
+                            className={overlayClass}
+                            {...overlayMotion}
+                            onClick={onClose}
                         >
-                            <ModalChromeContext.Provider value={true}>
-                                {isTray ? (
-                                    <TrayPages
-                                        pages={pages}
-                                        activeId={activeId}
-                                        depth={nav.stack.length}
-                                        direction={nav.direction}
-                                        nav={{
-                                            push,
-                                            pop,
-                                            canPop,
-                                            activeId,
-                                            close: onClose,
-                                        }}
-                                    />
-                                ) : (
-                                    <div className={styles.content}>
-                                        {children}
-                                    </div>
-                                )}
-                            </ModalChromeContext.Provider>
-                        </ModalPanel>
-                    </m.div>
-                </>
-            )}
-        </AnimatePresence>,
-        document.body
+                            <ModalPanel
+                                panelRef={modalRef}
+                                corners={corners}
+                                role="dialog"
+                                aria-modal="true"
+                                className={panelClass}
+                                variants={panelVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit"
+                                style={{ ...style, y }}
+                                {...dragProps}
+                                onPointerDown={onPanelPointerDown}
+                                onClick={(event) => event.stopPropagation()}
+                                {...props}
+                            >
+                                <ModalChromeContext.Provider value={true}>
+                                    {isTray ? (
+                                        <TrayPages
+                                            pages={pages}
+                                            activeId={activeId}
+                                            depth={nav.stack.length}
+                                            direction={nav.direction}
+                                            nav={{
+                                                push,
+                                                pop,
+                                                canPop,
+                                                activeId,
+                                                close: onClose,
+                                            }}
+                                        />
+                                    ) : (
+                                        <div className={styles.content}>
+                                            {children}
+                                        </div>
+                                    )}
+                                </ModalChromeContext.Provider>
+                            </ModalPanel>
+                        </m.div>
+                    </>
+                )}
+            </AnimatePresence>
+        </Portal>
     )
 }
 

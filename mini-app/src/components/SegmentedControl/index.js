@@ -8,9 +8,11 @@ import * as styles from "./SegmentedControl.module.css"
 /**
  * Segmented picker with an animated active indicator. Uncontrolled — tracks
  * its own index from `defaultIndex`; onChange receives the selected index.
+ * @param {object} props
  * @param {Array<import("react").ReactNode>} props.segments Labels, one per segment.
  * @param {number} [props.defaultIndex=0]
  * @param {(index: number) => void} [props.onChange]
+ * @param {"light"|"dark"} [props.colorScheme]
  * @example
  * <SegmentedControl segments={["Day", "Week", "Month"]} onChange={setRange} />
  */

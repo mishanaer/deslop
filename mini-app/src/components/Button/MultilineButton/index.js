@@ -10,9 +10,11 @@ import * as styles from "./MultilineButton.module.css"
 /**
  * Compact icon-over-label action tile (e.g. Send / Add). Extra props spread
  * onto the root element.
+ * @param {object} props
  * @param {"filled"|"plain"} props.variant
  * @param {import("react").ReactNode} props.icon
  * @param {string} props.label
+ * @param {import("react").CSSProperties} [props.style]
  * @example
  * <MultilineButton variant="filled" icon={<ArrowUpIcon />} label="Send" />
  */

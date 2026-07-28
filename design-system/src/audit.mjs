@@ -68,8 +68,6 @@ const RULES = {
   "tailwind-palette": { area: "tokens", title: "Tailwind palette colors" },
   "deprecated-token": { area: "tokens", title: "Deprecated tokens" },
   "typography-escape": { area: "typography", title: "Typography escapes" },
-  "visual-override": { area: "variants", title: "Visual overrides" },
-  "compound-context": { area: "composition", title: "Compound contracts" },
 }
 
 const AREA_ORDER = [
@@ -77,8 +75,6 @@ const AREA_ORDER = [
   "components",
   "tokens",
   "typography",
-  "variants",
-  "composition",
 ]
 
 const exists = async (path) => {
@@ -186,21 +182,6 @@ const extractModuleSpecifiers = (source) => {
   return modules
 }
 
-const extractDeslopImports = (source) => {
-  const imports = new Map()
-  const pattern = /import\s*\{([^}]+)\}\s*from\s*["']@deslop\/web-ui(?:\/[^"']*)?["']/g
-
-  for (const match of source.matchAll(pattern)) {
-    for (const item of match[1].split(",")) {
-      const clean = item.trim().replace(/^type\s+/, "")
-      if (!clean) continue
-      const [exported, local = exported] = clean.split(/\s+as\s+/)
-      if (exported && local) imports.set(local.trim(), exported.trim())
-    }
-  }
-  return imports
-}
-
 const jsxElements = (source) => {
   const elements = []
   const stack = []
@@ -230,19 +211,7 @@ const jsxElements = (source) => {
   return elements
 }
 
-const visualClassPattern =
-  /(?:^|\s)(?:bg-|border(?:-|\b)|fill-|font-|h-|leading-|max-h-|min-h-|outline(?:-|\b)|p[trblxy]?-|ring(?:-|\b)|rounded(?:-|\b)|shadow(?:-|\b)|stroke-|text-(?!(?:left|right|center|justify|start|end)\b)|tracking-|uppercase\b|lowercase\b)/
-
-const classNameValue = (attributes) => {
-  const match = attributes.match(
-    /\bclassName\s*=\s*(?:"([^"]*)"|'([^']*)'|\{\s*`([^`]*)`\s*\}|\{\s*["']([^"']*)["']\s*\})/,
-  )
-  return match?.slice(1).find((value) => value !== undefined)
-}
-
 const auditCode = ({ findings, file, source }) => {
-  const deslopImports = extractDeslopImports(source)
-
   for (const { specifier, index } of extractModuleSpecifiers(source)) {
     if (
       !specifier.startsWith("@deslop/") &&
@@ -256,7 +225,7 @@ const auditCode = ({ findings, file, source }) => {
           file,
           source,
           index,
-          message: `Import ${specifier} bypasses @deslop/web-ui`,
+          message: `Import ${specifier} bypasses the verified Deslop component layer`,
         }),
       )
     }
@@ -276,19 +245,6 @@ const auditCode = ({ findings, file, source }) => {
   }
 
   const elements = jsxElements(source)
-  const radioGroups = new Set(
-    [...deslopImports]
-      .filter(([, exported]) => exported === "RadioGroup")
-      .map(([local]) => local),
-  )
-  const radioItems = new Set(
-    [...deslopImports]
-      .filter(([, exported]) => exported === "RadioGroupItem")
-      .map(([local]) => local),
-  )
-  radioGroups.add("RadioGroup")
-  radioItems.add("RadioGroupItem")
-
   for (const element of elements) {
     if (NATIVE_CONTROLS.has(element.tag) || element.tag === "motion.button") {
       findings.push(
@@ -302,48 +258,6 @@ const auditCode = ({ findings, file, source }) => {
       )
     }
 
-    if (
-      radioItems.has(element.tag) &&
-      !element.ancestors.some((ancestor) => radioGroups.has(ancestor))
-    ) {
-      findings.push(
-        makeFinding({
-          rule: "compound-context",
-          file,
-          source,
-          index: element.index,
-          message: `${element.tag} must render inside RadioGroup`,
-        }),
-      )
-    }
-
-    if (deslopImports.has(element.tag)) {
-      const className = classNameValue(element.attributes)
-      if (className && visualClassPattern.test(className)) {
-        findings.push(
-          makeFinding({
-            rule: "visual-override",
-            file,
-            source,
-            index: element.index,
-            message: `${element.tag} changes a system-owned visual through className`,
-            evidence: `className=${JSON.stringify(className)}`,
-          }),
-        )
-      }
-
-      if (/\bstyle\s*=\s*\{/.test(element.attributes)) {
-        findings.push(
-          makeFinding({
-            rule: "visual-override",
-            file,
-            source,
-            index: element.index,
-            message: `${element.tag} uses an inline style override`,
-          }),
-        )
-      }
-    }
   }
 
   addRegexFindings({
@@ -621,7 +535,7 @@ export async function auditProject({
           rule: "local-ui-module",
           file,
           source,
-          message: `${file} creates a local UI layer parallel to @deslop/web-ui`,
+          message: `${file} creates an unverified local UI layer outside Deslop`,
         }),
       )
     }

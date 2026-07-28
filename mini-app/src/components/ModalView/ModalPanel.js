@@ -1,7 +1,7 @@
-import { useLayoutEffect } from "react"
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { generateClipPath, getLayoutSize } from "@lisse/core"
+import useBrowserLayoutEffect from "../../hooks/useBrowserLayoutEffect"
 
 // Wraps the modal panel so the corner clip mounts with it (the panel lives
 // inside AnimatePresence; ModalView itself is always mounted).
@@ -15,7 +15,7 @@ import { generateClipPath, getLayoutSize } from "@lisse/core"
 // (fires after layout, before paint) keeps it in sync with every painted
 // frame.
 const ModalPanel = ({ panelRef, corners, children, ...rest }) => {
-    useLayoutEffect(() => {
+    useBrowserLayoutEffect(() => {
         const el = panelRef.current
         if (!el) return undefined
         const apply = () => {

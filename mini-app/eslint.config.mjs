@@ -49,6 +49,9 @@ export default [
             "bin/**/*.mjs",
             "agent/**/*.mjs",
             "scripts/check-agent-kit.mjs",
+            "scripts/check-package.mjs",
+            "scripts/build-library.mjs",
+            "scripts/check-stable-build.mjs",
         ],
         languageOptions: {
             ecmaVersion: "latest",

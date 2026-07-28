@@ -1,6 +1,5 @@
 packages:
   - primitives
-  - web-ui
   - design-system
 allowBuilds:
   esbuild: true

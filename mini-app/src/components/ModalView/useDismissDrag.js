@@ -9,6 +9,8 @@ import {
 const DISMISS_OFFSET = 100
 const DISMISS_VELOCITY = 500
 const DIRECTION_SLOP = 6
+const getViewportHeight = () =>
+    typeof window === "undefined" ? 0 : window.innerHeight
 
 // Nearest scrollable ancestor of node, walking up to and including stopEl.
 const findScrollable = (node, stopEl) => {
@@ -33,10 +35,10 @@ export function useDismissDrag({ onClose, panelRef }) {
     const dragControls = useDragControls()
 
     // Starts off-screen so the overlay computes as transparent on first mount.
-    const y = useMotionValue(window.innerHeight)
+    const y = useMotionValue(getViewportHeight())
 
     const overlayOpacity = useTransform(y, (latest) => {
-        const viewport = window.innerHeight || 1
+        const viewport = getViewportHeight() || 1
         return 1 - Math.min(Math.max(latest / viewport, 0), 1)
     })
 

@@ -1,10 +1,5 @@
-import {
-    useCallback,
-    useEffect,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
+import useBrowserLayoutEffect from "./useBrowserLayoutEffect"
 
 const shallowEqual = (a, b) => {
     if (a === b) return true
@@ -33,7 +28,7 @@ export function useAnchoredPosition({
         contentSizeRef.current = null
     }, [])
 
-    useLayoutEffect(() => {
+    useBrowserLayoutEffect(() => {
         if (!isOpen || isPositioned) return
         if (!triggerRef.current || !contentRef.current) return
         const triggerRect = triggerRef.current.getBoundingClientRect()

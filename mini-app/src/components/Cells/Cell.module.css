@@ -19,6 +19,7 @@
   flex-direction: row;
   color: var(--primary);
   cursor: pointer;
+  text-align: start;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 }

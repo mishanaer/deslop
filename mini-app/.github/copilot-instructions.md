@@ -15,7 +15,7 @@
 
 ## Tech Stack
 
-- Platform: Web UI library and Vite Storybook; Telegram Web App is an optional adapter
+- Platform: Mini App component library and Vite Storybook; Telegram Web App is an optional adapter
 - Routing: wouter with useHashLocation
 - Animation: motion (framer-motion compatible)
 - Styling: SCSS Modules (ComponentName.module.scss)

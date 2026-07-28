@@ -1,5 +1,5 @@
 import assert from "node:assert/strict"
-import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises"
+import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises"
 import { tmpdir } from "node:os"
 import { resolve } from "node:path"
 import test from "node:test"
@@ -20,20 +20,14 @@ const cleanProject = {
   "package.json": `${JSON.stringify({
     name: "fixture",
     private: true,
-    dependencies: { "@deslop/web-ui": "0.1.0" },
+    dependencies: { "@deslop/primitives": "0.1.0" },
   })}\n`,
   "src/App.tsx": `
-import { Button } from "@deslop/web-ui/components/ui/button"
-import { RadioGroup, RadioGroupItem } from "@deslop/web-ui/components/ui/radio-group"
+import { MaterialSymbol } from "@deslop/primitives/material-symbols-react"
 
 export function App() {
   // A documentation comment such as <button> must not become a finding.
-  return (
-    <RadioGroup value="one">
-      <RadioGroupItem value="one" />
-      <Button className="w-full flex-1">Continue</Button>
-    </RadioGroup>
-  )
+  return <main><MaterialSymbol name="search" aria-label="Search" /></main>
 }
 `,
   "src/app.css": `
@@ -43,24 +37,6 @@ export function App() {
 }
 `,
 }
-
-test("Web UI registry exposes adoption and composition contracts", async () => {
-  const registry = JSON.parse(
-    await readFile(new URL("../../web-ui/agent/components.json", import.meta.url), "utf8"),
-  )
-
-  assert.equal(registry.schemaVersion, 2)
-  assert.equal(registry.publicImportPattern, "@deslop/web-ui/{path}")
-  assert.equal(registry.nativeControlReplacements.button, "components/button")
-  assert.equal(registry.directDependencyReplacements.sonner, "components/sonner")
-  assert.equal(registry.deprecatedTokens["--background"], "--background-primary")
-  assert.ok(
-    registry.compoundContracts.some(
-      ({ child, ancestor }) => child === "RadioGroupItem" && ancestor === "RadioGroup",
-    ),
-  )
-  assert.ok(registry.modules.every(({ path, local, category }) => path && local && category))
-})
 
 test("a clean Deslop consumer passes strict audit", async (context) => {
   const root = await fixture(cleanProject)
@@ -86,15 +62,11 @@ test("strict audit reports each proven Memento bypass class", async (context) =>
 import { LegacyButton } from "@/components/ui/button"
 import * as RadioPrimitive from "@radix-ui/react-radio-group"
 import { toast } from "sonner"
-import { Button } from "@deslop/web-ui/components/ui/button"
-import { RadioGroupItem } from "@deslop/web-ui/components/ui/radio-group"
 
 export function App() {
   toast("ready")
   return (
     <main className="bg-blue-500 text-sm tracking-wide" style={{ color: "rgb(1 2 3)" }}>
-      <Button className="h-12 rounded-xl bg-red-500">Continue</Button>
-      <RadioGroupItem value="one" />
       <input style={{ color: "#fff" }} />
       <LegacyButton />
     </main>
@@ -120,8 +92,6 @@ export function App() {
     "tailwind-palette",
     "deprecated-token",
     "typography-escape",
-    "visual-override",
-    "compound-context",
   ]) {
     assert.ok(rules.has(rule), `expected ${rule}`)
   }

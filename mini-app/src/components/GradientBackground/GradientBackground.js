@@ -1,4 +1,4 @@
-import { useRef, Activity } from "react"
+import { useRef } from "react"
 import PropTypes from "prop-types"
 
 import { useColorScheme } from "../../hooks/useColorScheme"
@@ -94,7 +94,7 @@ function GradientBackground({
                 }
                 aria-hidden="true"
             />
-            <Activity mode={patternUrl ? "visible" : "hidden"}>
+            {patternUrl ? (
                 <canvas
                     ref={patternCanvasRef}
                     className={`${styles.canvas} ${styles.patternCanvas} ${
@@ -109,7 +109,7 @@ function GradientBackground({
                     }
                     aria-hidden="true"
                 />
-            </Activity>
+            ) : null}
         </div>
     )
 }

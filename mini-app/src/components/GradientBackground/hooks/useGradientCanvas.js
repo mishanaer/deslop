@@ -1,4 +1,4 @@
-import { useEffect, useEffectEvent, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 import { MAX_CANVAS_SIZE, RESIZE_DEBOUNCE_GRADIENT } from "../utils/constants"
 import { getContainerDimensions, parseColor } from "../utils/gradientUtils"
 import { computeGradientPixels } from "./gradientCompute"
@@ -92,7 +92,7 @@ export function useGradientCanvas({
         }
     }, [])
 
-    const generateGradient = useEffectEvent(async () => {
+    const generateGradient = useCallback(async () => {
         const canvas = canvasRef.current
         const container = containerRef.current
 
@@ -162,7 +162,7 @@ export function useGradientCanvas({
         if (intensity !== 1) {
             applyIntensity(canvas, ctx, width, height, intensity)
         }
-    })
+    }, [activeColors, canvasRef, containerRef, intensity, positions, rotation])
 
     useEffect(() => {
         let timeoutId = null
@@ -196,5 +196,5 @@ export function useGradientCanvas({
             window.removeEventListener("resize", handleResize)
             resizeObserver.disconnect()
         }
-    }, [activeColors, rotation, intensity, positions, containerRef])
+    }, [containerRef, generateGradient])
 }

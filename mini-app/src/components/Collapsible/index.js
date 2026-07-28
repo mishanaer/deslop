@@ -1,6 +1,7 @@
-import { useRef, useState, useLayoutEffect } from "react"
+import { useRef, useState } from "react"
 import PropTypes from "prop-types"
 import { useResizeObserver } from "../../hooks/useResizeObserver"
+import useBrowserLayoutEffect from "../../hooks/useBrowserLayoutEffect"
 
 const Collapsible = ({ open, children, duration = 200, easing = "ease" }) => {
     const contentRef = useRef(null)
@@ -16,7 +17,7 @@ const Collapsible = ({ open, children, duration = 200, easing = "ease" }) => {
         }
         setShouldRender(false)
     }
-    useLayoutEffect(() => {
+    useBrowserLayoutEffect(() => {
         const el = contentRef.current
         if (!el) return
 

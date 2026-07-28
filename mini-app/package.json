@@ -1,10 +1,44 @@
 {
     "name": "@deslop/mini-app",
     "version": "0.1.0",
-    "private": true,
+    "private": false,
     "description": "React component library for Telegram Mini Apps powered by Deslop Primitives.",
     "type": "module",
     "packageManager": "yarn@4.5.3",
+    "repository": "https://github.com/mishanaer/deslop.git",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/library.d.ts",
+    "style": "./dist/styles.css",
+    "files": [
+        "dist",
+        "agent",
+        "LICENSE",
+        "README.md"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/library.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        },
+        "./styles.css": "./dist/styles.css",
+        "./agent/AGENTS.md": "./agent/AGENTS.md",
+        "./agent/COMPONENTS.md": "./agent/COMPONENTS.md",
+        "./agent/components.json": "./agent/components.json",
+        "./package.json": "./package.json"
+    },
+    "sideEffects": [
+        "./dist/styles.css"
+    ],
+    "peerDependencies": {
+        "@deslop/primitives": "^0.1.0",
+        "react": ">=18 <20",
+        "react-dom": ">=18 <20"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
     "resolutions": {
         "baseline-browser-mapping": "^2.10.43"
     },
@@ -24,18 +58,23 @@
         "start": "vite",
         "build": "yarn build:storybook && yarn build:lib",
         "build:storybook": "vite build",
-        "build:lib": "vite build --config vite.lib.config.js",
+        "build:lib": "node scripts/build-library.mjs",
+        "build:types": "tsc -p tsconfig.build.json",
         "preview": "vite preview",
         "deploy": "./deploy.sh",
         "lint": "yarn check:styles && yarn check:agent && yarn lint:js && yarn lint:css",
         "check:styles": "node scripts/check-styling.mjs",
         "check:agent": "node scripts/check-agent-kit.mjs",
-        "lint:js": "eslint '{src,storybook}/**/*.{js,jsx,ts,tsx}' 'scripts/check-agent-kit.mjs'",
+        "check:package": "node scripts/check-package.mjs",
+        "check:stable-build": "node scripts/check-stable-build.mjs",
+        "lint:js": "eslint '{src,storybook}/**/*.{js,jsx,ts,tsx}' 'scripts/check-agent-kit.mjs' 'scripts/check-package.mjs' 'scripts/build-library.mjs' 'scripts/check-stable-build.mjs'",
         "lint:css": "stylelint '{src,storybook}/**/*.css'",
         "format": "prettier --write '{src,storybook}/**/*.{js,jsx,ts,tsx,json,css}' --cache",
         "format:check": "prettier --check '{src,storybook}/**/*.{js,jsx,ts,tsx,json,css}' --cache",
         "screenshot:story": "node scripts/screenshot-story.js",
-        "story-server": "node scripts/story-server.js"
+        "story-server": "node scripts/story-server.js",
+        "verify": "yarn lint && yarn build:lib && yarn check:package",
+        "prepack": "yarn build:lib && yarn check:package"
     },
     "browserslist": {
         "production": [
