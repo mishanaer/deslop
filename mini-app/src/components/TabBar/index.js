@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState, Activity } from "react"
+import { useEffect, useRef, useState } from "react"
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
-import { useSkin } from "../../hooks/DeviceProvider"
 import { useResizeObserver } from "../../hooks/useResizeObserver"
 import { GlassBorder } from "../GlassEffect"
 import * as styles from "./TabBar.module.css"
@@ -10,44 +9,35 @@ import { useIndicatorDrag } from "./useIndicatorDrag"
 import GradientMask from "./components/GradientMask"
 
 const TabBarOverlay = ({
-    tabs,
+    tabsLength,
     activeIndex,
     onChange,
 }) => {
     const { overlayRef, animate, transition, handlers } = useIndicatorDrag({
-        tabsLength: tabs.length,
+        tabsLength,
         activeIndex,
         spring: { type: "spring", stiffness: 800, damping: 50 },
         onSnapToNew: onChange,
     })
 
     return (
-        <m.div
-            className={styles.clipPathContainer}
-            ref={overlayRef}
-            {...handlers}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, ...animate }}
-            transition={{
-                default: { duration: 0.2 },
-                clipPath: transition.clipPath,
-            }}
-        >
-            {tabs.map((tab, index) => (
-                <Tab
-                    key={index}
-                    isActive={index === activeIndex}
-                    onClick={() => onChange(index)}
-                    data-overlay
-                    {...tab}
-                />
-            ))}
-        </m.div>
+        <>
+            <m.div
+                className={styles.clipPathContainer}
+                ref={overlayRef}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, ...animate }}
+                transition={{
+                    default: { duration: 0.2 },
+                    clipPath: transition.clipPath,
+                }}
+            />
+            <div className={styles.dragLayer} {...handlers} />
+        </>
     )
 }
 
 const TabBar = ({ tabs, onChange, defaultIndex = 0 }) => {
-    const { isApple } = useSkin()
     const [activeIndex, setActiveIndex] = useState(defaultIndex)
 
     useEffect(() => {
@@ -75,13 +65,11 @@ const TabBar = ({ tabs, onChange, defaultIndex = 0 }) => {
 
     const isThreeTabs = tabs.length === 3
     const marginX = isThreeTabs ? 54 : 21
-    const rootStyle = isApple
-        ? {
-              left: marginX,
-              right: marginX,
-              width: `calc(100% - ${marginX * 2}px)`,
-          }
-        : {}
+    const rootStyle = {
+        left: marginX,
+        right: marginX,
+        width: `calc(100% - ${marginX * 2}px)`,
+    }
 
     const maskInsets = {
         top: 21,
@@ -119,19 +107,17 @@ const TabBar = ({ tabs, onChange, defaultIndex = 0 }) => {
                 ))}
             </div>
             <TabBarOverlay
-                tabs={tabs}
+                tabsLength={tabs.length}
                 activeIndex={activeIndex}
                 onChange={handleSegmentClick}
             />
 
-            <Activity mode={isApple ? "visible" : "hidden"}>
-                <GlassBorder />
-                <GradientMask
-                    width={rootWidth}
-                    height={64}
-                    insets={maskInsets}
-                />
-            </Activity>
+            <GlassBorder />
+            <GradientMask
+                width={rootWidth}
+                height={64}
+                insets={maskInsets}
+            />
         </m.div>
     )
 }
@@ -143,7 +129,7 @@ TabBar.propTypes = {
 }
 
 TabBarOverlay.propTypes = {
-    tabs: PropTypes.array.isRequired,
+    tabsLength: PropTypes.number.isRequired,
     activeIndex: PropTypes.number,
     onChange: PropTypes.func,
 }

@@ -69,7 +69,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 0 0 0 var(--ui-space-8);
-  padding-right: var(--side-padding);
+  padding-right: var(--ui-space-12);
   text-align: right;
   border-bottom: var(--cell-separator-height) solid var(--primary-20);
   white-space: nowrap;
