@@ -1,31 +1,29 @@
 # deslop
 
-Deslop — компоненты и визуальные примитивы для Telegram Mini Apps.
+В репозитории лежат скилл [sasha](./sasha/SKILL.md), общие
+[Primitives](./primitives/README.md), готовые компоненты для
+[Telegram Mini Apps](./mini-app/README.md) и инструкции для агентов
+[AGENTS.md](./AGENTS.md).
 
-## Состав
+## Primitives
 
-- [`@deslop/primitives`](./primitives/) — токены, шрифты и self-hosted
-  Material Symbols с типизированным React API.
-- [`@deslop/mini-app`](./mini-app/) — готовые компоненты и правила для Telegram
-  Mini Apps с публичными JavaScript, CSS и TypeScript entrypoints.
+[Primitives](./primitives/README.md) — единый набор токенов, шрифтов и иконок
+для продуктов. Готовые компоненты находятся в
+[`@deslop/mini-app`](./mini-app/README.md).
 
-## Storybook
+## mini-apps
 
-```bash
-corepack yarn --cwd mini-app install --immutable
-corepack yarn --cwd mini-app dev
-```
+[mini-apps](./mini-app/README.md) — библиотека готовых React-компонентов и
+Storybook для Telegram Mini Apps.
 
-## Правила и навык микрокопии
+## sasha
 
-- [Общие правила для агентов](./AGENTS.md)
-- [Правила и каталог Mini App](./mini-app/agent/AGENTS.md)
-- [Навык Sasha](./sasha/SKILL.md)
+[sasha](./sasha/SKILL.md) — скилл для ИИ-агентов, который помогает писать,
+проверять и улучшать русские тексты для интерфейсов. Внутри — правила для
+компонентов и ошибок, примеры, типографика и скрипты для поиска и проверки
+UI-текстов.
 
-## Проверка
+## AGENTS.md
 
-```bash
-corepack yarn --cwd mini-app lint
-corepack yarn --cwd mini-app build
-npm --prefix primitives run check
-```
+[`AGENTS.md`](./AGENTS.md) задаёт общие правила работы агента: как общаться,
+когда действовать самостоятельно, как менять код и проверять результат.
