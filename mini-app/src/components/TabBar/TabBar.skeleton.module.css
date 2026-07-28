@@ -1,27 +1,35 @@
 .bar {
   position: absolute;
+  left: 21px;
+  right: 21px;
+  bottom: var(--bottom-clearance, 21px);
   z-index: 10;
   display: flex;
   padding: 4px;
   border-radius: 100px;
-  background: var(--background-secondary);
-  backdrop-filter: saturate(300%) blur(8px);
-  box-shadow: 0 0 10px 0 var(--primary-10);
+  background: transparent;
+  backdrop-filter: saturate(300%) blur(16px);
+  box-shadow: 0 8px 20px 0 var(--primary-20);
 }
 
-:global(body.apple) .bar {
-  left: 21px;
-  right: 21px;
-  bottom: var(--bottom-clearance, 21px);
+.bar::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: var(--white);
+  content: "";
+  opacity: 0.1;
+  pointer-events: none;
 }
 
-:global(body.material) .bar {
-  left: 16px;
-  right: 16px;
-  bottom: var(--bottom-clearance, 16px);
+:global([data-color-scheme="dark"]) .bar {
+  box-shadow: none;
 }
 
 .slot {
+  position: relative;
+  z-index: 1;
   flex: 1 0 0;
   display: flex;
   flex-direction: column;

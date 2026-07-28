@@ -20,11 +20,11 @@ export function useIndicatorDrag({
 
     const segmentPercent = 100 / tabsLength
 
-    const indicatorWidth = `calc(${segmentPercent}% + 7.33px - 4px)`
-    const indicatorLeft = `calc(${segmentPercent * activeIndex}% - ${3.67 * activeIndex}px)`
+    const indicatorWidth = `${segmentPercent}%`
+    const indicatorLeft = `${segmentPercent * activeIndex}%`
 
     const clipLeft = indicatorLeft
-    const clipRight = `calc(100% - (${indicatorLeft} + ${indicatorWidth}) - 2.33px * ${activeIndex})`
+    const clipRight = `calc(100% - (${indicatorLeft} + ${indicatorWidth}))`
 
     const animateClipPath =
         isDragging && dragLeftPercent != null
@@ -137,7 +137,9 @@ export function useIndicatorDrag({
         pointerDownIdRef.current = null
 
         if (!isDragging) {
-            // Это был тап — позволяем сгенерировать click
+            // The transparent drag layer owns pointer input, so a tap snaps
+            // directly instead of relying on a click reaching the tab below.
+            finishDrag(e.clientX)
             return
         }
         if (

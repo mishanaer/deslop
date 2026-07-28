@@ -33,6 +33,7 @@ const componentPages = [
     page("Table", "Table/Table.showcase"),
     page("Gallery", "Gallery/Gallery.showcase"),
     page("TabBar", "TabBar/TabBar.showcase"),
+    page("TabBar Layers", "TabBar/TabBarLayers.showcase"),
     page("Tabs", "Tabs/Tabs.showcase"),
     page("Snackbar", "Snackbar/Snackbar.showcase"),
 ]

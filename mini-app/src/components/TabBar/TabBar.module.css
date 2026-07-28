@@ -3,7 +3,6 @@
   position: relative;
   align-items: flex-start;
   align-self: stretch;
-  box-shadow: 0 -0.33px 0 0 var(--primary-20);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -15,9 +14,24 @@
   border-radius: var(--ui-component-tab-bar-radius);
   padding: var(--ui-space-4);
   margin: 0;
-  background: var(--background-secondary);
-  backdrop-filter: saturate(300%) blur(8px);
-  box-shadow: 0 0 10px 0 var(--primary-10);
+  background: transparent;
+  backdrop-filter: saturate(300%) blur(16px);
+  box-shadow: 0 8px 20px 0 var(--primary-20);
+}
+
+:global(body.apple) .root::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: var(--white);
+  content: "";
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+:global(body.apple[data-color-scheme="dark"]) .root {
+  box-shadow: none;
 }
 
 @supports (-apple-visual-effect: -apple-system-glass-material) {
@@ -25,40 +39,6 @@
     -apple-visual-effect: -apple-system-glass-material;
     backdrop-filter: none;
   }
-}
-
-:global(body.material) .root {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: var(--bottom-clearance, 16px);
-  border-radius: var(--ui-component-tab-bar-radius);
-  padding: var(--ui-space-4);
-  width: calc(100% - 32px);
-  background: var(--background-secondary);
-  backdrop-filter: blur(30px) saturate(10);
-  box-shadow: 0 1px 2px 0 var(--primary-10), 0 2px 16px 1px var(--primary-10);
-}
-
-.root::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: var(--primary-5);
-  z-index: 0;
-}
-
-:global(body.material) .root::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow: inset 0 1px 0 0 var(--white), inset 0 -0.5px 0 0 var(--white);
-  mix-blend-mode: soft-light;
-  z-index: 2;
 }
 
 .root .content {
@@ -97,7 +77,7 @@
 }
 
 :global(body.apple) .root .activeIndicator {
-  background-color: var(--primary-10);
+  background-color: var(--primary-8);
   border-radius: var(--ui-component-tab-bar-radius);
   height: calc(100% - var(--ui-space-8));
   top: var(--ui-space-4);
@@ -106,40 +86,24 @@
   margin-right: var(--ui-space-4);
 }
 
-:global(body.material) .root .activeIndicator {
-  background-color: var(--primary);
-}
-
 .root .clipPathContainer {
-  --active-color: var(--accent-green);
-
   position: absolute;
   display: flex;
-  background-color: var(--primary-10);
-  width: calc(100% - var(--ui-space-8));
+  inset: var(--ui-space-4);
+  background-color: var(--primary-8);
   clip-path: inset(0 calc(75% - 5px) 0 0% round var(--ui-component-tab-bar-radius));
   will-change: clip-path;
-  z-index: 10;
+  z-index: 0;
   overflow: hidden;
   transform: translateZ(0);
   isolation: isolate;
   backface-visibility: hidden;
+  pointer-events: none;
 }
 
-.root .clipPathContainer span {
-  color: var(--active-color) !important;
-}
-
-.root .clipPathContainer svg,
-.root .clipPathContainer path,
-.root .clipPathContainer :global(.wallet-lottie_fill-color) path {
-  fill: var(--active-color) !important;
-}
-
-.root .clipPathContainer :global(.wallet-lottie_stroke-color) path {
-  stroke: var(--active-color) !important;
-}
-
-.root .clipPathContainer [data-overlay] {
-  opacity: 1 !important;
+.root .dragLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  touch-action: none;
 }
