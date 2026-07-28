@@ -63,6 +63,8 @@ PageScroll.propTypes = {
  * Wraps a route to orchestrate the page-level enter/exit (fade + scale) and
  * per-location scroll restoration. One per route — don't nest competing route
  * transitions inside pages.
+ * @param {object} props
+ * @param {import("react").ReactNode} props.children
  * @param {boolean} [props.bottomInset] Reserve safe-area space at the bottom.
  * @param {boolean} [props.contained]   Scope the transition to a sub-container.
  * @example
@@ -70,7 +72,11 @@ PageScroll.propTypes = {
  *   <Page mode="secondary">{routeContent}</Page>
  * </PageTransition>
  */
-const PageTransition = ({ children, bottomInset = false, contained = false }) => {
+const PageTransition = ({
+    children,
+    bottomInset = false,
+    contained = false,
+}) => {
     const [location] = useLocation()
 
     const rootClassName = contained

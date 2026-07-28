@@ -1,8 +1,29 @@
 # Mini App
 
-Внутренняя библиотека React-компонентов для Telegram Mini Apps. Общие токены,
-шрифты и иконки подключаются напрямую из соседней директории `../primitives`;
-пакет не устанавливается во внешние репозитории.
+Публичная библиотека React-компонентов для Telegram Mini Apps. Поддерживает
+React 18 и 19; общие токены, шрифты и Material Symbols поставляет
+`@deslop/primitives`.
+
+## Подключение
+
+```jsx
+import "@deslop/mini-app/styles.css"
+
+import { MiniAppProvider, Page, RegularButton } from "@deslop/mini-app"
+
+export function App() {
+    return (
+        <MiniAppProvider>
+            <Page>
+                <RegularButton label="Продолжить" />
+            </Page>
+        </MiniAppProvider>
+    )
+}
+```
+
+Не импортируй файлы из `src`: JavaScript, CSS и declarations доступны только
+через публичные exports пакета.
 
 ## Разработка
 
@@ -17,7 +38,7 @@
 
 ```bash
 (cd mini-app && corepack yarn lint)
-(cd mini-app && corepack yarn build)
+(cd mini-app && corepack yarn verify)
 ```
 
 Каталог компонентов: [agent/COMPONENTS.md](agent/COMPONENTS.md). Правила для

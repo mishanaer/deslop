@@ -1,13 +1,7 @@
 import PropTypes from "prop-types"
-import {
-    createContext,
-    useCallback,
-    useEffect,
-    useLayoutEffect,
-    useMemo,
-    useState,
-} from "react"
+import { createContext, useCallback, useEffect, useMemo, useState } from "react"
 import WebApp from "../../lib/twa"
+import useBrowserLayoutEffect from "../useBrowserLayoutEffect"
 
 export const AppearanceContext = createContext({
     colorScheme: "light",
@@ -40,9 +34,6 @@ const getSystemColorScheme = () => {
 
 const getAutomaticColorScheme = () =>
     getTelegramColorScheme() ?? getSystemColorScheme()
-
-const useBrowserLayoutEffect =
-    typeof window === "undefined" ? useEffect : useLayoutEffect
 
 const AppearanceProvider = ({
     children,

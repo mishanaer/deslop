@@ -13,9 +13,13 @@ import * as styles from "./Cell.module.css"
  * List row. Compound: Cell.Start / Cell.End / Cell.Part / Cell.Text /
  * Cell.Editable / Cell.Switch. Press feedback turns on automatically when the
  * row is interactive (has onClick or a non-div `as`); `tappable` forces it.
+ * @param {object} props
  * @param {import("react").ElementType} [props.as="div"] Root element (a, button...).
  * @param {import("react").ReactNode} [props.start] Leading slot (icon/avatar).
+ * @param {import("react").ReactNode} [props.children]
  * @param {import("react").ReactNode} [props.end]   Trailing slot (label/chevron).
+ * @param {import("react").MouseEventHandler} [props.onClick]
+ * @param {boolean} [props.tappable]
  * @example
  * <Cell as="button" onClick={open} end={<Chevron />}>
  *   <Cell.Text title="Wallet" />
@@ -33,8 +37,7 @@ const CellComponent = ({
     // A cell shows press feedback only when it does something: it has an
     // onClick or renders as an interactive element (a link/button via `as`).
     // `tappable` forces it on or off explicitly.
-    const interactive =
-        tappable ?? (onClick != null || Component !== "div")
+    const interactive = tappable ?? (onClick != null || Component !== "div")
 
     const content = (
         <>

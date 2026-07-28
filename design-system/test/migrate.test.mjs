@@ -33,20 +33,21 @@ test("migration transforms only registry-backed imports and reports the rest", a
   const result = transformSource(input, { registry, file: "src/App.tsx" })
 
   assert.equal(result.changed, true)
-  assert.match(
-    result.source,
-    /from "@deslop\/web-ui\/components\/button"/,
-  )
+  assert.match(result.source, /from "@\/components\/ui\/button"/)
   assert.match(
     result.source,
     /import \{ IconSearch as Find \} from "@deslop\/primitives\/material-symbols-react"/,
   )
   assert.match(result.source, /import \{ Camera \} from "lucide-react"/)
-  assert.match(result.source, /from "@deslop\/web-ui\/toast"/)
-  assert.match(result.source, /from "@deslop\/web-ui\/components\/sonner"/)
+  assert.match(result.source, /from "sonner"/)
   assert.deepEqual(
-    result.reviewItems.map(({ symbol }) => symbol),
-    ["Camera"],
+    result.reviewItems.map(({ kind, symbol }) => [kind, symbol ?? null]),
+    [
+      ["unknown-local-ui-module", null],
+      ["unmapped-package-import", "Camera"],
+      ["unmapped-package-import", "toast"],
+      ["unmapped-package-import", "Toaster"],
+    ],
   )
 
   const secondPass = transformSource(result.source, {

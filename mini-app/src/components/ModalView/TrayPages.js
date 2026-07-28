@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { AnimatePresence, animate, useMotionValue } from "motion/react"
@@ -6,6 +6,7 @@ import * as styles from "./ModalView.module.css"
 
 import { ModalNavContext } from "./context"
 import { useResizeObserver } from "../../hooks/useResizeObserver"
+import useBrowserLayoutEffect from "../../hooks/useBrowserLayoutEffect"
 import { EASING } from "../../utils/animations"
 
 const ZOOM_IN = 0.95
@@ -63,7 +64,7 @@ const TrayPages = ({ pages, activeId, depth, direction, nav }) => {
     // Measure synchronously on page change so the height tween starts on the
     // same frame as the cross-fade. The first measurement pins the height
     // without animating. Re-runs on unrelated renders are no-ops (targetRef).
-    useLayoutEffect(() => {
+    useBrowserLayoutEffect(() => {
         const el = innerRef.current
         if (el) applyHeight(el.offsetHeight, height.get() !== "auto")
     }, [activeId, depth, applyHeight, height])

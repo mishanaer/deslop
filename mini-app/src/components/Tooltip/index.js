@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react"
 import PropTypes from "prop-types"
-import { createPortal } from "react-dom"
 import * as m from "motion/react-m"
 import { AnimatePresence } from "motion/react"
 
 import { POPOVER_VARIANTS } from "../../utils/animations"
+import Portal from "../Portal"
 import TooltipBody from "./TooltipBody"
 import { useClickOutside, useTooltipPosition } from "./tooltipUtils"
 import { useHoverToggle } from "./useHoverToggle"
@@ -22,10 +22,12 @@ import * as styles from "./Tooltip.module.css"
  * Hover/tap tooltip rendered in a portal with edge-aware placement and a
  * pointing tail. `children` is the trigger; opens on hover or tap, closes on
  * outside click / Esc.
+ * @param {object} props
  * @param {import("react").ReactNode} props.content Tooltip body (required).
  * @param {string} [props.badge]
  * @param {"regular"|"compact"} [props.type="regular"]
  * @param {"auto"|"top"|"bottom"|"left"|"right"} [props.placement="auto"]
+ * @param {import("react").ReactNode} props.children
  * @example
  * <Tooltip content="Copied to clipboard" placement="top">
  *   <InfoIcon />
@@ -154,7 +156,7 @@ const Tooltip = ({
             >
                 {children}
             </span>
-            {createPortal(
+            <Portal>
                 <>
                     {isOpen && !isPositioned && (
                         <div
@@ -197,9 +199,8 @@ const Tooltip = ({
                             </m.div>
                         )}
                     </AnimatePresence>
-                </>,
-                document.body
-            )}
+                </>
+            </Portal>
         </span>
     )
 }

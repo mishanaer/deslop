@@ -97,6 +97,8 @@ StackCard.propTypes = {
  * Collapsed, every card after the first tucks behind it as a peeking stack;
  * tapping toggles between the stack and a plain column. The first child is the
  * front card — usually a `CellStack.Morph` so its content morphs too.
+ * @param {object} props
+ * @param {import("react").ReactNode} props.children
  * @param {boolean} [props.defaultExpanded=false] Start expanded.
  * @example
  * <CellStack>

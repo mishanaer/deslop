@@ -11,19 +11,20 @@ import * as styles from "./ParticleEffect.module.css"
  * Drop-in replacement for the previous `spoiled` <Spoiler />: same
  * hidden / onClick / className API.
  *
- * @param {React.ReactNode} children - Content to hide behind the particles
- * @param {boolean} hidden - When true, the content is covered by the cloud
- * @param {function} onClick - Click handler (typically toggles `hidden`)
- * @param {string} className - Extra classes for the wrapper
- * @param {string} color - Particle color (any CSS color). Defaults to the
+ * @param {object} props
+ * @param {import("react").ReactNode} props.children - Content to hide behind the particles
+ * @param {boolean} [props.hidden=false] - When true, the content is covered by the cloud
+ * @param {import("react").MouseEventHandler<HTMLSpanElement>} [props.onClick] - Click handler (typically toggles `hidden`)
+ * @param {string} [props.className] - Extra classes for the wrapper
+ * @param {string} [props.color] - Particle color (any CSS color). Defaults to the
  *   computed text color of the content, so the cloud reads as hidden text
- * @param {number} radius - Particle radius in CSS px (scaled by DPR)
- * @param {number} padding - CSS headroom around the content on every side.
+ * @param {number} [props.radius] - Particle radius in CSS px (scaled by DPR)
+ * @param {number} [props.padding] - CSS headroom around the content on every side.
  *   Particle motion scales with the canvas size, so more headroom lets the cloud
  *   billow softer (like the demo) instead of hugging the glyph silhouette. The
  *   canvas overflows the content box and paints over neighbours. Defaults to ~1x
  *   the content height
- * @param {number} maskDilation - Fattens the glyph mask (stroke width = this x
+ * @param {number} [props.maskDilation] - Fattens the glyph mask (stroke width = this x
  *   font size) so strokes and gaps merge and the text reads less. 0 = exact
  *   glyph shape (legible), higher = more hidden. Defaults to 0.3
  */
@@ -80,10 +81,18 @@ export default function ParticleEffect({
             onClick={handleClick}
             {...rest}
         >
-            <span ref={contentRef} className={styles.content} aria-hidden={hidden}>
+            <span
+                ref={contentRef}
+                className={styles.content}
+                aria-hidden={hidden}
+            >
                 {children}
             </span>
-            <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" />
+            <canvas
+                ref={canvasRef}
+                className={styles.canvas}
+                aria-hidden="true"
+            />
         </span>
     )
 }

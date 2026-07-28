@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import WebApp from "../../lib/twa"
 
+const getViewportHeight = () =>
+    WebApp.viewportHeight ||
+    (typeof window === "undefined" ? 0 : window.innerHeight)
+
 export function useViewportHeight() {
-    const [height, setHeight] = useState(
-        () => WebApp.viewportHeight || window.innerHeight
-    )
+    const [height, setHeight] = useState(getViewportHeight)
 
     useEffect(() => {
         let rafId = null
@@ -13,7 +15,7 @@ export function useViewportHeight() {
             if (rafId) cancelAnimationFrame(rafId)
 
             rafId = requestAnimationFrame(() => {
-                const newHeight = WebApp.viewportHeight || window.innerHeight
+                const newHeight = getViewportHeight()
                 setHeight(newHeight)
                 window.scrollTo(0, 0)
             })

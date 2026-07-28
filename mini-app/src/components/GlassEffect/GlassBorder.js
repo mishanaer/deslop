@@ -7,6 +7,8 @@ import * as styles from "./GlassBorder.module.css"
  * isolates descendant blending, turning the overlay into a stark white ring on
  * dark themes, so `muted` swaps to a low-alpha normal blend that approximates
  * the same look.
+ * @param {object} props
+ * @param {string} [props.className]
  * @param {boolean} [props.muted] Blend-free rim for backdrop-filtered surfaces.
  * @example
  * <GlassBorder />              // default bright rim on a non-filtered surface

@@ -1,4 +1,4 @@
-import { useEffect, useEffectEvent, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 import {
     DEVICE_PIXEL_RATIO_MAX,
     RESIZE_DEBOUNCE_PATTERN,
@@ -16,7 +16,7 @@ export function usePatternCanvas({
     const patternImageRef = useRef(null)
     const patternDimensionsRef = useRef({ width: 0, height: 0 })
 
-    const renderPattern = useEffectEvent((forceRender = false) => {
+    const renderPattern = useCallback((forceRender = false) => {
         const patternCanvas = patternCanvasRef.current
         const container = containerRef.current
 
@@ -80,7 +80,7 @@ export function usePatternCanvas({
         // Reveal only after the first frame is on the canvas, so the pattern
         // fades in over the gradient instead of popping in once loaded.
         patternCanvas.classList.add(styles.patternReady)
-    })
+    }, [activeIsDarkPattern, containerRef, patternCanvasRef, patternUrl])
 
     useEffect(() => {
         patternImageRef.current = null
@@ -137,5 +137,5 @@ export function usePatternCanvas({
             patternImageRef.current = null
             patternDimensionsRef.current = { width: 0, height: 0 }
         }
-    }, [patternUrl, activeIsDarkPattern, containerRef])
+    }, [containerRef, patternUrl, renderPattern])
 }

@@ -1,6 +1,6 @@
-import { createPortal } from "react-dom"
 import PropTypes from "prop-types"
 import { AnimatePresence } from "motion/react"
+import Portal from "../Portal"
 import SnackbarItem from "./SnackbarItem"
 import * as styles from "./Snackbar.module.css"
 
@@ -11,8 +11,8 @@ const positionClass = {
 
 const positions = Object.keys(positionClass)
 
-const SnackbarHost = ({ snackbars, onDismiss }) =>
-    createPortal(
+const SnackbarHost = ({ snackbars, onDismiss }) => (
+    <Portal>
         <>
             {positions.map((position) => {
                 const items = snackbars.filter(
@@ -35,9 +35,9 @@ const SnackbarHost = ({ snackbars, onDismiss }) =>
                     </div>
                 )
             })}
-        </>,
-        document.body
-    )
+        </>
+    </Portal>
+)
 
 SnackbarHost.propTypes = {
     snackbars: PropTypes.arrayOf(

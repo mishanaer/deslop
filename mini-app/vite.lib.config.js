@@ -28,12 +28,27 @@ const isExternal = (id) =>
     externalPackages.some((name) => id === name || id.startsWith(`${name}/`))
 
 export default defineConfig({
+    // Library assets must resolve relative to the installed package. An
+    // absolute `/assets/*` URL makes Next.js consumers look in the app root.
+    base: "./",
     publicDir: false,
     plugins: [
         tailwindcss(),
         react({
             include: /\.(jsx?|tsx?)$/,
-            babel: { configFile: true },
+            // The package advertises React 18 support, so its distributable
+            // build must not inherit the app's React 19 compiler transform.
+            babel: {
+                configFile: false,
+                babelrc: false,
+                presets: [
+                    [
+                        "@babel/preset-react",
+                        { runtime: "automatic", importSource: "react" },
+                    ],
+                ],
+                plugins: [],
+            },
         }),
         svgr({
             svgrOptions: {

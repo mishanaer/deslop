@@ -271,9 +271,6 @@ export async function inspectProject({ cwd = process.cwd() } = {}) {
   const frameworks = detectFrameworks(dependencies)
   const warnings = []
 
-  if (tailwindMajor !== null && tailwindMajor < 4) {
-    warnings.push(`Tailwind ${tailwindMajor} is incompatible with the current Web UI utility layer.`)
-  }
   if (sourceInspection.tokenCollisions.length > 0) {
     warnings.push(
       `${sourceInspection.tokenCollisions.length} generic CSS token names may collide with Deslop compatibility aliases.`,
@@ -288,11 +285,6 @@ export async function inspectProject({ cwd = process.cwd() } = {}) {
   if (!hasReact) {
     blockers.push(
       "React is not declared in package.json; automatic component migration is disabled.",
-    )
-  }
-  if (tailwindMajor !== null && tailwindMajor < 4) {
-    blockers.push(
-      `Tailwind ${tailwindMajor} cannot consume the current Web UI stylesheet safely. Upgrade to Tailwind 4 before migration or use Primitives without claiming component adoption.`,
     )
   }
 
@@ -340,10 +332,7 @@ export async function inspectProject({ cwd = process.cwd() } = {}) {
     },
     tokenCollisions: sourceInspection.tokenCollisions,
     recommendation: {
-      strategy:
-        tailwindMajor !== null && tailwindMajor < 4
-          ? "blocked-tailwind-upgrade-required"
-          : "precompiled-css",
+      strategy: "primitives-and-review",
       blockers,
       warnings,
       nextCommands: blockers.length

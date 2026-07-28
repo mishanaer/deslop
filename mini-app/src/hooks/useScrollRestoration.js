@@ -1,9 +1,10 @@
-import { useLayoutEffect, useState } from "react"
+import { useState } from "react"
 import {
     getScreenState,
     setScreenState,
     currentScreenPath,
 } from "../utils/screenState"
+import useBrowserLayoutEffect from "./useBrowserLayoutEffect"
 
 // Content behind lazy routes and async data mounts after the scroller does,
 // so the saved offset may not be reachable straight away.
@@ -21,10 +22,14 @@ const RESTORE_DEADLINE_MS = 1000
 // element, the browser resets its scroll to 0, and the resulting scroll
 // event would overwrite the saved offset. Dropping the listener in the
 // same commit wins that race — scroll events dispatch after it.
-export default function useScrollRestoration(ref, subKey = "scroll", { enabled = true } = {}) {
+export default function useScrollRestoration(
+    ref,
+    subKey = "scroll",
+    { enabled = true } = {}
+) {
     const [path] = useState(currentScreenPath)
 
-    useLayoutEffect(() => {
+    useBrowserLayoutEffect(() => {
         const el = ref.current
         if (!el || !enabled) return undefined
 

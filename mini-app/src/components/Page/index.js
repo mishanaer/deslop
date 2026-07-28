@@ -10,6 +10,8 @@ const { setHeaderColor, setBackgroundColor } = WebApp
 /**
  * Screen wrapper that syncs the TWA header/background colors and the
  * --page-background var (drives AppBar/TabBar fades). Renders children as-is.
+ * @param {object} props
+ * @param {import("react").ReactNode} [props.children]
  * @param {"primary"|"secondary"} [props.mode] Which Primitives background to use.
  * @param {string} [props.headerColorToken] Primitive or Mini App color token.
  * @param {string} [props.backgroundColorToken] Primitive or Mini App color token.

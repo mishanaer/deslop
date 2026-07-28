@@ -1,8 +1,9 @@
-import { useLayoutEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import PropTypes from "prop-types"
 import * as m from "motion/react-m"
 import { Calligraph } from "calligraph"
 import * as styles from "./Wheel.module.css"
+import useBrowserLayoutEffect from "../../hooks/useBrowserLayoutEffect"
 
 import Tick from "./Tick"
 import useWheelSnap from "./useWheelSnap"
@@ -46,7 +47,7 @@ const Wheel = ({
     })
 
     // The drum spans the full container: ticks fold past its edges at 90deg
-    useLayoutEffect(() => {
+    useBrowserLayoutEffect(() => {
         const node = containerRef.current
         if (!node) return
         const measure = () => {

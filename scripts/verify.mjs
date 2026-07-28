@@ -6,7 +6,6 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const primitives = resolve(root, "primitives");
 const miniApp = resolve(root, "mini-app");
-const webUi = resolve(root, "web-ui");
 const designSystem = resolve(root, "design-system");
 
 const commands = [
@@ -80,61 +79,17 @@ const commands = [
   {
     label: "Mini App: library build",
     cwd: miniApp,
-    args: [
-      "./node_modules/vite/bin/vite.js",
-      "build",
-      "--config",
-      "vite.lib.config.js",
-    ],
+    args: ["./scripts/build-library.mjs"],
   },
   {
-    label: "Web UI: primitives",
-    cwd: webUi,
-    args: ["./scripts/check-primitives.mjs"],
-  },
-  {
-    label: "Web UI: agent catalog",
-    cwd: webUi,
-    args: ["./scripts/check-agent-kit.mjs"],
-  },
-  {
-    label: "Web UI: TypeScript",
-    cwd: webUi,
-    args: ["./node_modules/typescript/bin/tsc", "--noEmit"],
-  },
-  {
-    label: "Web UI: Storybook build",
-    cwd: webUi,
-    args: ["./node_modules/vite/bin/vite.js", "build"],
-  },
-  {
-    label: "Web UI: library build",
-    cwd: webUi,
-    args: [
-      "./node_modules/vite/bin/vite.js",
-      "build",
-      "--config",
-      "vite.lib.config.ts",
-    ],
-  },
-  {
-    label: "Web UI: declarations",
-    cwd: webUi,
-    args: [
-      "./node_modules/typescript/bin/tsc",
-      "-p",
-      "tsconfig.build.json",
-    ],
-  },
-  {
-    label: "Web UI: portable declaration paths",
-    cwd: webUi,
-    args: ["./scripts/rewrite-declarations.mjs"],
-  },
-  {
-    label: "Web UI: consumer package",
-    cwd: webUi,
+    label: "Mini App: consumer package contract",
+    cwd: miniApp,
     args: ["./scripts/check-package.mjs"],
+  },
+  {
+    label: "Mini App: stable library rebuild",
+    cwd: miniApp,
+    args: ["./scripts/check-stable-build.mjs"],
   },
   {
     label: "Consumer fixture: packed React 18 install",
@@ -149,21 +104,13 @@ const requiredMiniAppFiles = commands.flatMap(({ cwd, args }) =>
     : [],
 );
 
-const requiredWebUiFiles = commands.flatMap(({ cwd, args }) =>
-  cwd === webUi && args[0].startsWith("./node_modules/")
-    ? [resolve(webUi, args[0])]
-    : [],
+const missingDependency = requiredMiniAppFiles.find(
+  (file) => !existsSync(file),
 );
 
-const missingDependency = [
-  ...requiredMiniAppFiles,
-  ...requiredWebUiFiles,
-].find((file) => !existsSync(file));
-
 if (missingDependency) {
-  console.error("Mini App or Web UI dependencies are not installed. Run:");
+  console.error("Mini App dependencies are not installed. Run:");
   console.error("  corepack yarn --cwd mini-app install --immutable");
-  console.error("  corepack pnpm install --frozen-lockfile");
   process.exit(1);
 }
 

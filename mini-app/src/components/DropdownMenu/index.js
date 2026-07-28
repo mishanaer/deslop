@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 import PropTypes from "prop-types"
-import { createPortal } from "react-dom"
 import * as m from "motion/react-m"
 import { AnimatePresence } from "motion/react"
 import { POPOVER_VARIANTS } from "../../utils/animations"
 import Text from "../Text"
 import { GlassBorder } from "../GlassEffect"
+import Portal from "../Portal"
 import { useSplitViewContext } from "../SplitView/context"
 import {
     useClickOutside,
@@ -42,14 +42,23 @@ MenuItem.propTypes = {
 /**
  * Portal-rendered menu with keyboard nav (arrows / Enter / Esc) and edge-aware
  * placement. Without `trigger` it renders the selected item as the button.
+ * @param {object} props
  * @param {string[]} props.items Menu options (required, non-empty).
  * @param {import("react").ReactNode} [props.trigger] Custom trigger; defaults to selected item.
+ * @param {string} [props.selectedItem] Controlled selected item.
+ * @param {(item: string) => void} [props.onSelect]
  * @example
  * <DropdownMenu items={["Newest", "Oldest", "Popular"]} trigger={<SortIcon />} />
  */
-const DropdownMenu = ({ items, trigger }) => {
+const DropdownMenu = ({
+    items,
+    trigger,
+    selectedItem: controlledSelectedItem,
+    onSelect,
+}) => {
     const [isOpen, setIsOpen] = useState(false)
-    const [selectedItem, setSelectedItem] = useState(items[0])
+    const [internalSelectedItem, setInternalSelectedItem] = useState(items[0])
+    const selectedItem = controlledSelectedItem ?? internalSelectedItem
     const [activeIndex, setActiveIndex] = useState(-1)
     const buttonRef = useRef(null)
     const dropdownRef = useRef(null)
@@ -77,8 +86,13 @@ const DropdownMenu = ({ items, trigger }) => {
     }, [activeIndex])
 
     useEffect(() => {
-        if (!items.includes(selectedItem)) setSelectedItem(items[0])
-    }, [items, selectedItem])
+        if (
+            controlledSelectedItem === undefined &&
+            !items.includes(internalSelectedItem)
+        ) {
+            setInternalSelectedItem(items[0])
+        }
+    }, [controlledSelectedItem, internalSelectedItem, items])
 
     const closeDropdown = () => {
         setIsOpen(false)
@@ -93,7 +107,8 @@ const DropdownMenu = ({ items, trigger }) => {
     }
 
     const handleSelectItem = (item) => {
-        setSelectedItem(item)
+        if (controlledSelectedItem === undefined) setInternalSelectedItem(item)
+        onSelect?.(item)
         setIsOpen(false)
         resetPosition()
         setActiveIndex(-1)
@@ -176,7 +191,7 @@ const DropdownMenu = ({ items, trigger }) => {
             >
                 {trigger ?? selectedItem}
             </div>
-            {createPortal(
+            <Portal>
                 <>
                     {isOpen && !isPositioned && (
                         <div
@@ -236,9 +251,8 @@ const DropdownMenu = ({ items, trigger }) => {
                             </m.div>
                         )}
                     </AnimatePresence>
-                </>,
-                document.body
-            )}
+                </>
+            </Portal>
         </div>
     )
 }
@@ -246,5 +260,7 @@ const DropdownMenu = ({ items, trigger }) => {
 DropdownMenu.propTypes = {
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
     trigger: PropTypes.node,
+    selectedItem: PropTypes.string,
+    onSelect: PropTypes.func,
 }
 export default DropdownMenu

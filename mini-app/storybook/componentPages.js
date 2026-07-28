@@ -9,6 +9,7 @@ const page = (title, path) => {
 }
 
 const componentPages = [
+    page("Back Button Layers", "PanelHeader/BackButtonLayers.showcase"),
     page("Cell", "Cells/Cells.showcase"),
     page("Cell Stack", "CellStack/CellStack.showcase"),
     page("Picker", "Picker/Picker.showcase"),

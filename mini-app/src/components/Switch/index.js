@@ -7,9 +7,12 @@ import * as styles from "./Switch.module.css"
  * iOS/Material toggle. Controlled when `value` is passed, otherwise
  * uncontrolled from `defaultValue`. Stops click propagation, so it's safe
  * inside a tappable Cell. onChange receives the next boolean.
+ * @param {object} props
  * @param {boolean} [props.value] Controlled state.
  * @param {boolean} [props.defaultValue=false] Initial state when uncontrolled.
  * @param {(next: boolean) => void} [props.onChange]
+ * @param {boolean} [props.disabled=false]
+ * @param {string} [props.className]
  * @example
  * <Switch defaultValue onChange={setEnabled} />
  */

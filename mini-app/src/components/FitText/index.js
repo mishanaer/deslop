@@ -1,5 +1,6 @@
-import { useLayoutEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import PropTypes from "prop-types"
+import useBrowserLayoutEffect from "../../hooks/useBrowserLayoutEffect"
 
 import * as styles from "./FitText.module.css"
 
@@ -15,7 +16,7 @@ export default function FitText({
     const innerRef = useRef(null)
     const [scale, setScale] = useState(1)
 
-    useLayoutEffect(() => {
+    useBrowserLayoutEffect(() => {
         const outer = outerRef.current
         const inner = innerRef.current
         if (!outer || !inner) return

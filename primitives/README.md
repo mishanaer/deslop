@@ -5,7 +5,7 @@
 соседней директории.
 
 Primitives хранят базовые правила. Готовые React-компоненты находятся отдельно
-в `@deslop/web-ui` и `@deslop/mini-app`.
+в `@deslop/mini-app`.
 
 ## Состав
 
@@ -29,7 +29,7 @@ import "@deslop/primitives/typography.css";
 
 `colors.css` выбирает тему ОС автоматически. Для явного переключения задайте `data-color-scheme="light"` или `data-color-scheme="dark"` на `html` либо на корневом контейнере.
 
-Web UI и Mini App используют эти же публичные пути пакета.
+Mini App использует эти же публичные пути пакета.
 
 ## Внутри Mini App
 
@@ -50,7 +50,7 @@ Modules:
 ## Правила применения
 
 - В Primitives лежат постоянные `--white` и `--black`, тематические `--background-primary`, `--background-secondary`, `--primary`, палитры `--accent-*` и `--primary-*`. Старые `--background`, `--surface` и `--elevation-4…90` временно сохранены как алиасы для Mini Apps. Семантические роли задаёт библиотека компонентов конкретного продукта.
-- Компоненты Mini App используют цветовые токены Primitives напрямую. В `mini-app/src/styles/theme.css` остаются только продуктовые роли, которым недостаточно одного токена (например, story и heatmap). Web UI использует shadcn-роли из `web-ui/src/index.css`.
+- Компоненты Mini App используют цветовые токены Primitives напрямую. В `mini-app/src/styles/theme.css` остаются только продуктовые роли, которым недостаточно одного токена (например, story и heatmap).
 - Используйте `--ui-font-interface` для интерфейсного текста и `--ui-font-interface-caps` только для стиля Caption.
 - Берите отступы из `--ui-space-*` и `--ui-layout-*`, радиусы — из `--ui-radius-*` и `--ui-component-*-radius`.
 - Не добавляйте в компоненты произвольные HEX-цвета, размеры, `border-radius` или другие значения, если для них уже есть токен.
