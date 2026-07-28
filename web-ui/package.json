@@ -1,26 +1,72 @@
 {
   "name": "@deslop/web-ui",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "React components for Deslop web products, based on shadcn/ui.",
   "type": "module",
+  "repository": "https://github.com/mishanaer/deslop.git",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.shadcn"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./toast": {
+      "types": "./dist/types/toast.d.ts",
+      "import": "./dist/toast.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./reset.css": "./dist/reset.css",
+    "./components/*": {
+      "types": "./dist/types/components/ui/*.d.ts",
+      "import": "./dist/components/ui/*.js"
+    },
+    "./components/ui/*": {
+      "types": "./dist/types/components/ui/*.d.ts",
+      "import": "./dist/components/ui/*.js"
+    },
+    "./blocks/*": {
+      "types": "./dist/types/components/blocks/*.d.ts",
+      "import": "./dist/blocks/*.js"
+    },
+    "./charts/*": {
+      "types": "./dist/types/components/charts/*.d.ts",
+      "import": "./dist/charts/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "packageManager": "pnpm@10.13.1",
   "scripts": {
     "check:primitives": "node scripts/check-primitives.mjs",
     "check:agent": "node scripts/check-agent-kit.mjs",
+    "check:package": "node scripts/check-package.mjs",
     "dev": "vite --port 3100",
     "storybook": "vite --port 3100",
     "build": "pnpm build:storybook && pnpm build:lib",
     "build:storybook": "vite build",
-    "build:lib": "vite build --config vite.lib.config.ts",
-    "typecheck": "tsc --noEmit",
-    "verify": "pnpm check:primitives && pnpm check:agent && pnpm typecheck && pnpm build:storybook && pnpm build:lib",
+    "build:lib": "vite build --config vite.lib.config.ts && pnpm build:types",
+    "build:types": "tsc -p tsconfig.build.json && node scripts/rewrite-declarations.mjs",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit",
+    "verify": "pnpm check:primitives && pnpm check:agent && pnpm typecheck && pnpm build:storybook && pnpm build:lib && pnpm check:package",
+    "prepack": "pnpm build:lib && pnpm check:package",
     "preview": "vite preview --port 3100"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@hookform/resolvers": "^5.4.0",
-    "@shadcn/react": "^0.2.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -40,7 +86,18 @@
     "vaul": "^1.1.2",
     "zod": "^4.4.3"
   },
+  "peerDependencies": {
+    "@shadcn/react": "^0.2.1",
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@shadcn/react": {
+      "optional": true
+    }
+  },
   "devDependencies": {
+    "@shadcn/react": "^0.2.1",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.17",

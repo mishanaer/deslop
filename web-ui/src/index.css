@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@layer theme, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 @import "tw-animate-css";
 @import "@deslop/primitives/colors.css";
 @import "@deslop/primitives/layout.css";
@@ -197,23 +199,7 @@
   --sidebar-ring: var(--primary-8);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-    margin: 0;
-    min-width: 320px;
-    min-height: 100vh;
-    text-rendering: optimizeLegibility;
-  }
-
+@layer components {
   .ui-icon {
     display: block;
     color: var(--primary-40) !important;
@@ -222,23 +208,6 @@
   [data-slot="button"][data-variant="default"] .ui-icon,
   [data-slot="button"][data-variant="destructive"] .ui-icon {
     color: currentColor !important;
-  }
-
-  .dark *,
-  .dark *::before,
-  .dark *::after {
-    --tw-shadow: 0 0 #0000 !important;
-    --tw-inset-shadow: 0 0 #0000 !important;
-
-    box-shadow: var(--tw-inset-ring-shadow, 0 0 #0000),
-      var(--tw-ring-offset-shadow, 0 0 #0000),
-      var(--tw-ring-shadow, 0 0 #0000) !important;
-    text-shadow: none !important;
-  }
-
-  button,
-  a {
-    -webkit-tap-highlight-color: transparent;
   }
 }
 

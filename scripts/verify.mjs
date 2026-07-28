@@ -7,6 +7,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const primitives = resolve(root, "primitives");
 const miniApp = resolve(root, "mini-app");
 const webUi = resolve(root, "web-ui");
+const designSystem = resolve(root, "design-system");
 
 const commands = [
   {
@@ -28,6 +29,21 @@ const commands = [
     label: "Primitives: icons",
     cwd: primitives,
     args: ["./scripts/check-icons.mjs"],
+  },
+  {
+    label: "Primitives: React icons",
+    cwd: primitives,
+    args: ["./scripts/generate-react-icons.mjs", "--check"],
+  },
+  {
+    label: "Primitives: consumer package",
+    cwd: primitives,
+    args: ["./scripts/check-package.mjs"],
+  },
+  {
+    label: "Design System: CLI and adoption tests",
+    cwd: designSystem,
+    args: ["--test"],
   },
   {
     label: "Mini App: styling architecture",
@@ -101,6 +117,30 @@ const commands = [
       "vite.lib.config.ts",
     ],
   },
+  {
+    label: "Web UI: declarations",
+    cwd: webUi,
+    args: [
+      "./node_modules/typescript/bin/tsc",
+      "-p",
+      "tsconfig.build.json",
+    ],
+  },
+  {
+    label: "Web UI: portable declaration paths",
+    cwd: webUi,
+    args: ["./scripts/rewrite-declarations.mjs"],
+  },
+  {
+    label: "Web UI: consumer package",
+    cwd: webUi,
+    args: ["./scripts/check-package.mjs"],
+  },
+  {
+    label: "Consumer fixture: packed React 18 install",
+    cwd: root,
+    args: ["./scripts/verify-consumer-artifact.mjs"],
+  },
 ];
 
 const requiredMiniAppFiles = commands.flatMap(({ cwd, args }) =>
@@ -115,14 +155,15 @@ const requiredWebUiFiles = commands.flatMap(({ cwd, args }) =>
     : [],
 );
 
-const missingDependency = [...requiredMiniAppFiles, ...requiredWebUiFiles].find(
-  (file) => !existsSync(file),
-);
+const missingDependency = [
+  ...requiredMiniAppFiles,
+  ...requiredWebUiFiles,
+].find((file) => !existsSync(file));
 
 if (missingDependency) {
   console.error("Mini App or Web UI dependencies are not installed. Run:");
   console.error("  corepack yarn --cwd mini-app install --immutable");
-  console.error("  corepack pnpm --dir web-ui install --frozen-lockfile");
+  console.error("  corepack pnpm install --frozen-lockfile");
   process.exit(1);
 }
 

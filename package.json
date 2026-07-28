@@ -2,9 +2,13 @@
   "name": "deslop",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "prepare": "node ./scripts/install-git-hooks.mjs",
     "setup": "node ./scripts/install-git-hooks.mjs",
+    "deslop": "node ./design-system/bin/deslop.mjs",
+    "test:design-system": "node --test ./design-system/test/*.test.mjs",
+    "verify:consumer": "node ./scripts/verify-consumer-artifact.mjs",
     "verify": "node ./scripts/verify.mjs"
   }
 }
