@@ -1,56 +1,31 @@
 # deslop
 
-Deslop — дизайн-система и проверяемый workflow для ИИ-агентов. Репозиторий
-содержит публичный consumer API, инструменты миграции и строгую проверку
-полноты внедрения.
+Deslop — компоненты и визуальные примитивы для Telegram Mini Apps.
 
 ## Состав
 
 - [`@deslop/primitives`](./primitives/) — токены, шрифты и self-hosted
   Material Symbols с типизированным React API.
-- [`@deslop/design-system`](./design-system/) — команды `doctor`, `migrate` и
-  `audit` для существующего продукта.
-- [`mini-app`](./mini-app/) — основной набор компонентов и правила для Telegram
-  Mini Apps; пока используется внутри монорепозитория.
-- [`sasha`](./sasha/SKILL.md) — правила русской интерфейсной микрокопии.
+- [`@deslop/mini-app`](./mini-app/) — готовые компоненты и правила для Telegram
+  Mini Apps с публичными JavaScript, CSS и TypeScript entrypoints.
 
-## Workflow для агента
-
-Перед изменениями существующего продукта:
+## Storybook
 
 ```bash
-node ./design-system/bin/deslop.mjs doctor --cwd /path/to/product
-node ./design-system/bin/deslop.mjs migrate --cwd /path/to/product --dry-run
-```
-
-После просмотра плана агент применяет только однозначные миграции:
-
-```bash
-node ./design-system/bin/deslop.mjs migrate --cwd /path/to/product
-node ./design-system/bin/deslop.mjs audit --cwd /path/to/product --strict
-```
-
-Работа не считается завершённой, пока не проходят strict audit, typecheck,
-production build и интерактивная проверка основных экранов в светлой, тёмной и
-системной темах. Пока у Mini App нет опубликованного consumer-контракта, CLI
-автоматически мигрирует только подтверждённые иконки; компоненты оставляет на
-ручную проверку.
-
-Подробности и формат обоснованных исключений: [design-system/README.md](./design-system/README.md).
-
-## Поддерживаемая интеграция
-
-Primitives поддерживает React 18 и 19. Компоненты Mini App сейчас развиваются
-как внутренний пакет: до фиксации публичных exports и consumer-проверки CLI не
-подменяет ими локальные компоненты автоматически.
-
-## Разработка и проверка
-
-```bash
-corepack pnpm install --frozen-lockfile
 corepack yarn --cwd mini-app install --immutable
-node --test design-system/test/*.test.mjs
-node scripts/verify.mjs
+corepack yarn --cwd mini-app dev
 ```
 
-[AGENTS.md](./AGENTS.md) задаёт общие правила работы внутри репозитория.
+## Правила и навык микрокопии
+
+- [Общие правила для агентов](./AGENTS.md)
+- [Правила и каталог Mini App](./mini-app/agent/AGENTS.md)
+- [Навык Sasha](./sasha/SKILL.md)
+
+## Проверка
+
+```bash
+corepack yarn --cwd mini-app lint
+corepack yarn --cwd mini-app build
+npm --prefix primitives run check
+```
