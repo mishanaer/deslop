@@ -11,7 +11,7 @@
 
 ## mini-apps
 
-[mini-apps](./mini-app/README.md) — библиотека готовых React-компонентов для Telegram Mini Apps
+[mini-apps](./mini-app/README.md) — библиотека готовых React-компонентов для Telegram Mini Apps. Сделано на основе библиотеки Ильи Гришина
 
 ## sasha
 
