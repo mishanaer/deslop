@@ -1,15 +1,84 @@
 {
   "name": "@deslop/primitives",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "Design tokens, fonts, and icons shared by Deslop component libraries.",
   "type": "module",
+  "repository": "https://github.com/mishanaer/deslop.git",
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "files": [
+    "colors.css",
+    "colors.d.ts",
+    "colors.js",
+    "fonts",
+    "icons",
+    "icons-react.d.ts",
+    "icons-react.js",
+    "index.d.ts",
+    "index.js",
+    "layout.css",
+    "layout.d.ts",
+    "layout.js",
+    "tokens.d.ts",
+    "tokens.js",
+    "typography.css",
+    "README.md",
+    "TYPOGRAPHY.md",
+    "colors.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./colors": {
+      "types": "./colors.d.ts",
+      "import": "./colors.js"
+    },
+    "./layout": {
+      "types": "./layout.d.ts",
+      "import": "./layout.js"
+    },
+    "./tokens": {
+      "types": "./tokens.d.ts",
+      "import": "./tokens.js"
+    },
+    "./icons-react": {
+      "types": "./icons-react.d.ts",
+      "import": "./icons-react.js"
+    },
+    "./colors.css": "./colors.css",
+    "./layout.css": "./layout.css",
+    "./typography.css": "./typography.css",
+    "./icons/*": "./icons/*",
+    "./fonts/*": "./fonts/*",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "peerDependencies": {
+    "react": ">=18 <20"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "tokens:generate": "node ./scripts/generate-layout-tokens.mjs",
     "tokens:check": "node ./scripts/generate-layout-tokens.mjs --check",
     "colors:check": "node ./scripts/check-color-tokens.mjs",
     "typography:check": "node ./scripts/check-typography-tokens.mjs",
     "icons:check": "node ./scripts/check-icons.mjs",
-    "check": "node ./scripts/generate-layout-tokens.mjs --check && node ./scripts/check-color-tokens.mjs && node ./scripts/check-typography-tokens.mjs && node ./scripts/check-icons.mjs"
+    "icons:react:generate": "node ./scripts/generate-react-icons.mjs",
+    "icons:react:check": "node ./scripts/generate-react-icons.mjs --check",
+    "check:package": "node ./scripts/check-package.mjs",
+    "check": "node ./scripts/generate-layout-tokens.mjs --check && node ./scripts/check-color-tokens.mjs && node ./scripts/check-typography-tokens.mjs && node ./scripts/check-icons.mjs && node ./scripts/generate-react-icons.mjs --check && node ./scripts/check-package.mjs"
   }
 }

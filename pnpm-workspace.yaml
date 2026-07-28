@@ -1,0 +1,6 @@
+packages:
+  - primitives
+  - web-ui
+  - design-system
+allowBuilds:
+  esbuild: set this to true or false

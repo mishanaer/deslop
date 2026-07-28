@@ -1,5 +1,92 @@
 {
+  "schemaVersion": 2,
   "package": "@deslop/web-ui",
+  "publicImportPattern": "@deslop/web-ui/{path}",
+  "adoption": {
+    "genericUiSource": "exclusive",
+    "nativeControlPolicy": "replace",
+    "visualOverridePolicy": {
+      "allowed": ["layout", "position", "responsive-visibility"],
+      "forbidden": [
+        "color",
+        "control-size",
+        "internal-spacing",
+        "radius",
+        "shadow",
+        "stroke",
+        "typography"
+      ]
+    },
+    "allowlist": {
+      "requiredFields": ["rule", "file", "reason"],
+      "optionalFields": ["line", "match", "owner", "expires"]
+    }
+  },
+  "nativeControlReplacements": {
+    "button": "components/button",
+    "details": "components/accordion",
+    "input": "components/input",
+    "input[type=checkbox]": "components/checkbox",
+    "input[type=radio]": "components/radio-group",
+    "input[type=range]": "components/slider",
+    "select": "components/native-select",
+    "textarea": "components/textarea",
+    "window.confirm": "components/alert-dialog"
+  },
+  "directDependencyReplacements": {
+    "@radix-ui/*": "Use the matching @deslop/web-ui component",
+    "radix-ui": "Use the matching @deslop/web-ui component",
+    "cmdk": "components/command",
+    "lucide-react": "@deslop/primitives/icons-react",
+    "sonner": "components/sonner"
+  },
+  "compoundContracts": [
+    {
+      "child": "RadioGroupItem",
+      "ancestor": "RadioGroup",
+      "module": "components/radio-group",
+      "failureMode": "runtime"
+    },
+    {
+      "child": "AccordionItem",
+      "ancestor": "Accordion",
+      "module": "components/accordion",
+      "failureMode": "behavior"
+    },
+    {
+      "child": "DialogContent",
+      "ancestor": "Dialog",
+      "module": "components/dialog",
+      "failureMode": "behavior"
+    },
+    {
+      "child": "FormField",
+      "ancestor": "Form",
+      "module": "components/form",
+      "failureMode": "runtime"
+    },
+    {
+      "child": "Sidebar",
+      "ancestor": "SidebarProvider",
+      "module": "components/sidebar",
+      "failureMode": "runtime"
+    }
+  ],
+  "deprecatedTokens": {
+    "--background": "--background-primary",
+    "--surface": "--background-secondary",
+    "--elevation-90": "--primary-90",
+    "--elevation-80": "--primary-80",
+    "--elevation-70": "--primary-70",
+    "--elevation-60": "--primary-60",
+    "--elevation-50": "--primary-50",
+    "--elevation-40": "--primary-40",
+    "--elevation-30": "--primary-30",
+    "--elevation-20": "--primary-20",
+    "--elevation-10": "--primary-10",
+    "--elevation-5": "--primary-5",
+    "--elevation-4": "--primary-4"
+  },
   "modules": [
     { "path": "components/accordion", "local": "ui/accordion", "category": "Layout" },
     { "path": "components/alert", "local": "ui/alert", "category": "Feedback" },
