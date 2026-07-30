@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Text Appearance</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./text-appearance.css">
+    <style>
+        body {
+            display: grid;
+            min-height: 100vh;
+            margin: 0;
+            place-items: center;
+            color: #111;
+            background: #f5f5f2;
+            font-family: system-ui, sans-serif;
+        }
+
+        main {
+            display: grid;
+            justify-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            min-width: 12ch;
+            margin: 0 0 2rem;
+            font-size: clamp(3rem, 10vw, 7rem);
+            letter-spacing: -0.05em;
+        }
+
+        button {
+            padding: 0.75rem 1rem;
+            border: 1px solid currentColor;
+            border-radius: 999px;
+            color: inherit;
+            background: transparent;
+            font: inherit;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1 id="title">One more thing.</h1>
+        <button id="replay" type="button">Replay</button>
+    </main>
+
+    <script type="module">
+        import { textAppearance } from "./text-appearance.js"
+
+        const animation = textAppearance(document.querySelector("#title"), {
+            phrases: ["One more thing.", "Fast and fluid.", "Sharp by design."],
+            initialDelay: 0,
+        })
+
+        document.querySelector("#replay").addEventListener("click", () => {
+            animation.play()
+        })
+    </script>
+</body>
+</html>

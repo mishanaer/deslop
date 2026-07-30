@@ -1,0 +1,19 @@
+.text-appearance {
+    display: inline-block;
+    perspective: 900px;
+    transform-style: preserve-3d;
+}
+
+.text-appearance__unit {
+    display: inline-block;
+    backface-visibility: hidden;
+    transform-origin: 50% 55%;
+    white-space: pre;
+    will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .text-appearance__unit {
+        will-change: auto;
+    }
+}
