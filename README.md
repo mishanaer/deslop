@@ -3,7 +3,7 @@
 В репозитории лежат скилл [sasha](./sasha/SKILL.md), общие
 [Primitives](./primitives/README.md), готовые компоненты для
 [Telegram Mini Apps](./mini-app/README.md), инструкции для агентов
-[AGENTS.md](./AGENTS.md) и готовые [анимации](./Animation/)
+[AGENTS.md](./AGENTS.md) и готовые [анимации](./animation/)
 
 ## primitives
 
@@ -27,8 +27,8 @@ UI-текстов
 
 ## animation
 
-[animation](./Animation/) — коллекция готовых интерфейсных анимаций.
-Пока здесь есть только [Text Appearance](./Animation/text-appearance/SKILL.md): она по очереди проявляет символы текста снизу вверх.
+[animation](./animation/) — коллекция готовых интерфейсных анимаций.
+Пока здесь есть только [Text Appearance](./animation/text-appearance/SKILL.md): она по очереди проявляет символы текста снизу вверх.
 
 Подключить анимацию можно двумя способами:
 
