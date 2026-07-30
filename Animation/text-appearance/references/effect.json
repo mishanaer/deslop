@@ -1,0 +1,127 @@
+{
+  "name": "text-appearance",
+  "source_effect_id": "per-character-rise",
+  "source": "https://pixelpoint.io/skills/animate-text/",
+  "target": "per-character",
+  "description": "Letters rise from below with no blur: crisp, deliberate, and kinetic.",
+  "portable": {
+    "enter": {
+      "duration_ms": 700,
+      "stagger_ms": 24,
+      "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "from": {
+        "opacity": 0,
+        "y_px": 32
+      },
+      "to": {
+        "opacity": 1,
+        "y_px": 0
+      }
+    },
+    "exit": {
+      "duration_ms": 420,
+      "stagger_ms": 14,
+      "easing": "cubic-bezier(0.7, 0, 0.84, 0)",
+      "from": {
+        "opacity": 1,
+        "y_px": 0
+      },
+      "to": {
+        "opacity": 0,
+        "y_px": -24
+      }
+    },
+    "swap": {
+      "mode": "crossfade",
+      "overlap_ms": 210
+    }
+  },
+  "exact_site": {
+    "renderer": "generic-stagger",
+    "stagger_order": "normal",
+    "runtime": {
+      "speed_multiplier": 0.72,
+      "y_travel_multiplier": 0.58,
+      "initial_delay_ms": {
+        "mode": "random-range",
+        "min": 0,
+        "max": 400
+      }
+    },
+    "enter": {
+      "duration_ms": 504,
+      "stagger_ms": 17,
+      "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "from": {
+        "opacity": 0,
+        "y_px": 18.56
+      },
+      "to": {
+        "opacity": 1,
+        "y_px": 0
+      }
+    },
+    "exit": {
+      "duration_ms": 302,
+      "stagger_ms": 10,
+      "easing": "cubic-bezier(0.7, 0, 0.84, 0)",
+      "from": {
+        "opacity": 1,
+        "y_px": 0
+      },
+      "to": {
+        "opacity": 0,
+        "y_px": -13.92
+      }
+    },
+    "playback": {
+      "kind": "loop",
+      "replacement": "exit-before-enter",
+      "first_phrase_hold_ms": 550,
+      "micro_delay_ms": 0,
+      "gap_after_enter_ms": 320
+    },
+    "stage": {
+      "perspective_px": 900,
+      "title_display": "inline-block",
+      "transform_style": "preserve-3d",
+      "unit_display": "inline-block",
+      "unit_white_space": "pre",
+      "unit_backface_visibility": "hidden",
+      "unit_transform_origin": "50% 55%"
+    }
+  },
+  "adapters": {
+    "waapi": {
+      "dependency": null,
+      "time_unit": "milliseconds",
+      "call": "element.animate(keyframes, { delay, duration, easing, fill: 'forwards' })",
+      "completion": "Await animation.finished, apply the final inline frame, then cancel the retained animation."
+    },
+    "motion": {
+      "dependency": "motion",
+      "import": "import { animate, cubicBezier } from 'motion/react'",
+      "time_unit": "seconds",
+      "call": "animate(element, propertyKeyframes, { delay, duration, ease })",
+      "completion": "Await the returned controls and stop them during teardown."
+    },
+    "gsap": {
+      "dependency": "gsap",
+      "imports": [
+        "import { gsap } from 'gsap'",
+        "import { CustomEase } from 'gsap/CustomEase'"
+      ],
+      "time_unit": "seconds",
+      "call": "Set the first frame with gsap.set, then tween with gsap.to and overwrite: 'auto'.",
+      "completion": "Resolve a Promise from onComplete and kill tweens during teardown."
+    }
+  },
+  "invariants": [
+    "Preserve the application's copy and presentation styles.",
+    "Do not animate blur.",
+    "Keep only one active phrase layer.",
+    "Do not enter the same visible phrase twice.",
+    "Do not await completion and also sleep for the same phase duration.",
+    "Render static text when reduced motion is preferred."
+  ]
+}

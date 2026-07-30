@@ -2,8 +2,8 @@
 
 В репозитории лежат скилл [sasha](./sasha/SKILL.md), общие
 [Primitives](./primitives/README.md), готовые компоненты для
-[Telegram Mini Apps](./mini-app/README.md) и инструкции для агентов
-[AGENTS.md](./AGENTS.md)
+[Telegram Mini Apps](./mini-app/README.md), инструкции для агентов
+[AGENTS.md](./AGENTS.md) и готовые [анимации](./Animation/)
 
 ## primitives
 
@@ -24,3 +24,16 @@ UI-текстов
 
 [`AGENTS.md`](./AGENTS.md) задаёт общие правила работы агента: как общаться,
 когда действовать самостоятельно, как менять код и проверять результат
+
+## animation
+
+[animation](./Animation/) — коллекция готовых интерфейсных анимаций.
+Пока здесь есть только [Text Appearance](./Animation/text-appearance/SKILL.md): она по очереди проявляет символы текста снизу вверх.
+
+Подключить анимацию можно двумя способами:
+
+- **Как скилл для агента.** Скопируйте папку `text-appearance` в
+  `.agents/skills/` своего проекта.
+
+- **Как готовый код для сайта.** Скопируйте файлы
+  `assets/waapi/text-appearance.js` и `assets/waapi/text-appearance.css`.
