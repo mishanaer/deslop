@@ -33,16 +33,16 @@ body {
   place-items: center;
   color: var(--white);
   background: var(--black);
+  opacity: 0;
+  visibility: hidden;
 }
 
-.animation-preview__footer {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  left: 20px;
-  color: var(--primary-40);
-  text-align: center;
-  pointer-events: none;
+.animation-preview[data-ready="true"] {
+  opacity: 1;
+  visibility: visible;
+  transition-property: opacity;
+  transition-duration: 160ms;
+  transition-timing-function: ease-out;
 }
 
 .animation-preview__stack {
@@ -192,7 +192,14 @@ body {
   }
 }
 
+@media (max-width: 500px) {
+  .animation-preview__face {
+    width: min(240px, 57.6vw);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .animation-preview[data-ready="true"],
   .animation-preview__face,
   .animation-preview__face-layer {
     transition: none;
