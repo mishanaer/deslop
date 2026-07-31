@@ -1,10 +1,9 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 
 import MiniAppProvider from "../../mini-app/MiniAppProvider";
 import { RegularButton } from "../../mini-app/components/Button";
 import SegmentedControl from "../../mini-app/components/SegmentedControl";
-import Text from "../../mini-app/components/Text";
 
 import { seregaGentle } from "../serega-gentle/assets/waapi/serega-gentle.js";
 import { seregaEmotional } from "../serega-emotional/assets/waapi/serega-emotional.js";
@@ -23,6 +22,20 @@ const TALK_DISTANCE_PX = 4;
 const TALK_ROTATION_DEG = 4;
 
 const countCharacters = (text) => Array.from(text).length;
+
+const preloadImage = (source) =>
+  new Promise((resolve) => {
+    const image = new Image();
+    if (typeof image.decode === "function") {
+      image.src = source;
+      image.decode().catch(() => undefined).finally(resolve);
+      return;
+    }
+
+    image.addEventListener("load", resolve, { once: true });
+    image.addEventListener("error", resolve, { once: true });
+    image.src = source;
+  });
 
 const EFFECTS = [
   {
@@ -51,6 +64,7 @@ const EFFECTS = [
 
 const AnimationPreview = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isReady, setIsReady] = useState(false);
   const sampleRef = useRef(null);
   const faceRef = useRef(null);
   const upperFaceRef = useRef(null);
@@ -60,6 +74,27 @@ const AnimationPreview = () => {
   const talkStopTimerRef = useRef(null);
   const talkSessionRef = useRef(0);
   const activeEffect = EFFECTS[activeIndex];
+
+  useEffect(() => {
+    let cancelled = false;
+    let revealFrame = null;
+
+    const fontsReady = document.fonts?.ready ?? Promise.resolve();
+    Promise.all([
+      fontsReady,
+      preloadImage(faceUpperUrl),
+      preloadImage(faceLowerUrl),
+    ]).then(() => {
+      revealFrame = window.requestAnimationFrame(() => {
+        if (!cancelled) setIsReady(true);
+      });
+    });
+
+    return () => {
+      cancelled = true;
+      if (revealFrame !== null) window.cancelAnimationFrame(revealFrame);
+    };
+  }, []);
 
   const resetFace = () => {
     talkSessionRef.current += 1;
@@ -127,7 +162,7 @@ const AnimationPreview = () => {
 
   useLayoutEffect(() => {
     const element = sampleRef.current;
-    if (!element) return undefined;
+    if (!element || !isReady) return undefined;
 
     element.textContent = activeEffect.text;
     const controls = activeEffect.create(element, activeEffect.text);
@@ -139,7 +174,7 @@ const AnimationPreview = () => {
       controls.destroy();
       if (controlsRef.current === controls) controlsRef.current = null;
     };
-  }, [activeEffect]);
+  }, [activeEffect, isReady]);
 
   const replay = () => play();
   const setFacePressed = (isPressed) => {
@@ -169,7 +204,11 @@ const AnimationPreview = () => {
   };
 
   return (
-    <main className="animation-preview">
+    <main
+      className="animation-preview"
+      data-ready={isReady ? "true" : "false"}
+      aria-busy={!isReady}
+    >
       <div
         className="animation-preview__stack"
         data-effect={activeEffect.id}
@@ -251,12 +290,6 @@ const AnimationPreview = () => {
         </div>
       </div>
 
-      <footer className="animation-preview__footer">
-        <Text variant="body" weight="regular">
-          Серёга — один из инструментов deslop, которые помогают агентам делать
-          нормальный дизайн
-        </Text>
-      </footer>
     </main>
   );
 };
