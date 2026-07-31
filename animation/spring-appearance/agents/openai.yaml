@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spring Appearance"
+  short_description: "Reveal short text with blur and a soft spring"
+  default_prompt: "Use $spring-appearance to reveal this short heading with a blurred per-character spring."

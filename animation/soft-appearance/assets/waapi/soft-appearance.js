@@ -1,18 +1,18 @@
-const HOST_CLASS = "text-appearance"
-const UNIT_CLASS = "text-appearance__unit"
+const HOST_CLASS = "soft-appearance"
+const UNIT_CLASS = "soft-appearance__unit"
 
 const DEFAULTS = Object.freeze({
-    enterDuration: 504,
-    enterStagger: 17,
+    enterDuration: 500,
+    enterStagger: 15,
     enterEasing: "cubic-bezier(0.2, 0.8, 0.2, 1)",
-    enterY: 18.56,
+    enterY: 15,
     exitDuration: 302,
     exitStagger: 10,
     exitEasing: "cubic-bezier(0.7, 0, 0.84, 0)",
     exitY: -13.92,
     hold: 550,
     gap: 320,
-    initialDelay: [0, 400],
+    initialDelay: 0,
 })
 
 function getPhrases(element, value) {
@@ -23,7 +23,7 @@ function getPhrases(element, value) {
             : [value]
 
     if (phrases.length === 0) {
-        throw new TypeError("textAppearance requires at least one phrase")
+        throw new TypeError("softAppearance requires at least one phrase")
     }
 
     return phrases.map(String)
@@ -86,9 +86,9 @@ function prefersReducedMotion(element) {
  *   exitY?: number
  * }} options
  */
-export function textAppearance(element, options = {}) {
+export function softAppearance(element, options = {}) {
     if (!element || typeof element.replaceChildren !== "function") {
-        throw new TypeError("textAppearance requires a DOM element")
+        throw new TypeError("softAppearance requires a DOM element")
     }
 
     const phrases = getPhrases(element, options.phrases)
@@ -274,7 +274,7 @@ export function textAppearance(element, options = {}) {
     const controls = {
         play() {
             if (destroyed) {
-                throw new Error("Cannot play a destroyed textAppearance instance")
+                throw new Error("Cannot play a destroyed softAppearance instance")
             }
 
             cancelPlayback(false)
@@ -310,4 +310,4 @@ export function textAppearance(element, options = {}) {
     return controls
 }
 
-export default textAppearance
+export default softAppearance

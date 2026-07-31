@@ -1,4 +1,0 @@
-interface:
-  display_name: "Text Appearance"
-  short_description: "Apply a crisp per-character rise effect"
-  default_prompt: "Use $text-appearance to animate this heading with a per-character rise."

@@ -27,13 +27,14 @@ UI-текстов
 
 ## animation
 
-[animation](./animation/) — коллекция готовых интерфейсных анимаций.
-Пока здесь есть только [Text Appearance](./animation/text-appearance/SKILL.md): она по очереди проявляет символы текста снизу вверх.
+[animation](./animation/) — два переносимых скилла с готовыми анимациями
+появления текста:
 
-Подключить анимацию можно двумя способами:
+- [soft-appearance](./animation/soft-appearance/SKILL.md) — основной вариант
+  для предложений и длинного текста
+- [spring-appearance](./animation/spring-appearance/SKILL.md) — акцентный вариант
+  для короткой фразы, лучше `2–4` слова и не больше одного
+  короткого предложения
 
-- **Как скилл для агента.** Скопируйте папку `text-appearance` в
-  `.agents/skills/` своего проекта.
-
-- **Как готовый код для сайта.** Скопируйте файлы
-  `assets/waapi/text-appearance.js` и `assets/waapi/text-appearance.css`.
+Скопируйте нужную папку в `.agents/skills/` проекта. Подробнее — в
+[описании анимаций](./animation/README.md).
