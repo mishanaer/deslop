@@ -1,0 +1,136 @@
+{
+  "name": "serega-emotional",
+  "source_effect_id": "after-effects-ffx-expression-selector",
+  "target": "per-character",
+  "description": "Characters rise from a blurred, compressed, rotated state and settle with one damped overshoot.",
+  "source_preset": {
+    "file_name": "Text Appereance (1).ffx",
+    "sha256": "966783050e869cb4f88940ff78c42472360eba93e6dc6c67a2a2b4379cf35143",
+    "container": "RIFX/FaFX",
+    "animator": {
+      "position": {
+        "x": 0,
+        "y": 50
+      },
+      "scale_percent": {
+        "x": 100,
+        "y": 60
+      },
+      "rotation_degrees": 15,
+      "opacity_percent": 0,
+      "blur_ae_units": {
+        "x": 100,
+        "y": 100
+      }
+    },
+    "selector": {
+      "type": "expression",
+      "frequency_hz": 1,
+      "decay": 8,
+      "linear_duration_seconds": 0.15,
+      "stagger_frames": 2,
+      "start_amount_percent": [100, 100, 100],
+      "end_amount_percent": [0, 0, 0],
+      "expression": [
+        "freq = 1;",
+        "decay = 8;",
+        "duration = 0.15;",
+        "retard = textIndex*thisComp.frameDuration*2;",
+        "t = time - (inPoint + retard);",
+        "startVal = [100,100,100];endVal = [0,0,0];",
+        "if (t < duration){",
+        "linear(t,0,duration,startVal,endVal);",
+        "}else{",
+        "amp = (endVal - startVal)/duration;",
+        "w = freq*Math.PI*2;",
+        "endVal + amp*(Math.sin((t-duration)*w)/Math.exp(decay*(t-duration))/w);}"
+      ]
+    }
+  },
+  "portable": {
+    "reference_frame_rate": 60,
+    "stagger_frames": 1.5,
+    "stagger_ms": 25,
+    "first_character_delay_frames": 1.5,
+    "first_character_delay_ms": 25,
+    "linear_duration_ms": 180,
+    "settle_duration_ms": 680,
+    "frequency_hz": 1,
+    "decay": 10,
+    "from": {
+      "opacity": 0,
+      "y_px": 32,
+      "scale_x": 1,
+      "scale_y": 0.78,
+      "rotation_degrees": 12,
+      "blur_ae_units": [100, 100],
+      "blur_css_px_default": 10
+    },
+    "to": {
+      "opacity": 1,
+      "y_px": 0,
+      "scale_x": 1,
+      "scale_y": 1,
+      "rotation_degrees": 0,
+      "blur_ae_units": [0, 0],
+      "blur_css_px_default": 0
+    },
+    "overshoot": {
+      "selector_amount_percent_approx": -19.3,
+      "local_time_ms_approx": 269,
+      "y_px_approx": -6.2,
+      "scale_y_approx": 1.042,
+      "rotation_degrees_approx": -2.3
+    },
+    "exit": null
+  },
+  "selector_math": {
+    "time_unit": "seconds",
+    "normalized_amount": "p",
+    "before_start": "p = 1",
+    "linear_phase": "p = 1 - t / 0.18",
+    "spring_phase": "p = (-1 / 0.18) * sin((t - 0.18) * 2 * PI) / (exp(10 * (t - 0.18)) * 2 * PI)",
+    "property_mapping": {
+      "y_px": "32 * p",
+      "scale_x": 1,
+      "scale_y": "1 - 0.22 * p",
+      "rotation_degrees": "12 * p",
+      "opacity": "clamp(1 - p, 0, 1)",
+      "blur_css_px": "10 * max(p, 0)"
+    }
+  },
+  "adapters": {
+    "waapi": {
+      "dependency": null,
+      "time_unit": "milliseconds",
+      "strategy": "Sample the selector formula at 60fps into linear WAAPI keyframes, then delay each character by (index + 1) times 1.5 reference frames.",
+      "completion": "Apply the natural final state, then cancel the retained animations."
+    },
+    "motion": {
+      "dependency": "motion",
+      "import": "import { animate } from 'motion'",
+      "time_unit": "seconds",
+      "strategy": "Generate the same sampled property keyframes and matching times array; delay each character by (index + 1) times 1.5 / frameRate seconds; use type 'tween' and a linear ease between samples. Do not substitute type 'spring'.",
+      "asset": "assets/motion/serega-emotional.js"
+    },
+    "gsap": {
+      "dependency": "gsap",
+      "time_unit": "seconds",
+      "strategy": "Drive the selector formula from an onUpdate callback or use sampled keyframes; stagger by 1.5 / frameRate seconds."
+    },
+    "remotion": {
+      "dependency": "remotion",
+      "time_unit": "frames",
+      "strategy": "Evaluate the selector formula from the composition frame and fps; preserve the 1.5-frame character delay."
+    }
+  },
+  "invariants": [
+    "Preserve the application's copy and presentation styles.",
+    "Animate position, vertical scale, rotation, opacity, and blur together through one selector amount.",
+    "Allow negative selector values during the overshoot.",
+    "Clamp opacity to 0..1 and CSS blur to non-negative values.",
+    "Do not add an exit animation unless requested.",
+    "Render static text when reduced motion is preferred.",
+    "Treat CSS blur as a calibrated visual mapping, not a numeric equivalent of After Effects blur."
+  ]
+}

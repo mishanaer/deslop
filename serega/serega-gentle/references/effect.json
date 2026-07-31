@@ -1,17 +1,17 @@
 {
-  "name": "text-appearance",
+  "name": "serega-gentle",
   "source_effect_id": "per-character-rise",
   "source": "https://pixelpoint.io/skills/animate-text/",
   "target": "per-character",
   "description": "Letters rise from below with no blur: crisp, deliberate, and kinetic.",
   "portable": {
     "enter": {
-      "duration_ms": 700,
-      "stagger_ms": 24,
+      "duration_ms": 500,
+      "stagger_ms": 15,
       "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
       "from": {
         "opacity": 0,
-        "y_px": 32
+        "y_px": 15
       },
       "to": {
         "opacity": 1,
@@ -19,8 +19,8 @@
       }
     },
     "exit": {
-      "duration_ms": 420,
-      "stagger_ms": 14,
+      "duration_ms": 302,
+      "stagger_ms": 10,
       "easing": "cubic-bezier(0.7, 0, 0.84, 0)",
       "from": {
         "opacity": 1,
@@ -28,12 +28,12 @@
       },
       "to": {
         "opacity": 0,
-        "y_px": -24
+        "y_px": -13.92
       }
     },
     "swap": {
-      "mode": "crossfade",
-      "overlap_ms": 210
+      "mode": "exit-before-enter",
+      "overlap_ms": 0
     }
   },
   "exact_site": {

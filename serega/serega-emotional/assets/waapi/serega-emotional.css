@@ -1,0 +1,21 @@
+.serega-emotional {
+    display: inline-block;
+}
+
+.serega-emotional__word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.serega-emotional__unit {
+    display: inline-block;
+    transform-origin: 50% 55%;
+    white-space: pre;
+    will-change: opacity, filter, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .serega-emotional__unit {
+        will-change: auto;
+    }
+}

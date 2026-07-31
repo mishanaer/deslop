@@ -1,0 +1,204 @@
+@import "../../mini-app/styles/index.css";
+@import "../serega-gentle/assets/waapi/serega-gentle.css";
+@import "../serega-emotional/assets/waapi/serega-emotional.css";
+
+:root {
+  color-scheme: dark;
+  background: #000;
+}
+
+html,
+body,
+#root,
+[data-mini-app] {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow: auto;
+  background: #000;
+}
+
+.animation-preview {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  color: var(--white);
+  background: var(--black);
+}
+
+.animation-preview__footer {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  color: var(--primary-40);
+  text-align: center;
+  pointer-events: none;
+}
+
+.animation-preview__stack {
+  --preview-edge-padding: clamp(24px, 6vw, 40px);
+  --sample-gap: 28px;
+  --layout-gap-compensation: 12px;
+
+  display: flex;
+  box-sizing: border-box;
+  width: min(100%, 900px);
+  padding: var(--preview-edge-padding);
+  padding-bottom: calc(
+    var(--preview-edge-padding) + var(--layout-gap-compensation)
+  );
+  flex-direction: column;
+  align-items: center;
+}
+
+.animation-preview__stack[data-effect="serega-emotional"] {
+  --sample-gap: 40px;
+  --layout-gap-compensation: 0px;
+}
+
+.animation-preview__segments {
+  width: fit-content;
+  margin-top: var(--ui-space-16);
+}
+
+.animation-preview__face {
+  --closed-mouth-offset: -4px;
+
+  position: relative;
+  width: min(300px, 72vw);
+  aspect-ratio: 1;
+  cursor: pointer;
+  isolation: isolate;
+  scale: 1;
+  touch-action: manipulation;
+  transform-origin: 50% 100%;
+  transition-property: scale;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+  user-select: none;
+}
+
+.animation-preview__face[data-pressed="true"] {
+  scale: 0.9;
+}
+
+.animation-preview__face:focus-visible {
+  border-radius: 50%;
+  outline: 2px solid var(--white);
+  outline-offset: var(--ui-space-4);
+}
+
+.animation-preview__face-layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transform: translateY(0) rotate(0deg);
+  transition: transform var(--talk-transition-duration) steps(1, end);
+  user-select: none;
+  will-change: auto;
+}
+
+.animation-preview__face[data-talking="true"] .animation-preview__face-layer {
+  will-change: transform;
+}
+
+.animation-preview__face-layer--upper {
+  z-index: 1;
+  transform-origin: 50% 65%;
+}
+
+.animation-preview__face-layer--lower {
+  top: var(--closed-mouth-offset);
+  z-index: 2;
+  transform-origin: 50% 68%;
+}
+
+.animation-preview__content-stage {
+  display: grid;
+  width: 100%;
+  margin-top: var(--sample-gap);
+  container-type: inline-size;
+}
+
+.animation-preview__content-flow {
+  display: flex;
+  width: 100%;
+  grid-area: 1 / 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.animation-preview__content-flow--sizer {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.animation-preview__sample {
+  grid-area: 1 / 1;
+  width: 100%;
+  margin: 0;
+  color: var(--white);
+  font-family: var(--ui-font-interface);
+  font-size: clamp(28px, 4.2vw, 40px);
+  font-weight: 600;
+  line-height: 1.08;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.animation-preview ::selection {
+  color: #000;
+  background: var(--white);
+}
+
+[data-preview-button],
+.animation-preview__button-sizer {
+  margin-top: 60px;
+}
+
+.animation-preview__button-sizer {
+  width: 1px;
+  height: 48px;
+  flex: 0 0 48px;
+}
+
+[data-testid="open-serega-button"] {
+  cursor: pointer;
+  user-select: none;
+}
+
+[data-testid="open-serega-button"]:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: var(--ui-space-4);
+}
+
+@container (max-width: 444px) {
+  .animation-preview__sample {
+    font-size: 6.3063cqi;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animation-preview__face,
+  .animation-preview__face-layer {
+    transition: none;
+  }
+
+  .animation-preview__face[data-pressed="true"] {
+    scale: 1;
+  }
+}

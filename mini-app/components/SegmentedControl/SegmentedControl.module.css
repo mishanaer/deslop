@@ -10,6 +10,20 @@
   gap: var(--ui-space-4);
 }
 
+.root.fitContent {
+  display: grid;
+  width: fit-content;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
+
+.root.fitContent .segment {
+  width: 100%;
+  flex: 0 0 auto;
+  padding-right: var(--ui-space-16);
+  padding-left: var(--ui-space-16);
+}
+
 .root .segment {
   flex: 1;
   background: transparent;
@@ -29,9 +43,10 @@
 
 .root .activeIndicator {
   position: absolute;
+  top: var(--ui-space-2);
   left: 0;
   height: calc(100% - var(--ui-space-4));
-  background-color: var(--primary-5);
+  background-color: var(--primary-10);
   border-radius: var(--ui-radius-16);
   transition: transform 0.2s ease;
   z-index: 0;

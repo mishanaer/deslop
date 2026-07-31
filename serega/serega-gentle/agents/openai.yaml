@@ -1,0 +1,4 @@
+interface:
+  display_name: "Serega Gentle"
+  short_description: "Reveal longer text with a gentle character rise"
+  default_prompt: "Use $serega-gentle to reveal this text with a lightweight per-character rise."

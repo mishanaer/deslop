@@ -1,18 +1,19 @@
-const HOST_CLASS = "text-appearance"
-const UNIT_CLASS = "text-appearance__unit"
+const HOST_CLASS = "serega-gentle"
+const UNIT_CLASS = "serega-gentle__unit"
+const WORD_CLASS = "serega-gentle__word"
 
 const DEFAULTS = Object.freeze({
-    enterDuration: 504,
-    enterStagger: 17,
+    enterDuration: 500,
+    enterStagger: 15,
     enterEasing: "cubic-bezier(0.2, 0.8, 0.2, 1)",
-    enterY: 18.56,
+    enterY: 15,
     exitDuration: 302,
     exitStagger: 10,
     exitEasing: "cubic-bezier(0.7, 0, 0.84, 0)",
     exitY: -13.92,
     hold: 550,
     gap: 320,
-    initialDelay: [0, 400],
+    initialDelay: 0,
 })
 
 function getPhrases(element, value) {
@@ -23,7 +24,7 @@ function getPhrases(element, value) {
             : [value]
 
     if (phrases.length === 0) {
-        throw new TypeError("textAppearance requires at least one phrase")
+        throw new TypeError("seregaGentle requires at least one phrase")
     }
 
     return phrases.map(String)
@@ -36,6 +37,39 @@ function splitGraphemes(value) {
     }
 
     return Array.from(value)
+}
+
+function appendGroupedUnits(fragment, value, createUnit) {
+    const units = []
+    let word = null
+    let followsWhitespace = false
+
+    const startWord = () => {
+        word = fragment.ownerDocument.createElement("span")
+        word.className = WORD_CLASS
+        fragment.append(word)
+    }
+
+    for (const grapheme of splitGraphemes(value)) {
+        if (grapheme === "\n" || grapheme === "\r" || grapheme === "\r\n") {
+            const lineBreak = fragment.ownerDocument.createElement("br")
+            lineBreak.setAttribute("aria-hidden", "true")
+            fragment.append(lineBreak)
+            word = null
+            followsWhitespace = false
+            continue
+        }
+
+        const isWhitespace = /^\s+$/u.test(grapheme)
+        if (!word || (!isWhitespace && followsWhitespace)) startWord()
+
+        const unit = createUnit(grapheme)
+        units.push(unit)
+        word.append(unit)
+        followsWhitespace = isWhitespace
+    }
+
+    return units
 }
 
 function transform(y) {
@@ -86,9 +120,9 @@ function prefersReducedMotion(element) {
  *   exitY?: number
  * }} options
  */
-export function textAppearance(element, options = {}) {
+export function seregaGentle(element, options = {}) {
     if (!element || typeof element.replaceChildren !== "function") {
-        throw new TypeError("textAppearance requires a DOM element")
+        throw new TypeError("seregaGentle requires a DOM element")
     }
 
     const phrases = getPhrases(element, options.phrases)
@@ -113,24 +147,14 @@ export function textAppearance(element, options = {}) {
 
     function renderPhrase(phrase, frame) {
         const fragment = element.ownerDocument.createDocumentFragment()
-        const units = []
-
-        for (const grapheme of splitGraphemes(phrase)) {
-            if (grapheme === "\n") {
-                const lineBreak = element.ownerDocument.createElement("br")
-                lineBreak.setAttribute("aria-hidden", "true")
-                fragment.append(lineBreak)
-                continue
-            }
-
+        const units = appendGroupedUnits(fragment, phrase, (grapheme) => {
             const unit = element.ownerDocument.createElement("span")
             unit.className = UNIT_CLASS
             unit.setAttribute("aria-hidden", "true")
             unit.textContent = grapheme
             applyFrame(unit, frame)
-            units.push(unit)
-            fragment.append(unit)
-        }
+            return unit
+        })
 
         element.setAttribute("aria-label", phrase)
         element.replaceChildren(fragment)
@@ -274,7 +298,7 @@ export function textAppearance(element, options = {}) {
     const controls = {
         play() {
             if (destroyed) {
-                throw new Error("Cannot play a destroyed textAppearance instance")
+                throw new Error("Cannot play a destroyed seregaGentle instance")
             }
 
             cancelPlayback(false)
@@ -310,4 +334,4 @@ export function textAppearance(element, options = {}) {
     return controls
 }
 
-export default textAppearance
+export default seregaGentle
