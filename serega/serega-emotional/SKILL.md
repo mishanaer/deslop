@@ -1,9 +1,9 @@
 ---
-name: spring-appearance
-description: Apply an expressive per-character reveal with rise, blur, vertical compression, rotation, and a damped overshoot. Use for short accent copy, ideally 2–4 words and no more than one short sentence. For multiline or longer text, or pages with several simultaneous reveals, use soft-appearance instead.
+name: serega-emotional
+description: Apply an expressive per-character reveal with rise, blur, vertical compression, rotation, and a damped overshoot. Use for short accent copy, ideally 2–4 words and no more than one short sentence. For multiline or longer text, or pages with several simultaneous reveals, use serega-gentle instead.
 ---
 
-# Spring Appearance
+# Serega Emotional
 
 Apply a one-shot spring reveal to short accent copy. Preserve the product's
 text, typography, color, spacing, and layout unless the user asks to change
@@ -11,9 +11,9 @@ them.
 
 ## Choose the effect
 
-- Use Spring Appearance for a short heading, label, or phrase: ideally `2–4`
+- Use Serega Emotional for a short heading, label, or phrase: ideally `2–4`
   words and no more than one short sentence.
-- Use [Soft Appearance](../soft-appearance/SKILL.md) for multiline headings,
+- Use [Serega Gentle](../serega-gentle/SKILL.md) for multiline headings,
   longer copy, or several animated blocks on one page.
 - Do not loop this effect. Per-character blur is deliberately expressive and
   more expensive to render.
@@ -23,15 +23,17 @@ them.
 1. Treat a requested animation library as binding; do not substitute another.
 2. Split text per grapheme while preserving spaces and punctuation. Use
    `Intl.Segmenter` when available and `Array.from` as the fallback.
-3. Apply the selector formula and property mapping below to every character in
+3. Group character units into non-breaking word wrappers. Keep trailing
+   whitespace with the preceding word so lines wrap only between words.
+4. Apply the selector formula and property mapping below to every character in
    normal DOM order.
-4. Read [references/effect.json](references/effect.json) for the supplied
+5. Read [references/effect.json](references/effect.json) for the supplied
    After Effects source preset or when translating to another renderer.
-5. For projects with Motion, copy
-   [assets/motion/spring-appearance.js](assets/motion/spring-appearance.js).
-6. For dependency-free browser code, copy
-   [assets/waapi/spring-appearance.js](assets/waapi/spring-appearance.js) and
-   [assets/waapi/spring-appearance.css](assets/waapi/spring-appearance.css).
+6. For projects with Motion, copy
+   [assets/motion/serega-emotional.js](assets/motion/serega-emotional.js).
+7. For dependency-free browser code, copy
+   [assets/waapi/serega-emotional.js](assets/waapi/serega-emotional.js) and
+   [assets/waapi/serega-emotional.css](assets/waapi/serega-emotional.css).
 
 ## Motion contract
 
@@ -70,15 +72,15 @@ Map `p` to `y = 32p`, `scaleY = 1 - 0.22p`, `rotation = 12p`,
 - Keep this effect to short copy. CSS blur can require repainting every
   character throughout the reveal.
 - Start animations only when they enter the viewport. Avoid several long
-  Spring Appearance blocks running at the same time.
+  Serega Emotional blocks running at the same time.
 - Render static text for `prefers-reduced-motion`.
-- Use Soft Appearance when performance or text length is uncertain.
+- Use Serega Gentle when performance or text length is uncertain.
 
 ## Host and accessibility
 
 - Keep the host application responsible for typography and presentation.
-- Use inline-block character units with `white-space: pre` and a transform
-  origin near the glyph center.
+- Use non-breaking inline-block word wrappers and inline-block character units
+  with `white-space: pre` and a transform origin near the glyph center.
 - Preserve the complete phrase as the host's accessible label and hide split
   character spans from assistive technology.
 - Cancel retained animations during replay, stop, and teardown.
@@ -93,4 +95,5 @@ Map `p` to `y = 32p`, `scaleY = 1 - 0.22p`, `rotation = 12p`,
 - Confirm the first character waits `25ms` and every next character waits
   another `25ms` at `60fps`.
 - Confirm spaces, punctuation, emoji, and non-Latin graphemes remain intact.
+- Confirm multiline text wraps only between words, never inside a word.
 - Confirm no exit animation runs unless explicitly requested.

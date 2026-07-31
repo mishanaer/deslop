@@ -3,7 +3,7 @@
 В репозитории лежат скилл [sasha](./sasha/SKILL.md), общие
 [Primitives](./primitives/README.md), готовые компоненты для
 [Telegram Mini Apps](./mini-app/README.md), инструкции для агентов
-[AGENTS.md](./AGENTS.md) и готовые [анимации](./animation/)
+[AGENTS.md](./AGENTS.md) и [Серёга](./serega/) — готовые анимации текста
 
 ## primitives
 
@@ -25,16 +25,15 @@ UI-текстов
 [`AGENTS.md`](./AGENTS.md) задаёт общие правила работы агента: как общаться,
 когда действовать самостоятельно, как менять код и проверять результат
 
-## animation
+## serega
 
-[animation](./animation/) — два переносимых скилла с готовыми анимациями
-появления текста:
+[serega](./serega/) — два переносимых скилла для посимвольного появления
+текста:
 
-- [soft-appearance](./animation/soft-appearance/SKILL.md) — основной вариант
-  для предложений и длинного текста
-- [spring-appearance](./animation/spring-appearance/SKILL.md) — акцентный вариант
-  для короткой фразы, лучше `2–4` слова и не больше одного
-  короткого предложения
+- [serega-gentle](./serega/serega-gentle/SKILL.md) — спокойный вариант для
+  предложений, многострочных заголовков и длинного текста
+- [serega-emotional](./serega/serega-emotional/SKILL.md) — выразительный
+  вариант для коротких фраз
 
 Скопируйте нужную папку в `.agents/skills/` проекта. Подробнее — в
-[описании анимаций](./animation/README.md).
+[README Серёги](./serega/README.md).

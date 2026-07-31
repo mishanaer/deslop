@@ -1,5 +1,5 @@
 {
-  "name": "spring-appearance",
+  "name": "serega-emotional",
   "source_effect_id": "after-effects-ffx-expression-selector",
   "target": "per-character",
   "description": "Characters rise from a blurred, compressed, rotated state and settle with one damped overshoot.",
@@ -111,7 +111,7 @@
       "import": "import { animate } from 'motion'",
       "time_unit": "seconds",
       "strategy": "Generate the same sampled property keyframes and matching times array; delay each character by (index + 1) times 1.5 / frameRate seconds; use type 'tween' and a linear ease between samples. Do not substitute type 'spring'.",
-      "asset": "assets/motion/spring-appearance.js"
+      "asset": "assets/motion/serega-emotional.js"
     },
     "gsap": {
       "dependency": "gsap",

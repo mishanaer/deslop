@@ -1,20 +1,20 @@
 ---
-name: soft-appearance
-description: Apply a lightweight per-character text reveal with crisp letters rising into place. Use for headings, sentences, multiline text, longer copy, or pages with several text animations. Prefer this effect when the text is longer than one short sentence; reserve spring-appearance for short accent copy.
+name: serega-gentle
+description: Apply a lightweight per-character text reveal with crisp letters rising into place. Use for headings, sentences, multiline text, longer copy, or pages with several text animations. Prefer this effect when the text is longer than one short sentence; reserve serega-emotional for short accent copy.
 ---
 
-# Soft Appearance
+# Serega Gentle
 
 Apply a calm, one-shot character reveal. Preserve the product's copy,
 typography, color, spacing, and layout unless the user asks to change them.
 
 ## Choose the effect
 
-- Use Soft Appearance for sentences, multiline headings, longer text, and
+- Use Serega Gentle for sentences, multiline headings, longer text, and
   pages where several reveals may run.
-- Use [Spring Appearance](../spring-appearance/SKILL.md) only for short accent
+- Use [Serega Emotional](../serega-emotional/SKILL.md) only for short accent
   copy: ideally `2–4` words and no more than one short sentence.
-- Choose Soft Appearance when uncertain. It animates only transform and
+- Choose Serega Gentle when uncertain. It animates only transform and
   opacity, so it is the safer default for performance and readability.
 
 ## Workflow
@@ -23,12 +23,14 @@ typography, color, spacing, and layout unless the user asks to change them.
 2. Treat a named animation library as binding; do not substitute another one.
 3. Split text per grapheme while preserving spaces and punctuation. Use
    `Intl.Segmenter` when available and `Array.from` as the fallback.
-4. Apply the motion contract below to every character in DOM order.
-5. Read [references/effect.json](references/effect.json) when the original
+4. Group character units into non-breaking word wrappers. Keep trailing
+   whitespace with the preceding word so lines wrap only between words.
+5. Apply the motion contract below to every character in DOM order.
+6. Read [references/effect.json](references/effect.json) when the original
    Pixel Point recipe or a non-WAAPI adapter is needed.
-6. For dependency-free browser code, copy
-   [assets/waapi/soft-appearance.js](assets/waapi/soft-appearance.js) and
-   [assets/waapi/soft-appearance.css](assets/waapi/soft-appearance.css).
+7. For dependency-free browser code, copy
+   [assets/waapi/serega-gentle.js](assets/waapi/serega-gentle.js) and
+   [assets/waapi/serega-gentle.css](assets/waapi/serega-gentle.css).
 
 ## Motion contract
 
@@ -55,8 +57,8 @@ duration. Cancel animations and timers during teardown.
 ## Host and accessibility
 
 - Keep the host application responsible for typography and presentation.
-- Use an inline-block host and inline-block character units with
-  `white-space: pre`.
+- Use an inline-block host, non-breaking inline-block word wrappers, and
+  inline-block character units with `white-space: pre`.
 - Preserve the complete phrase as the host's accessible label and hide split
   character spans from assistive technology.
 - Respect `prefers-reduced-motion` by rendering static text.
@@ -69,4 +71,5 @@ duration. Cancel animations and timers during teardown.
 - Confirm no blur occurs at any frame.
 - Confirm every phrase enters exactly once and exits before replacement.
 - Confirm spaces, punctuation, emoji, and non-Latin graphemes remain intact.
+- Confirm multiline text wraps only between words, never inside a word.
 - Confirm the implementation imports and calls only the requested library.

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Soft Appearance"
-  short_description: "Reveal longer text with a soft character rise"
-  default_prompt: "Use $soft-appearance to reveal this text with a lightweight per-character rise."

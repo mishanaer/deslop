@@ -1,0 +1,4 @@
+interface:
+  display_name: "Serega Emotional"
+  short_description: "Reveal short text with blur and a soft spring"
+  default_prompt: "Use $serega-emotional to reveal this short heading with a blurred per-character spring."

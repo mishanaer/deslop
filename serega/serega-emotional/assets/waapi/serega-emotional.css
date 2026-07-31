@@ -1,8 +1,13 @@
-.spring-appearance {
+.serega-emotional {
     display: inline-block;
 }
 
-.spring-appearance__unit {
+.serega-emotional__word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.serega-emotional__unit {
     display: inline-block;
     transform-origin: 50% 55%;
     white-space: pre;
@@ -10,7 +15,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .spring-appearance__unit {
+    .serega-emotional__unit {
         will-change: auto;
     }
 }
