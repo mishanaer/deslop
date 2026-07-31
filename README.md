@@ -5,12 +5,7 @@
 
 ## serega
 
-[serega](./serega/) — два скилла для анимации текста:
-
-- [serega-gentle](./serega/serega-gentle/SKILL.md) — аккуратный вариант для
-  текстов всех сортов
-- [serega-emotional](./serega/serega-emotional/SKILL.md) — выразительный
-  вариант для коротких фраз
+[serega](./serega/) — скиллы для анимации появления текста
 
 ## sasha
 
