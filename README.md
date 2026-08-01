@@ -16,8 +16,8 @@ UI-текстов.
 
 ## sound
 
-[sound](https://github.com/mishanaer/sound) — отдельный скилл для добавления
-процедурных звуков интерфейса на сайты.
+[sound](https://github.com/mishanaer/sound) — скилл для
+процедурных интерфейсных звуков: тапов, ховеров, тоглов, тиков.
 
 ## primitives
 
