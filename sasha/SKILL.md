@@ -1,13 +1,9 @@
 ---
 name: sasha
-description: "UX writing for Russian interface microcopy. Use to draft, rewrite, review, lint, or localize Russian UI strings in product interfaces: i18n locale files such as ru.json/ru.yml, React/Vue/mobile/frontend strings, headings, buttons, links, alerts, errors, labels, placeholders, tooltips, hints, legal copy inside UI, empty states, loading states, code entry screens, dates, currencies, numbers, and short interface typography. Do not use as a generic Russian proofreader or for marketing, articles, PR, social media, API docs, brand strategy, or English-only UX writing."
+description: "Use whenever the user needs to write, edit, or generate Russian text, including when generating any component or artifact that contains Russian text."
 ---
 
 # sasha
-
-## Scope
-
-Use this skill only for product interface microcopy in Russian: short strings that guide a user through a UI flow. If the text is marketing, editorial, PR, social, API documentation, legal contracts outside UI, or general proofreading, say that this skill is UI-focused and use only broad writing judgment.
 
 ## Core Principles
 

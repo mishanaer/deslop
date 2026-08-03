@@ -39,7 +39,25 @@ def issue(item: Dict[str, Any], rule_id: str, severity: str, message: str, sugge
 
 
 def strip_final_period(text: str) -> str:
-    return re.sub(r"\.$", "", text.strip())
+    return re.sub(r"\.(?=([»”\"')\]]*)$)", "", text.strip())
+
+
+def sentence_count(text: str) -> int:
+    """Estimate sentence count without treating every period as a boundary."""
+    stripped = text.strip()
+    if not stripped:
+        return 0
+    boundaries = re.findall(r"[.!?…]+[»”\"')\]]*\s+(?=[А-ЯЁ])", stripped)
+    return len(boundaries) + 1
+
+
+ONE_LETTER_PREPOSITION_SPACE_RE = re.compile(
+    r"(?<!\w)([вксуоВКСУО])[ \t]+(?=[«„\"']?[А-Яа-яЁёA-Za-z0-9{])"
+)
+
+
+def normalize_one_letter_preposition_spaces(text: str) -> str:
+    return ONE_LETTER_PREPOSITION_SPACE_RE.sub(lambda match: match.group(1) + "\u00a0", text)
 
 
 def normalize_button(text: str) -> Optional[str]:
@@ -94,10 +112,6 @@ def lint_item(item: Dict[str, Any], forced_component: Optional[str] = None) -> L
             )
         if lower in {"ок", "ok"}:
             issues.append(issue(scoped, "ui.button.no_ok", "suggestion", "«Понятно» или конкретное действие обычно яснее.", button_suggestion))
-        if value.endswith(".") and len(value) <= 40:
-            issues.append(
-                issue(scoped, "ui.typography.no_period_in_short_button", "suggestion", "В короткой кнопке точка обычно не нужна.", strip_final_period(value))
-            )
         if len(value) > 32:
             issues.append(issue(scoped, "ui.button.too_long", "suggestion", "Проверьте длину кнопки для узких экранов."))
 
@@ -116,6 +130,29 @@ def lint_item(item: Dict[str, Any], forced_component: Optional[str] = None) -> L
     if re.search(r"\d+\s+%", value):
         issues.append(issue(scoped, "ui.typography.percent_no_space", "warning", "Процент пишется без пробела.", re.sub(r"(\d+)\s+%", r"\1%", value)))
 
+    if re.search(r"\.[»”\"')\]]*$", value) and sentence_count(value) <= 2:
+        issues.append(
+            issue(
+                scoped,
+                "text.typography.no_final_period_in_one_or_two_sentences",
+                "warning",
+                "В тексте из одного или двух предложений финальная точка не нужна.",
+                strip_final_period(value),
+            )
+        )
+
+    preposition_suggestion = normalize_one_letter_preposition_spaces(value)
+    if preposition_suggestion != value:
+        issues.append(
+            issue(
+                scoped,
+                "text.typography.one_letter_preposition_nbsp",
+                "warning",
+                "После однобуквенного предлога всегда нужен неразрывный пробел.",
+                preposition_suggestion,
+            )
+        )
+
     if re.search(r"\d\s+₽", value):
         suggestion = re.sub(r"(?<=\d) (?=\d{3}\b)", "\u00a0", value)
         suggestion = re.sub(r"(?<=\d) ₽", "\u00a0₽", suggestion)
@@ -131,10 +168,6 @@ def lint_item(item: Dict[str, Any], forced_component: Optional[str] = None) -> L
         issues.append(issue(scoped, "ui.link.raw_url", "warning", "Raw URL в UI обычно лучше заменить осмысленным текстом ссылки."))
 
     if component == "heading":
-        if value.endswith(".") and len(value) <= 60:
-            issues.append(
-                issue(scoped, "ui.typography.no_period_in_short_heading", "suggestion", "В коротком заголовке точка обычно не нужна.", strip_final_period(value))
-            )
         if len(value) > 70:
             issues.append(issue(scoped, "ui.heading.too_long", "suggestion", "Проверьте, не слишком ли длинный заголовок для UI."))
 
