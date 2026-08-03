@@ -1,6 +1,6 @@
 ---
 name: sasha
-description: "Use whenever the user needs to write, edit, or generate Russian text, including when generating any component or artifact that contains Russian text."
+description: "Use for interface tasks that require writing, rewriting, editing, reviewing, or localizing Russian UI text, or generating an interface component that contains Russian text. Do not use for ordinary answers, explanations, discussions, or non-interface text."
 ---
 
 # sasha
