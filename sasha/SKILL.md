@@ -1,9 +1,17 @@
 ---
 name: sasha
-description: "Use for interface tasks that require writing, rewriting, editing, reviewing, or localizing Russian UI text, or generating an interface component that contains Russian text. Do not use for ordinary answers, explanations, discussions, or non-interface text."
+description: "Write, rewrite, edit, review, or localize Russian text for interfaces, marketing materials, and documentation, or generate an interface component that contains Russian text. Use only for UI copy; marketing copy such as landing pages, product pages, ads, promotional emails, campaign messages, and promotional social posts; and documentation such as user guides, technical documentation, instructions, README files, help content, and API references. Do not use for ordinary answers, explanations, discussions, correspondence, meeting notes, support replies, editorial articles, or other Russian text outside interface, marketing, and documentation work."
 ---
 
 # sasha
+
+## Scope
+
+- Use only for Russian interface copy, marketing copy, and documentation.
+- Treat landing pages, product pages, ads, promotional emails, campaign messages, and promotional social posts as marketing copy.
+- Treat user and technical guides, instructions, README files, help content, API references, and internal procedures as documentation.
+- Do not trigger merely because a task or conversation contains Russian text.
+- Exclude ordinary answers, explanations, discussions, correspondence, meeting notes, editorial articles, and support replies unless the text is part of an interface, marketing campaign, or documentation set.
 
 ## Core Principles
 
@@ -17,14 +25,15 @@ description: "Use for interface tasks that require writing, rewriting, editing, 
 - Labels and placeholders usually name the data, not the act of typing it.
 - Tooltips and hints add context; mandatory information belongs on the screen.
 - Treat legal-sensitive UI copy as constrained: suggest variants and mark `needs legal review` when meaning may change.
+- For documentation, preserve factual meaning, commands, examples, links, and identifiers. Do not invent product behavior; flag missing or conflicting sources.
 
 ## Workflow
 
-1. Detect the text type: `heading`, `subheading`, `button`, `link`, `alert`, `error`, `label`, `placeholder`, `tooltip`, `hint`, `toggle`, `legal`, `empty_state`, `loading_state`, `code_entry`, or `unknown_ui_string`.
-2. Identify the user's job: where they are in the flow, what they already know, what action is expected, and what happens after tapping/clicking/typing.
-3. Decide whether copy is the right fix. If layout, state, affordance, validation, or component choice is the real issue, call that out.
-4. Apply rules in this order: user task, component pattern, clarity, brevity, neutral tone, typography, i18n safety.
-5. For code edits, change only UI strings unless the user explicitly asks for component changes.
+1. Detect the context: `interface`, `marketing`, or `documentation`. For interface copy, identify the component type. For marketing copy, identify the format and placement. For documentation, identify the document type and source of truth.
+2. Identify the user's job: what they already know, what action is expected, and what happens next. For marketing copy, also identify the audience, offer, channel, and verifiable claim. For documentation, identify the audience, prerequisites, task, and expected result.
+3. Decide whether copy is the right fix. If layout, state, affordance, validation, component choice, document structure, or missing factual context is the real issue, call that out.
+4. Apply rules in this order: user task, format pattern, factual accuracy, clarity, brevity, neutral tone, typography, i18n safety.
+5. For code edits, change only the requested UI strings or documentation files unless the user explicitly asks for component or implementation changes.
 
 ## Code Editing Rules
 
@@ -62,7 +71,7 @@ Omit empty sections for small reviews.
 
 ## Generation Output
 
-For generation tasks, return 2-4 options:
+For interface generation tasks, return 2-4 options:
 
 - `Безопасный`: clear default for production.
 - `Короткий`: for tight UI space.
@@ -70,6 +79,8 @@ For generation tasks, return 2-4 options:
 - `Для узкого места`: only when character space is likely constrained.
 
 Then state the recommended option and the reason in one or two sentences.
+
+For marketing copy, return 2-3 variants when alternatives are useful. For documentation, return one recommended version unless the user asks for variants.
 
 ## Supporting References
 
