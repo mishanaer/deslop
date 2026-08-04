@@ -1,4 +1,4 @@
 interface:
   display_name: "sasha"
-  short_description: "Russian interface writing and typography"
-  default_prompt: "Use $sasha to write or edit Russian text for an interface task."
+  short_description: "Russian UI, marketing, and documentation copy"
+  default_prompt: "Use $sasha to write or edit Russian text for an interface, marketing, or documentation task."
