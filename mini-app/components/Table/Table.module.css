@@ -15,8 +15,8 @@
 :global([data-mini-app].material) .wrap {
   --table-radius: 10px;
   --table-pad: 11px;
-  --table-head-bg: var(--background-primary);
-  --table-cell-bg: var(--background-secondary);
+  --table-head-bg: var(--background);
+  --table-cell-bg: var(--surface);
 }
 
 .scroll {

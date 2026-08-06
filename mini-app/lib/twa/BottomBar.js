@@ -7,7 +7,7 @@ const BottomBar = ({ color }) => {
     useEffect(() => {
         WebApp.setBottomBarColor(color)
         return () => {
-            WebApp.setBottomBarColor(getResolvedColorToken("--background-secondary"))
+            WebApp.setBottomBarColor(getResolvedColorToken("--surface"))
         }
     }, [color])
 

@@ -90,7 +90,7 @@ const ColorsExample = () => (
                     ))}
                 </SectionList.Item>
 
-                <SectionList.Item header="Avatar Gradients">
+                <SectionList.Item header="Gradients">
                     {avatarGradients.map(({ name, top, bottom }) => (
                         <Cell
                             key={name}

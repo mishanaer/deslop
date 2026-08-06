@@ -23,13 +23,13 @@ export default function NavigationPanel({
     }
 
     useEffect(() => {
-        const cw_color = getResolvedColorToken("--background-secondary")
+        const cw_color = getResolvedColorToken("--surface")
         const tw_color = getResolvedColorToken("--black")
 
         const headerColor = activeSegment === 1 ? tw_color : cw_color
 
         if (view === "expanded") {
-            WebApp.setHeaderColor(getResolvedColorToken("--background-primary"))
+            WebApp.setHeaderColor(getResolvedColorToken("--background"))
         } else {
             WebApp.setHeaderColor(headerColor)
         }
@@ -43,7 +43,7 @@ export default function NavigationPanel({
                 backgroundColor:
                     activeSegment === 1
                         ? "var(--black)"
-                        : "var(--background-secondary)",
+                        : "var(--surface)",
             }}
         >
             <m.div

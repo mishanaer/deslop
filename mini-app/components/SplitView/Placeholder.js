@@ -11,7 +11,7 @@ const SplitViewPlaceholder = () => {
     const { setPaneBackground } = useSplitViewContext()
 
     useEffect(() => {
-        setPaneBackground?.("var(--background-primary)")
+        setPaneBackground?.("var(--background)")
     }, [setPaneBackground])
 
     return (

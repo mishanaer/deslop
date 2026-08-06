@@ -3,7 +3,7 @@
   flex-direction: row;
   padding: 0 16px 16px;
   gap: 8px;
-  background: var(--background-secondary);
+  background: var(--surface);
 }
 
 :global(body.apple) .buttons svg,
@@ -17,7 +17,7 @@
 }
 
 :global(body.material) .buttons {
-  background-color: var(--background-secondary);
+  background-color: var(--surface);
   box-shadow: 0 0.33px 1px 0 var(--primary-5);
   padding: 0 8px 8px;
 }

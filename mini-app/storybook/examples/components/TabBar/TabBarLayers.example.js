@@ -22,7 +22,7 @@ const layers = [
         number: "01",
         name: "Page fade",
         selector: ".gradient",
-        tokens: ["--page-background", "--background-primary"],
+        tokens: ["--page-background", "--background"],
         details: "linear-gradient · opacity 0 → 0.9",
         purpose: "Растворяет TabBar в фоне страницы снизу.",
         preview: "fade",
@@ -119,7 +119,7 @@ const LayerPreview = ({ type }) => {
             ? {
                   ...previewStyle,
                   background:
-                      "linear-gradient(to bottom, transparent, var(--background-primary))",
+                      "linear-gradient(to bottom, transparent, var(--background))",
               }
             : previewStyle
 

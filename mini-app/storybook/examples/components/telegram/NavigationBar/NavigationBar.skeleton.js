@@ -9,7 +9,7 @@ import { getResolvedColorToken } from "@theme/colors"
 // Titles redact to bars sized by their mock strings; trailing controls become
 // simple redacted shapes rather than working pickers or switches.
 const ROWS = [
-    { title: "Header Color", value: getResolvedColorToken("--background-primary") },
+    { title: "Header Color", value: getResolvedColorToken("--background") },
     { title: "Back Button", toggle: true },
     { title: "Fullscreen", toggle: true },
     { title: "Settings Button", toggle: true },

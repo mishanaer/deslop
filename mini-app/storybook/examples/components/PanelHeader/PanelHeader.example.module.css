@@ -5,7 +5,7 @@
 .canvas {
   margin: 0 var(--side-padding);
   border-radius: 20px;
-  background: var(--background-secondary);
+  background: var(--surface);
 }
 
 .over {

@@ -8,7 +8,7 @@ const getDefaultColors = () => ({
         text_color: getResolvedColorToken("--black"),
     },
     secondary: {
-        color: getResolvedColorToken("--background-secondary"),
+        color: getResolvedColorToken("--surface"),
         text_color: getResolvedColorToken("--accent-green"),
     },
 })

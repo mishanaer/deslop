@@ -32,7 +32,7 @@
 .fill {
   position: absolute;
   inset: 0;
-  background-color: var(--background-primary);
+  background-color: var(--background);
   pointer-events: none;
 }
 

@@ -13,7 +13,7 @@ const NavigationBar = () => {
     const [isSettingsButtonAvailable, setSettingsButtonAvailable] =
         useState(false)
     const [headerColor, setHeaderColor] = useState(() => {
-        const color = getResolvedColorToken("--background-primary")
+        const color = getResolvedColorToken("--background")
         return color.toUpperCase()
     })
     const colorInputRef = useRef(null)

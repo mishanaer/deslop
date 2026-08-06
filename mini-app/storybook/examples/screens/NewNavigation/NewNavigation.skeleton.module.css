@@ -5,7 +5,7 @@
   justify-content: space-between;
   min-height: 60px;
   padding: 12px 14px;
-  background: var(--background-secondary);
+  background: var(--surface);
 }
 
 .avatar {
@@ -55,7 +55,7 @@
   align-items: center;
   padding: 4px;
   border-radius: 100px;
-  background: var(--background-secondary);
+  background: var(--surface);
   backdrop-filter: saturate(300%) blur(8px);
   box-shadow: 0 0 10px 0 var(--primary-10);
 }

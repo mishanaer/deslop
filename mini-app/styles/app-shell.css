@@ -13,7 +13,7 @@ body {
     padding-right: env(safe-area-inset-right);
     padding-left: env(safe-area-inset-left);
     color: var(--primary);
-    background: var(--background-secondary);
+    background: var(--surface);
     font-family: var(--ui-font-interface);
     -webkit-font-smoothing: antialiased;
     transition: background-color 200ms ease;

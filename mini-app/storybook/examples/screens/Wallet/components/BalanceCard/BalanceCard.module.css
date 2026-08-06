@@ -52,7 +52,7 @@
   --primary: var(--white);
   --primary-60: var(--mini-app-story-subtle);
   --accent-blue: var(--white);
-  --background-secondary: transparent;
+  --surface: transparent;
 
   color: var(--white);
 }
@@ -71,7 +71,7 @@
 
 .cardDefault {
   color: var(--primary);
-  background: var(--background-secondary);
+  background: var(--surface);
 }
 
 :global(body.apple) .cardDefault .label {
@@ -83,7 +83,7 @@
 }
 
 :global(body.material) .cardDefault {
-  background-color: var(--background-secondary);
+  background-color: var(--surface);
 }
 
 :global(body.material) .cardDefault .data {

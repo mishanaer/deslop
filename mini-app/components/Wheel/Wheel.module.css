@@ -56,25 +56,20 @@
   width: 100%;
   height: var(--wheel-height);
   overflow: hidden;
-}
-
-.wheelContainer::before, .wheelContainer::after {
-  content: "";
-  position: absolute;
-  width: 30%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 3;
-}
-
-.wheelContainer::before {
-  left: 0;
-  background: linear-gradient(to right, var(--background-secondary), transparent);
-}
-
-.wheelContainer::after {
-  right: 0;
-  background: linear-gradient(to left, var(--background-secondary), transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 30%,
+    black 70%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 30%,
+    black 70%,
+    transparent
+  );
 }
 
 .centerIndicator {

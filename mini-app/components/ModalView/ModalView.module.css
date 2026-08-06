@@ -20,7 +20,7 @@
 .panel {
   display: flex;
   flex-direction: column;
-  background: var(--background-secondary);
+  background: var(--surface);
   color: var(--primary);
   overflow: hidden;
   will-change: transform;

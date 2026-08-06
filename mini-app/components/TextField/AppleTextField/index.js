@@ -11,7 +11,7 @@ import * as styles from "./AppleTextField.module.css"
 
 const BackgroundColor = {
     tertiaryFill: "var(--primary-10)",
-    section: "var(--background-secondary)",
+    section: "var(--surface)",
 }
 
 export const AppleTextField = forwardRef(
