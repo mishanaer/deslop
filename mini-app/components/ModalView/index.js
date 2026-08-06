@@ -19,7 +19,7 @@ import { SPRING } from "../../utils/animations"
 import { getResolvedColorToken } from "../../theme/colors"
 import Portal from "../Portal"
 
-const getHeaderColor = () => getResolvedColorToken("--background-primary")
+const getHeaderColor = () => getResolvedColorToken("--background")
 
 // Squircle the panel corners (34px Apple, 16px Material). The sheet rounds its
 // top edge only; the centred dialog rounds all four. CSS border-radius is the
@@ -105,7 +105,7 @@ const ModalView = ({
         const headerColor = getHeaderColor()
         document.body.style.overflow = "hidden"
         WebApp.disableVerticalSwipes?.()
-        WebApp.setHeaderColor(getResolvedColorToken("--background-primary"))
+        WebApp.setHeaderColor(getResolvedColorToken("--background"))
         return () => {
             document.body.style.overflow = "auto"
             WebApp.enableVerticalSwipes?.()

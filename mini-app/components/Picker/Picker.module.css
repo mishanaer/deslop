@@ -7,6 +7,7 @@
 .root {
   display: inline-grid;
   position: relative;
+  background-color: var(--elevation-1);
   padding: 0 var(--ui-layout-content-inset);
   font-size: var(--ui-title-24-font-size);
   line-height: var(--ui-title-24-line-height);

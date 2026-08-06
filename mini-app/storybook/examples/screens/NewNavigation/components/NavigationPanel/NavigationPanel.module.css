@@ -73,7 +73,7 @@
   border-radius: 26px;
   color: var(--primary);
   text-align: center;
-  background-color: var(--background-secondary);
+  background-color: var(--surface);
   overflow: hidden;
   will-change: transform;
   z-index: 202;

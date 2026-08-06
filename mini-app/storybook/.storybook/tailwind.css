@@ -10,16 +10,16 @@
 
 @theme inline {
     --color-*: initial;
-    --color-background: var(--background-primary);
-    --color-background-secondary: var(--background-primary);
-    --color-surface: var(--background-secondary);
+    --color-background: var(--background);
+    --color-background-secondary: var(--background);
+    --color-surface: var(--surface);
     --color-text-primary: var(--primary);
     --color-text-secondary: var(--primary-60);
     --color-text-section: var(--primary-60);
     --color-text-disabled: var(--primary-30);
     --color-separator: var(--primary-20);
     --color-separator-translucent: var(--primary-20);
-    --color-control-active: var(--background-secondary);
+    --color-control-active: var(--surface);
     --color-control-disabled: var(--primary-10);
     --color-fill-tertiary: var(--primary-10);
     --color-fill-quaternary: var(--primary-5);

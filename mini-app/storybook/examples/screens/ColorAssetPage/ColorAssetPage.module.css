@@ -1,5 +1,5 @@
 .root {
-  background-color: var(--background-secondary);
+  background-color: var(--surface);
   transition: background-color 0.2s ease;
 }
 

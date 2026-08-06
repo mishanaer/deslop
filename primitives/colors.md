@@ -51,11 +51,11 @@ accent-colors:
     dark: "#B78A66"
 
 base-colors:
-  background-secondary:
+  surface:
     light: "#F5F5F5"
     dark: "#111111"
 
-  background-primary:
+  background:
     light: "#FFFFFF"
     dark: "#111111"
 

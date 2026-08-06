@@ -28,7 +28,7 @@ function ColorChanging() {
                 )
             } else {
                 document.body.style.backgroundColor =
-                    "var(--background-primary)"
+                    "var(--background)"
             }
             setIsSecondaryColor((prev) => !prev)
         }

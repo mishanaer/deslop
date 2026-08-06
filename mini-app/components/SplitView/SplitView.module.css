@@ -14,15 +14,20 @@
   height: 100%;
   overflow: hidden;
   border-right: 0.5px solid var(--primary-20);
-  background: var(--background-primary);
+  background: var(--surface);
   animation: sidebar-in 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 .sidebarScroll {
   height: 100%;
   overflow-y: auto;
+  scrollbar-width: none;
   padding-top: calc(env(safe-area-inset-top, 0px) + var(--tg-content-safe-area-inset-top, 0px));
   padding-left: env(safe-area-inset-left, 0);
+}
+
+.sidebarScroll::-webkit-scrollbar {
+  display: none;
 }
 
 .detail {
@@ -31,7 +36,7 @@
   min-width: 0;
   height: 100%;
   overflow: hidden;
-  background: var(--background-primary);
+  background: var(--background);
 }
 
 .placeholder {

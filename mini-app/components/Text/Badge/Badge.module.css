@@ -32,7 +32,7 @@
 }
 
 .badge.media {
-  background-color: var(--background-secondary);
+  background-color: var(--surface);
   color: var(--primary);
 }
 

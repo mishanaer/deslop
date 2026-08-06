@@ -8,7 +8,7 @@
   height: 85vh;
   border: 1px dashed var(--primary-40);
   border-radius: 16px;
-  background-color: var(--background-primary);
+  background-color: var(--background);
 }
 
 .anchor {

@@ -4,8 +4,8 @@
   --white: #ffffff;
   --black: #111111;
   /* Deprecated background aliases kept while product packages migrate. */
-  --background: var(--background-primary);
-  --surface: var(--background-secondary);
+  --background-primary: var(--background);
+  --background-secondary: var(--surface);
   /* Deprecated aliases kept for Mini Apps until they migrate to --primary-*. */
   --elevation-90: var(--primary-90);
   --elevation-80: var(--primary-80);
@@ -63,10 +63,10 @@
   --accent-purple: #cb30e0;
   --accent-pink: #ff2d55;
   --accent-brown: #ac7f5e;
-  --background-primary: #ffffff;
+  --background: #ffffff;
   --elevation-1: #ffffff;
   --elevation-2: #ffffff;
-  --background-secondary: #f5f5f5;
+  --surface: #f5f5f5;
   --primary: #111111;
   --primary-90: #111111e6;
   --primary-80: #111111cc;
@@ -96,10 +96,10 @@
     --accent-purple: #db34f2;
     --accent-pink: #ff375f;
     --accent-brown: #b78a66;
-    --background-primary: #111111;
+    --background: #111111;
     --elevation-1: #1d1d1d;
     --elevation-2: #282828;
-    --background-secondary: #111111;
+    --surface: #111111;
     --primary: #ffffff;
     --primary-90: #ffffffe6;
     --primary-80: #ffffffcc;
@@ -130,10 +130,10 @@
   --accent-purple: #db34f2;
   --accent-pink: #ff375f;
   --accent-brown: #b78a66;
-  --background-primary: #111111;
+  --background: #111111;
   --elevation-1: #1d1d1d;
   --elevation-2: #282828;
-  --background-secondary: #111111;
+  --surface: #111111;
   --primary: #ffffff;
   --primary-90: #ffffffe6;
   --primary-80: #ffffffcc;

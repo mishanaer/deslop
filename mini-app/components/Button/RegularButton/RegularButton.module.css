@@ -17,7 +17,7 @@
 }
 
 .button.plain {
-  background-color: var(--background-secondary);
+  background-color: var(--surface);
   color: var(--primary);
 }
 

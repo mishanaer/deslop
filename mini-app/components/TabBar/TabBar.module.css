@@ -51,7 +51,7 @@
 .root .gradient {
   --mask-color: var(
       --page-background,
-      var(--background-primary)
+      var(--background)
   );
   --mask-opacity-top: 0;
   --mask-opacity-bottom: 0.9;

@@ -27,7 +27,7 @@ const Modals = ({ modals, handlers }) => {
                 isOpen={modals.tray}
                 onClose={handlers.tray.close}
                 style={{
-                    backgroundColor: "var(--background-primary)",
+                    backgroundColor: "var(--background)",
                 }}
             >
                 <ModalView.Page id="list">
@@ -45,7 +45,7 @@ const Modals = ({ modals, handlers }) => {
                 isOpen={modals.simple}
                 onClose={handlers.simple.close}
                 style={{
-                    backgroundColor: "var(--background-primary)",
+                    backgroundColor: "var(--background)",
                 }}
             >
                 <PanelHeader

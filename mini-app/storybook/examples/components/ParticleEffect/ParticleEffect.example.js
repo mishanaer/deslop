@@ -84,7 +84,7 @@ const ParticleEffectExample = () => (
                 <SectionList.Item header="On a dark surface (white particles)">
                     <div
                         style={{
-                            background: "var(--background-primary)",
+                            background: "var(--background)",
                             padding: "24px",
                             borderRadius: "16px",
                             color: "var(--white)",

@@ -33,7 +33,7 @@
 }
 
 :global([data-mini-app].material) .root {
-  background-color: var(--background-secondary);
+  background-color: var(--surface);
   box-shadow: 0 0.33px 1px 0.5px var(--primary-10);
   border-radius: var(--ui-radius-8);
 }

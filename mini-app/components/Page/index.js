@@ -30,8 +30,8 @@ const Page = ({
     useColorScheme()
 
     const colorTokenMapping = {
-        primary: "--background-primary",
-        secondary: "--background-secondary",
+        primary: "--background",
+        secondary: "--surface",
     }
 
     const resolvedHeaderToken = headerColorToken ?? colorTokenMapping[mode]

@@ -41,7 +41,7 @@
 
 .input input {
   border-radius: 36px;
-  background: var(--background-secondary);
+  background: var(--surface);
 }
 
 .input input::placeholder {
