@@ -3,52 +3,52 @@
 ```yaml
 accent-colors:
   red:
-    light: "#FF383C"
-    dark: "#FF4245"
+    light: "#FF4C50"
+    dark: "#FF5558"
 
   orange:
-    light: "#FF8D28"
-    dark: "#FF9230"
+    light: "#FF993E"
+    dark: "#FF9D45"
 
   yellow:
-    light: "#FFCC00"
-    dark: "#FFD600"
+    light: "#FFD11A"
+    dark: "#FFDA1A"
 
   green:
-    light: "#46DC66"
-    dark: "#46DC66"
+    light: "#59E075"
+    dark: "#59E075"
 
   mint:
-    light: "#00C8B3"
-    dark: "#00DAC3"
+    light: "#1ACFBB"
+    dark: "#1ADEC9"
 
   teal:
-    light: "#00C3D0"
-    dark: "#00D2E0"
+    light: "#1AC9D5"
+    dark: "#1AD7E3"
 
   cyan:
-    light: "#00C0E8"
-    dark: "#3CD3FE"
+    light: "#1AC6EA"
+    dark: "#50D7FE"
 
   blue:
-    light: "#0088FF"
-    dark: "#0091FF"
+    light: "#1A94FF"
+    dark: "#1A9CFF"
 
   indigo:
-    light: "#6155F5"
-    dark: "#6D7CFF"
+    light: "#7166F6"
+    dark: "#7C89FF"
 
   purple:
-    light: "#CB30E0"
-    dark: "#DB34F2"
+    light: "#D045E3"
+    dark: "#DF48F3"
 
   pink:
-    light: "#FF2D55"
-    dark: "#FF375F"
+    light: "#FF4266"
+    dark: "#FF4B6F"
 
   brown:
-    light: "#AC7F5E"
-    dark: "#B78A66"
+    light: "#B48C6E"
+    dark: "#BE9675"
 
 base-colors:
   surface:

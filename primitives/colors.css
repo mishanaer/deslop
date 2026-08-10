@@ -51,18 +51,18 @@
 
 :root,
 :where([data-color-scheme="light"]) {
-  --accent-red: #ff383c;
-  --accent-orange: #ff8d28;
-  --accent-yellow: #ffcc00;
-  --accent-green: #46dc66;
-  --accent-mint: #00c8b3;
-  --accent-teal: #00c3d0;
-  --accent-cyan: #00c0e8;
-  --accent-blue: #0088ff;
-  --accent-indigo: #6155f5;
-  --accent-purple: #cb30e0;
-  --accent-pink: #ff2d55;
-  --accent-brown: #ac7f5e;
+  --accent-red: #ff4c50;
+  --accent-orange: #ff993e;
+  --accent-yellow: #ffd11a;
+  --accent-green: #59e075;
+  --accent-mint: #1acfbb;
+  --accent-teal: #1ac9d5;
+  --accent-cyan: #1ac6ea;
+  --accent-blue: #1a94ff;
+  --accent-indigo: #7166f6;
+  --accent-purple: #d045e3;
+  --accent-pink: #ff4266;
+  --accent-brown: #b48c6e;
   --background: #ffffff;
   --elevation-1: #ffffff;
   --elevation-2: #ffffff;
@@ -84,18 +84,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-color-scheme="light"]) {
-    --accent-red: #ff4245;
-    --accent-orange: #ff9230;
-    --accent-yellow: #ffd600;
-    --accent-green: #46dc66;
-    --accent-mint: #00dac3;
-    --accent-teal: #00d2e0;
-    --accent-cyan: #3cd3fe;
-    --accent-blue: #0091ff;
-    --accent-indigo: #6d7cff;
-    --accent-purple: #db34f2;
-    --accent-pink: #ff375f;
-    --accent-brown: #b78a66;
+    --accent-red: #ff5558;
+    --accent-orange: #ff9d45;
+    --accent-yellow: #ffda1a;
+    --accent-green: #59e075;
+    --accent-mint: #1adec9;
+    --accent-teal: #1ad7e3;
+    --accent-cyan: #50d7fe;
+    --accent-blue: #1a9cff;
+    --accent-indigo: #7c89ff;
+    --accent-purple: #df48f3;
+    --accent-pink: #ff4b6f;
+    --accent-brown: #be9675;
     --background: #111111;
     --elevation-1: #1d1d1d;
     --elevation-2: #282828;
@@ -118,18 +118,18 @@
 
 :root[data-color-scheme="dark"],
 :where([data-color-scheme="dark"]) {
-  --accent-red: #ff4245;
-  --accent-orange: #ff9230;
-  --accent-yellow: #ffd600;
-  --accent-green: #46dc66;
-  --accent-mint: #00dac3;
-  --accent-teal: #00d2e0;
-  --accent-cyan: #3cd3fe;
-  --accent-blue: #0091ff;
-  --accent-indigo: #6d7cff;
-  --accent-purple: #db34f2;
-  --accent-pink: #ff375f;
-  --accent-brown: #b78a66;
+  --accent-red: #ff5558;
+  --accent-orange: #ff9d45;
+  --accent-yellow: #ffda1a;
+  --accent-green: #59e075;
+  --accent-mint: #1adec9;
+  --accent-teal: #1ad7e3;
+  --accent-cyan: #50d7fe;
+  --accent-blue: #1a9cff;
+  --accent-indigo: #7c89ff;
+  --accent-purple: #df48f3;
+  --accent-pink: #ff4b6f;
+  --accent-brown: #be9675;
   --background: #111111;
   --elevation-1: #1d1d1d;
   --elevation-2: #282828;
