@@ -1,36 +1,36 @@
 # deslop
 
-Деслоп — это набор инструментов, которые помогают агентам делать нормальный
-дизайн
+Deslop is a set of tools that help agents create good design.
 
 ## sound
 
-[sound](https://github.com/mishanaer/sound) — скилл для интерфейсных звуков:
-тиков, тоглов, тапов и т. д. Звуки каждый раз получаются немного разными
-благодаря процедурному генератору
+[sound](https://github.com/mishanaer/sound) — a skill for interface sounds:
+ticks, toggles, taps, and more. The procedural generator makes the sounds
+slightly different every time.
 
 ## serega
 
-[serega](./serega/) — скиллы для анимации появления текста
+[serega](./serega/) — skills for text reveal animations.
 
 ## sasha
 
-[sasha](./sasha/SKILL.md) — скилл для ИИ-агентов, который помогает писать,
-проверять и улучшать русские тексты для интерфейсов, маркетинга и документации.
-Внутри — правила для компонентов, ошибок и документов, примеры, типографика и
-скрипты для поиска и проверки UI-текстов.
+[sasha](./sasha/SKILL.md) — a skill for AI agents that helps write, review, and
+improve Russian copy for interfaces, marketing, and documentation. It includes
+guidelines for components, errors, and documents, plus examples, typography,
+and scripts for finding and checking UI copy.
 
 ## primitives
 
-[primitives](./primitives/README.md) — набор базовых цветов, шрифтов и иконок.
-Подходит для веба, мобилы и мини-аппов.
+[primitives](./primitives/README.md) — a set of foundational colors, fonts, and
+icons for web, mobile, and mini apps.
 
 ## mini-apps
 
-[mini-apps](./mini-app/README.md) — библиотека готовых React-компонентов для
-Telegram Mini Apps. Сделано на основе библиотеки Ильи Гришина.
+[mini-apps](./mini-app/README.md) — a library of ready-to-use React components
+for Telegram Mini Apps, adapted from Ilya Grishin's library.
 
 ## agents.md
 
-[`AGENTS.md`](./AGENTS.md) задаёт общие правила работы агента: как общаться,
-когда действовать самостоятельно, как менять код и проверять результат.
+[`AGENTS.md`](./AGENTS.md) defines the shared guidelines for agents: how to
+communicate, when to act autonomously, how to change code, and how to verify the
+result.

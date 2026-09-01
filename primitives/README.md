@@ -1,16 +1,16 @@
 # Deslop Primitives
 
-Основа для UI-китов и дизайн-систем. Максимально простая и адаптированная под работу с агентами
+The foundation for UI kits and design systems. Intentionally simple and
+optimized for working with agents.
 
+## Contents
 
-## Состав
+- colors
+- typography and fonts
+- spacing and radii
+- icons
 
-- цвета
-- типографика и шрифты
-- отступы и радиусы
-- иконки
+## Documentation
 
-## Документация
-
-- [Цвета](colors.md)
-- [Типографика](TYPOGRAPHY.md)
+- [Colors](colors.md)
+- [Typography](TYPOGRAPHY.md)
