@@ -1,8 +1,8 @@
 # Mini App UI Kit
 
-Исходный набор React-компонентов для Telegram Mini Apps. Он не публикуется как
-npm-пакет: папки `mini-app` и `primitives` копируются в проект рядом друг с
-другом. Адаптировано из библиотеки Ильи Гришина.
+The original set of React components for Telegram Mini Apps. It is not
+published as an npm package: the `mini-app` and `primitives` directories are
+copied into a project side by side. Adapted from Ilya Grishin's library.
 
 ```text
 project/
@@ -10,15 +10,16 @@ project/
 └── mini-app/
 ```
 
-## Использование
+## Usage
 
-Подключите обязательные стили один раз:
+Import the required styles once:
 
 ```js
 import "./mini-app/styles/index.css"
 ```
 
-Оберните приложение в provider и импортируйте компоненты напрямую из исходников:
+Wrap the application in the provider and import components directly from the
+source files:
 
 ```jsx
 import MiniAppProvider from "./mini-app/MiniAppProvider"
@@ -33,21 +34,22 @@ export default function App() {
 }
 ```
 
-`styles/app-shell.css` подключается отдельно и только когда Mini App занимает
-всю страницу: он задаёт стили `body` и safe-area. Для встраивания UI kit в
-существующий интерфейс этот файл не нужен.
+Import `styles/app-shell.css` separately and only when the Mini App occupies
+the entire page: it defines `body` and safe-area styles. This file is not needed
+when embedding the UI kit into an existing interface.
 
-Сложные компоненты сохранены, поэтому принимающему React-проекту нужны их runtime-
-зависимости: `prop-types`, `motion`, `@lisse/core`, `@lisse/react`,
+Complex components are retained, so the host React project needs their runtime
+dependencies: `prop-types`, `motion`, `@lisse/core`, `@lisse/react`,
 `@tanstack/react-virtual`, `calligraph`, `clsx`, `colorthief`,
-`markdown-to-jsx` и `wouter`.
+`markdown-to-jsx`, and `wouter`.
 
 ## Storybook
 
-Storybook входит в папку `mini-app/storybook` и копируется вместе с UI kit. Его
-`package.json` нужен только для запуска Storybook: он устанавливает сам Storybook,
-инструменты проверки и runtime-зависимости, необходимые примерам. Рабочий UI kit
-остаётся обычным исходным кодом без собственного пакета и шага сборки.
+Storybook is included in `mini-app/storybook` and is copied with the UI kit. Its
+`package.json` is needed only to run Storybook: it installs Storybook itself,
+verification tools, and the runtime dependencies required by the examples. The
+working UI kit remains regular source code without its own package or build
+step.
 
 ```bash
 cd mini-app/storybook
@@ -55,11 +57,11 @@ corepack yarn install --immutable
 corepack yarn dev
 ```
 
-- `storybook/examples/components` — примеры компонентов;
-- `storybook/examples/screens` — примеры собранных экранов;
-- `storybook/examples/primitives` — цвета, типографика и Material Symbols.
+- `storybook/examples/components` — component examples;
+- `storybook/examples/screens` — examples of assembled screens;
+- `storybook/examples/primitives` — colors, typography, and Material Symbols.
 
-## Документация
+## Documentation
 
-- [Каталог компонентов](agent/COMPONENTS.md)
-- [Правила для изменений](AGENTS.md)
+- [Component catalog](agent/COMPONENTS.md)
+- [Contribution guidelines](AGENTS.md)

@@ -1,18 +1,18 @@
 # serega
 
-Два скилла для посимвольной анимации текста.
-Выглядит так: https://serega-skill.vercel.app
+Two skills for per-character text animations.
+See them in action: https://serega-skill.vercel.app
 
-## эффект
+## Effects
 
-- [serega-gentle](./serega-gentle/SKILL.md) — спокойное появление снизу без
-  блюра. Подходит для предложений, многострочных заголовков и длинного текста
-- [serega-emotional](./serega-emotional/SKILL.md) — выразительное появление с
-  блюром, ротейшеном и пружиной. Подходит для коротких фраз
+- [serega-gentle](./serega-gentle/SKILL.md) — a gentle upward reveal without
+  blur. Best for sentences, multi-line headings, and longer text.
+- [serega-emotional](./serega-emotional/SKILL.md) — an expressive reveal with
+  blur, rotation, and spring motion. Best for short phrases.
 
-## Подключить к агенту
+## Add them to an agent
 
-Скопируйте одну или обе папки в `.agents/skills/` своего проекта:
+Copy one or both directories into your project's `.agents/skills/` directory:
 
 ```text
 .agents/skills/
@@ -20,15 +20,15 @@
 └── serega-emotional/
 ```
 
-После этого укажите скилл в запросе к агенту:
+Then name the skill in your request to the agent:
 
 ```text
-Примени $serega-gentle к этому тексту
+Apply $serega-gentle to this text
 ```
 
 ```text
-Примени $serega-emotional к этой короткой фразе
+Apply $serega-emotional to this short phrase
 ```
 
-Если установлены оба скилла, агент выберет эффект по длине текста и правилам
-из соответствующего `SKILL.md`.
+If both skills are installed, the agent will choose an effect based on the
+text length and the guidelines in the corresponding `SKILL.md`.
