@@ -36,8 +36,8 @@ for (const path of codeFiles) {
     const source = await readFile(path, "utf8")
     const file = normalize(path)
 
-    if (/primitives\/icons\/|icons-react/.test(source)) {
-        failures.push(`${file} uses the removed SVG icon system`)
+    if (/primitives\/icons\//.test(source)) {
+        failures.push(`${file} imports a raw SVG instead of the shared React icon catalog`)
     }
     if (/from\s+["'](?:@mui\/|@chakra-ui\/|antd|lucide-react|react-icons|@radix-ui\/)/.test(source)) {
         failures.push(`${file} imports a second UI or icon library`)

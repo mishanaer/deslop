@@ -14,3 +14,4 @@ optimized for working with agents.
 
 - [Colors](colors.md)
 - [Typography](TYPOGRAPHY.md)
+- [Icons](ICONS.md)

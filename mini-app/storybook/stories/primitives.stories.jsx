@@ -8,5 +8,5 @@ export default { title: "Primitives" }
 const story = (Component) => ({ render: () => createElement(Component) })
 
 export const Colors = story(ColorsExample)
-export const MaterialSymbols = story(IconsExample)
+export const Icons = story(IconsExample)
 export const Typography = story(TypographyExample)
