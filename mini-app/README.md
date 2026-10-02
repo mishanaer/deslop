@@ -59,7 +59,7 @@ corepack yarn dev
 
 - `storybook/examples/components` — component examples;
 - `storybook/examples/screens` — examples of assembled screens;
-- `storybook/examples/primitives` — colors, typography, and Material Symbols.
+- `storybook/examples/primitives` — colors, typography, and SVG icons (round/sharp, line/solid).
 
 ## Documentation
 

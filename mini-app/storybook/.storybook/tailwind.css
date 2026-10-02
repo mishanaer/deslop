@@ -4,7 +4,7 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 @import "../../../primitives/colors.css";
 @import "../../../primitives/layout.css";
-@import "../../../primitives/material-symbols.css";
+@import "../../../primitives/icons.css";
 @import "../../../primitives/typography.css";
 @import "../../styles/theme.css";
 

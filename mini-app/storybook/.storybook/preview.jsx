@@ -1,13 +1,10 @@
+import { createElement } from "react"
 import MiniAppProvider from "../../MiniAppProvider"
 import "./preview.css"
 
 const preview = {
     decorators: [
-        (Story) => (
-            <MiniAppProvider>
-                <Story />
-            </MiniAppProvider>
-        ),
+        (Story) => createElement(MiniAppProvider, null, createElement(Story)),
     ],
     parameters: {
         layout: "fullscreen",

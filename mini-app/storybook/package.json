@@ -28,7 +28,8 @@
         "lint:css": "stylelint '.storybook/**/*.css' 'examples/**/*.css' '../components/**/*.css' '../styles/**/*.css'",
         "format": "prettier --write '.storybook/**/*.{js,jsx,json,css}' 'examples/**/*.{js,jsx,json,css}' '../components/**/*.{js,jsx,json,css}' '../hooks/**/*.{js,jsx,json,css}' '../styles/**/*.css' --cache",
         "format:check": "prettier --check '.storybook/**/*.{js,jsx,json,css}' 'examples/**/*.{js,jsx,json,css}' '../components/**/*.{js,jsx,json,css}' '../hooks/**/*.{js,jsx,json,css}' '../styles/**/*.css' --cache",
-        "verify": "yarn lint && yarn check:primitives && yarn build"
+        "verify": "yarn lint && yarn check:primitives && yarn check:icons && yarn build",
+        "check:icons": "node scripts/check-icons.mjs"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.5",
@@ -36,6 +37,7 @@
         "@tailwindcss/vite": "^4.3.3",
         "@types/react": "^19.2.17",
         "@types/react-dom": "^19.2.3",
+        "esbuild": "0.28.1",
         "eslint": "^9",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-react": "^7.37.5",
