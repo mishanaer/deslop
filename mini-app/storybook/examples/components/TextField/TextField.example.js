@@ -28,7 +28,7 @@ function InputPage() {
 
     const greenGradient = avatarGradients.find(({ name }) => name === "Green")
     const pinkGradient = avatarGradients.find(({ name }) => name === "Pink")
-    const purple = accentColors.find(({ name }) => name === "Purple")
+    const pink = accentColors.find(({ name }) => name === "Pink")
     const indigo = accentColors.find(({ name }) => name === "Indigo")
     const gradientColors = [
         greenGradient.top,
@@ -39,7 +39,7 @@ function InputPage() {
     const gradientColorsDark = [
         pinkGradient.top,
         pinkGradient.bottom,
-        purple.dark,
+        pink.dark,
         indigo.dark,
     ]
 

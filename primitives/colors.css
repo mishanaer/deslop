@@ -51,18 +51,24 @@
 
 :root,
 :where([data-color-scheme="light"]) {
-  --accent-red: #ff4c50;
-  --accent-orange: #ff993e;
-  --accent-yellow: #ffd11a;
-  --accent-green: #59e075;
-  --accent-mint: #1acfbb;
-  --accent-teal: #1ac9d5;
-  --accent-cyan: #1ac6ea;
-  --accent-blue: #1a94ff;
-  --accent-indigo: #7166f6;
-  --accent-purple: #d045e3;
-  --accent-pink: #ff4266;
-  --accent-brown: #b48c6e;
+  --accent-red: #e36c5a;
+  --accent-red-background: #fef1ee;
+  --accent-brown: #d79e57;
+  --accent-brown-background: #fbf3ea;
+  --accent-yellow: #e6bd1f;
+  --accent-yellow-background: #fdf7e4;
+  --accent-green: #5ec257;
+  --accent-green-background: #eff7ee;
+  --accent-teal: #5cb8a0;
+  --accent-teal-background: #eaf8f3;
+  --accent-cyan: #59afc7;
+  --accent-cyan-background: #eaf7fb;
+  --accent-blue: #4c92de;
+  --accent-blue-background: #edf5fe;
+  --accent-indigo: #6d81dd;
+  --accent-indigo-background: #f0f4ff;
+  --accent-pink: #e45cd6;
+  --accent-pink-background: #fbf1f9;
   --background: #ffffff;
   --elevation-1: #ffffff;
   --elevation-2: #ffffff;
@@ -84,18 +90,24 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-color-scheme="light"]) {
-    --accent-red: #ff5558;
-    --accent-orange: #ff9d45;
-    --accent-yellow: #ffda1a;
-    --accent-green: #59e075;
-    --accent-mint: #1adec9;
-    --accent-teal: #1ad7e3;
-    --accent-cyan: #50d7fe;
-    --accent-blue: #1a9cff;
-    --accent-indigo: #7c89ff;
-    --accent-purple: #df48f3;
-    --accent-pink: #ff4b6f;
-    --accent-brown: #be9675;
+    --accent-red: #e29183;
+    --accent-red-background: #31201d;
+    --accent-brown: #e8b577;
+    --accent-brown-background: #2e2317;
+    --accent-yellow: #e5c346;
+    --accent-yellow-background: #2A230F;
+    --accent-green: #76d76f;
+    --accent-green-background: #1e291d;
+    --accent-teal: #75cdb4;
+    --accent-teal-background: #172a24;
+    --accent-cyan: #72c4db;
+    --accent-cyan-background: #15282e;
+    --accent-blue: #77a7dd;
+    --accent-blue-background: #1c2632;
+    --accent-indigo: #8899db;
+    --accent-indigo-background: #212433;
+    --accent-pink: #e48cd8;
+    --accent-pink-background: #2d202b;
     --background: #111111;
     --elevation-1: #1d1d1d;
     --elevation-2: #282828;
@@ -118,18 +130,24 @@
 
 :root[data-color-scheme="dark"],
 :where([data-color-scheme="dark"]) {
-  --accent-red: #ff5558;
-  --accent-orange: #ff9d45;
-  --accent-yellow: #ffda1a;
-  --accent-green: #59e075;
-  --accent-mint: #1adec9;
-  --accent-teal: #1ad7e3;
-  --accent-cyan: #50d7fe;
-  --accent-blue: #1a9cff;
-  --accent-indigo: #7c89ff;
-  --accent-purple: #df48f3;
-  --accent-pink: #ff4b6f;
-  --accent-brown: #be9675;
+  --accent-red: #e29183;
+  --accent-red-background: #31201d;
+  --accent-brown: #e8b577;
+  --accent-brown-background: #2e2317;
+  --accent-yellow: #e5c346;
+  --accent-yellow-background: #2A230F;
+  --accent-green: #76d76f;
+  --accent-green-background: #1e291d;
+  --accent-teal: #75cdb4;
+  --accent-teal-background: #172a24;
+  --accent-cyan: #72c4db;
+  --accent-cyan-background: #15282e;
+  --accent-blue: #77a7dd;
+  --accent-blue-background: #1c2632;
+  --accent-indigo: #8899db;
+  --accent-indigo-background: #212433;
+  --accent-pink: #e48cd8;
+  --accent-pink-background: #2d202b;
   --background: #111111;
   --elevation-1: #1d1d1d;
   --elevation-2: #282828;

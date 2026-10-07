@@ -1,54 +1,81 @@
 # Colors
 
+Accent pairs use English color names. `accent-{color}` is the foreground color;
+`accent-{color}-background` is its paired background. Each has light and dark variants.
+
 ```yaml
 accent-colors:
   red:
-    light: "#FF4C50"
-    dark: "#FF5558"
+    light: "#E36C5A"
+    dark: "#E29183"
 
-  orange:
-    light: "#FF993E"
-    dark: "#FF9D45"
-
-  yellow:
-    light: "#FFD11A"
-    dark: "#FFDA1A"
-
-  green:
-    light: "#59E075"
-    dark: "#59E075"
-
-  mint:
-    light: "#1ACFBB"
-    dark: "#1ADEC9"
-
-  teal:
-    light: "#1AC9D5"
-    dark: "#1AD7E3"
-
-  cyan:
-    light: "#1AC6EA"
-    dark: "#50D7FE"
-
-  blue:
-    light: "#1A94FF"
-    dark: "#1A9CFF"
-
-  indigo:
-    light: "#7166F6"
-    dark: "#7C89FF"
-
-  purple:
-    light: "#D045E3"
-    dark: "#DF48F3"
-
-  pink:
-    light: "#FF4266"
-    dark: "#FF4B6F"
+  red-background:
+    light: "#FEF1EE"
+    dark: "#31201D"
 
   brown:
-    light: "#B48C6E"
-    dark: "#BE9675"
+    light: "#D79E57"
+    dark: "#E8B577"
+
+  brown-background:
+    light: "#FBF3EA"
+    dark: "#2E2317"
+
+  yellow:
+    light: "#E6BD1F"
+    dark: "#E5C346"
+
+  yellow-background:
+    light: "#FDF7E4"
+    dark: "#2A230F"
+
+  green:
+    light: "#5EC257"
+    dark: "#76D76F"
+
+  green-background:
+    light: "#EFF7EE"
+    dark: "#1E291D"
+
+  teal:
+    light: "#5CB8A0"
+    dark: "#75CDB4"
+
+  teal-background:
+    light: "#EAF8F3"
+    dark: "#172A24"
+
+  cyan:
+    light: "#59AFC7"
+    dark: "#72C4DB"
+
+  cyan-background:
+    light: "#EAF7FB"
+    dark: "#15282E"
+
+  blue:
+    light: "#4C92DE"
+    dark: "#77A7DD"
+
+  blue-background:
+    light: "#EDF5FE"
+    dark: "#1C2632"
+
+  indigo:
+    light: "#6D81DD"
+    dark: "#8899DB"
+
+  indigo-background:
+    light: "#F0F4FF"
+    dark: "#212433"
+
+  pink:
+    light: "#E45CD6"
+    dark: "#E48CD8"
+
+  pink-background:
+    light: "#FBF1F9"
+    dark: "#2D202B"
 
 base-colors:
   surface:

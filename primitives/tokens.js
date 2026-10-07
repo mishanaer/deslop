@@ -9,18 +9,24 @@ export {
 } from "./layout.js";
 
 export const accentColors = [
-  { name: "Red", light: "#FF4C50", dark: "#FF5558" },
-  { name: "Orange", light: "#FF993E", dark: "#FF9D45" },
-  { name: "Yellow", light: "#FFD11A", dark: "#FFDA1A" },
-  { name: "Green", light: "#59E075", dark: "#59E075" },
-  { name: "Mint", light: "#1ACFBB", dark: "#1ADEC9" },
-  { name: "Teal", light: "#1AC9D5", dark: "#1AD7E3" },
-  { name: "Cyan", light: "#1AC6EA", dark: "#50D7FE" },
-  { name: "Blue", light: "#1A94FF", dark: "#1A9CFF" },
-  { name: "Indigo", light: "#7166F6", dark: "#7C89FF" },
-  { name: "Purple", light: "#D045E3", dark: "#DF48F3" },
-  { name: "Pink", light: "#FF4266", dark: "#FF4B6F" },
-  { name: "Brown", light: "#B48C6E", dark: "#BE9675" },
+  { name: "Red", light: "#E36C5A", dark: "#E29183" },
+  { name: "Red Background", light: "#FEF1EE", dark: "#31201D" },
+  { name: "Brown", light: "#D79E57", dark: "#E8B577" },
+  { name: "Brown Background", light: "#FBF3EA", dark: "#2E2317" },
+  { name: "Yellow", light: "#E6BD1F", dark: "#E5C346" },
+  { name: "Yellow Background", light: "#FDF7E4", dark: "#2A230F" },
+  { name: "Green", light: "#5EC257", dark: "#76D76F" },
+  { name: "Green Background", light: "#EFF7EE", dark: "#1E291D" },
+  { name: "Teal", light: "#5CB8A0", dark: "#75CDB4" },
+  { name: "Teal Background", light: "#EAF8F3", dark: "#172A24" },
+  { name: "Cyan", light: "#59AFC7", dark: "#72C4DB" },
+  { name: "Cyan Background", light: "#EAF7FB", dark: "#15282E" },
+  { name: "Blue", light: "#4C92DE", dark: "#77A7DD" },
+  { name: "Blue Background", light: "#EDF5FE", dark: "#1C2632" },
+  { name: "Indigo", light: "#6D81DD", dark: "#8899DB" },
+  { name: "Indigo Background", light: "#F0F4FF", dark: "#212433" },
+  { name: "Pink", light: "#E45CD6", dark: "#E48CD8" },
+  { name: "Pink Background", light: "#FBF1F9", dark: "#2D202B" },
 ];
 
 export const baseColors = [

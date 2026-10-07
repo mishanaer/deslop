@@ -27,7 +27,7 @@ const PLACEHOLDER = { name: "Ethereum", current_price: "3,180", symbol: "eth" }
 
 const ASSET_BACKGROUNDS = [
     "var(--accent-indigo)",
-    "var(--accent-purple)",
+    "var(--accent-indigo)",
     "var(--accent-blue)",
     "var(--accent-teal)",
 ]

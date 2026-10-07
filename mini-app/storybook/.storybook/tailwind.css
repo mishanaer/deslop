@@ -49,15 +49,15 @@
     --color-muted: var(--primary-60);
     --color-on-action: var(--black);
     --color-red: var(--accent-red);
-    --color-orange: var(--accent-orange);
+    --color-orange: var(--accent-brown);
     --color-yellow: var(--accent-yellow);
     --color-green: var(--accent-green);
-    --color-mint: var(--accent-mint);
+    --color-mint: var(--accent-teal);
     --color-teal: var(--accent-teal);
     --color-cyan: var(--accent-cyan);
     --color-blue: var(--accent-blue);
     --color-indigo: var(--accent-indigo);
-    --color-purple: var(--accent-purple);
+    --color-purple: var(--accent-indigo);
     --color-pink: var(--accent-pink);
     --color-brown: var(--accent-brown);
     --color-story-background: var(--black);
