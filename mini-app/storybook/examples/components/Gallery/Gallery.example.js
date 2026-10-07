@@ -10,7 +10,7 @@ import Text from "@components/Text"
 import { BackButton } from "@lib/twa"
 import { accentColors } from "@primitives/tokens"
 
-const colors = ["Red", "Mint", "Cyan", "Green"].map(
+const colors = ["Red", "Teal", "Cyan", "Green"].map(
     (name) => accentColors.find((color) => color.name === name).light
 )
 

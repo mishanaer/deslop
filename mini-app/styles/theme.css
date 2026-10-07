@@ -2,10 +2,10 @@
 
 :where([data-mini-app]) {
     --mini-app-story-badge: var(--accent-indigo);
-    --mini-app-heatmap-gain-1: var(--accent-mint);
+    --mini-app-heatmap-gain-1: var(--accent-teal);
     --mini-app-heatmap-gain-2: var(--accent-green);
     --mini-app-heatmap-gain-3: var(--accent-teal);
-    --mini-app-heatmap-loss-1: var(--accent-orange);
+    --mini-app-heatmap-loss-1: var(--accent-brown);
     --mini-app-heatmap-loss-2: var(--accent-red);
     --mini-app-heatmap-loss-3: var(--accent-brown);
     --mini-app-story-subtle: var(--white);

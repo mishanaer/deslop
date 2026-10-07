@@ -59,7 +59,7 @@ const layers = [
         number: "05",
         name: "Active content",
         selector: ".tab.active",
-        tokens: ["--accent-orange"],
+        tokens: ["--accent-brown"],
         details: "multiply (light) · normal (dark)",
         purpose: "Акцентные иконка и подпись выбранного таба.",
         preview: "active",
@@ -67,7 +67,7 @@ const layers = [
 ]
 
 const exampleAccentStyle = {
-    "--tab-bar-active-color": "var(--accent-orange)",
+    "--tab-bar-active-color": "var(--accent-brown)",
 }
 
 const fixedTabBarStyle = {
