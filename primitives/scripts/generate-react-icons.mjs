@@ -7,12 +7,15 @@ const config = JSON.parse(await readFile(`${root}/material-symbols.json`, "utf8"
 const styles = ["round/line", "round/solid", "sharp/line", "sharp/solid"];
 const names = (await readdir(`${root}/icons/round/line`))
   .filter((name) => name.endsWith(".svg")).map((name) => name.slice(0, -4)).sort();
+const roundLineOnly = JSON.parse(await readFile(`${root}/icons/round-line-only.json`, "utf8"));
+if (!Array.isArray(roundLineOnly) || new Set(roundLineOnly).size !== roundLineOnly.length
+    || roundLineOnly.some((name) => !names.includes(name))) throw new Error("Invalid round/line-only icon names");
 const data = {};
-const allowedTags = new Set(["svg", "path", "g", "defs", "clipPath"]);
-const allowedAttributes = new Set(["xmlns", "width", "height", "fill", "viewBox", "d", "fill-rule", "clip-rule", "clip-path", "id"]);
-const reactAttributes = { "fill-rule": "fillRule", "clip-rule": "clipRule", "clip-path": "clipPath" };
+const allowedTags = new Set(["svg", "path", "g", "defs", "clipPath", "rect", "mask"]);
+const allowedAttributes = new Set(["xmlns", "width", "height", "fill", "viewBox", "d", "fill-rule", "clip-rule", "clip-path", "id", "x", "y", "rx", "stroke", "stroke-width", "stroke-linecap", "stroke-linejoin", "transform", "mask", "maskUnits"]);
+const reactAttributes = { "fill-rule": "fillRule", "clip-rule": "clipRule", "clip-path": "clipPath", "stroke-width": "strokeWidth", "stroke-linecap": "strokeLinecap", "stroke-linejoin": "strokeLinejoin" };
 
-// The source export uses only paths, groups and clipping definitions. Reject
+// Accept only the drawing vocabulary used by the source icons. Reject
 // unexpected markup instead of injecting SVG strings into the DOM.
 function parseSvg(source, path) {
   const stack = [];
@@ -49,10 +52,11 @@ function parseSvg(source, path) {
 
 for (const style of styles) {
   const files = (await readdir(`${root}/icons/${style}`)).filter((name) => name.endsWith(".svg")).sort();
-  if (JSON.stringify(files) !== JSON.stringify(names.map((name) => `${name}.svg`).sort())) {
+  const expectedNames = style === "round/line" ? names : names.filter((name) => !roundLineOnly.includes(name));
+  if (JSON.stringify(files) !== JSON.stringify(expectedNames.map((name) => `${name}.svg`).sort())) {
     throw new Error(`Icon names differ in ${style}`);
   }
-  for (const name of names) {
+  for (const name of expectedNames) {
     const path = `${root}/icons/${style}/${name}.svg`;
     (data[name] ??= {})[style] = parseSvg(await readFile(path, "utf8"), path);
   }
@@ -150,4 +154,4 @@ for (const [file, expected] of Object.entries(outputs)) {
     if (actual !== expected) throw new Error(`${file} is stale; run node primitives/scripts/generate-react-icons.mjs`);
   } else await writeFile(path, expected);
 }
-console.log(`${check ? "Verified" : "Generated"} ${names.length} icons, ${names.length * styles.length} SVG variants, ${legacyNames.length} legacy mappings.`);
+console.log(`${check ? "Verified" : "Generated"} ${names.length} icons, ${Object.values(data).reduce((count, variants) => count + Object.keys(variants).length, 0)} SVG variants, ${legacyNames.length} legacy mappings.`);
