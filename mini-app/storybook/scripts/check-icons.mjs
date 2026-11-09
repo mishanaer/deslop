@@ -33,20 +33,29 @@ if (!process.env.DESLOP_ICON_TEST_BUNDLE) {
   const { iconData } = await import("../../../primitives/icons-data.js");
   const config = JSON.parse(await readFile("../../primitives/material-symbols.json", "utf8"));
   const render = (props) => renderToStaticMarkup(createElement(Icon, props));
-  assert.equal(iconNames.length, 760);
+  const roundLineOnly = JSON.parse(await readFile("../../primitives/icons/round-line-only.json", "utf8"));
+  assert.equal(iconNames.length, 779);
+  assert.equal(roundLineOnly.length, 19);
+  for (const name of roundLineOnly) {
+    assert.deepEqual(Object.keys(iconData[name]), ["round/line"]);
+    assert.equal(render({ name, shape: "sharp", variant: "solid" }), render({ name }));
+    assert(render({ name }).includes("currentColor"), `${name} must inherit the text color`);
+  }
   for (const name of iconNames) {
     assert(getIconComponent(name), name);
     for (const shape of ["round", "sharp"]) {
       for (const variant of ["line", "solid"]) {
         const html = render({ name, shape, variant });
         assert(html.startsWith("<svg"), `${name}/${shape}/${variant}`);
-        assert(html.includes("<path"), name);
+        assert(/<(?:path|rect)\b/.test(html), name);
         assert(html.includes('aria-hidden="true"'), name);
         assert(!html.includes("undefined"), name);
       }
     }
   }
   assert.equal(render({ name: "unknown" }), "");
+  assert.equal(render({ name: "text-h", shape: "unknown" }), "");
+  assert.equal(render({ name: "text-h", variant: "unknown" }), "");
   assert.equal(getIconComponent("toString"), undefined);
   assert.equal(getIconComponent("unknown"), undefined);
   assert.equal(render({ name: "heart", fill: true }), render({ name: "heart", variant: "solid" }));
@@ -74,5 +83,12 @@ if (!process.env.DESLOP_ICON_TEST_BUNDLE) {
   assert(ids.length >= 2);
   assert.equal(new Set(ids).size, ids.length);
   for (const [, target] of repeated.matchAll(/clip-path="url\(#([^)]*)\)"/g)) assert(ids.includes(target));
-  console.log("All 3040 SVG variants, 113 legacy replacements, named aliases, accessibility and scoped clipping IDs passed.");
+  const masked = renderToStaticMarkup(createElement("div", null,
+    createElement(Icon, { name: "cell-highlight-remove" }), createElement(Icon, { name: "cell-highlight-remove" })));
+  const maskIDs = [...masked.matchAll(/<mask id="([^"]+)"/g)].map((match) => match[1]);
+  assert.equal(maskIDs.length, 2);
+  assert.equal(new Set(maskIDs).size, 2);
+  for (const [, target] of masked.matchAll(/ mask="url\(#([^)]*)\)"/g)) assert(maskIDs.includes(target));
+  assert.equal([...masked.matchAll(/ mask="url\(/g)].length, 2);
+  console.log("All 779 icons, 3059 SVG variants, round/line fallbacks, 113 legacy replacements, accessibility and scoped clipping/mask IDs passed.");
 }

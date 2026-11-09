@@ -4,8 +4,8 @@ import { iconData } from "./icons-data.js";
 function renderNode([tag, attributes, children], scope, key) {
   const props = { ...attributes, key };
   if (props.id) props.id = `${scope}-${props.id}`;
-  if (props.clipPath) {
-    props.clipPath = props.clipPath.replace(/url\(#([^)]*)\)/g, `url(#${scope}-$1)`);
+  for (const attribute of ["clipPath", "mask"]) {
+    if (props[attribute]) props[attribute] = props[attribute].replace(/url\(#([^)]*)\)/g, `url(#${scope}-$1)`);
   }
   return createElement(tag, props, ...children.map((child, index) => renderNode(child, scope, index)));
 }
@@ -28,7 +28,8 @@ export const Icon = /* @__PURE__ */ forwardRef(function Icon({
 }, ref) {
   const scope = `deslop-icon-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const resolvedVariant = variant ?? (fill === true || fill === 1 ? "solid" : "line");
-  const nodes = iconData[name]?.[`${shape}/${resolvedVariant}`];
+  if (!["round", "sharp"].includes(shape) || !["line", "solid"].includes(resolvedVariant)) return null;
+  const nodes = iconData[name]?.[`${shape}/${resolvedVariant}`] ?? iconData[name]?.["round/line"];
   if (!nodes) return null;
   const labelled = Boolean(title || props["aria-label"] || props["aria-labelledby"]);
   return createElement("svg", {

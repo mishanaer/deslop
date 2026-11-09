@@ -190,6 +190,14 @@ export const iconNames = Object.freeze([
   "cast",
   "cat",
   "cd",
+  "cell-add-bottom",
+  "cell-add-left",
+  "cell-add-right",
+  "cell-add-top",
+  "cell-highlight",
+  "cell-highlight-remove",
+  "cell-merge",
+  "cell-split",
   "chart-bar",
   "chart-donut",
   "chart-line",
@@ -432,6 +440,7 @@ export const iconNames = Object.freeze([
   "link-broken",
   "list",
   "list-alt1",
+  "list-numbered",
   "lock-locked",
   "lock-unlocked",
   "logo-airbnb",
@@ -501,6 +510,8 @@ export const iconNames = Object.freeze([
   "magnifying-glass-sparkle",
   "map",
   "medal-sport",
+  "media-carousel",
+  "media-grid",
   "megaphone",
   "menu",
   "mic",
@@ -658,6 +669,7 @@ export const iconNames = Object.freeze([
   "solar-panel",
   "solar-roof",
   "soy-bean",
+  "space",
   "sparkles",
   "speaker",
   "sphere",
@@ -690,6 +702,13 @@ export const iconNames = Object.freeze([
   "text-eu",
   "text-eu-circle",
   "text-eu-square",
+  "text-h",
+  "text-h1",
+  "text-h2",
+  "text-h3",
+  "text-h4",
+  "text-h5",
+  "text-h6",
   "text-i",
   "text-i-circle",
   "text-i-square",
@@ -951,6 +970,14 @@ export const IconCardsSpades = /* @__PURE__ */ createIcon("cards-spades", "IconC
 export const IconCast = /* @__PURE__ */ createIcon("cast", "IconCast");
 export const IconCat = /* @__PURE__ */ createIcon("cat", "IconCat");
 export const IconCd = /* @__PURE__ */ createIcon("cd", "IconCd");
+export const IconCellAddBottom = /* @__PURE__ */ createIcon("cell-add-bottom", "IconCellAddBottom");
+export const IconCellAddLeft = /* @__PURE__ */ createIcon("cell-add-left", "IconCellAddLeft");
+export const IconCellAddRight = /* @__PURE__ */ createIcon("cell-add-right", "IconCellAddRight");
+export const IconCellAddTop = /* @__PURE__ */ createIcon("cell-add-top", "IconCellAddTop");
+export const IconCellHighlight = /* @__PURE__ */ createIcon("cell-highlight", "IconCellHighlight");
+export const IconCellHighlightRemove = /* @__PURE__ */ createIcon("cell-highlight-remove", "IconCellHighlightRemove");
+export const IconCellMerge = /* @__PURE__ */ createIcon("cell-merge", "IconCellMerge");
+export const IconCellSplit = /* @__PURE__ */ createIcon("cell-split", "IconCellSplit");
 export const IconChartBar = /* @__PURE__ */ createIcon("chart-bar", "IconChartBar");
 export const IconChartDonut = /* @__PURE__ */ createIcon("chart-donut", "IconChartDonut");
 export const IconChartLine = /* @__PURE__ */ createIcon("chart-line", "IconChartLine");
@@ -1193,6 +1220,7 @@ export const IconLink = /* @__PURE__ */ createIcon("link", "IconLink");
 export const IconLinkBroken = /* @__PURE__ */ createIcon("link-broken", "IconLinkBroken");
 export const IconList = /* @__PURE__ */ createIcon("list", "IconList");
 export const IconListAlt1 = /* @__PURE__ */ createIcon("list-alt1", "IconListAlt1");
+export const IconListNumbered = /* @__PURE__ */ createIcon("list-numbered", "IconListNumbered");
 export const IconLockLocked = /* @__PURE__ */ createIcon("lock-locked", "IconLockLocked");
 export const IconLockUnlocked = /* @__PURE__ */ createIcon("lock-unlocked", "IconLockUnlocked");
 export const IconLogoAirbnb = /* @__PURE__ */ createIcon("logo-airbnb", "IconLogoAirbnb");
@@ -1262,6 +1290,8 @@ export const IconMagnifyingGlassPlus = /* @__PURE__ */ createIcon("magnifying-gl
 export const IconMagnifyingGlassSparkle = /* @__PURE__ */ createIcon("magnifying-glass-sparkle", "IconMagnifyingGlassSparkle");
 export const IconMap = /* @__PURE__ */ createIcon("map", "IconMap");
 export const IconMedalSport = /* @__PURE__ */ createIcon("medal-sport", "IconMedalSport");
+export const IconMediaCarousel = /* @__PURE__ */ createIcon("media-carousel", "IconMediaCarousel");
+export const IconMediaGrid = /* @__PURE__ */ createIcon("media-grid", "IconMediaGrid");
 export const IconMegaphone = /* @__PURE__ */ createIcon("megaphone", "IconMegaphone");
 export const IconMenu = /* @__PURE__ */ createIcon("menu", "IconMenu");
 export const IconMic = /* @__PURE__ */ createIcon("mic", "IconMic");
@@ -1419,6 +1449,7 @@ export const IconSoda = /* @__PURE__ */ createIcon("soda", "IconSoda");
 export const IconSolarPanel = /* @__PURE__ */ createIcon("solar-panel", "IconSolarPanel");
 export const IconSolarRoof = /* @__PURE__ */ createIcon("solar-roof", "IconSolarRoof");
 export const IconSoyBean = /* @__PURE__ */ createIcon("soy-bean", "IconSoyBean");
+export const IconSpace = /* @__PURE__ */ createIcon("space", "IconSpace");
 export const IconSparkles = /* @__PURE__ */ createIcon("sparkles", "IconSparkles");
 export const IconSpeaker = /* @__PURE__ */ createIcon("speaker", "IconSpeaker");
 export const IconSphere = /* @__PURE__ */ createIcon("sphere", "IconSphere");
@@ -1451,6 +1482,13 @@ export const IconTextCursor = /* @__PURE__ */ createIcon("text-cursor", "IconTex
 export const IconTextEu = /* @__PURE__ */ createIcon("text-eu", "IconTextEu");
 export const IconTextEuCircle = /* @__PURE__ */ createIcon("text-eu-circle", "IconTextEuCircle");
 export const IconTextEuSquare = /* @__PURE__ */ createIcon("text-eu-square", "IconTextEuSquare");
+export const IconTextH = /* @__PURE__ */ createIcon("text-h", "IconTextH");
+export const IconTextH1 = /* @__PURE__ */ createIcon("text-h1", "IconTextH1");
+export const IconTextH2 = /* @__PURE__ */ createIcon("text-h2", "IconTextH2");
+export const IconTextH3 = /* @__PURE__ */ createIcon("text-h3", "IconTextH3");
+export const IconTextH4 = /* @__PURE__ */ createIcon("text-h4", "IconTextH4");
+export const IconTextH5 = /* @__PURE__ */ createIcon("text-h5", "IconTextH5");
+export const IconTextH6 = /* @__PURE__ */ createIcon("text-h6", "IconTextH6");
 export const IconTextI = /* @__PURE__ */ createIcon("text-i", "IconTextI");
 export const IconTextICircle = /* @__PURE__ */ createIcon("text-i-circle", "IconTextICircle");
 export const IconTextISquare = /* @__PURE__ */ createIcon("text-i-square", "IconTextISquare");
@@ -1712,6 +1750,14 @@ export const iconComponents = Object.freeze({
   "cast": IconCast,
   "cat": IconCat,
   "cd": IconCd,
+  "cell-add-bottom": IconCellAddBottom,
+  "cell-add-left": IconCellAddLeft,
+  "cell-add-right": IconCellAddRight,
+  "cell-add-top": IconCellAddTop,
+  "cell-highlight": IconCellHighlight,
+  "cell-highlight-remove": IconCellHighlightRemove,
+  "cell-merge": IconCellMerge,
+  "cell-split": IconCellSplit,
   "chart-bar": IconChartBar,
   "chart-donut": IconChartDonut,
   "chart-line": IconChartLine,
@@ -1954,6 +2000,7 @@ export const iconComponents = Object.freeze({
   "link-broken": IconLinkBroken,
   "list": IconList,
   "list-alt1": IconListAlt1,
+  "list-numbered": IconListNumbered,
   "lock-locked": IconLockLocked,
   "lock-unlocked": IconLockUnlocked,
   "logo-airbnb": IconLogoAirbnb,
@@ -2023,6 +2070,8 @@ export const iconComponents = Object.freeze({
   "magnifying-glass-sparkle": IconMagnifyingGlassSparkle,
   "map": IconMap,
   "medal-sport": IconMedalSport,
+  "media-carousel": IconMediaCarousel,
+  "media-grid": IconMediaGrid,
   "megaphone": IconMegaphone,
   "menu": IconMenu,
   "mic": IconMic,
@@ -2180,6 +2229,7 @@ export const iconComponents = Object.freeze({
   "solar-panel": IconSolarPanel,
   "solar-roof": IconSolarRoof,
   "soy-bean": IconSoyBean,
+  "space": IconSpace,
   "sparkles": IconSparkles,
   "speaker": IconSpeaker,
   "sphere": IconSphere,
@@ -2212,6 +2262,13 @@ export const iconComponents = Object.freeze({
   "text-eu": IconTextEu,
   "text-eu-circle": IconTextEuCircle,
   "text-eu-square": IconTextEuSquare,
+  "text-h": IconTextH,
+  "text-h1": IconTextH1,
+  "text-h2": IconTextH2,
+  "text-h3": IconTextH3,
+  "text-h4": IconTextH4,
+  "text-h5": IconTextH5,
+  "text-h6": IconTextH6,
   "text-i": IconTextI,
   "text-i-circle": IconTextICircle,
   "text-i-square": IconTextISquare,
