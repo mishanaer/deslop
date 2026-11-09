@@ -1,6 +1,6 @@
 # SVG icons
 
-779 icons (3059 SVG files): 760 supplied in all four variants —
+782 icons (3071 SVG files): 763 supplied in all four variants —
 `round/line`, `round/solid`, `sharp/line`, and `sharp/solid` — plus 19 editor
 icons supplied in `round/line`.
 The SVG export supplied for this contribution is preserved in `icons/`.

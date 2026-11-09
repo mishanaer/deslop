@@ -34,7 +34,7 @@ if (!process.env.DESLOP_ICON_TEST_BUNDLE) {
   const config = JSON.parse(await readFile("../../primitives/material-symbols.json", "utf8"));
   const render = (props) => renderToStaticMarkup(createElement(Icon, props));
   const roundLineOnly = JSON.parse(await readFile("../../primitives/icons/round-line-only.json", "utf8"));
-  assert.equal(iconNames.length, 779);
+  assert.equal(iconNames.length, 782);
   assert.equal(roundLineOnly.length, 19);
   for (const name of roundLineOnly) {
     assert.deepEqual(Object.keys(iconData[name]), ["round/line"]);
@@ -90,5 +90,5 @@ if (!process.env.DESLOP_ICON_TEST_BUNDLE) {
   assert.equal(new Set(maskIDs).size, 2);
   for (const [, target] of masked.matchAll(/ mask="url\(#([^)]*)\)"/g)) assert(maskIDs.includes(target));
   assert.equal([...masked.matchAll(/ mask="url\(/g)].length, 2);
-  console.log("All 779 icons, 3059 SVG variants, round/line fallbacks, 113 legacy replacements, accessibility and scoped clipping/mask IDs passed.");
+  console.log("All 782 icons, 3071 SVG variants, round/line fallbacks, 113 legacy replacements, accessibility and scoped clipping/mask IDs passed.");
 }

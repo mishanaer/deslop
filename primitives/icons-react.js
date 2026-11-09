@@ -445,7 +445,9 @@ export const iconNames = Object.freeze([
   "lock-unlocked",
   "logo-airbnb",
   "logo-amazon",
+  "logo-android",
   "logo-angular",
+  "logo-apple",
   "logo-arc",
   "logo-artifact",
   "logo-code-sandbox",
@@ -482,6 +484,7 @@ export const iconNames = Object.freeze([
   "logo-reddit",
   "logo-replit",
   "logo-revolut",
+  "logo-rustore",
   "logo-sketch",
   "logo-skype",
   "logo-slack",
@@ -1225,7 +1228,9 @@ export const IconLockLocked = /* @__PURE__ */ createIcon("lock-locked", "IconLoc
 export const IconLockUnlocked = /* @__PURE__ */ createIcon("lock-unlocked", "IconLockUnlocked");
 export const IconLogoAirbnb = /* @__PURE__ */ createIcon("logo-airbnb", "IconLogoAirbnb");
 export const IconLogoAmazon = /* @__PURE__ */ createIcon("logo-amazon", "IconLogoAmazon");
+export const IconLogoAndroid = /* @__PURE__ */ createIcon("logo-android", "IconLogoAndroid");
 export const IconLogoAngular = /* @__PURE__ */ createIcon("logo-angular", "IconLogoAngular");
+export const IconLogoApple = /* @__PURE__ */ createIcon("logo-apple", "IconLogoApple");
 export const IconLogoArc = /* @__PURE__ */ createIcon("logo-arc", "IconLogoArc");
 export const IconLogoArtifact = /* @__PURE__ */ createIcon("logo-artifact", "IconLogoArtifact");
 export const IconLogoCodeSandbox = /* @__PURE__ */ createIcon("logo-code-sandbox", "IconLogoCodeSandbox");
@@ -1262,6 +1267,7 @@ export const IconLogoReadcv = /* @__PURE__ */ createIcon("logo-readcv", "IconLog
 export const IconLogoReddit = /* @__PURE__ */ createIcon("logo-reddit", "IconLogoReddit");
 export const IconLogoReplit = /* @__PURE__ */ createIcon("logo-replit", "IconLogoReplit");
 export const IconLogoRevolut = /* @__PURE__ */ createIcon("logo-revolut", "IconLogoRevolut");
+export const IconLogoRustore = /* @__PURE__ */ createIcon("logo-rustore", "IconLogoRustore");
 export const IconLogoSketch = /* @__PURE__ */ createIcon("logo-sketch", "IconLogoSketch");
 export const IconLogoSkype = /* @__PURE__ */ createIcon("logo-skype", "IconLogoSkype");
 export const IconLogoSlack = /* @__PURE__ */ createIcon("logo-slack", "IconLogoSlack");
@@ -2005,7 +2011,9 @@ export const iconComponents = Object.freeze({
   "lock-unlocked": IconLockUnlocked,
   "logo-airbnb": IconLogoAirbnb,
   "logo-amazon": IconLogoAmazon,
+  "logo-android": IconLogoAndroid,
   "logo-angular": IconLogoAngular,
+  "logo-apple": IconLogoApple,
   "logo-arc": IconLogoArc,
   "logo-artifact": IconLogoArtifact,
   "logo-code-sandbox": IconLogoCodeSandbox,
@@ -2042,6 +2050,7 @@ export const iconComponents = Object.freeze({
   "logo-reddit": IconLogoReddit,
   "logo-replit": IconLogoReplit,
   "logo-revolut": IconLogoRevolut,
+  "logo-rustore": IconLogoRustore,
   "logo-sketch": IconLogoSketch,
   "logo-skype": IconLogoSkype,
   "logo-slack": IconLogoSlack,
