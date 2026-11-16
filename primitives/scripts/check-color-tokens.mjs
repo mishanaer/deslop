@@ -6,6 +6,7 @@ import {
   avatarGradients,
   baseColors,
   primaryColors,
+  warmColors,
 } from "../tokens.js";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -178,6 +179,43 @@ for (const color of primaryColors) {
     source: color,
     properties: ["light", "dark"],
   });
+}
+
+for (const color of warmColors) {
+  checkPair({
+    section: "warm-colors",
+    cssToken: `--${tokenKey(color.name)}`,
+    source: color,
+    properties: ["light", "dark"],
+  });
+  const peer = primaryColors.find((item) => item.name === color.name.replace("Warm", "Primary"));
+  if (!peer) report(`Warm step has no Primary counterpart: ${color.name}`);
+  for (const theme of ["light", "dark"]) {
+    if (!/^#[0-9a-f]{6}(?:[0-9a-f]{2})?$/i.test(color[theme])) report(`Invalid Warm color: ${color[theme]}`);
+    if (peer && color[theme].slice(7) !== peer[theme].slice(7)) report(`Warm alpha differs from Primary: ${color.name} ${theme}`);
+  }
+}
+if (warmColors.length !== primaryColors.length) report("Warm and Primary must have the same steps");
+
+// Lock the rendered targets, not their raw RGB: alpha is composited over white.
+for (const [step, target] of [[5, "FBFAF9"], [10, "F6F4EF"], [20, "EAE6DD"]]) {
+  const value = warmColors.find((color) => color.name === `Warm ${step}`)?.light;
+  if (!value) { report(`Missing Warm ${step}`); continue; }
+  const alpha = parseInt(value.slice(7), 16) / 255;
+  const composite = [1, 3, 5].map((offset) =>
+    Math.round(parseInt(value.slice(offset, offset + 2), 16) * alpha + 255 * (1 - alpha))
+      .toString(16).padStart(2, "0")).join("").toUpperCase();
+  if (composite !== target) report(`Warm ${step} composites to ${composite}; expected ${target}`);
+}
+
+const systemDarkDeclarations = parseDeclarations(
+  css.match(/@media \(prefers-color-scheme: dark\) \{\s*:root:not\(\[data-color-scheme="light"\]\) \{([\s\S]*?)\n  \}/)?.[1],
+  "system dark",
+);
+for (const color of warmColors) {
+  if (resolveColor(`--${tokenKey(color.name)}`, systemDarkDeclarations) !== normalizeColor(color.dark)) {
+    report(`System dark differs from explicit dark: ${color.name}`);
+  }
 }
 
 for (const gradient of avatarGradients) {

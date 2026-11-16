@@ -64,6 +64,23 @@ export const primaryColors = [
   { name: "Primary 4", light: "#1111110A", dark: "#FFFFFF0A" },
 ];
 
+// Warm shares Primary alpha steps; light surface colors are pinned on white.
+export const warmColors = [
+  { name: "Warm", light: "#12110F", dark: "#F6F4EF" },
+  { name: "Warm 90", light: "#121110E6", dark: "#F6F4EFE6" },
+  { name: "Warm 80", light: "#100F0ECC", dark: "#F6F4EFCC" },
+  { name: "Warm 70", light: "#11100EB3", dark: "#F6F4EFB3" },
+  { name: "Warm 60", light: "#12110F99", dark: "#F6F4EF99" },
+  { name: "Warm 50", light: "#1E1A1480", dark: "#F6F4EF80" },
+  { name: "Warm 40", light: "#30281C66", dark: "#F6F4EF66" },
+  { name: "Warm 30", light: "#4F462E4D", dark: "#F6F4EF4D" },
+  { name: "Warm 20", light: "#96825533", dark: "#F6F4EF33" },
+  { name: "Warm 10", light: "#A793621A", dark: "#F6F4EF1A" },
+  { name: "Warm 8", light: "#A68C6614", dark: "#F6F4EF14" },
+  { name: "Warm 5", light: "#B19D890D", dark: "#F6F4EF0D" },
+  { name: "Warm 4", light: "#B3997F0A", dark: "#F6F4EF0A" },
+];
+
 // Compatibility export for Mini Apps while they migrate to primaryColors.
 export const elevationColors = primaryColors;
 

@@ -183,4 +183,87 @@ primary-colors:
   primary-4:
     light: "#1111110A"
     dark: "#FFFFFF0A"
+warm-colors:
+  warm:
+    light: "#12110F"
+    dark: "#F6F4EF"
+
+  warm-90:
+    light: "#121110E6"
+    dark: "#F6F4EFE6"
+
+  warm-80:
+    light: "#100F0ECC"
+    dark: "#F6F4EFCC"
+
+  warm-70:
+    light: "#11100EB3"
+    dark: "#F6F4EFB3"
+
+  warm-60:
+    light: "#12110F99"
+    dark: "#F6F4EF99"
+
+  warm-50:
+    light: "#1E1A1480"
+    dark: "#F6F4EF80"
+
+  warm-40:
+    light: "#30281C66"
+    dark: "#F6F4EF66"
+
+  warm-30:
+    light: "#4F462E4D"
+    dark: "#F6F4EF4D"
+
+  warm-20:
+    light: "#96825533"
+    dark: "#F6F4EF33"
+
+  warm-10:
+    light: "#A793621A"
+    dark: "#F6F4EF1A"
+
+  warm-8:
+    light: "#A68C6614"
+    dark: "#F6F4EF14"
+
+  warm-5:
+    light: "#B19D890D"
+    dark: "#F6F4EF0D"
+
+  warm-4:
+    light: "#B3997F0A"
+    dark: "#F6F4EF0A"
+
 ```
+
+## Warm
+
+Warm is an optional neutral ramp with the same steps and alpha bytes as Primary.
+It does not replace Primary or define product semantic roles. Read it through
+`warmColors` from `tokens.js` or `--warm-*` from `colors.css`; theme selection
+works the same way as Primary (system preference or `data-color-scheme`).
+
+Only three light-theme targets are pinned, inspired by [Family](https://family.co/):
+
+| Token | Composite on white | Suggested role |
+| --- | --- | --- |
+| `--warm-5` | `#FBFAF9` | Panel |
+| `--warm-10` | `#F6F4EF` | Secondary button |
+| `--warm-20` | `#EAE6DD` | Secondary button hover |
+
+Other steps are proposed, not extracted from Family. Light RGB varies by step:
+using one near-black base at low opacity would lose the pinned warm surfaces.
+The suffix still denotes opacity, rounded to the same 8-bit alpha as Primary.
+On another background, or when translucent layers overlap, the result changes.
+The hex values above describe the flattened result, not the raw CSS token.
+
+The remaining light ramp uses OKLab interpolation between the three pinned
+surfaces, white at step 0, the Primary-like warm ink composites at 60 and 90,
+and `#12110F` at 100. Each target is converted to an alpha color over white.
+The dark ramp independently uses cream `#F6F4EF` with Primary alpha steps
+over the existing dark background; it is not a Family dark palette.
+
+Contrast must be checked for the actual product foreground/background pair;
+a shared opacity number does not guarantee the same contrast as Primary.

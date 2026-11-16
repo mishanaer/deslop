@@ -86,6 +86,19 @@
   --primary-8: #11111114;
   --primary-5: #1111110d;
   --primary-4: #1111110a;
+  --warm: #12110f;
+  --warm-90: #121110e6;
+  --warm-80: #100f0ecc;
+  --warm-70: #11100eb3;
+  --warm-60: #12110f99;
+  --warm-50: #1e1a1480;
+  --warm-40: #30281c66;
+  --warm-30: #4f462e4d;
+  --warm-20: #96825533;
+  --warm-10: #a793621a;
+  --warm-8: #a68c6614;
+  --warm-5: #b19d890d;
+  --warm-4: #b3997f0a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -125,6 +138,19 @@
     --primary-8: #ffffff14;
     --primary-5: #ffffff0d;
     --primary-4: #ffffff0a;
+    --warm: #f6f4ef;
+    --warm-90: #f6f4efe6;
+    --warm-80: #f6f4efcc;
+    --warm-70: #f6f4efb3;
+    --warm-60: #f6f4ef99;
+    --warm-50: #f6f4ef80;
+    --warm-40: #f6f4ef66;
+    --warm-30: #f6f4ef4d;
+    --warm-20: #f6f4ef33;
+    --warm-10: #f6f4ef1a;
+    --warm-8: #f6f4ef14;
+    --warm-5: #f6f4ef0d;
+    --warm-4: #f6f4ef0a;
   }
 }
 
@@ -165,4 +191,17 @@
   --primary-8: #ffffff14;
   --primary-5: #ffffff0d;
   --primary-4: #ffffff0a;
+  --warm: #f6f4ef;
+  --warm-90: #f6f4efe6;
+  --warm-80: #f6f4efcc;
+  --warm-70: #f6f4efb3;
+  --warm-60: #f6f4ef99;
+  --warm-50: #f6f4ef80;
+  --warm-40: #f6f4ef66;
+  --warm-30: #f6f4ef4d;
+  --warm-20: #f6f4ef33;
+  --warm-10: #f6f4ef1a;
+  --warm-8: #f6f4ef14;
+  --warm-5: #f6f4ef0d;
+  --warm-4: #f6f4ef0a;
 }
