@@ -19,6 +19,7 @@ description: "Write, rewrite, edit, review, or localize Russian text for interfa
 - Prefer removing unnecessary copy or improving UI structure over explaining a weak interface.
 - Write plainly, concretely, and neutrally.
 - Put the important fact or action first.
+- Check Russian word order: the new or important word goes at the end of the clause, the known one comes first. Read the line aloud; if the stress falls on a filler word or the sentence sounds like a calque, reorder it.
 - Do not soften bad news with jokes, hype, excessive apologies, or vague positivity.
 - For errors, say what happened, what the user can do, and what to expect next if known.
 - Clickable controls usually sound like the user's action.
